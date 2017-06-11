@@ -13,6 +13,12 @@
 		BA241F3F1EDD6EF800B1F976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA241F3E1EDD6EF800B1F976 /* Assets.xcassets */; };
 		BA241F421EDD6EF800B1F976 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA241F401EDD6EF800B1F976 /* LaunchScreen.storyboard */; };
 		BA241F4D1EDD6EF900B1F976 /* Gursch_v1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F4C1EDD6EF900B1F976 /* Gursch_v1Tests.swift */; };
+		BA241F581EDDB6E200B1F976 /* OverviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F571EDDB6E200B1F976 /* OverviewTableViewController.swift */; };
+		BA241F5A1EDDCCD300B1F976 /* OpponentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F591EDDCCD300B1F976 /* OpponentTableViewCell.swift */; };
+		BA241F601EE6BAAC00B1F976 /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F5F1EE6BAAC00B1F976 /* Opponent.swift */; };
+		BA241F661EE6C02E00B1F976 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F651EE6C02E00B1F976 /* Session.swift */; };
+		BADDCE731EE740F10040DC6E /* AddSessionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */; };
+		BADDCE751EEB15040040DC6E /* AddOpponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADDCE741EEB15040040DC6E /* AddOpponentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +42,12 @@
 		BA241F481EDD6EF900B1F976 /* Gursch_v1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Gursch_v1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA241F4C1EDD6EF900B1F976 /* Gursch_v1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gursch_v1Tests.swift; sourceTree = "<group>"; };
 		BA241F4E1EDD6EF900B1F976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA241F571EDDB6E200B1F976 /* OverviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewTableViewController.swift; sourceTree = "<group>"; };
+		BA241F591EDDCCD300B1F976 /* OpponentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpponentTableViewCell.swift; sourceTree = "<group>"; };
+		BA241F5F1EE6BAAC00B1F976 /* Opponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
+		BA241F651EE6C02E00B1F976 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSessionPopupViewController.swift; sourceTree = "<group>"; };
+		BADDCE741EEB15040040DC6E /* AddOpponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOpponentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +71,7 @@
 		BA241F2B1EDD6EF800B1F976 = {
 			isa = PBXGroup;
 			children = (
+				BADDCE741EEB15040040DC6E /* AddOpponentViewController.swift */,
 				BA241F361EDD6EF800B1F976 /* Gursch_v1 */,
 				BA241F4B1EDD6EF900B1F976 /* Gursch_v1Tests */,
 				BA241F351EDD6EF800B1F976 /* Products */,
@@ -80,6 +93,10 @@
 				BA241F371EDD6EF800B1F976 /* AppDelegate.swift */,
 				BA241F391EDD6EF800B1F976 /* ViewController.swift */,
 				BA241F3B1EDD6EF800B1F976 /* Main.storyboard */,
+				BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */,
+				BA241F591EDDCCD300B1F976 /* OpponentTableViewCell.swift */,
+				BA241F641EE6BFCF00B1F976 /* Model */,
+				BA241F571EDDB6E200B1F976 /* OverviewTableViewController.swift */,
 				BA241F3E1EDD6EF800B1F976 /* Assets.xcassets */,
 				BA241F401EDD6EF800B1F976 /* LaunchScreen.storyboard */,
 				BA241F431EDD6EF800B1F976 /* Info.plist */,
@@ -94,6 +111,15 @@
 				BA241F4E1EDD6EF900B1F976 /* Info.plist */,
 			);
 			path = Gursch_v1Tests;
+			sourceTree = "<group>";
+		};
+		BA241F641EE6BFCF00B1F976 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BA241F5F1EE6BAAC00B1F976 /* Opponent.swift */,
+				BA241F651EE6C02E00B1F976 /* Session.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +227,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA241F5A1EDDCCD300B1F976 /* OpponentTableViewCell.swift in Sources */,
+				BA241F601EE6BAAC00B1F976 /* Opponent.swift in Sources */,
+				BA241F661EE6C02E00B1F976 /* Session.swift in Sources */,
+				BA241F581EDDB6E200B1F976 /* OverviewTableViewController.swift in Sources */,
 				BA241F3A1EDD6EF800B1F976 /* ViewController.swift in Sources */,
+				BADDCE751EEB15040040DC6E /* AddOpponentViewController.swift in Sources */,
+				BADDCE731EE740F10040DC6E /* AddSessionPopupViewController.swift in Sources */,
 				BA241F381EDD6EF800B1F976 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +446,7 @@
 				BA241F531EDD6EF900B1F976 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BA241F541EDD6EF900B1F976 /* Build configuration list for PBXNativeTarget "Gursch_v1Tests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +455,7 @@
 				BA241F561EDD6EF900B1F976 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
