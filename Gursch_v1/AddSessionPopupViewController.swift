@@ -12,7 +12,8 @@ class AddSessionPopupViewController: UIViewController {
 
 	//MARK: - properties
 	var opponent: Opponent?
-	var amount = 0
+	private var amount = 0
+	var session: Session?
 
 	@IBOutlet weak var amountTextField: UITextField!
 	@IBOutlet weak var wonButton: UIButton!
@@ -33,6 +34,7 @@ class AddSessionPopupViewController: UIViewController {
 		nameLabel.text = opponent.name
 
 		disableButtons()
+
   	}
 
 	override func didReceiveMemoryWarning() {
@@ -63,7 +65,7 @@ class AddSessionPopupViewController: UIViewController {
 	@IBAction func numberTypedInTextField(_ sender: UITextField) {
 		let text = sender.text ?? ""
 
-		if text != "" {
+		if text != "", text != "0" {
 			if let enteredAmount: Int = Int(text){
 				amount = enteredAmount
 				enableButtons()
@@ -72,13 +74,11 @@ class AddSessionPopupViewController: UIViewController {
 				fatalError("Non numbers entered in textField")
 			}
 			enableButtons()
+		} else {
+			disableButtons()
 		}
 
 	}
-	@IBAction func cancel(_ sender: UITapGestureRecognizer) {
-		dismiss(animated: true, completion: nil)
-	}
-
 
     // MARK: - Navigation
 
@@ -96,12 +96,15 @@ class AddSessionPopupViewController: UIViewController {
 			}
 			else if button === lostButton {
 				opponent.lost(amountLost: amount)
+				amount = -amount
 			}
 
 		}
 		else {
 			fatalError("Sender is not a button")
 		}
+
+		session = Session(opponent: opponent, amount: amount)
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }

@@ -25,13 +25,12 @@
                                 <rect key="frame" x="23.5" y="277" width="326" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Umb-4E-z0O">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Umb-4E-z0O">
                                         <rect key="frame" x="0.0" y="75" width="326" height="60"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
-                                        <color key="backgroundColor" red="0.3529411764705882" green="0.78431372549019607" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <state key="normal" title="Done">
-                                            <color key="titleColor" red="0.16862745098039217" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.3529411764705882" green="0.78431372549019607" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -39,18 +38,24 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="881-FH-dmf">
-                                        <rect key="frame" x="20" y="33" width="287" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                        <rect key="frame" x="20" y="43" width="287" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                         <accessibility key="accessibilityConfiguration" hint="Name"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="nameTextFieldWasEdited:" destination="mB6-2a-rEN" eventType="editingChanged" id="tSk-TF-ae3"/>
+                                        </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XKn-Mn-BFw">
-                                        <rect key="frame" x="7" y="4" width="48" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Cancel"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wQ8-vq-pFc">
+                                        <rect key="frame" x="5" y="6" width="30" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="delete"/>
+                                        <connections>
+                                            <action selector="cancel:" destination="W3U-Vu-z2z" eventType="touchUpInside" id="CQS-Yj-e6y"/>
+                                            <action selector="cancel:" destination="mB6-2a-rEN" eventType="touchUpInside" id="WAX-It-aVf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,7 +64,6 @@
                         <color key="backgroundColor" red="0.85541671514511108" green="0.85606878995895386" blue="0.8555176854133606" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="cancelButton" destination="XKn-Mn-BFw" id="KSV-OB-xjW"/>
                         <outlet property="doneButton" destination="Umb-4E-z0O" id="hYa-hQ-CCe"/>
                         <outlet property="nameTextField" destination="881-FH-dmf" id="La9-o3-1sY"/>
                     </connections>
@@ -108,7 +112,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWZ-U8-vjr">
-                                                    <rect key="frame" x="259" y="-1" width="76" height="61"/>
+                                                    <rect key="frame" x="259" y="-2" width="76" height="61"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
@@ -193,38 +197,29 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Super Duper" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bd1-et-bJ3">
                                         <rect key="frame" x="8" y="42" width="172" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fu-3l-V3G">
-                                        <rect key="frame" x="8" y="4" width="57" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <state key="normal" title="Cancel"/>
-                                        <connections>
-                                            <action selector="cancel:" destination="W3U-Vu-z2z" eventType="touchUpInside" id="Dax-sL-sMz"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T09-pF-75r">
                                         <rect key="frame" x="145" y="77" width="120" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <state key="normal" title="Won">
-                                            <color key="titleColor" red="0.29803921568627451" green="0.85098039215686272" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" red="0.3529411764705882" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <segue destination="hTN-HW-guA" kind="unwind" unwindAction="unwindToOverviewWithSender:" id="iIX-bh-nhl"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="bJ8-P1-mQ9">
-                                        <rect key="frame" x="77" y="9" width="43" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <gestureRecognizers/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fu-3l-V3G">
+                                        <rect key="frame" x="5" y="6" width="30" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Cancel" image="delete"/>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="BO5-Mo-qyb" appends="YES" id="CEh-0G-4ZE"/>
+                                            <action selector="cancel:" destination="W3U-Vu-z2z" eventType="touchUpInside" id="Dax-sL-sMz"/>
                                         </connections>
-                                    </imageView>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -241,47 +236,8 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfH-hn-QSA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hTN-HW-guA" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="BO5-Mo-qyb">
-                    <connections>
-                        <action selector="cancel:" destination="W3U-Vu-z2z" id="uFX-qe-G41"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2496.8000000000002" y="-1280.5097451274364"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="AYP-wp-LOn">
-            <objects>
-                <viewController id="tPS-mC-51d" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Yh3-Vc-33X"/>
-                        <viewControllerLayoutGuide type="bottom" id="eBm-1o-jC9"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GpT-07-yjj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DEh-R4-uTT">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Item" id="lTN-WX-S51"/>
-                                    <barButtonItem style="plain" id="ai2-hO-gbE">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mh9-o0-2E5">
-                                            <rect key="frame" x="60" y="7" width="46" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button"/>
-                                        </button>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J6n-YF-PcC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="68" y="-2189"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dZw-pP-Ya7">
@@ -303,6 +259,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="132" height="115"/>
+        <image name="delete" width="132" height="115"/>
     </resources>
 </document>

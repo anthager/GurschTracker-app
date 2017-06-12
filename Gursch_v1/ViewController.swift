@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITabBarDelegate 
 
 	//MARK: - properties
 	var opponents = [Opponent]()
+	var sessions = [Session]()
 	@IBOutlet weak var opponentsTableView: UITableView!
 
 	//MARK: - super methods
@@ -79,17 +80,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITabBarDelegate 
 	}
 
 	@IBAction func unwindToOverview(sender: UIStoryboardSegue) {
-		if sender.source is AddSessionPopupViewController {
+		if let addSessionVC = sender.source as? AddSessionPopupViewController {
+
+			guard let session = addSessionVC.session else {
+				fatalError("No session in addSessionVC")
+			}
+
+			sessions.append(session)
+
 			guard let index = opponentsTableView.indexPathForSelectedRow else  {
 				fatalError("No row is selected")
 			}
 			opponentsTableView.reloadRows(at: [index], with: .automatic)
 
-		}
-		if sender.source is AddOpponentViewController {
-			guard let addVC = sender.source as? AddOpponentViewController else {
-				fatalError("Unexpected destination:")
+		} else if let addVC = sender.source as? AddOpponentViewController {
+
+			guard let opponent = addVC.opponent else {
+				fatalError("no opponent in addOpponentVC")
 			}
+
+			let newIndexPath = IndexPath(row: opponents.count, section: 0)
+			opponents.append(opponent)
+			opponentsTableView.insertRows(at: [newIndexPath], with: .automatic)
 		}
 	}
 

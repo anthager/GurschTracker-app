@@ -13,7 +13,7 @@ class AddOpponentViewController: UIViewController {
 	//MARK: - properties
 	@IBOutlet weak var nameTextField: UITextField!
 	@IBOutlet weak var doneButton: UIButton!
-	@IBOutlet weak var cancelButton: UIButton!
+	var opponent: Opponent?
 
 
 	//MARK: - superFuncs
@@ -21,7 +21,7 @@ class AddOpponentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+		disableButtons()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,8 +35,32 @@ class AddOpponentViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		let name = nameTextField.text ?? ""
+
+		opponent = Opponent(name: name)
         
     }
 
+	//MARK: - actions
+	@IBAction func cancel(_ sender: UIButton) {
+		dismiss(animated: true, completion: nil)
+	}
 
+	@IBAction func nameTextFieldWasEdited(_ sender: UITextField) {
+		let text = sender.text ?? ""
+
+		if text != "" {
+			enableButtons()
+		}
+	}
+
+	//MARK: private methods
+	private func disableButtons(){
+		doneButton.isEnabled = false
+		doneButton.alpha = 0.5
+	}
+	private func enableButtons(){
+		doneButton.isEnabled = true
+		doneButton.alpha = 1
+	}
 }
