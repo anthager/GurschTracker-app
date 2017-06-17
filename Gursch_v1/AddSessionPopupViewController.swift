@@ -49,12 +49,11 @@ class AddSessionPopupViewController: UIViewController {
 			fatalError("No opponent found")
 		}
 
-		if buttonName == "Won"{
-			opponent.won(amountWon: amount)
+		if buttonName == "Lost"{
+			amount = -amount
 
-		}else if buttonName == "Lost"{
-			opponent.lost(amountLost: amount)
 		}
+		opponent.addAmount(amount: amount)
 
 	}
 
@@ -91,22 +90,16 @@ class AddSessionPopupViewController: UIViewController {
 		}
 
 		if let button = sender as? UIButton {
-			if button === wonButton{
-				opponent.won(amountWon: amount)
-			}
-			else if button === lostButton {
-				opponent.lost(amountLost: amount)
-				amount = -amount
-			}
+				if button === lostButton{
+					amount = -amount
 
-		}
-		else {
+				}
+				opponent.addAmount(amount: amount)
+		} else {
 			fatalError("Sender is not a button")
 		}
 
 		session = Session(opponent: opponent, amount: amount)
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
 
 

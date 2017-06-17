@@ -17,6 +17,7 @@
 		BA241F5A1EDDCCD300B1F976 /* OpponentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F591EDDCCD300B1F976 /* OpponentTableViewCell.swift */; };
 		BA241F601EE6BAAC00B1F976 /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F5F1EE6BAAC00B1F976 /* Opponent.swift */; };
 		BA241F661EE6C02E00B1F976 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F651EE6C02E00B1F976 /* Session.swift */; };
+		BA8E52951EF44488003E60F0 /* TotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8E52941EF44488003E60F0 /* TotalTableViewCell.swift */; };
 		BADDCE731EE740F10040DC6E /* AddSessionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */; };
 		BADDCE751EEB15040040DC6E /* AddOpponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADDCE741EEB15040040DC6E /* AddOpponentViewController.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		BA241F591EDDCCD300B1F976 /* OpponentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpponentTableViewCell.swift; sourceTree = "<group>"; };
 		BA241F5F1EE6BAAC00B1F976 /* Opponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
 		BA241F651EE6C02E00B1F976 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		BA8E52941EF44488003E60F0 /* TotalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalTableViewCell.swift; sourceTree = "<group>"; };
 		BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSessionPopupViewController.swift; sourceTree = "<group>"; };
 		BADDCE741EEB15040040DC6E /* AddOpponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOpponentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 				BA241F391EDD6EF800B1F976 /* ViewController.swift */,
 				BA241F3B1EDD6EF800B1F976 /* Main.storyboard */,
 				BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */,
+				BA8E52941EF44488003E60F0 /* TotalTableViewCell.swift */,
 				BA241F591EDDCCD300B1F976 /* OpponentTableViewCell.swift */,
 				BA241F641EE6BFCF00B1F976 /* Model */,
 				BA241F571EDDB6E200B1F976 /* OverviewTableViewController.swift */,
@@ -232,6 +235,7 @@
 				BA241F661EE6C02E00B1F976 /* Session.swift in Sources */,
 				BA241F581EDDB6E200B1F976 /* OverviewTableViewController.swift in Sources */,
 				BA241F3A1EDD6EF800B1F976 /* ViewController.swift in Sources */,
+				BA8E52951EF44488003E60F0 /* TotalTableViewCell.swift in Sources */,
 				BADDCE751EEB15040040DC6E /* AddOpponentViewController.swift in Sources */,
 				BADDCE731EE740F10040DC6E /* AddSessionPopupViewController.swift in Sources */,
 				BA241F381EDD6EF800B1F976 /* AppDelegate.swift in Sources */,

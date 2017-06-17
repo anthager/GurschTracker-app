@@ -8,8 +8,9 @@
 
 import Foundation
 
-class Session{
+class Session: NSObject, NSCoding{
 
+	//MARK: - properties
 	static var idCount = 0
 	let opponent: Opponent
 	let amount: Int
@@ -21,4 +22,42 @@ class Session{
 		id = Session.idCount
 		Session.idCount += 1
 	}
+
+	private init(opponent: Opponent, amount: Int, id: Int) {
+		self.opponent = opponent
+		self.amount = amount
+		self.id = id
+		Session.idCount += 1
+	}
+
+	//MARK: - NSCoding
+	func encode(with aCoder: NSCoder) {
+		aCoder.encode(opponent, forKey: SessionPropKey.opponent)
+		aCoder.encode(amount, forKey: SessionPropKey.amount)
+		aCoder.encode(id, forKey: SessionPropKey.id)
+	}
+
+	required convenience init?(coder aDecoder: NSCoder) {
+		guard let opponent = aDecoder.decodeObject(forKey: SessionPropKey.opponent) as? Opponent else {
+			fatalError("deCoding opponent failed")
+		}
+
+		let amount = aDecoder.decodeInteger(forKey: SessionPropKey.amount)
+
+		let id = aDecoder.decodeInteger(forKey: SessionPropKey.id)
+
+		self.init(opponent: opponent, amount: amount, id: id)
+	}
+
+	//MARK: - Archiving Paths
+	static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+	static let ArchiveURL = DocumentsDirectory.appendingPathComponent("sessions")
+
+}
+
+
+struct SessionPropKey {
+	static let opponent = "opponent"
+	static let amount = "amount"
+	static let id = "id"
 }
