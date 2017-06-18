@@ -8,11 +8,14 @@
 
 import UIKit
 
-class AddOpponentViewController: UIViewController {
+class AddOpponentViewController: UIViewController, UIGestureRecognizerDelegate {
 
 	//MARK: - properties
 	@IBOutlet weak var nameTextField: UITextField!
 	@IBOutlet weak var doneButton: UIButton!
+	@IBOutlet weak var window: UIView!
+	@IBOutlet weak var popupView: UIView!
+	@IBOutlet var cancelTapGesture: UITapGestureRecognizer!
 	var opponent: Opponent?
 
 
@@ -20,6 +23,11 @@ class AddOpponentViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+		cancelTapGesture.delegate = self
+
+		popupView.layer.cornerRadius = 10
+		popupView.layer.masksToBounds = true
 
 		disableButtons()
     }
@@ -29,7 +37,17 @@ class AddOpponentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+	//MARK: - UIGestureRecognizerDelegate
+	func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
 
+		guard let touchedView = touch.view else {
+			fatalError("the touch didn't contain a view")
+		}
+		if window === touchedView {
+			return true
+		}
+		return false
+	}
 
     // MARK: - Navigation
 
@@ -42,7 +60,10 @@ class AddOpponentViewController: UIViewController {
     }
 
 	//MARK: - actions
-	@IBAction func cancel(_ sender: UIButton) {
+	/*@IBAction func cancel(_ sender: UIButton) {
+		dismiss(animated: true, completion: nil)
+	}*/
+	@IBAction func cancel(_ sender: UITapGestureRecognizer) {
 		dismiss(animated: true, completion: nil)
 	}
 

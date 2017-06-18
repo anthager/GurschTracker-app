@@ -8,13 +8,15 @@
 
 import UIKit
 
-class AddSessionPopupViewController: UIViewController {
+class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelegate {
 
 	//MARK: - properties
 	var opponent: Opponent?
 	private var amount = 0
 	var session: Session?
 
+	@IBOutlet weak var window: UIView!
+	@IBOutlet var canelGesture: UITapGestureRecognizer!
 	@IBOutlet weak var amountTextField: UITextField!
 	@IBOutlet weak var wonButton: UIButton!
 	@IBOutlet weak var lostButton: UIButton!
@@ -24,6 +26,8 @@ class AddSessionPopupViewController: UIViewController {
 	//MARK: - standard methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		canelGesture.delegate = self
 
 		popupView.layer.cornerRadius = 10
 		popupView.layer.masksToBounds = true
@@ -57,10 +61,6 @@ class AddSessionPopupViewController: UIViewController {
 
 	}
 
-	@IBAction func cancel(_ sender: UIButton) {
-		dismiss(animated: true, completion: nil)
-	}
-
 	@IBAction func numberTypedInTextField(_ sender: UITextField) {
 		let text = sender.text ?? ""
 
@@ -77,6 +77,21 @@ class AddSessionPopupViewController: UIViewController {
 			disableButtons()
 		}
 
+	}
+	@IBAction func cancel(_ sender: Any) {
+		dismiss(animated: true, completion: nil)
+	}
+
+	//MARK: - UIGestureRecognizerDelegate
+	func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+
+		guard let touchedView = touch.view else {
+			fatalError("the touch didn't contain a view")
+		}
+		if window === touchedView {
+			return true
+		}
+		return false
 	}
 
     // MARK: - Navigation

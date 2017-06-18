@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITabBarDelegate {
+class ViewController: UIViewController, UITableViewDataSource {
 
 	//MARK: - properties
 	var opponents = [Opponent]()
