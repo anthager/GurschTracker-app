@@ -23,13 +23,13 @@ class Opponent: NSObject, NSCoding{
 		self.name = name
 	}
 
-	private init?(name: String, amount: Int){
-		guard !name.isEmpty else {
+	private init?(name: String?, amount: Int){
+		guard let safeName = name  else {
 			print("no name were given")
 			return nil
 		}
 
-		self.name = name
+		self.name = safeName
 		self.amount = amount
 	}
 
@@ -44,9 +44,7 @@ class Opponent: NSObject, NSCoding{
 	}
 
 	required convenience init?(coder aDecoder: NSCoder) {
-		guard let name = aDecoder.decodeObject(forKey: OpponentPropKey.name) as? String else {
-			fatalError("deCoding name failed")
-		}
+		let name = aDecoder.decodeObject(forKey: OpponentPropKey.name) as? String
 
 		let amount = aDecoder.decodeInteger(forKey: OpponentPropKey.amount)
 

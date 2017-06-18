@@ -23,17 +23,16 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 		if let loadedOpponens = loadOpponents() {
 			opponents = loadedOpponens
-		}
-		else {
-			setupSampleOpponents()
+
+			if let loadedSessions = loadSessions() {
+				sessions = loadedSessions
+			}
 		}
 
 		totalAmount = calcTotalAmount()
 		totalAmountLabel.text = String(totalAmount)
 
-		if let loadedSessions = loadSessions() {
-			sessions = loadedSessions
-		}
+
 
 	}
 
@@ -70,6 +69,11 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 	}
 
+	//MARK: - actions 
+	@IBAction func clean(_ sender: Any) {
+		reset()
+	}
+
 	// MARK: - Navigation
 
 	// In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -88,6 +92,15 @@ class ViewController: UIViewController, UITableViewDataSource {
 			popupVC.opponent = opponents[index.row]
 
 		case "addOpponent": break
+
+		case "statistics":
+			guard let statisticsVC = segue.destination as? StatisticsViewController else{
+				fatalError("VC is not statsVC")
+			}
+
+			statisticsVC.sessions = sessions
+			statisticsVC.opponents = opponents
+			break
 
 
 		default:
@@ -225,6 +238,9 @@ class ViewController: UIViewController, UITableViewDataSource {
 		resetOpponents()
 		resetSessions()
 		opponentsTableView.reloadData()
+
+		totalAmount = 0
+		totalAmountLabel.text = String(totalAmount)
 	}
 	
 }

@@ -15,6 +15,7 @@ class Session: NSObject, NSCoding{
 	let opponent: Opponent
 	let amount: Int
 	let id: Int
+	let date = Date()
 
 	init(opponent: Opponent, amount: Int) {
 		self.opponent = opponent
@@ -23,8 +24,11 @@ class Session: NSObject, NSCoding{
 		Session.idCount += 1
 	}
 
-	private init(opponent: Opponent, amount: Int, id: Int) {
-		self.opponent = opponent
+	private init?(opponent: Opponent?, amount: Int, id: Int) {
+		guard let safeOpponent = opponent else {
+			return nil
+		}
+		self.opponent = safeOpponent
 		self.amount = amount
 		self.id = id
 		Session.idCount += 1
@@ -38,12 +42,9 @@ class Session: NSObject, NSCoding{
 	}
 
 	required convenience init?(coder aDecoder: NSCoder) {
-		guard let opponent = aDecoder.decodeObject(forKey: SessionPropKey.opponent) as? Opponent else {
-			fatalError("deCoding opponent failed")
-		}
+		let opponent = aDecoder.decodeObject(forKey: SessionPropKey.opponent) as? Opponent
 
 		let amount = aDecoder.decodeInteger(forKey: SessionPropKey.amount)
-
 		let id = aDecoder.decodeInteger(forKey: SessionPropKey.id)
 
 		self.init(opponent: opponent, amount: amount, id: id)
