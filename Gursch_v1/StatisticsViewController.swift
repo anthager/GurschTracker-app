@@ -13,25 +13,55 @@ class StatisticsViewController: UIViewController, UITableViewDataSource {
 	//MARK: - properties
 	@IBOutlet weak var SessionTableView: UITableView!
 	@IBOutlet weak var todayButton: UIButton!
-	@IBOutlet weak var thisWeekButton: UIButton!
-	@IBOutlet weak var thisMonthButton: UIButton!
+	@IBOutlet weak var sevenDaysButton: UIButton!
+	@IBOutlet weak var thirtyDaysButton: UIButton!
 	@IBOutlet weak var allTimeButton: UIButton!
 
-	var sessions: [Session]?
+	@IBOutlet weak var amountLabel: UILabel!
+
 	var opponents: [Opponent]?
+	var totalAmount = 0
+	let timeSettingHandler = TimeSettingHandler.shared
 
 	//MARK: - super funcs
     override func viewDidLoad() {
         super.viewDidLoad()
+
+		timeSettingHandler.allOpponents = opponents
+		amountLabel.text = String(timeSettingHandler.totalAmount)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
-	//MARK: tableView
+	//MARK: - actions
+	@IBAction func timeSettingButtonPressed(_ sender: UIButton) {
+		switch sender {
+		case todayButton:
+			timeSettingHandler.setToday()
+		case sevenDaysButton:
+			timeSettingHandler.setSevenDays()
+		case thirtyDaysButton:
+			timeSettingHandler.setThirtyDays()
+		case allTimeButton:
+			timeSettingHandler.setAllTime()
+		default:
+			fatalError("timeSettingButtonPressed event was triggered but no button was pressed")
+		}
+
+		opponents = timeSettingHandler.allOpponents
+		totalAmount = timeSettingHandler.totalAmount
+
+		amountLabel.text = String(timeSettingHandler.totalAmount)
+		SessionTableView.reloadData()
+
+	}
+
+	//MARK: - tableView
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-		return saflyUnWrappOpponents().count
+		return timeSettingHandler.opponents?.count ?? 0
+
 	}
 
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -42,25 +72,22 @@ class StatisticsViewController: UIViewController, UITableViewDataSource {
 			fatalError("The dequeued cell is not an instance of OpponentTableViewCell.")
 		}
 
-		let opponent = saflyUnWrappOpponents()[indexPath.row]
+		guard let opponent = opponents?[indexPath.row] else {
+			fatalError("Shit's fucked up yo")
+		}
 
 		cell.nameLabel.text = opponent.name
-		cell.amountLabel.text = String(opponent.amount)
+		cell.amountLabel.text = String(timeSettingHandler.amounts?[opponent] ?? 0)
 
 
 		return cell
 
 	}
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+
     }
-    */
 
 	//MARK: - private methods 
 	private func saflyUnWrappOpponents() -> [Opponent]{
@@ -69,14 +96,6 @@ class StatisticsViewController: UIViewController, UITableViewDataSource {
 		}
 
 		return opponentsSafe
-	}
-
-	private func saflyUnWrappSessions() -> [Session] {
-		guard let sessionsSafe = sessions else {
-			return [Session]()
-		}
-
-		return sessionsSafe
 	}
 
 }

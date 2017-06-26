@@ -12,7 +12,6 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 	//MARK: - properties
 	var opponents = [Opponent]()
-	var sessions = [Session]()
 	var totalAmount = 0
 	@IBOutlet weak var opponentsTableView: UITableView!
 	@IBOutlet weak var totalAmountLabel: UILabel!
@@ -24,9 +23,9 @@ class ViewController: UIViewController, UITableViewDataSource {
 		if let loadedOpponens = loadOpponents() {
 			opponents = loadedOpponens
 
-			if let loadedSessions = loadSessions() {
-				sessions = loadedSessions
-			}
+//			if let loadedSessions = loadSessions() {
+//				sessions = loadedSessions
+//			}
 		}
 
 		totalAmount = calcTotalAmount()
@@ -44,10 +43,6 @@ class ViewController: UIViewController, UITableViewDataSource {
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
 		return opponents.count
 	}
-
-
-	// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-	// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
 		// Table view cells are reused and should be dequeued using a cell identifier.
@@ -98,7 +93,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 				fatalError("VC is not statsVC")
 			}
 
-			statisticsVC.sessions = sessions
+//			statisticsVC.sessions = sessions
 			statisticsVC.opponents = opponents
 			break
 
@@ -112,13 +107,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 	@IBAction func unwindToOverview(sender: UIStoryboardSegue) {
 		if let addSessionVC = sender.source as? AddSessionPopupViewController {
 
-			guard let session = addSessionVC.session else {
-				fatalError("No session in addSessionVC")
-			}
-
-			sessions.append(session)
-
-			totalAmount += session.amount
+			totalAmount += addSessionVC.amount
 			totalAmountLabel.text = String(totalAmount)
 
 			guard let index = opponentsTableView.indexPathForSelectedRow else  {
@@ -126,7 +115,6 @@ class ViewController: UIViewController, UITableViewDataSource {
 			}
 			opponentsTableView.reloadRows(at: [index], with: .automatic)
 
-			saveSessions()
 			saveOpponents()
 
 		} else if let addVC = sender.source as? AddOpponentViewController {
@@ -168,6 +156,17 @@ class ViewController: UIViewController, UITableViewDataSource {
 		return amount
 	}
 
+	private func getAllSessions(opponents: [Opponent]) -> [Session] {
+		var sessions = [Session]()
+		for opponent in opponents {
+			for session in opponent.sessions {
+				sessions.append(session)
+			}
+		}
+
+		return sessions
+	}
+
 	//MARK: saving
 	private func saveOpponents(){
 		let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(opponents, toFile: Opponent.ArchiveURL.path)
@@ -180,37 +179,25 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 	}
 
-	private func saveSessions(){
-		let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(sessions, toFile: Session.ArchiveURL.path)
-
-		if isSuccessfulSave {
-			print("saving sessions success")
-		} else {
-			print("saving sessions failed")
-		}
-	}
-
 	//MARK: loading
-
 	private func loadOpponents() -> [Opponent]? {
 		let loadedOpponents = NSKeyedUnarchiver.unarchiveObject(withFile: Opponent.ArchiveURL.path) as? [Opponent]
 
 		print("loaded \(loadedOpponents?.count ?? 0) opponents")
 
+		var nrOfSessions = 0
+		if let safeLoadedOpponents = loadedOpponents {
+
+			nrOfSessions = getAllSessions(opponents: safeLoadedOpponents).count
+		}
+		print("loaded \(nrOfSessions) sessions")
+
 		return loadedOpponents
 	}
 
-	private func loadSessions() -> [Session]? {
-		let loadedSessions = NSKeyedUnarchiver.unarchiveObject(withFile: Session.ArchiveURL.path) as? [Session]
-
-		print("loaded \(loadedSessions?.count ?? 0) sessions")
-
-		return loadedSessions
-	}
-
 	//MARK: reseting
-
 	private func resetOpponents(){
+
 		let isSuccessfulSave = NSKeyedArchiver.archiveRootObject([Opponent](), toFile: Opponent.ArchiveURL.path)
 
 		if isSuccessfulSave {
@@ -221,22 +208,9 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 		opponents.removeAll()
 	}
-
-	private func resetSessions(){
-		let isSuccessfulSave = NSKeyedArchiver.archiveRootObject([Session](), toFile: Session.ArchiveURL.path)
-
-		if isSuccessfulSave {
-			print("reseting sessions success")
-		} else {
-			print("reseting sessions failed")
-		}
-
-		sessions.removeAll()
-	}
 	
 	private func reset(){
 		resetOpponents()
-		resetSessions()
 		opponentsTableView.reloadData()
 
 		totalAmount = 0

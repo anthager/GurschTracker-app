@@ -12,8 +12,7 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 
 	//MARK: - properties
 	var opponent: Opponent?
-	private var amount = 0
-	var session: Session?
+	var amount = 0
 
 	@IBOutlet weak var window: UIView!
 	@IBOutlet var canelGesture: UITapGestureRecognizer!
@@ -109,12 +108,15 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 					amount = -amount
 
 				}
-				opponent.addAmount(amount: amount)
+			opponent.addAmount(amount: amount)
+
+			let session = Session(amount: amount)
+			opponent.addSession(session: session)
+			print("Adding session")
+
 		} else {
 			fatalError("Sender is not a button")
 		}
-
-		session = Session(opponent: opponent, amount: amount)
     }
 
 

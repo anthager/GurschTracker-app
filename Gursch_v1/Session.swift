@@ -12,53 +12,55 @@ class Session: NSObject, NSCoding{
 
 	//MARK: - properties
 	static var idCount = 0
-	let opponent: Opponent
 	let amount: Int
 	let id: Int
-	let date = Date()
+	let date: Date
 
-	init(opponent: Opponent, amount: Int) {
-		self.opponent = opponent
+	init(amount: Int) {
 		self.amount = amount
 		id = Session.idCount
 		Session.idCount += 1
+		date = Date()
 	}
 
-	private init?(opponent: Opponent?, amount: Int, id: Int) {
-		guard let safeOpponent = opponent else {
-			return nil
-		}
-		self.opponent = safeOpponent
+	private init?(amount: Int, id: Int, date: Date) {
 		self.amount = amount
 		self.id = id
+		self.date = date
 		Session.idCount += 1
 	}
 
 	//MARK: - NSCoding
 	func encode(with aCoder: NSCoder) {
-		aCoder.encode(opponent, forKey: SessionPropKey.opponent)
 		aCoder.encode(amount, forKey: SessionPropKey.amount)
 		aCoder.encode(id, forKey: SessionPropKey.id)
+		aCoder.encode(date, forKey: SessionPropKey.date)
 	}
 
 	required convenience init?(coder aDecoder: NSCoder) {
-		let opponent = aDecoder.decodeObject(forKey: SessionPropKey.opponent) as? Opponent
-
 		let amount = aDecoder.decodeInteger(forKey: SessionPropKey.amount)
 		let id = aDecoder.decodeInteger(forKey: SessionPropKey.id)
+		guard let date = aDecoder.decodeObject(forKey: SessionPropKey.date) as? Date else { fatalError("No date found") }
 
-		self.init(opponent: opponent, amount: amount, id: id)
+		self.init(amount: amount, id: id, date: date)
 	}
 
-	//MARK: - Archiving Paths
-	static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-	static let ArchiveURL = DocumentsDirectory.appendingPathComponent("sessions")
+	//MARK: - static test case
+
+	static func testSetup() -> [Session]{
+		let sessions = [Session(amount:10 , id: 0, date: Date(timeIntervalSinceNow: -2600000))!,
+		                Session(amount:10 , id: 0, date: Date(timeIntervalSinceNow: -2590000))!,
+		                Session(amount:10 , id: 0, date: Date(timeIntervalSinceNow: -600800))!,
+		                Session(amount:10 , id: 0, date: Date(timeIntervalSinceNow: -2000))!,
+		                Session(amount: 10, id: 1, date: Date())!]
+		return sessions
+	}
 
 }
 
 
 struct SessionPropKey {
-	static let opponent = "opponent"
 	static let amount = "amount"
 	static let id = "id"
+	static let date = "date"
 }
