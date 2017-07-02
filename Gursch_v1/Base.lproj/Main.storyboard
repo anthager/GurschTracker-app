@@ -13,7 +13,7 @@
         <!--Add Opponent View Controller-->
         <scene sceneID="JKR-Kl-NSh">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="mB6-2a-rEN" customClass="AddOpponentViewController" customModule="Gursch_v1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="mB6-2a-rEN" customClass="AddOpponentViewController" customModule="GurschTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6Ef-ur-jjc"/>
                         <viewControllerLayoutGuide type="bottom" id="v5z-19-mFR"/>
@@ -81,7 +81,7 @@
         <!--Overview-->
         <scene sceneID="a3f-sQ-6NZ">
             <objects>
-                <viewController id="Pi3-Ei-xqD" customClass="ViewController" customModule="Gursch_v1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Pi3-Ei-xqD" customClass="ViewController" customModule="GurschTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fih-7T-uTZ"/>
                         <viewControllerLayoutGuide type="bottom" id="CZA-bI-YKd"/>
@@ -95,7 +95,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="OpponentTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="OpponentTableViewCell" id="eQE-Qo-hTi" customClass="OpponentTableViewCell" customModule="Gursch_v1" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="OpponentTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="OpponentTableViewCell" id="eQE-Qo-hTi" customClass="OpponentTableViewCell" customModule="GurschTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eQE-Qo-hTi" id="p2e-U9-sX7">
@@ -201,7 +201,7 @@
         <!--Statistics-->
         <scene sceneID="rAd-Ca-BLw">
             <objects>
-                <viewController id="MEg-Ow-6Fm" customClass="StatisticsViewController" customModule="Gursch_v1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="MEg-Ow-6Fm" customClass="StatisticsViewController" customModule="GurschTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zbQ-j9-rcQ"/>
                         <viewControllerLayoutGuide type="bottom" id="YTX-Eb-P9M"/>
@@ -210,65 +210,100 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Xtq-lq-Ou4">
-                                <rect key="frame" x="66.931085043988332" y="64" width="240" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXc-oR-2wf">
-                                        <rect key="frame" x="0.0" y="0.0" width="42" height="30"/>
-                                        <state key="normal" title="Today"/>
-                                        <connections>
-                                            <action selector="timeSettingButtonPressed:" destination="MEg-Ow-6Fm" eventType="touchUpInside" id="oAO-Zu-w7h"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAY-aS-u8b">
-                                        <rect key="frame" x="55" y="0.0" width="47" height="30"/>
-                                        <state key="normal" title="7 Days"/>
-                                        <connections>
-                                            <action selector="timeSettingButtonPressed:" destination="MEg-Ow-6Fm" eventType="touchUpInside" id="XJU-yZ-PNG"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCb-DI-yk2">
-                                        <rect key="frame" x="115" y="0.0" width="57" height="30"/>
-                                        <state key="normal" title="30 Days"/>
-                                        <connections>
-                                            <action selector="timeSettingButtonPressed:" destination="MEg-Ow-6Fm" eventType="touchUpInside" id="Q5K-oh-p6Y"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I39-jK-7PW">
-                                        <rect key="frame" x="185" y="0.0" width="55" height="30"/>
-                                        <state key="normal" title="All Time"/>
-                                        <connections>
-                                            <action selector="timeSettingButtonPressed:" destination="MEg-Ow-6Fm" eventType="touchUpInside" id="2yC-Pm-dG1"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Psb-IN-Qrg">
-                                <rect key="frame" x="16" y="162" width="343" height="180"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Wr7-h2-7oJ">
-                                <rect key="frame" x="16" y="342" width="343" height="325"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="eWM-bP-5Cr">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="279"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Psb-IN-Qrg">
+                                            <rect key="frame" x="0.0" y="99" width="375" height="180"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0do-UQ-HEG">
+                                            <rect key="frame" x="0.0" y="39" width="375" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxe-iU-4R2">
+                                                    <rect key="frame" x="12" y="0.0" width="252" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="kr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SC4-Ad-U1a">
+                                                    <rect key="frame" x="343" y="0.0" width="24" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBe-MG-96X">
+                                                    <rect key="frame" x="259" y="0.0" width="76" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.61548149590000001" green="0.87111628060000001" blue="0.98899549249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </view>
+                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Xtq-lq-Ou4">
+                                            <rect key="frame" x="67" y="1" width="240" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXc-oR-2wf">
+                                                    <rect key="frame" x="0.0" y="0.0" width="42" height="30"/>
+                                                    <state key="normal" title="Today"/>
+                                                    <connections>
+                                                        <action selector="timeSettingButtonPressed:" destination="MEg-Ow-6Fm" eventType="touchUpInside" id="oAO-Zu-w7h"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAY-aS-u8b">
+                                                    <rect key="frame" x="55" y="0.0" width="47" height="30"/>
+                                                    <state key="normal" title="7 Days"/>
+                                                    <connections>
+                                                        <action selector="timeSettingButtonPressed:" destination="MEg-Ow-6Fm" eventType="touchUpInside" id="XJU-yZ-PNG"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCb-DI-yk2">
+                                                    <rect key="frame" x="115" y="0.0" width="57" height="30"/>
+                                                    <state key="normal" title="30 Days"/>
+                                                    <connections>
+                                                        <action selector="timeSettingButtonPressed:" destination="MEg-Ow-6Fm" eventType="touchUpInside" id="Q5K-oh-p6Y"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I39-jK-7PW">
+                                                    <rect key="frame" x="185" y="0.0" width="55" height="30"/>
+                                                    <state key="normal" title="All Time"/>
+                                                    <connections>
+                                                        <action selector="timeSettingButtonPressed:" destination="MEg-Ow-6Fm" eventType="touchUpInside" id="2yC-Pm-dG1"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="OpponentTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="OpponentTableViewCell" id="6QG-LI-dS6" customClass="OpponentTableViewCell" customModule="Gursch_v1" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="343" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="OpponentTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="OpponentTableViewCell" id="6QG-LI-dS6" customClass="OpponentTableViewCell" customModule="GurschTracker" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="307" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6QG-LI-dS6" id="Tln-R9-C8g">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8p-qC-rm2">
-                                                    <rect key="frame" x="12" y="0.0" width="252" height="60"/>
+                                                    <rect key="frame" x="12" y="0.0" width="284" height="60"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLJ-Lc-49W">
-                                                    <rect key="frame" x="311" y="0.0" width="24" height="60"/>
+                                                    <rect key="frame" x="343" y="0.0" width="24" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="24" id="L4d-x9-mKA"/>
                                                     </constraints>
@@ -277,7 +312,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9v-ez-TbR">
-                                                    <rect key="frame" x="227" y="0.0" width="76" height="60"/>
+                                                    <rect key="frame" x="259" y="0.0" width="76" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="76" id="Fpy-zE-bx3"/>
                                                     </constraints>
@@ -309,34 +344,6 @@
                                     <outlet property="dataSource" destination="MEg-Ow-6Fm" id="RTo-Vc-j7Q"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0do-UQ-HEG">
-                                <rect key="frame" x="16" y="102" width="343" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxe-iU-4R2">
-                                        <rect key="frame" x="12" y="0.0" width="252" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="kr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SC4-Ad-U1a">
-                                        <rect key="frame" x="311" y="0.0" width="24" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBe-MG-96X">
-                                        <rect key="frame" x="227" y="0.0" width="76" height="60"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.61548149590000001" green="0.87111628060000001" blue="0.98899549249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -357,7 +364,7 @@
         <!--Add Session Popup View Controller-->
         <scene sceneID="BbZ-Bk-KmG">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="W3U-Vu-z2z" customClass="AddSessionPopupViewController" customModule="Gursch_v1" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="W3U-Vu-z2z" customClass="AddSessionPopupViewController" customModule="GurschTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3ar-lD-9Ro"/>
                         <viewControllerLayoutGuide type="bottom" id="uYO-le-hBG"/>
