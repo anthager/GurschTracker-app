@@ -12,7 +12,6 @@
 		BA241F3D1EDD6EF800B1F976 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA241F3B1EDD6EF800B1F976 /* Main.storyboard */; };
 		BA241F3F1EDD6EF800B1F976 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA241F3E1EDD6EF800B1F976 /* Assets.xcassets */; };
 		BA241F421EDD6EF800B1F976 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA241F401EDD6EF800B1F976 /* LaunchScreen.storyboard */; };
-		BA241F4D1EDD6EF900B1F976 /* Gursch_v1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F4C1EDD6EF900B1F976 /* Gursch_v1Tests.swift */; };
 		BA241F5A1EDDCCD300B1F976 /* OpponentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F591EDDCCD300B1F976 /* OpponentTableViewCell.swift */; };
 		BA241F601EE6BAAC00B1F976 /* Opponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F5F1EE6BAAC00B1F976 /* Opponent.swift */; };
 		BA241F661EE6C02E00B1F976 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F651EE6C02E00B1F976 /* Session.swift */; };
@@ -35,15 +34,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		BA241F341EDD6EF800B1F976 /* GurschTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = GurschTracker.app; path = "/Users/antonhagermalm/Documents/Lite project typ/GurschTracker/build/Debug-iphoneos/GurschTracker.app"; sourceTree = "<absolute>"; };
+		BA0874BF1F0B0738005C0EA6 /* GurschTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GurschTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA0874C01F0B0738005C0EA6 /* GurschTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GurschTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA241F371EDD6EF800B1F976 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA241F391EDD6EF800B1F976 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA241F3C1EDD6EF800B1F976 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA241F3E1EDD6EF800B1F976 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA241F411EDD6EF800B1F976 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA241F431EDD6EF800B1F976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BA241F481EDD6EF900B1F976 /* GurschTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = GurschTrackerTests.xctest; path = "/Users/antonhagermalm/Documents/Lite project typ/GurschTracker/build/Debug-iphoneos/GurschTrackerTests.xctest"; sourceTree = "<absolute>"; };
-		BA241F4C1EDD6EF900B1F976 /* Gursch_v1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gursch_v1Tests.swift; sourceTree = "<group>"; };
 		BA241F4E1EDD6EF900B1F976 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA241F591EDDCCD300B1F976 /* OpponentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpponentTableViewCell.swift; sourceTree = "<group>"; };
 		BA241F5F1EE6BAAC00B1F976 /* Opponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
@@ -79,6 +77,8 @@
 			children = (
 				BA241F361EDD6EF800B1F976 /* GurschTracker */,
 				BA241F4B1EDD6EF900B1F976 /* GurschTrackerTests */,
+				BA0874BF1F0B0738005C0EA6 /* GurschTracker.app */,
+				BA0874C01F0B0738005C0EA6 /* GurschTrackerTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				BA8E52981EFD0F65003E60F0 /* TimeSettingTest.swift */,
-				BA241F4C1EDD6EF900B1F976 /* Gursch_v1Tests.swift */,
 				BA241F4E1EDD6EF900B1F976 /* Info.plist */,
 			);
 			path = GurschTrackerTests;
@@ -146,7 +145,7 @@
 			);
 			name = GurschTracker;
 			productName = Gursch_v1;
-			productReference = BA241F341EDD6EF800B1F976 /* GurschTracker.app */;
+			productReference = BA0874BF1F0B0738005C0EA6 /* GurschTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 		BA241F471EDD6EF900B1F976 /* GurschTrackerTests */ = {
@@ -164,7 +163,7 @@
 			);
 			name = GurschTrackerTests;
 			productName = Gursch_v1Tests;
-			productReference = BA241F481EDD6EF900B1F976 /* GurschTrackerTests.xctest */;
+			productReference = BA0874C01F0B0738005C0EA6 /* GurschTrackerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -251,7 +250,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA241F4D1EDD6EF900B1F976 /* Gursch_v1Tests.swift in Sources */,
 				BA8E52991EFD0F65003E60F0 /* TimeSettingTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,9 +411,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = MYNT542AVL;
-				INFOPLIST_FILE = Gursch_v1Tests/Info.plist;
+				INFOPLIST_FILE = GurschTrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "HagermalmProductions.Gursch-v1Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = HagermalmProductions.GurschTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GurschTracker.app/GurschTracker";
@@ -428,9 +426,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = MYNT542AVL;
-				INFOPLIST_FILE = Gursch_v1Tests/Info.plist;
+				INFOPLIST_FILE = GurschTrackerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "HagermalmProductions.Gursch-v1Tests";
+				PRODUCT_BUNDLE_IDENTIFIER = HagermalmProductions.GurschTrackerTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GurschTracker.app/GurschTracker";
