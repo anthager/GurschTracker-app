@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Gursch_v1
+@testable import GurschTracker
 
 class TimeSettingTest: XCTestCase {
     
