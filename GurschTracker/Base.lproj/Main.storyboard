@@ -117,7 +117,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wWZ-U8-vjr">
-                                                    <rect key="frame" x="259" y="0.0" width="76" height="60"/>
+                                                    <rect key="frame" x="259" y="-1" width="76" height="59"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
@@ -251,32 +251,31 @@
                                             </subviews>
                                             <color key="backgroundColor" red="0.61548149590000001" green="0.87111628060000001" blue="0.98899549249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
-                                        <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Xtq-lq-Ou4">
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="Xtq-lq-Ou4">
                                             <rect key="frame" x="67" y="1" width="240" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXc-oR-2wf">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXc-oR-2wf">
                                                     <rect key="frame" x="0.0" y="0.0" width="42" height="30"/>
                                                     <state key="normal" title="Today"/>
                                                     <connections>
                                                         <action selector="timeSettingButtonPressed:" destination="MEg-Ow-6Fm" eventType="touchUpInside" id="oAO-Zu-w7h"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAY-aS-u8b">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cAY-aS-u8b">
                                                     <rect key="frame" x="55" y="0.0" width="47" height="30"/>
                                                     <state key="normal" title="7 Days"/>
                                                     <connections>
                                                         <action selector="timeSettingButtonPressed:" destination="MEg-Ow-6Fm" eventType="touchUpInside" id="XJU-yZ-PNG"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCb-DI-yk2">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCb-DI-yk2">
                                                     <rect key="frame" x="115" y="0.0" width="57" height="30"/>
                                                     <state key="normal" title="30 Days"/>
                                                     <connections>
                                                         <action selector="timeSettingButtonPressed:" destination="MEg-Ow-6Fm" eventType="touchUpInside" id="Q5K-oh-p6Y"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I39-jK-7PW">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I39-jK-7PW">
                                                     <rect key="frame" x="185" y="0.0" width="55" height="30"/>
                                                     <state key="normal" title="All Time"/>
                                                     <connections>
@@ -284,16 +283,25 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="I39-jK-7PW" firstAttribute="top" secondItem="Xtq-lq-Ou4" secondAttribute="top" id="112-eI-Z1a"/>
+                                                <constraint firstAttribute="trailing" secondItem="I39-jK-7PW" secondAttribute="trailing" id="VWe-Yc-QEq"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Xtq-lq-Ou4" secondAttribute="trailing" constant="68" id="5qZ-HR-d7m"/>
+                                        <constraint firstItem="Xtq-lq-Ou4" firstAttribute="leading" secondItem="eWM-bP-5Cr" secondAttribute="leading" constant="67" id="JnD-Ln-4Vm"/>
+                                        <constraint firstItem="Xtq-lq-Ou4" firstAttribute="top" secondItem="eWM-bP-5Cr" secondAttribute="top" constant="1" id="jGA-1T-4BX"/>
+                                    </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="OpponentTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="OpponentTableViewCell" id="6QG-LI-dS6" customClass="OpponentTableViewCell" customModule="GurschTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="307" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6QG-LI-dS6" id="Tln-R9-C8g">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8p-qC-rm2">
