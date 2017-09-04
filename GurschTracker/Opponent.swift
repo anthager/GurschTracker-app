@@ -51,13 +51,13 @@ class Opponent {
 
 	//MARK: - static test case
 
-	static func testSetup() -> [Opponent]{
-		let opponents: [Opponent] = [
-			Opponent(name: "Peter", sessions: Session.testSetup(), amount: 20)!,
-			Opponent(name: "Petrina", sessions: Session.testSetup(), amount: -20)!,
-			Opponent(name: "Niklas", sessions: nil, amount: 20)!]
-
-		return opponents
-
-	}
+//	static func testSetup() -> [Opponent]{
+//		let opponents: [Opponent] = [
+//			Opponent(name: "Peter", sessions: Session.testSetup(), amount: 20)!,
+//			Opponent(name: "Petrina", sessions: Session.testSetup(), amount: -20)!,
+//			Opponent(name: "Niklas", sessions: nil, amount: 20)!]
+//
+//		return opponents
+//
+//	}
 }

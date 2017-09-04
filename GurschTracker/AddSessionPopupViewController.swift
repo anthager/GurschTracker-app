@@ -110,7 +110,8 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 				}
 			opponent.addAmount(amount: amount)
 
-			let session = Session(amount: amount)
+			//TODO: sample id
+			let session = Session(amount: amount, id: "adsasdasd")
 			opponent.addSession(session: session)
 			print("Adding session")
 

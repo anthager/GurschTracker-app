@@ -165,10 +165,11 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 	//MARK: loading
 	private func loadOpponents() -> [Opponent]? {
-
+		return nil
 	}
 
 	//MARK: reseting
+	//TODO: Fix the resetting of opponents
 	private func resetOpponents(){
 	}
 	

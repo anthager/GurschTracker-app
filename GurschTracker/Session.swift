@@ -31,12 +31,12 @@ struct Session{
 
 	//MARK: - static test case
 
-	static func testSetup() -> [Session]{
-		let sessions = [Session(amount:10 , id: 0, date: Date(timeIntervalSinceNow: -2600000))!,
-		                Session(amount:10 , id: 0, date: Date(timeIntervalSinceNow: -2590000))!,
-		                Session(amount:10 , id: 0, date: Date(timeIntervalSinceNow: -600800))!,
-		                Session(amount:10 , id: 0, date: Date(timeIntervalSinceNow: -2000))!,
-		                Session(amount: 10, id: 1, date: Date())!]
-		return sessions
-	}
+//	static func testSetup() -> [Session]{
+//		let sessions = [Session(amount:10 , id: 0, date: Date(timeIntervalSinceNow: -2600000))!,
+//		                Session(amount:10 , id: 0, date: Date(timeIntervalSinceNow: -2590000))!,
+//		                Session(amount:10 , id: 0, date: Date(timeIntervalSinceNow: -600800))!,
+//		                Session(amount:10 , id: 0, date: Date(timeIntervalSinceNow: -2000))!,
+//		                Session(amount: 10, id: 1, date: Date())!]
+//		return sessions
+//	}
 }
