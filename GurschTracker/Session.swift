@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Session{
+struct Session{
 
 	//MARK: - properties
 	let amount: Int

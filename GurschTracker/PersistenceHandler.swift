@@ -14,8 +14,8 @@ class PersistenceHandler {
 	//MARK: - properties
 	var databaseRef: DatabaseReference?
 	var databaseHandle: DatabaseHandle?
-	var opponents = [Opponent]()
-	var sessions: [Session]?
+	var opponents: [Opponent] = []
+	var sessions: [Session] = []
 	var opponentsHandle: DatabaseHandle?
 
 	//singleton
@@ -49,7 +49,7 @@ class PersistenceHandler {
 				return
 			}
 
-			opponents.append(opponent)
+			self.opponents.append(opponent)
 		})
 
 		if opponents.count > 0 {
@@ -58,10 +58,36 @@ class PersistenceHandler {
 		else {
 			return nil
 		}
+
 	}
 
 	func loadSessions () -> [Session] {
-		var sess
+
+		let sessionsQuery = databaseRef?.child("sessions").queryOrdered(byChild: "opponent")
+		sessionsQuery?.observe(.childAdded, with: { (snapshot) in
+			guard let amount = snapshot.value(forKey: "amount") as? Int else {
+				print("session: \(snapshot.key)'s amount was unable to init")
+				return
+			}
+			guard let dateString = snapshot.value(forKey: "date") as? String  else{
+				print("date: \(snapshot.key)'s date was unable to init")
+				return
+			}
+
+			let formatter = DateFormatter()
+			formatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+			guard let date = formatter.date(from: dateString) else {
+				print("date: \(snapshot.key)'s date was unable to init")
+				return
+			}
+
+			guard let opponentString = snapshot.value(forKey: "opponent") as? String else {
+				print("opponent: \(snapshot.key)'s amount was unable to init")
+				return
+			}
+
+			
+		})
 	}
 
 
