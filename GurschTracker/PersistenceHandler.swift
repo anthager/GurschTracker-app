@@ -20,6 +20,7 @@ class PersistenceHandler {
 	var opponents: [Opponent] = []
 	var sessions: [Session] = []
 	var opponentsHandle: DatabaseHandle?
+	var opponentDic: [String : Opponent] = [:]
 
 	//singleton
 	static let shared = PersistenceHandler()
@@ -28,7 +29,7 @@ class PersistenceHandler {
 		databaseRef = Database.database().reference()
 	}
 
-	func loadOpponents () -> [Opponent]?{
+	func loadOpponents (){
 
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.value, with: { (snapshot) in
@@ -53,18 +54,13 @@ class PersistenceHandler {
 			}
 
 			self.opponents.append(opponent)
+			self.opponentDic["name"] = opponent
 		})
-
-		if opponents.count > 0 {
-			return opponents
-		}
-		else {
-			return nil
-		}
-
 	}
 
-	func loadSessions () -> [Session] {
+	//TODO: Will get problem with fucking async shit as always
+
+	func loadSessions () {
 
 		let sessionsQuery = databaseRef?.child("sessions").queryOrdered(byChild: "opponent")
 		sessionsQuery?.observe(.childAdded, with: { (snapshot) in
@@ -89,9 +85,21 @@ class PersistenceHandler {
 				return
 			}
 
-			
+			guard let opponent = self.opponentDic[opponentString] else {
+				print("opponent didn't exist")
+				return
+			}
+
+			guard let session = Session(amount: amount, id: snapshot.key, date: date, opponent: opponent) else {
+				return
+			}
+
+			self.sessions.append(session)
+
 		})
 	}
+
+
 
 
 }
