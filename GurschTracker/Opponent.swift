@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Opponent: NSObject, NSCoding{
+class Opponent {
 
 	//MARK: properites
 	var name: String
@@ -24,17 +24,17 @@ class Opponent: NSObject, NSCoding{
 		self.name = name
 	}
 
-	private init?(name: String?, sessions: [Session]?,amount: Int){
-		guard let safeName = name  else {
+	init?(name: String?, sessions: [Session]?, amount: Int){
+		guard let name = name  else {
 			print("no name were given")
 			return nil
 		}
 
-		if let safeSessions = sessions {
-			self.sessions = safeSessions
+		if let sessions = sessions {
+			self.sessions = sessions
 		}
 
-		self.name = safeName
+		self.name = name
 		self.amount = amount
 	}
 
@@ -45,28 +45,6 @@ class Opponent: NSObject, NSCoding{
 	public func addSession(session: Session){
 		sessions.append(session)
 	}
-
-	//FIXME: maybe error here
-	//MARK: - NSCoding
-	public func encode(with aCoder: NSCoder) {
-		aCoder.encode(name, forKey: OpponentPropKey.name)
-		aCoder.encode(amount, forKey: OpponentPropKey.amount)
-		aCoder.encode(sessions, forKey: OpponentPropKey.sessions)
-	}
-
-	required convenience public init?(coder aDecoder: NSCoder) {
-		let name = aDecoder.decodeObject(forKey: OpponentPropKey.name) as? String
-
-		let sessions = aDecoder.decodeObject(forKey: OpponentPropKey.sessions) as! [Session]
-
-		let amount = aDecoder.decodeInteger(forKey: OpponentPropKey.amount)
-
-		self.init(name: name, sessions: sessions, amount: amount)
-	}
-
-	//MARK: - Archiving Paths
-	static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
-	static let ArchiveURL = DocumentsDirectory.appendingPathComponent("opponents")
 
 	//MARK: - Private Methods
 
@@ -82,11 +60,4 @@ class Opponent: NSObject, NSCoding{
 		return opponents
 
 	}
-}
-
-	//MARK: - keys
-struct OpponentPropKey {
-		static let name = "name"
-		static let amount = "amount"
-		static let sessions = "sessions"
 }

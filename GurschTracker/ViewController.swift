@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class ViewController: UIViewController, UITableViewDataSource {
 
@@ -22,10 +23,6 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 		if let loadedOpponens = loadOpponents() {
 			opponents = loadedOpponens
-
-//			if let loadedSessions = loadSessions() {
-//				sessions = loadedSessions
-//			}
 		}
 
 		totalAmount = calcTotalAmount()
@@ -33,11 +30,6 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 
 
-	}
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
 	}
 
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -51,6 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? OpponentTableViewCell  else {
 			fatalError("The dequeued cell is not an instance of OpponentTableViewCell.")
+
 		}
 
 		// Fetches the appropriate opponent for the data source layout.
@@ -70,8 +63,6 @@ class ViewController: UIViewController, UITableViewDataSource {
 	}
 
 	// MARK: - Navigation
-
-	// In a storyboard-based application, you will often want to do a little preparation before navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		super.prepare(for: segue, sender: sender)
 
@@ -169,44 +160,16 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 	//MARK: saving
 	private func saveOpponents(){
-		let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(opponents, toFile: Opponent.ArchiveURL.path)
-
-		if isSuccessfulSave {
-			print("saving opponents success")
-		} else {
-			print("saving opponents failed")
-		}
 
 	}
 
 	//MARK: loading
 	private func loadOpponents() -> [Opponent]? {
-		let loadedOpponents = NSKeyedUnarchiver.unarchiveObject(withFile: Opponent.ArchiveURL.path) as? [Opponent]
 
-		print("loaded \(loadedOpponents?.count ?? 0) opponents")
-
-		var nrOfSessions = 0
-		if let safeLoadedOpponents = loadedOpponents {
-
-			nrOfSessions = getAllSessions(opponents: safeLoadedOpponents).count
-		}
-		print("loaded \(nrOfSessions) sessions")
-
-		return loadedOpponents
 	}
 
 	//MARK: reseting
 	private func resetOpponents(){
-
-		let isSuccessfulSave = NSKeyedArchiver.archiveRootObject([Opponent](), toFile: Opponent.ArchiveURL.path)
-
-		if isSuccessfulSave {
-			print("reseting opponents success")
-		} else {
-			print("reseting opponents failed")
-		}
-
-		opponents.removeAll()
 	}
 	
 	private func reset(){
@@ -216,6 +179,8 @@ class ViewController: UIViewController, UITableViewDataSource {
 		totalAmount = 0
 		totalAmountLabel.text = String(totalAmount)
 	}
+
+	//MARK: - firebase
 	
 }
 

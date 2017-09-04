@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA1E07611F5B6C6600C0DD2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA1E07601F5B6C6500C0DD2C /* GoogleService-Info.plist */; };
+		BA1E07631F5B80A700C0DD2C /* PersistenceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1E07621F5B80A700C0DD2C /* PersistenceHandler.swift */; };
 		BA241F381EDD6EF800B1F976 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F371EDD6EF800B1F976 /* AppDelegate.swift */; };
 		BA241F3A1EDD6EF800B1F976 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F391EDD6EF800B1F976 /* ViewController.swift */; };
 		BA241F3D1EDD6EF800B1F976 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA241F3B1EDD6EF800B1F976 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		BA0874BF1F0B0738005C0EA6 /* GurschTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GurschTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0874C01F0B0738005C0EA6 /* GurschTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GurschTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA1E07601F5B6C6500C0DD2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BA1E07621F5B80A700C0DD2C /* PersistenceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceHandler.swift; sourceTree = "<group>"; };
 		BA241F371EDD6EF800B1F976 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA241F391EDD6EF800B1F976 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA241F3C1EDD6EF800B1F976 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				BA8E529B1EFD0FE3003E60F0 /* TimeSettingHandler.swift */,
+				BA1E07621F5B80A700C0DD2C /* PersistenceHandler.swift */,
 			);
 			name = services;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				BA8E52951EF44488003E60F0 /* TotalTableViewCell.swift in Sources */,
 				BADDCE751EEB15040040DC6E /* AddOpponentViewController.swift in Sources */,
 				BADDCE731EE740F10040DC6E /* AddSessionPopupViewController.swift in Sources */,
+				BA1E07631F5B80A700C0DD2C /* PersistenceHandler.swift in Sources */,
 				BA8E529C1EFD0FE3003E60F0 /* TimeSettingHandler.swift in Sources */,
 				BA241F381EDD6EF800B1F976 /* AppDelegate.swift in Sources */,
 			);
