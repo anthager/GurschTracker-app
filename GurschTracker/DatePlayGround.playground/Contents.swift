@@ -2,13 +2,31 @@
 
 import UIKit
 
-let date = Date()
-let dateString = date.description
 
-let dateFormatter = DateFormatter()
-dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+func dispatchDemo (){
+	let group = DispatchGroup()
+	let queue = DispatchQueue(label: "1")
+	let queue2 = DispatchQueue(label: "2")
+	let queue3 = DispatchQueue(label: "3")
+	let queue4 = DispatchQueue(label: "4")
 
-let date2 = dateFormatter.date(from: dateString)
-let dateString2 = date2?.description
+	queue.sync {
+		for i in 1...10 {
+			print("\(i) - 1")
 
-dateString == dateString2
+		}
+		queue2.async {
+			for i in 1...10 {
+				print("T" + "H" + "I" + "S")
+			}
+		}
+	}
+	queue.sync {
+		for i in 1...10 {
+			print("\(i) - asd")
+		}
+	}
+
+}
+
+dispatchDemo()

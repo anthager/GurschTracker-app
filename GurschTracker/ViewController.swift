@@ -21,9 +21,9 @@ class ViewController: UIViewController, UITableViewDataSource {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		if let loadedOpponens = loadOpponents() {
-			opponents = loadedOpponens
-		}
+//		if let loadedOpponens = loadOpponents() {
+//			opponents = loadedOpponens
+//		}
 
 		totalAmount = calcTotalAmount()
 		totalAmountLabel.text = String(totalAmount)
