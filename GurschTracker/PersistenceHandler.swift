@@ -19,11 +19,23 @@ class PersistenceHandler {
 	//MARK: - properties
 	var databaseRef: DatabaseReference?
 	var databaseHandle: DatabaseHandle?
-	var opponents: [Opponent]
-	var sessions: [Session]
+	private var opponents_: [Opponent]
+	private var sessions_: [Session]
 	var opponentsHandle: DatabaseHandle?
 	var opponentDic: [String : Opponent] = [:]
 	var sessionsDic: [String : Session] = [:]
+
+	var sessions: [Session] {
+		get {
+			return sessions_
+		}
+	}
+
+	var opponents: [Opponent] {
+		get {
+			return opponents_
+		}
+	}
 
 //	//singleton
 //	static let shared = PersistenceHandler()
@@ -33,8 +45,8 @@ class PersistenceHandler {
 //	}
 
 	init(opponents: [Opponent], sessions: [Session]) {
-		self.opponents = opponents
-		self.sessions = sessions
+		self.opponents_ = opponents
+		self.sessions_ = sessions
 		databaseRef = Database.database().reference()
 	}
 
@@ -45,6 +57,9 @@ class PersistenceHandler {
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childAdded, with: { (snapshot) in
 			//May go a level to deep
+
+			print("Inside")
+
 			guard let opponentProperties = snapshot.value as? [String : Any] else {
 				print("opponent from database unable to cast to string : Any")
 				return
@@ -69,9 +84,11 @@ class PersistenceHandler {
 				return
 			}
 
-			self.opponents.append(opponent)
+			self.opponents_.append(opponent)
 			self.opponentDic["name"] = opponent
 		})
+
+		print("Oppoenents loaded successfully")
 
 	}
 
@@ -114,7 +131,7 @@ class PersistenceHandler {
 			guard let session = Session(amount: amount, id: snapshot.key, date: date) else {
 				return
 			}
-			self.sessions.append(session)
+			self.sessions_.append(session)
 
 		})
 	}

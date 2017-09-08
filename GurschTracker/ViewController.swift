@@ -12,8 +12,13 @@ import FirebaseDatabase
 class ViewController: UIViewController, UITableViewDataSource {
 
 	//MARK: - properties
-	var opponents = [Opponent]()
+	var opponents: [Opponent] = [] {
+		didSet{
+			totalAmount = calcTotalAmount()
+		}
+	}
 	var totalAmount = 0
+	var persistanceHandler: PersistenceHandler?
 	@IBOutlet weak var opponentsTableView: UITableView!
 	@IBOutlet weak var totalAmountLabel: UILabel!
 
@@ -24,6 +29,8 @@ class ViewController: UIViewController, UITableViewDataSource {
 //		if let loadedOpponens = loadOpponents() {
 //			opponents = loadedOpponens
 //		}
+
+		persistanceHandler = PersistenceHandler.init(opponents: opponents, sessions: [Session]())
 
 		totalAmount = calcTotalAmount()
 		totalAmountLabel.text = String(totalAmount)
