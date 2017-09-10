@@ -24,6 +24,11 @@ class PersistenceHandler {
 	var opponentsHandle: DatabaseHandle?
 	var opponentDic: [String : Opponent] = [:]
 	var sessionsDic: [String : Session] = [:]
+	weak var totalAmountLabel: UILabel?
+	weak var opponentsTableView: UITableView?
+
+
+	//TODO: change name sessions_ to _sessions to follow guildlines
 
 	var sessions: [Session] {
 		get {
@@ -44,10 +49,14 @@ class PersistenceHandler {
 //		databaseRef = Database.database().reference()
 //	}
 
-	init(opponents: [Opponent], sessions: [Session]) {
+	init(opponents: [Opponent], sessions: [Session], totalAmountLabel: UILabel, opponentsTableView: UITableView) {
 		self.opponents_ = opponents
 		self.sessions_ = sessions
+		self.totalAmountLabel = totalAmountLabel
+		self.opponentsTableView = opponentsTableView
 		databaseRef = Database.database().reference()
+		loadOpponents()
+//		loadSessions()
 	}
 
 	//It doesnt matter if the two funcs is async, just let them load thier shit for now since you only will display the total amount on the start page 
@@ -56,9 +65,6 @@ class PersistenceHandler {
 
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childAdded, with: { (snapshot) in
-			//May go a level to deep
-
-			print("Inside")
 
 			guard let opponentProperties = snapshot.value as? [String : Any] else {
 				print("opponent from database unable to cast to string : Any")
@@ -68,17 +74,15 @@ class PersistenceHandler {
 				print("opponents name from database was undable to cast to string")
 				return
 			}
+			print("name = \(name) fetched from database")
+
 			guard let amount = opponentProperties["amount"] as? Int else {
 				print("opponents amount from database was undable to cast to Int")
 				return
 			}
-//			guard let sessionsDic = opponentProperties["sessions"] as? [String : Bool] else {
-//				return
-//			}
-//			var sessions: [Session] = []
-//			for session in sessionsDic {
-//				sessions.append(session)
-//			}
+			print("amount = \(amount) fetched from database")
+
+
 			guard let opponent = Opponent(name: name, sessions: nil, amount: amount) else {
 				print("unable to make opponent from name and amount ")
 				return
@@ -86,13 +90,21 @@ class PersistenceHandler {
 
 			self.opponents_.append(opponent)
 			self.opponentDic["name"] = opponent
-		})
 
-		print("Oppoenents loaded successfully")
+			print(self.opponents_.count)
+			DispatchQueue(label: "queue").async {
+//				let count = self.opponentsTableView?.numberOfRows(inSection: 0) ?? 0
+//				let newIndexPath = IndexPath(row: count, section: 0)
+//				self.opponentsTableView?.insertRows(at: [newIndexPath], with: .automatic)
+//				self.opponentsTableView?.reloadData()
+
+				self.opponentsTableView?.reloadData()
+			}
+		})
 
 	}
 
-	//TODO: Will get problem with fucking async shit as always
+
 
 	func loadSessions () {
 

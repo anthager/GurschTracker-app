@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 //			opponents = loadedOpponens
 //		}
 
-		persistanceHandler = PersistenceHandler.init(opponents: opponents, sessions: [Session]())
+		persistanceHandler = PersistenceHandler(opponents: opponents, sessions: [Session](), totalAmountLabel: totalAmountLabel, opponentsTableView: opponentsTableView)
 
 		totalAmount = calcTotalAmount()
 		totalAmountLabel.text = String(totalAmount)
@@ -66,7 +66,8 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 	//MARK: - actions 
 	@IBAction func clean(_ sender: Any) {
-		reset()
+		//reset()
+		print(opponents.count)
 	}
 
 	// MARK: - Navigation
