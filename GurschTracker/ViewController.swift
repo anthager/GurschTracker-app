@@ -12,11 +12,10 @@ import FirebaseDatabase
 class ViewController: UIViewController, UITableViewDataSource {
 
 	//MARK: - properties
-	var opponents: [Opponent]?// = [Opponent.init(name: "Karl")!, Opponent.init(name: "Pelle")!]
-	var totalAmount = 0
-	var persistanceHandler: PersistenceHandler?
+	
 	@IBOutlet weak var opponentsTableView: UITableView!
 	@IBOutlet weak var totalAmountLabel: UILabel!
+	let state = State()
 
 	//MARK: - super methods
 	override func viewDidLoad() {
@@ -25,15 +24,13 @@ class ViewController: UIViewController, UITableViewDataSource {
 //		if let loadedOpponens = loadOpponents() {
 //			opponents = loadedOpponens
 //		}
-		persistanceHandler = PersistenceHandler(sessions: [Session](), totalAmountLabel: totalAmountLabel, opponentsTableView: opponentsTableView)
-		opponents = persistanceHandler?.opponents
 
-		totalAmount = calcTotalAmount()
-		totalAmountLabel.text = String(totalAmount)
+		//totalAmount = calcTotalAmount()
+		totalAmountLabel.text = String(state.totalAmount)
 	}
 
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-		return opponents?.count ?? 0
+		return state.opponents.count
 	}
 
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -47,10 +44,10 @@ class ViewController: UIViewController, UITableViewDataSource {
 		}
 
 		// Fetches the appropriate opponent for the data source layout.
-		let opponent = opponents?[indexPath.row]
+		let opponent = state.opponents[indexPath.row]
 
-		cell.nameLabel.text = opponent?.name ?? ""
-		cell.amountLabel.text = String(describing: opponent?.amount ?? 0)
+		cell.nameLabel.text = opponent.name
+		cell.amountLabel.text = String(describing: opponent.amount)
 
 
 		return cell
@@ -59,8 +56,9 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 	//MARK: - actions 
 	@IBAction func clean(_ sender: Any) {
-		//reset()
-		print(opponents?.count ?? 0)
+//		reset()
+//		totalAmountLabel.text = String(totalAmount)
+//		opponentsTableView.reloadData()
 	}
 
 	// MARK: - Navigation
@@ -76,7 +74,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 			guard let index = opponentsTableView.indexPathForSelectedRow else  {
 				fatalError("No row is selected")
 			}
-			popupVC.opponent = opponents?[index.row]
+			popupVC.opponent = state.opponents[index.row]
 
 		case "addOpponent": break
 
@@ -86,7 +84,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 			}
 
 //			statisticsVC.sessions = sessions
-			statisticsVC.opponents = opponents
+			statisticsVC.opponents = state.opponents
 			break
 
 
@@ -99,15 +97,13 @@ class ViewController: UIViewController, UITableViewDataSource {
 	@IBAction func unwindToOverview(sender: UIStoryboardSegue) {
 		if let addSessionVC = sender.source as? AddSessionPopupViewController {
 
-			totalAmount += addSessionVC.amount
-			totalAmountLabel.text = String(totalAmount)
+			state.addToTotalAmount(addSessionVC.amount)
+			totalAmountLabel.text = String(state.totalAmount)
 
 			guard let index = opponentsTableView.indexPathForSelectedRow else  {
 				fatalError("No row is selected")
 			}
 			opponentsTableView.reloadRows(at: [index], with: .automatic)
-
-			saveOpponents()
 
 		} else if let addVC = sender.source as? AddOpponentViewController {
 
@@ -116,77 +112,23 @@ class ViewController: UIViewController, UITableViewDataSource {
 			}
 
 //			let newIndexPath = IndexPath(row: opponents?.count ?? 0, section: 0)
-//			opponents.append(opponent)
+			state.opponents.append(opponent)
 //			opponentsTableView.insertRows(at: [newIndexPath], with: .automatic)
 			opponentsTableView.reloadData()
-
-			saveOpponents()
 		}
 	}
 
 	//MARK: - private methods
 
-	private func setupSampleOpponents(){
 
-//		guard let opponent1 = Opponent(name: "Peter") else {
-//			fatalError("Unable to instantiate opponent1")
-//		}
-//		guard let opponent2 = Opponent(name: "Adam") else {
-//			fatalError("Unable to instantiate opponent2")
-//		}
-//		guard let opponent3 = Opponent(name: "Petronella") else {
-//			fatalError("Unable to instantiate opponent3")
-//		}
-
-		//opponents += [opponent1, opponent2, opponent3]
-	}
-
-	private func calcTotalAmount() -> Int {
-		var amount = 0
-
-		guard let opponents = self.opponents else {
-			return 0
-		}
-
-		for opponent in opponents {
-			amount += opponent.amount
-		}
-		return amount
-	}
-
-	private func getAllSessions(opponents: [Opponent]) -> [Session] {
-		var sessions = [Session]()
-		for opponent in opponents {
-			for session in opponent.sessions {
-				sessions.append(session)
-			}
-		}
-
-		return sessions
-	}
-
-	//MARK: saving
-	private func saveOpponents(){
-
-	}
-
-	//MARK: loading
-	private func loadOpponents() -> [Opponent]? {
-		return nil
-	}
+	
 
 	//MARK: reseting
 	//TODO: Fix the resetting of opponents
 	private func resetOpponents(){
 	}
 	
-	private func reset(){
-		resetOpponents()
-		opponentsTableView.reloadData()
-
-		totalAmount = 0
-		totalAmountLabel.text = String(totalAmount)
-	}
+	
 
 	//MARK: - firebase
 	
