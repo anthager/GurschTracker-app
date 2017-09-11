@@ -11,6 +11,8 @@
 // engeenering thing that takes a list in its init and updates it async.
 
 //give when loading, the function takes an array of the type it will load and async keeps this array up to date
+
+//maybe it's a good idea to insted of having the original viewcontroller as tableview delegate, having a seperate class for the tableview. In this way it would be possible to make it the persistenceHandler's responible to update the  tableview
 import Foundation
 import Firebase
 //currently using firebase
@@ -19,7 +21,7 @@ class PersistenceHandler {
 	//MARK: - properties
 	var databaseRef: DatabaseReference?
 	var databaseHandle: DatabaseHandle?
-	private var opponents_: [Opponent]
+	private var opponents_: [Opponent] = []
 	private var sessions_: [Session]
 	var opponentsHandle: DatabaseHandle?
 	var opponentDic: [String : Opponent] = [:]
@@ -49,8 +51,7 @@ class PersistenceHandler {
 //		databaseRef = Database.database().reference()
 //	}
 
-	init(opponents: [Opponent], sessions: [Session], totalAmountLabel: UILabel, opponentsTableView: UITableView) {
-		self.opponents_ = opponents
+	init(sessions: [Session], totalAmountLabel: UILabel, opponentsTableView: UITableView) {
 		self.sessions_ = sessions
 		self.totalAmountLabel = totalAmountLabel
 		self.opponentsTableView = opponentsTableView
@@ -93,11 +94,6 @@ class PersistenceHandler {
 
 			print(self.opponents_.count)
 			DispatchQueue(label: "queue").async {
-//				let count = self.opponentsTableView?.numberOfRows(inSection: 0) ?? 0
-//				let newIndexPath = IndexPath(row: count, section: 0)
-//				self.opponentsTableView?.insertRows(at: [newIndexPath], with: .automatic)
-//				self.opponentsTableView?.reloadData()
-
 				self.opponentsTableView?.reloadData()
 			}
 		})

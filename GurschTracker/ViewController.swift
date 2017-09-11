@@ -12,11 +12,7 @@ import FirebaseDatabase
 class ViewController: UIViewController, UITableViewDataSource {
 
 	//MARK: - properties
-	var opponents: [Opponent] = [] {
-		didSet{
-			totalAmount = calcTotalAmount()
-		}
-	}
+	var opponents: [Opponent]?// = [Opponent.init(name: "Karl")!, Opponent.init(name: "Pelle")!]
 	var totalAmount = 0
 	var persistanceHandler: PersistenceHandler?
 	@IBOutlet weak var opponentsTableView: UITableView!
@@ -29,18 +25,15 @@ class ViewController: UIViewController, UITableViewDataSource {
 //		if let loadedOpponens = loadOpponents() {
 //			opponents = loadedOpponens
 //		}
-
-		persistanceHandler = PersistenceHandler(opponents: opponents, sessions: [Session](), totalAmountLabel: totalAmountLabel, opponentsTableView: opponentsTableView)
+		persistanceHandler = PersistenceHandler(sessions: [Session](), totalAmountLabel: totalAmountLabel, opponentsTableView: opponentsTableView)
+		opponents = persistanceHandler?.opponents
 
 		totalAmount = calcTotalAmount()
 		totalAmountLabel.text = String(totalAmount)
-
-
-
 	}
 
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-		return opponents.count
+		return opponents?.count ?? 0
 	}
 
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -54,10 +47,10 @@ class ViewController: UIViewController, UITableViewDataSource {
 		}
 
 		// Fetches the appropriate opponent for the data source layout.
-		let opponent = opponents[indexPath.row]
+		let opponent = opponents?[indexPath.row]
 
-		cell.nameLabel.text = opponent.name
-		cell.amountLabel.text = String(opponent.amount)
+		cell.nameLabel.text = opponent?.name ?? ""
+		cell.amountLabel.text = String(describing: opponent?.amount ?? 0)
 
 
 		return cell
@@ -67,7 +60,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 	//MARK: - actions 
 	@IBAction func clean(_ sender: Any) {
 		//reset()
-		print(opponents.count)
+		print(opponents?.count ?? 0)
 	}
 
 	// MARK: - Navigation
@@ -83,7 +76,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 			guard let index = opponentsTableView.indexPathForSelectedRow else  {
 				fatalError("No row is selected")
 			}
-			popupVC.opponent = opponents[index.row]
+			popupVC.opponent = opponents?[index.row]
 
 		case "addOpponent": break
 
@@ -122,9 +115,10 @@ class ViewController: UIViewController, UITableViewDataSource {
 				fatalError("no opponent in addOpponentVC")
 			}
 
-			let newIndexPath = IndexPath(row: opponents.count, section: 0)
-			opponents.append(opponent)
-			opponentsTableView.insertRows(at: [newIndexPath], with: .automatic)
+//			let newIndexPath = IndexPath(row: opponents?.count ?? 0, section: 0)
+//			opponents.append(opponent)
+//			opponentsTableView.insertRows(at: [newIndexPath], with: .automatic)
+			opponentsTableView.reloadData()
 
 			saveOpponents()
 		}
@@ -134,21 +128,26 @@ class ViewController: UIViewController, UITableViewDataSource {
 
 	private func setupSampleOpponents(){
 
-		guard let opponent1 = Opponent(name: "Peter") else {
-			fatalError("Unable to instantiate opponent1")
-		}
-		guard let opponent2 = Opponent(name: "Adam") else {
-			fatalError("Unable to instantiate opponent2")
-		}
-		guard let opponent3 = Opponent(name: "Petronella") else {
-			fatalError("Unable to instantiate opponent3")
-		}
+//		guard let opponent1 = Opponent(name: "Peter") else {
+//			fatalError("Unable to instantiate opponent1")
+//		}
+//		guard let opponent2 = Opponent(name: "Adam") else {
+//			fatalError("Unable to instantiate opponent2")
+//		}
+//		guard let opponent3 = Opponent(name: "Petronella") else {
+//			fatalError("Unable to instantiate opponent3")
+//		}
 
-		opponents += [opponent1, opponent2, opponent3]
+		//opponents += [opponent1, opponent2, opponent3]
 	}
 
 	private func calcTotalAmount() -> Int {
 		var amount = 0
+
+		guard let opponents = self.opponents else {
+			return 0
+		}
+
 		for opponent in opponents {
 			amount += opponent.amount
 		}
