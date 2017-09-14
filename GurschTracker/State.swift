@@ -6,12 +6,25 @@
 //  Copyright © 2017 Anton Hägermalm. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class State {
 
 	//MARK: - properties
-	var opponents: [Opponent] = []// = [Opponent.init(name: "Karl")!, Opponent.init(name: "Pelle")!]
+	var opponents: [Opponent] = [] {
+		didSet{
+			print(opponents)
+			let queue = DispatchQueue(label: "queue")
+			queue.async {
+				self.tableView.reloadData()
+			}
+		}
+	}
+	let tableView: UITableView
+	let label: UILabel
+
+
+	var sessions: [Session] = []
 	private var _totalAmount: Int?
 	var totalAmount: Int {
 		if _totalAmount == nil {
@@ -19,11 +32,10 @@ class State {
 		}
 		return _totalAmount!
 	}
-	var persistanceHandler: PersistenceHandler?
 
-	init() {
-		persistanceHandler = PersistenceHandler(sessions: [Session](), totalAmountLabel: totalAmountLabel, opponentsTableView: opponentsTableView)
-		opponents = persistanceHandler?.opponents ?? []
+	init(tableView: UITableView, label: UILabel) {
+		self.label = label
+		self.tableView = tableView
 	}
 
 	//MARK: - func for amount

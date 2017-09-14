@@ -9,28 +9,32 @@
 import UIKit
 import FirebaseDatabase
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, Observer {
 
 	//MARK: - properties
-	
+
 	@IBOutlet weak var opponentsTableView: UITableView!
 	@IBOutlet weak var totalAmountLabel: UILabel!
-	let state = State()
+	var state: State?
+
 
 	//MARK: - super methods
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		state = State(tableView: opponentsTableView, label: totalAmountLabel)
+		PersistenceHandler(state: state!)
 
-//		if let loadedOpponens = loadOpponents() {
-//			opponents = loadedOpponens
-//		}
+		//		if let loadedOpponens = loadOpponents() {
+		//			opponents = loadedOpponens
+		//		}
 
 		//totalAmount = calcTotalAmount()
-		totalAmountLabel.text = String(state.totalAmount)
+		totalAmountLabel.text = String(describing: state?.totalAmount)
 	}
 
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-		return state.opponents.count
+		return state!.opponents.count
 	}
 
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -44,21 +48,21 @@ class ViewController: UIViewController, UITableViewDataSource {
 		}
 
 		// Fetches the appropriate opponent for the data source layout.
-		let opponent = state.opponents[indexPath.row]
+		let opponent = state?.opponents[indexPath.row]
 
-		cell.nameLabel.text = opponent.name
-		cell.amountLabel.text = String(describing: opponent.amount)
+		cell.nameLabel.text = opponent!.name
+		cell.amountLabel.text = String(describing: opponent?.amount)
 
 
 		return cell
 
 	}
 
-	//MARK: - actions 
+	//MARK: - actions
 	@IBAction func clean(_ sender: Any) {
-//		reset()
-//		totalAmountLabel.text = String(totalAmount)
-//		opponentsTableView.reloadData()
+		//		reset()
+		//		totalAmountLabel.text = String(totalAmount)
+		//		opponentsTableView.reloadData()
 	}
 
 	// MARK: - Navigation
@@ -74,7 +78,7 @@ class ViewController: UIViewController, UITableViewDataSource {
 			guard let index = opponentsTableView.indexPathForSelectedRow else  {
 				fatalError("No row is selected")
 			}
-			popupVC.opponent = state.opponents[index.row]
+			popupVC.opponent = state?.opponents[index.row]
 
 		case "addOpponent": break
 
@@ -83,8 +87,8 @@ class ViewController: UIViewController, UITableViewDataSource {
 				fatalError("VC is not statsVC")
 			}
 
-//			statisticsVC.sessions = sessions
-			statisticsVC.opponents = state.opponents
+			//			statisticsVC.sessions = sessions
+			statisticsVC.opponents = state?.opponents
 			break
 
 
@@ -97,8 +101,8 @@ class ViewController: UIViewController, UITableViewDataSource {
 	@IBAction func unwindToOverview(sender: UIStoryboardSegue) {
 		if let addSessionVC = sender.source as? AddSessionPopupViewController {
 
-			state.addToTotalAmount(addSessionVC.amount)
-			totalAmountLabel.text = String(state.totalAmount)
+			state?.addToTotalAmount(addSessionVC.amount)
+			totalAmountLabel.text = String(describing: state?.totalAmount)
 
 			guard let index = opponentsTableView.indexPathForSelectedRow else  {
 				fatalError("No row is selected")
@@ -110,27 +114,22 @@ class ViewController: UIViewController, UITableViewDataSource {
 			guard let opponent = addVC.opponent else {
 				fatalError("no opponent in addOpponentVC")
 			}
-
-//			let newIndexPath = IndexPath(row: opponents?.count ?? 0, section: 0)
-			state.opponents.append(opponent)
-//			opponentsTableView.insertRows(at: [newIndexPath], with: .automatic)
+			state?.opponents.append(opponent)
 			opponentsTableView.reloadData()
 		}
 	}
 
+	//MARK: - observer funcs
+
+	func stateChanged(observer: Observable) {
+		opponentsTableView.reloadData()
+	}
+
 	//MARK: - private methods
-
-
 	
-
 	//MARK: reseting
-	//TODO: Fix the resetting of opponents
+	
 	private func resetOpponents(){
 	}
-	
-	
-
-	//MARK: - firebase
-	
 }
 

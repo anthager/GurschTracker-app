@@ -22,12 +22,13 @@ class PersistenceHandler {
 	var databaseRef: DatabaseReference?
 	var databaseHandle: DatabaseHandle?
 	private var opponents_: [Opponent] = []
-	private var sessions_: [Session]
+	private var sessions_: [Session] = []
 	var opponentsHandle: DatabaseHandle?
 	var opponentDic: [String : Opponent] = [:]
 	var sessionsDic: [String : Session] = [:]
 	weak var totalAmountLabel: UILabel?
 	weak var opponentsTableView: UITableView?
+	var state: State
 
 
 	//TODO: change name sessions_ to _sessions to follow guildlines
@@ -51,10 +52,8 @@ class PersistenceHandler {
 //		databaseRef = Database.database().reference()
 //	}
 
-	init(sessions: [Session], totalAmountLabel: UILabel, opponentsTableView: UITableView) {
-		self.sessions_ = sessions
-		self.totalAmountLabel = totalAmountLabel
-		self.opponentsTableView = opponentsTableView
+	init(state: State) {
+		self.state = state
 		databaseRef = Database.database().reference()
 		loadOpponents()
 //		loadSessions()
@@ -63,6 +62,11 @@ class PersistenceHandler {
 	//It doesnt matter if the two funcs is async, just let them load thier shit for now since you only will display the total amount on the start page 
 
 	func loadOpponents (){
+
+//		guard let state = self.state else {
+//			print("Opponents started loading but now state found")
+//			return
+//		}
 
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childAdded, with: { (snapshot) in
@@ -89,13 +93,13 @@ class PersistenceHandler {
 				return
 			}
 
-			self.opponents_.append(opponent)
-			self.opponentDic["name"] = opponent
+			self.state.opponents.append(opponent)
+			//self.opponentDic["name"] = opponent
 
-			print(self.opponents_.count)
-			DispatchQueue(label: "queue").async {
-				self.opponentsTableView?.reloadData()
-			}
+			print(self.state.opponents.count)
+//			DispatchQueue(label: "queue").async {
+//				self.opponentsTableView?.reloadData()
+//			}
 		})
 
 	}
@@ -142,6 +146,10 @@ class PersistenceHandler {
 			self.sessions_.append(session)
 
 		})
+	}
+
+	func addState(state: State){
+		self.state = state
 	}
 
 

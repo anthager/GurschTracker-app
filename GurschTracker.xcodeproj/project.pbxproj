@@ -22,6 +22,7 @@
 		BA8E52991EFD0F65003E60F0 /* TimeSettingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8E52981EFD0F65003E60F0 /* TimeSettingTest.swift */; };
 		BA8E529C1EFD0FE3003E60F0 /* TimeSettingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8E529B1EFD0FE3003E60F0 /* TimeSettingHandler.swift */; };
 		BABA8C761F66CAF90049E56A /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABA8C751F66CAF90049E56A /* State.swift */; };
+		BAD992461F681A3000626064 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD992451F681A3000626064 /* Observable.swift */; };
 		BADDCE731EE740F10040DC6E /* AddSessionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */; };
 		BADDCE751EEB15040040DC6E /* AddOpponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADDCE741EEB15040040DC6E /* AddOpponentViewController.swift */; };
 		DAF83167B3D6DE4C8D104737 /* Pods_GurschTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5BCB755395EAD13F3603A0 /* Pods_GurschTrackerTests.framework */; };
@@ -63,8 +64,10 @@
 		BA8E529B1EFD0FE3003E60F0 /* TimeSettingHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSettingHandler.swift; sourceTree = "<group>"; };
 		BABA8C731F5DD1CB0049E56A /* DatePlayGround.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DatePlayGround.playground; sourceTree = "<group>"; };
 		BABA8C751F66CAF90049E56A /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
+		BAD992451F681A3000626064 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSessionPopupViewController.swift; sourceTree = "<group>"; };
 		BADDCE741EEB15040040DC6E /* AddOpponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddOpponentViewController.swift; path = ../AddOpponentViewController.swift; sourceTree = "<group>"; };
+		BAF10FC51F69D42A008F5EA0 /* referenceTypesGP.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = referenceTypesGP.playground; sourceTree = "<group>"; };
 		C2BBA2C08199B5FD89BFF5BF /* Pods_GurschTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GurschTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5BCB755395EAD13F3603A0 /* Pods_GurschTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GurschTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -132,6 +135,7 @@
 				BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */,
 				BA241F591EDDCCD300B1F976 /* OpponentTableViewCell.swift */,
 				BA8E52941EF44488003E60F0 /* TotalTableViewCell.swift */,
+				BAD992441F6819B900626064 /* utils */,
 				BA8E529A1EFD0FC9003E60F0 /* services */,
 				BA241F641EE6BFCF00B1F976 /* model */,
 				BA241F3E1EDD6EF800B1F976 /* Assets.xcassets */,
@@ -167,8 +171,17 @@
 				BA8E529B1EFD0FE3003E60F0 /* TimeSettingHandler.swift */,
 				BA1E07621F5B80A700C0DD2C /* PersistenceHandler.swift */,
 				BABA8C731F5DD1CB0049E56A /* DatePlayGround.playground */,
+				BAF10FC51F69D42A008F5EA0 /* referenceTypesGP.playground */,
 			);
 			name = services;
+			sourceTree = "<group>";
+		};
+		BAD992441F6819B900626064 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				BAD992451F681A3000626064 /* Observable.swift */,
+			);
+			name = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,6 +404,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAD992461F681A3000626064 /* Observable.swift in Sources */,
 				BA241F5A1EDDCCD300B1F976 /* OpponentTableViewCell.swift in Sources */,
 				BA8E52971EF6E666003E60F0 /* StatisticsViewController.swift in Sources */,
 				BA241F601EE6BAAC00B1F976 /* Opponent.swift in Sources */,
