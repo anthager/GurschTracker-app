@@ -7,57 +7,50 @@
 //
 
 // This service class should handle the persitence of the model in a smart way to keep the architecture nice.
-// The goal in a later iteration is to make this some kind of generic smart 
-// engeenering thing that takes a list in its init and updates it async.
 
-//give when loading, the function takes an array of the type it will load and async keeps this array up to date
-
-//maybe it's a good idea to insted of having the original viewcontroller as tableview delegate, having a seperate class for the tableview. In this way it would be possible to make it the persistenceHandler's responible to update the  tableview
 import Foundation
 import Firebase
+import RxSwift
+
 //currently using firebase
 class PersistenceHandler {
 
 	//MARK: - properties
 	var databaseRef: DatabaseReference?
 	var databaseHandle: DatabaseHandle?
-	private var opponents_: [Opponent] = []
-	private var sessions_: [Session] = []
+
+	//Rx props
+	let sessions = Variable<[Session]>([])
+	let opponents = Variable<[Opponent]>([])
+	var totalAmount = Variable<Int>(0)
+
 	var opponentsHandle: DatabaseHandle?
 	var opponentDic: [String : Opponent] = [:]
 	var sessionsDic: [String : Session] = [:]
-	weak var totalAmountLabel: UILabel?
-	weak var opponentsTableView: UITableView?
-	var state: State
+
 
 
 	//TODO: change name sessions_ to _sessions to follow guildlines
 
-	var sessions: [Session] {
-		get {
-			return sessions_
-		}
-	}
-
-	var opponents: [Opponent] {
-		get {
-			return opponents_
-		}
-	}
-
-//	//singleton
-//	static let shared = PersistenceHandler()
+//	var sessions: [Session] {
+//		get {
+//			return sessions_
+//		}
+//	}
 //
-//	private init () {
-//		databaseRef = Database.database().reference()
+//	var opponents: [Opponent] {
+//		get {
+//			return opponents_
+//		}
 //	}
 
-	init(state: State) {
-		self.state = state
+	init() {
 		databaseRef = Database.database().reference()
 		loadOpponents()
+
 //		loadSessions()
 	}
+
 
 	//It doesnt matter if the two funcs is async, just let them load thier shit for now since you only will display the total amount on the start page 
 
@@ -87,21 +80,26 @@ class PersistenceHandler {
 			}
 			print("amount = \(amount) fetched from database")
 
+			self.totalAmount.value += amount
 
 			guard let opponent = Opponent(name: name, sessions: nil, amount: amount) else {
 				print("unable to make opponent from name and amount ")
 				return
 			}
 
-			self.state.opponents.append(opponent)
-			//self.opponentDic["name"] = opponent
+			self.opponents.value.append(opponent)
 
-			print(self.state.opponents.count)
-//			DispatchQueue(label: "queue").async {
-//				self.opponentsTableView?.reloadData()
-//			}
+			print("loadOpponents debug: opponents.count = \(self.opponents.value.count)")
+
 		})
 
+	}
+
+	func bindUI(){
+		sessions.asObservable()
+			.subscribe(onNext: { value in
+				print(value)
+			})
 	}
 
 
@@ -143,16 +141,9 @@ class PersistenceHandler {
 			guard let session = Session(amount: amount, id: snapshot.key, date: date) else {
 				return
 			}
-			self.sessions_.append(session)
+			self.sessions.value.append(session)
 
 		})
 	}
-
-	func addState(state: State){
-		self.state = state
-	}
-
-
-
 
 }
