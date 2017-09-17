@@ -13,11 +13,13 @@ class ViewModel {
 
 	//MARK: - properties
 
+	//MARK: - Rx props
 	private let _sessions: Variable<[Session]>
 	private let _opponents: Variable<[Opponent]>
-	private let persistenceHandler: PersistenceHandler
+	private let _totalAmount: Variable<Int>
 
-	var totalAmount = 0
+
+	private let persistenceHandler: PersistenceHandler
 
 	var opponents: Observable<[Opponent]> {
 		return _opponents.asObservable()
@@ -27,10 +29,15 @@ class ViewModel {
 		return _sessions.asObservable()
 	}
 
+	var totalAmount: Observable<Int> {
+		return _totalAmount.asObservable()
+	}
+
 	init(){
 		persistenceHandler = PersistenceHandler()
 		_sessions = persistenceHandler.sessions
 		_opponents = persistenceHandler.opponents
+		_totalAmount = persistenceHandler.totalAmount
 	}
 
 	//MARK: - func for amount
@@ -54,11 +61,6 @@ class ViewModel {
 
 		return sessions
 	}
-
-//	func reset(){
-//		resetOpponents()
-////		_totalAmount = nil
-//	}
 
 	func resetOpponents() {
 		//		opponents.value = [Opponent]()

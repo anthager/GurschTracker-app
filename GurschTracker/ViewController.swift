@@ -11,7 +11,7 @@ import FirebaseDatabase
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController {
 
 	//MARK: - properties
 
@@ -30,36 +30,8 @@ class ViewController: UIViewController, UITableViewDataSource {
 		setupUI()
 	}
 
-	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-		return 0
-	}
-
-	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-		// Table view cells are reused and should be dequeued using a cell identifier.
-
-		let cellIdentifier = "OpponentTableViewCell"
-
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? OpponentTableViewCell  else {
-			fatalError("The dequeued cell is not an instance of OpponentTableViewCell.")
-
-		}
-
-		// Fetches the appropriate opponent for the data source layout.
-		let opponent = state?.opponents[indexPath.row]
-
-		cell.nameLabel.text = opponent!.name
-		cell.amountLabel.text = String(describing: opponent?.amount)
-
-
-		return cell
-
-	}
-
 	//MARK: - actions
 	@IBAction func clean(_ sender: Any) {
-		//		reset()
-		//		totalAmountLabel.text = String(totalAmount)
-		//		opponentsTableView.reloadData()
 	}
 
 	// MARK: - Navigation
@@ -84,7 +56,6 @@ class ViewController: UIViewController, UITableViewDataSource {
 				fatalError("VC is not statsVC")
 			}
 
-			//			statisticsVC.sessions = sessions
 			statisticsVC.opponents = state?.opponents
 			break
 
@@ -115,28 +86,23 @@ class ViewController: UIViewController, UITableViewDataSource {
 			opponentsTableView.reloadData()
 		}
 	}
+	//MARK: - private methods
 
 	func setupUI() {
-//		viewModel?.opponents
-//			.subscribe(onNext: { (value) in
-//				self.opponentsTableView.reloadData()
-//		})
+		viewModel?.totalAmount
+			.map { amount in
+				return String(amount)
+			}
+			.bind(to: totalAmountLabel.rx.text)
+			.disposed(by: bag)
 
 		viewModel?.opponents
 			.bind(to: opponentsTableView.rx.items(cellIdentifier: "OpponentTableViewCell", cellType: OpponentTableViewCell.self)) {
 				(row, element, cell) in
 				cell.nameLabel.text = element.name
 				cell.amountLabel.text = String(element.amount)
-		}
+				}
 			.disposed(by: bag)
-
-	}
-
-	//MARK: - private methods
-	
-	//MARK: reseting
-	
-	private func resetOpponents(){
 	}
 }
 
