@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class State {
 
@@ -14,14 +15,10 @@ class State {
 	var opponents: [Opponent] = [] {
 		didSet{
 			print(opponents)
-			let queue = DispatchQueue(label: "queue")
-			queue.async {
-				self.tableView.reloadData()
-			}
 		}
 	}
-	let tableView: UITableView
-	let label: UILabel
+
+	let _opponents = Variable([Opponent])
 
 
 	var sessions: [Session] = []
@@ -33,10 +30,14 @@ class State {
 		return _totalAmount!
 	}
 
-	init(tableView: UITableView, label: UILabel) {
-		self.label = label
-		self.tableView = tableView
+	init(){
+
 	}
+
+//	init(tableView: UITableView, label: UILabel) {
+//		self.label = label
+//		self.tableView = tableView
+//	}
 
 	//MARK: - func for amount
 

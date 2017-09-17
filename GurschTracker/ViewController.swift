@@ -22,8 +22,8 @@ class ViewController: UIViewController, UITableViewDataSource, Observer {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		state = State(tableView: opponentsTableView, label: totalAmountLabel)
-		PersistenceHandler(state: state!)
+		state = State()
+		//PersistenceHandler(state: state!)
 
 		//		if let loadedOpponens = loadOpponents() {
 		//			opponents = loadedOpponens
