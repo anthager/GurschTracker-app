@@ -13,16 +13,24 @@ class ViewModel {
 
 	//MARK: - properties
 
-	let sessions: Variable<[Session]>
-	let opponents: Variable<[Opponent]>
-	let persistenceHandler: PersistenceHandler
+	private let _sessions: Variable<[Session]>
+	private let _opponents: Variable<[Opponent]>
+	private let persistenceHandler: PersistenceHandler
 
 	var totalAmount = 0
 
+	var opponents: Observable<[Opponent]> {
+		return _opponents.asObservable()
+	}
+
+	var sessions: Observable<[Session]> {
+		return _sessions.asObservable()
+	}
+
 	init(){
 		persistenceHandler = PersistenceHandler()
-		sessions = persistenceHandler.sessions
-		opponents = persistenceHandler.opponents
+		_sessions = persistenceHandler.sessions
+		_opponents = persistenceHandler.opponents
 	}
 
 	//MARK: - func for amount
@@ -55,6 +63,7 @@ class ViewModel {
 	func resetOpponents() {
 		//		opponents.value = [Opponent]()
 	}
+
 
 	//	func setupSampleOpponents(){
 	//

@@ -23,6 +23,7 @@ class PersistenceHandler {
 	let sessions = Variable<[Session]>([])
 	let opponents = Variable<[Opponent]>([])
 	var totalAmount = Variable<Int>(0)
+	private let bag = DisposeBag()
 
 	var opponentsHandle: DatabaseHandle?
 	var opponentDic: [String : Opponent] = [:]
@@ -46,6 +47,7 @@ class PersistenceHandler {
 
 	init() {
 		databaseRef = Database.database().reference()
+//		bindUI()
 		loadOpponents()
 
 //		loadSessions()
@@ -95,12 +97,13 @@ class PersistenceHandler {
 
 	}
 
-	func bindUI(){
-		sessions.asObservable()
-			.subscribe(onNext: { value in
-				print(value)
-			})
-	}
+//	func bindUI(){
+//		opponents.asObservable()
+//			.subscribe(onNext: { value in
+//				print(value)
+//			})
+//			.addDisposableTo(bag)
+//	}
 
 
 

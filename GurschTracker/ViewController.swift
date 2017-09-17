@@ -8,33 +8,30 @@
 
 import UIKit
 import FirebaseDatabase
+import RxSwift
+import RxCocoa
 
-class ViewController: UIViewController, UITableViewDataSource, Observer {
+class ViewController: UIViewController, UITableViewDataSource {
 
 	//MARK: - properties
 
 	@IBOutlet weak var opponentsTableView: UITableView!
 	@IBOutlet weak var totalAmountLabel: UILabel!
 	var state: State?
+	var viewModel: ViewModel?
+	let bag = DisposeBag()
 
 
 	//MARK: - super methods
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		state = State()
-		//PersistenceHandler(state: state!)
-
-		//		if let loadedOpponens = loadOpponents() {
-		//			opponents = loadedOpponens
-		//		}
-
-		//totalAmount = calcTotalAmount()
-		totalAmountLabel.text = String(describing: state?.totalAmount)
+		viewModel = ViewModel()
+		setupUI()
 	}
 
 	public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-		return state!.opponents.count
+		return 0
 	}
 
 	public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -119,10 +116,20 @@ class ViewController: UIViewController, UITableViewDataSource, Observer {
 		}
 	}
 
-	//MARK: - observer funcs
+	func setupUI() {
+//		viewModel?.opponents
+//			.subscribe(onNext: { (value) in
+//				self.opponentsTableView.reloadData()
+//		})
 
-	func stateChanged(observer: Observable) {
-		opponentsTableView.reloadData()
+		viewModel?.opponents
+			.bind(to: opponentsTableView.rx.items(cellIdentifier: "OpponentTableViewCell", cellType: OpponentTableViewCell.self)) {
+				(row, element, cell) in
+				cell.nameLabel.text = element.name
+				cell.amountLabel.text = String(element.amount)
+		}
+			.disposed(by: bag)
+
 	}
 
 	//MARK: - private methods
