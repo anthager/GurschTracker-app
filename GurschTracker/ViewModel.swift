@@ -18,26 +18,38 @@ class ViewModel {
 	private let _opponents: Variable<[Opponent]>
 	private let _totalAmount: Variable<Int>
 
-
+	//MARK: - misc props
 	private let persistenceHandler: PersistenceHandler
 
-	var opponents: Observable<[Opponent]> {
+	//MARK: - public props
+	public var opponents: Observable<[Opponent]> {
 		return _opponents.asObservable()
 	}
 
-	var sessions: Observable<[Session]> {
+	public var sessions: Observable<[Session]> {
 		return _sessions.asObservable()
 	}
 
-	var totalAmount: Observable<Int> {
+	public var totalAmount: Observable<Int> {
 		return _totalAmount.asObservable()
 	}
 
-	init(){
+	//MARK: inits
+	public init(){
 		persistenceHandler = PersistenceHandler()
 		_sessions = persistenceHandler.sessions
 		_opponents = persistenceHandler.opponents
 		_totalAmount = persistenceHandler.totalAmount
+	}
+
+	//MARK: - funcs for editing from view
+
+	public func newOpponent(_ name: String){
+		guard let opponent = Opponent(name: name) else {
+			print("bug: opponent was unable to be init from name only init, things is seriously fucked up")
+			return
+		}
+		_opponents.value.append(opponent)
 	}
 
 	//MARK: - func for amount
@@ -84,15 +96,6 @@ class ViewModel {
 
 
 	//MARK: - private funcs
-
-//	private func calculateTotalAmount(){
-//		var amount = 0
-//
-//		for opponent in opponents.value {
-//			amount += opponent.amount
-//		}
-//		_totalAmount = amount
-//	}
 
 }
 

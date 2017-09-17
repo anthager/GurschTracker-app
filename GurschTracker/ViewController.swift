@@ -77,12 +77,13 @@ class ViewController: UIViewController {
 			}
 			opponentsTableView.reloadRows(at: [index], with: .automatic)
 
-		} else if let addVC = sender.source as? AddOpponentViewController {
+		} else if let addOpponentVC = sender.source as? AddOpponentViewController {
 
-			guard let opponent = addVC.opponent else {
-				fatalError("no opponent in addOpponentVC")
+			guard let name = addOpponentVC.name else {
+				print("bug: addOpponentVC returned with no name")
+				return
 			}
-			state?.opponents.append(opponent)
+			viewModel?.newOpponent(name)
 			opponentsTableView.reloadData()
 		}
 	}
