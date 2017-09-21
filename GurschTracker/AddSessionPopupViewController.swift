@@ -48,7 +48,7 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 	//MARK: - actions
 	@IBAction func buttonPressed(_ sender: UIButton) {
 		let buttonName = sender.titleLabel?.text ?? ""
-		guard let opponent = self.opponent else {
+		guard var opponent = self.opponent else {
 			fatalError("No opponent found")
 		}
 
@@ -99,7 +99,7 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		super.prepare(for: segue, sender: sender)
 
-		guard let opponent = self.opponent else {
+		guard var opponent = self.opponent else {
 			fatalError("No opponent found")
 		}
 
@@ -112,7 +112,7 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 
 			//TODO: sample id
 			let session = Session(amount: amount, id: "adsasdasd")
-			opponent.addSession(session: session)
+			//opponent.addSession(session: session)
 			print("Adding session")
 
 		} else {

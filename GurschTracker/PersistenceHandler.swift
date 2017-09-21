@@ -34,7 +34,7 @@ class PersistenceHandler {
 		loadOpponents()
 		bindOpponentsChanged()
 
-//		loadSessions()
+		//		loadSessions()
 	}
 
 
@@ -44,30 +44,12 @@ class PersistenceHandler {
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childAdded, with: { (snapshot) in
 
-			guard let opponentProperties = snapshot.value as? [String : Any] else {
-				print("opponent from database unable to cast to string : Any")
+			guard let opponent = Opponent(snapshot: snapshot) else {
 				return
 			}
-			guard let name = opponentProperties["name"] as? String else {
-				print("opponents name from database was undable to cast to string")
-				return
-			}
-			print("name = \(name) fetched from database")
-
-			guard let amount = opponentProperties["amount"] as? Int else {
-				print("opponents amount from database was undable to cast to Int")
-				return
-			}
-			print("amount = \(amount) fetched from database")
-
-			self.totalAmount.value += amount
-
-			guard let opponent = Opponent(name: name, sessions: nil, amount: amount) else {
-				print("unable to make opponent with name: \(name) and amount: \(amount) ")
-				return
-			}
-
 			self.opponents.value.append(opponent)
+
+			self.totalAmount.value += opponent.amount
 
 			print("loadOpponents debug: opponents.count = \(self.opponents.value.count)")
 		})
@@ -77,29 +59,25 @@ class PersistenceHandler {
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childChanged, with: { (snapshot) in
 
-			guard let opponentProperties = snapshot.value as? [String : Any] else {
-				print("opponent from database unable to cast to string : Any")
-				return
-			}
-			guard let name = opponentProperties["name"] as? String else {
-				print("opponents name from database was undable to cast to string")
-				return
-			}
+			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
+			let amount = self.opponentAmountFromSnapshot(snapshot: snapshot)
 
-			guard let amount = opponentProperties["amount"] as? Int else {
-				print("opponents amount from database was undable to cast to Int")
-				return
-			}
 			print("Firebase detected a change to \(name), his/her new amount is: \(amount)")
 
-			guard let opponent = self.opponents.value.first(where: { (opponent) -> Bool in
-				return opponent.name == name
-			}) else {
-				print("changed opponent not found in array")
-				return
-			}
+			var oldValue = 0
 
-			let deltaAmount = amount - opponent.amount
+			var opponentsWithoutCurrent = self.opponents.value.filter({ (opponent) -> Bool in
+				if opponent.name == name {
+					oldValue = opponent.amount
+					return false
+				}
+				return true
+			})
+			let currentOpponent = Opponent(name: name, amount: amount)
+			opponentsWithoutCurrent.append(currentOpponent)
+			self.opponents.value = opponentsWithoutCurrent
+
+			let deltaAmount = amount - oldValue
 			self.totalAmount.value += deltaAmount
 
 			print("loadOpponents debug: opponents.count = \(self.opponents.value.count)")
@@ -127,19 +105,19 @@ class PersistenceHandler {
 				return
 			}
 
-//			guard let opponentString = snapshot.value(forKey: "opponent") as? String else {
-//				print("opponent: \(snapshot.key)'s amount was unable to init")
-//				return
-//			}
-//
-//			guard let opponent = self.opponentDic[opponentString] else {
-//				print("opponent didn't exist")
-//				return
-//			}
-//
-//			guard let session = Session(amount: amount, id: snapshot.key, date: date, opponent: opponent) else {
-//				return
-//			}
+			//			guard let opponentString = snapshot.value(forKey: "opponent") as? String else {
+			//				print("opponent: \(snapshot.key)'s amount was unable to init")
+			//				return
+			//			}
+			//
+			//			guard let opponent = self.opponentDic[opponentString] else {
+			//				print("opponent didn't exist")
+			//				return
+			//			}
+			//
+			//			guard let session = Session(amount: amount, id: snapshot.key, date: date, opponent: opponent) else {
+			//				return
+			//			}
 
 			guard let session = Session(amount: amount, id: snapshot.key, date: date) else {
 				return
@@ -147,6 +125,29 @@ class PersistenceHandler {
 			self.sessions.value.append(session)
 
 		})
+	}
+
+	//MARK: - private funcs
+	private func opponentNameFromSnapshot(snapshot: DataSnapshot) -> String{
+		guard let opponentProperties = snapshot.value as? [String : Any] else {
+			print("opponent from database unable to cast to string : Any")
+			return ""
+		}
+		guard let name = opponentProperties["name"] as? String else {
+			print("opponents name from database was undable to cast to string")
+			return ""
+		}
+		return name
+	}
+
+	private func opponentAmountFromSnapshot(snapshot: DataSnapshot) -> Int{
+		guard let opponentProperties = snapshot.value as? [String : Any] else {
+			print("opponent from database unable to cast to string : Any")
+			return 0
+		}
+
+		let amount = opponentProperties["amount"] as? Int
+		return amount ?? 0
 	}
 
 }
