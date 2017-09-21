@@ -6,6 +6,8 @@
 //  Copyright © 2017 Anton Hägermalm. All rights reserved.
 //
 
+//Istead of having a array with new values, have just a variable that starts a async write to db
+
 import Foundation
 import RxSwift
 
@@ -43,7 +45,6 @@ class ViewModel {
 	}
 
 	//MARK: - funcs for editing from view
-
 	public func newOpponent(_ name: String){
 		guard let opponent = Opponent(name: name) else {
 			print("bug: opponent was unable to be init from name only init, things is seriously fucked up")

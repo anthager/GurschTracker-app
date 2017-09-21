@@ -18,7 +18,7 @@ class State {
 		}
 	}
 
-	let _opponents = Variable([Opponent])
+	let _opponents = Variable([Opponent]())
 
 
 	var sessions: [Session] = []

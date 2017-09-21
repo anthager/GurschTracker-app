@@ -2,7 +2,17 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
 
 let names = Variable(["Karl"])
+
+names.asObservable()
+//	.subscribe(onNext: { value in
+//		print(value)
+//	})
+	.subscribe { (<#Event<[String]>#>) in
+		<#code#>
+}
+
+
+names.value.append("Pelle")
 
