@@ -30,26 +30,6 @@ struct Opponent {
 		self.amount = amount
 	}
 
-	init?(snapshot: DataSnapshot) {
-		guard let opponentProperties = snapshot.value as? [String : Any] else {
-			print("opponent from database unable to cast to string : Any")
-			return nil
-		}
-		guard let name = opponentProperties["name"] as? String else {
-			print("opponents name from database was undable to cast to string")
-			return nil
-		}
-		self.name = name
-
-		print("name = \(name) fetched from database")
-
-		guard let amount = opponentProperties["amount"] as? Int else {
-			print("opponents amount from database was undable to cast to Int")
-			return nil
-		}
-		self.amount = amount
-	}
-
 	init?(name: String?, sessions: [Session]?, amount: Int){
 		guard let name = name  else {
 			print("no name were given")

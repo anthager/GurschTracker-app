@@ -44,9 +44,9 @@ class PersistenceHandler {
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childAdded, with: { (snapshot) in
 
-			guard let opponent = Opponent(snapshot: snapshot) else {
-				return
-			}
+			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
+			let amount = self.opponentAmountFromSnapshot(snapshot: snapshot)
+			let opponent = Opponent(name: name, amount: amount)
 			self.opponents.value.append(opponent)
 
 			self.totalAmount.value += opponent.amount
@@ -65,7 +65,6 @@ class PersistenceHandler {
 			print("Firebase detected a change to \(name), his/her new amount is: \(amount)")
 
 			var oldValue = 0
-
 			var opponentsWithoutCurrent = self.opponents.value.filter({ (opponent) -> Bool in
 				if opponent.name == name {
 					oldValue = opponent.amount
