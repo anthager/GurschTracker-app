@@ -31,16 +31,15 @@ class PersistenceHandler {
 
 	init() {
 		databaseRef = Database.database().reference()
-		loadOpponents()
-		bindOpponentsChanged()
+		initializeOpponentsChildAdded()
+		initializeOpponentsChildChanged()
+		initializeOpponentsChildRemoved()
 
 		//		loadSessions()
 	}
 
-
-	//It doesnt matter if the two funcs is async, just let them load thier shit for now since you only will display the total amount on the start page 
-
-	func loadOpponents (){
+	//MARK: - opponent funcs
+	func initializeOpponentsChildAdded(){
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childAdded, with: { (snapshot) in
 
@@ -51,23 +50,22 @@ class PersistenceHandler {
 
 			self.totalAmount.value += opponent.amount
 
-			print("loadOpponents debug: opponents.count = \(self.opponents.value.count)")
+			print("initializeOpponentsChildAdded debug: opponents.count = \(self.opponents.value.count)")
 		})
 	}
 
-	func bindOpponentsChanged () {
+	func initializeOpponentsChildChanged() {
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childChanged, with: { (snapshot) in
 
 			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
 			let amount = self.opponentAmountFromSnapshot(snapshot: snapshot)
-
 			print("Firebase detected a change to \(name), his/her new amount is: \(amount)")
 
-			var oldValue = 0
+			var oldTotalAmount = 0
 			var opponentsWithoutCurrent = self.opponents.value.filter({ (opponent) -> Bool in
 				if opponent.name == name {
-					oldValue = opponent.amount
+					oldTotalAmount = opponent.amount
 					return false
 				}
 				return true
@@ -76,12 +74,26 @@ class PersistenceHandler {
 			opponentsWithoutCurrent.append(currentOpponent)
 			self.opponents.value = opponentsWithoutCurrent
 
-			let deltaAmount = amount - oldValue
+			let deltaAmount = amount - oldTotalAmount
 			self.totalAmount.value += deltaAmount
 
-			print("loadOpponents debug: opponents.count = \(self.opponents.value.count)")
+			print("initializeOpponentsChildChanged debug: opponents.count = \(self.opponents.value.count)")
 		})
+	}
 
+	func initializeOpponentsChildRemoved() {
+		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
+		opponentsHandle = opponentsQuery?.observe(.childRemoved, with: { (snapshot) in
+
+			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
+			let amount = self.opponentAmountFromSnapshot(snapshot: snapshot)
+
+			self.opponents.value = self.opponents.value.filter() { $0.name != name }
+
+			self.totalAmount.value -= amount
+
+			print("initializeOpponentsChildRemoved debug: opponents.count = \(self.opponents.value.count)")
+		})
 	}
 
 	func loadSessions () {
