@@ -29,26 +29,10 @@ class PersistenceHandler {
 	var opponentDic: [String : Opponent] = [:]
 	var sessionsDic: [String : Session] = [:]
 
-
-
-	//TODO: change name sessions_ to _sessions to follow guildlines
-
-//	var sessions: [Session] {
-//		get {
-//			return sessions_
-//		}
-//	}
-//
-//	var opponents: [Opponent] {
-//		get {
-//			return opponents_
-//		}
-//	}
-
 	init() {
 		databaseRef = Database.database().reference()
-//		bindUI()
 		loadOpponents()
+		bindOpponentsChanged()
 
 //		loadSessions()
 	}
@@ -57,12 +41,6 @@ class PersistenceHandler {
 	//It doesnt matter if the two funcs is async, just let them load thier shit for now since you only will display the total amount on the start page 
 
 	func loadOpponents (){
-
-//		guard let state = self.state else {
-//			print("Opponents started loading but now state found")
-//			return
-//		}
-
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childAdded, with: { (snapshot) in
 
@@ -85,27 +63,49 @@ class PersistenceHandler {
 			self.totalAmount.value += amount
 
 			guard let opponent = Opponent(name: name, sessions: nil, amount: amount) else {
-				print("unable to make opponent from name and amount ")
+				print("unable to make opponent with name: \(name) and amount: \(amount) ")
 				return
 			}
 
 			self.opponents.value.append(opponent)
 
 			print("loadOpponents debug: opponents.count = \(self.opponents.value.count)")
+		})
+	}
 
+	func bindOpponentsChanged () {
+		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
+		opponentsHandle = opponentsQuery?.observe(.childChanged, with: { (snapshot) in
+
+			guard let opponentProperties = snapshot.value as? [String : Any] else {
+				print("opponent from database unable to cast to string : Any")
+				return
+			}
+			guard let name = opponentProperties["name"] as? String else {
+				print("opponents name from database was undable to cast to string")
+				return
+			}
+
+			guard let amount = opponentProperties["amount"] as? Int else {
+				print("opponents amount from database was undable to cast to Int")
+				return
+			}
+			print("Firebase detected a change to \(name), his/her new amount is: \(amount)")
+
+			guard let opponent = self.opponents.value.first(where: { (opponent) -> Bool in
+				return opponent.name == name
+			}) else {
+				print("changed opponent not found in array")
+				return
+			}
+
+			let deltaAmount = amount - opponent.amount
+			self.totalAmount.value += deltaAmount
+
+			print("loadOpponents debug: opponents.count = \(self.opponents.value.count)")
 		})
 
 	}
-
-//	func bindUI(){
-//		opponents.asObservable()
-//			.subscribe(onNext: { value in
-//				print(value)
-//			})
-//			.addDisposableTo(bag)
-//	}
-
-
 
 	func loadSessions () {
 

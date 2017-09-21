@@ -18,7 +18,7 @@ class ViewController: UIViewController {
 	@IBOutlet weak var opponentsTableView: UITableView!
 	@IBOutlet weak var totalAmountLabel: UILabel!
 	var state: State?
-	var viewModel: ViewModel?
+	var viewModel: ViewModel!
 	let bag = DisposeBag()
 
 
@@ -83,21 +83,21 @@ class ViewController: UIViewController {
 				print("bug: addOpponentVC returned with no name")
 				return
 			}
-			viewModel?.newOpponent(name)
+			viewModel.newOpponent(name)
 			opponentsTableView.reloadData()
 		}
 	}
 	//MARK: - private methods
 
 	func setupUI() {
-		viewModel?.totalAmount
+		viewModel.totalAmount
 			.map { amount in
 				return String(amount)
 			}
 			.bind(to: totalAmountLabel.rx.text)
 			.disposed(by: bag)
 
-		viewModel?.opponents
+		viewModel.opponents
 			.bind(to: opponentsTableView.rx.items(cellIdentifier: "OpponentTableViewCell", cellType: OpponentTableViewCell.self)) {
 				(row, element, cell) in
 				cell.nameLabel.text = element.name
