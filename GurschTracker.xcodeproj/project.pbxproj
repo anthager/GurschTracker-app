@@ -47,7 +47,7 @@
 		978CE0E7BD98B77440F56A2F /* Pods-GurschTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GurschTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GurschTracker/Pods-GurschTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		BA0874BF1F0B0738005C0EA6 /* GurschTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GurschTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0874C01F0B0738005C0EA6 /* GurschTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GurschTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA0FB2DE1F6D7CE10018D12B /* RxSwiftPG.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxSwiftPG.playground; sourceTree = "<group>"; };
+		BA0FB2DE1F6D7CE10018D12B /* RxSwiftPG.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxSwiftPG.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BA1E07601F5B6C6500C0DD2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA1E07621F5B80A700C0DD2C /* PersistenceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceHandler.swift; sourceTree = "<group>"; };
 		BA241F371EDD6EF800B1F976 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };

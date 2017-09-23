@@ -26,6 +26,8 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		amountTextField.text = ""
+
 		canelGesture.delegate = self
 
 		popupView.layer.cornerRadius = 10

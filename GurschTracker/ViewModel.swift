@@ -19,6 +19,7 @@ class ViewModel {
 	private let _sessions: Variable<[Session]>
 	private let _opponents: Variable<[Opponent]>
 	private let _totalAmount: Variable<Int>
+	
 
 	//MARK: - misc props
 	private let persistenceHandler: PersistenceHandler
@@ -46,10 +47,7 @@ class ViewModel {
 
 	//MARK: - funcs for editing from view
 	public func newOpponent(_ name: String){
-		guard let opponent = Opponent(name: name) else {
-			print("bug: opponent was unable to be init from name only init, things is seriously fucked up")
-			return
-		}
+		let opponent: Opponent = Opponent(name: name)
 		_opponents.value.append(opponent)
 	}
 

@@ -84,7 +84,6 @@ class ViewController: UIViewController {
 				return
 			}
 			viewModel.newOpponent(name)
-			opponentsTableView.reloadData()
 		}
 	}
 	//MARK: - private methods

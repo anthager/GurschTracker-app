@@ -34,18 +34,20 @@ class PersistenceHandler {
 		initializeOpponentsChildAdded()
 		initializeOpponentsChildChanged()
 		initializeOpponentsChildRemoved()
+		initializeWritingToDatabase()
 
 		//		loadSessions()
 	}
 
 	//MARK: - opponent funcs
 	func initializeOpponentsChildAdded(){
+		print("childAdded")
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childAdded, with: { (snapshot) in
 
 			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
 			let amount = self.opponentAmountFromSnapshot(snapshot: snapshot)
-			let opponent = Opponent(name: name, amount: amount)
+			let opponent = Opponent(name: name, amount: amount, toBeWrittenToDatabase: false)
 			self.opponents.value.append(opponent)
 
 			self.totalAmount.value += opponent.amount
@@ -55,6 +57,7 @@ class PersistenceHandler {
 	}
 
 	func initializeOpponentsChildChanged() {
+		print("childChanged")
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childChanged, with: { (snapshot) in
 
@@ -70,7 +73,7 @@ class PersistenceHandler {
 				}
 				return true
 			})
-			let currentOpponent = Opponent(name: name, amount: amount)
+			let currentOpponent = Opponent(name: name, amount: amount, toBeWrittenToDatabase: false)
 			opponentsWithoutCurrent.append(currentOpponent)
 			self.opponents.value = opponentsWithoutCurrent
 
@@ -136,6 +139,35 @@ class PersistenceHandler {
 			self.sessions.value.append(session)
 
 		})
+	}
+
+	func initializeWritingToDatabase(){
+		print("in")
+		opponents.asObservable()
+			.map { $0
+				.filter { $0.toBeWrittenToDatabase }
+
+			}
+			.subscribe (onNext: { value in
+				print(value)
+				if value.count > 0 {
+					self.writeToDatabase(value)
+				}
+			})
+			.addDisposableTo(bag)
+	}
+
+	func writeToDatabase(_ opponents: [Opponent]){
+		self.databaseRef?.child("opponents").childByAutoId().updateChildValues(opponentsArrayToDir(opponents: opponents))
+	}
+
+	func opponentsArrayToDir(opponents: [Opponent]) -> [String : Any] {
+		var dir = [String : Any]()
+		for opponent in opponents {
+			dir["name"] = opponent.name
+			dir["amount"] = opponent.amount
+		}
+		return dir
 	}
 
 	//MARK: - private funcs

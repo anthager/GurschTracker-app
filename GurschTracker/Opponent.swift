@@ -12,8 +12,9 @@ import Foundation
 struct Opponent {
 
 	//MARK: properites
-	var name: String
+	let name: String
 	var amount = 0
+	var toBeWrittenToDatabase: Bool
 	var sessions = [Session]()
 
 	init?(name: String) {
@@ -23,11 +24,19 @@ struct Opponent {
 		}
 
 		self.name = name
+		self.toBeWrittenToDatabase = false
 	}
 
 	init(name: String, amount: Int = 0) {
 		self.name = name
 		self.amount = amount
+		self.toBeWrittenToDatabase = true
+	}
+
+	init(name: String, amount: Int = 0, toBeWrittenToDatabase: Bool) {
+		self.name = name
+		self.amount = amount
+		self.toBeWrittenToDatabase = toBeWrittenToDatabase
 	}
 
 	init?(name: String?, sessions: [Session]?, amount: Int){
@@ -42,14 +51,11 @@ struct Opponent {
 
 		self.name = name
 		self.amount = amount
+		self.toBeWrittenToDatabase = true
 	}
 
 	public mutating func addAmount(amount: Int){
 		self.amount += amount
-	}
-
-	public mutating func change(snapshot: DataSnapshot){
-
 	}
 
 	//MARK: - Private Methods
