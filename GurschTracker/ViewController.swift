@@ -99,8 +99,8 @@ class ViewController: UIViewController {
 		viewModel.opponents
 			.bind(to: opponentsTableView.rx.items(cellIdentifier: "OpponentTableViewCell", cellType: OpponentTableViewCell.self)) {
 				(row, element, cell) in
-				cell.nameLabel.text = element.name
-				cell.amountLabel.text = String(element.amount)
+				cell.nameLabel.text = element.value.name
+				cell.amountLabel.text = String(element.value.amount)
 				}
 			.disposed(by: bag)
 	}

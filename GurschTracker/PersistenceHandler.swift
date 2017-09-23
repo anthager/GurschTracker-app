@@ -21,7 +21,7 @@ class PersistenceHandler {
 
 	//Rx props
 	let sessions = Variable<[Session]>([])
-	let opponents = Variable<[Opponent]>([])
+	let opponents = Variable<[String : Opponent]>([:])
 	var totalAmount = Variable<Int>(0)
 	private let bag = DisposeBag()
 
@@ -34,21 +34,24 @@ class PersistenceHandler {
 		initializeOpponentsChildAdded()
 		initializeOpponentsChildChanged()
 		initializeOpponentsChildRemoved()
-		initializeWritingToDatabase()
-
 		//		loadSessions()
 	}
 
-	//MARK: - opponent funcs
-	func initializeOpponentsChildAdded(){
+	//MARK: - writing funs
+	public func writeToDatabase(_ name: String){
+		self.databaseRef?.child("opponents").childByAutoId().updateChildValues(nameToDir(name))
+	}
+
+	//MARK: - init opponent loading funcs
+	private func initializeOpponentsChildAdded(){
 		print("childAdded")
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childAdded, with: { (snapshot) in
 
 			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
 			let amount = self.opponentAmountFromSnapshot(snapshot: snapshot)
-			let opponent = Opponent(name: name, amount: amount, toBeWrittenToDatabase: false)
-			self.opponents.value.append(opponent)
+			let opponent = Opponent(name: name, amount: amount)
+			self.opponents.value[name] = opponent
 
 			self.totalAmount.value += opponent.amount
 
@@ -56,7 +59,7 @@ class PersistenceHandler {
 		})
 	}
 
-	func initializeOpponentsChildChanged() {
+	private func initializeOpponentsChildChanged() {
 		print("childChanged")
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childChanged, with: { (snapshot) in
@@ -65,17 +68,8 @@ class PersistenceHandler {
 			let amount = self.opponentAmountFromSnapshot(snapshot: snapshot)
 			print("Firebase detected a change to \(name), his/her new amount is: \(amount)")
 
-			var oldTotalAmount = 0
-			var opponentsWithoutCurrent = self.opponents.value.filter({ (opponent) -> Bool in
-				if opponent.name == name {
-					oldTotalAmount = opponent.amount
-					return false
-				}
-				return true
-			})
-			let currentOpponent = Opponent(name: name, amount: amount, toBeWrittenToDatabase: false)
-			opponentsWithoutCurrent.append(currentOpponent)
-			self.opponents.value = opponentsWithoutCurrent
+			let oldTotalAmount = self.opponents.value[name]?.amount ?? 0
+			self.opponents.value[name] = Opponent(name: name, amount: amount)
 
 			let deltaAmount = amount - oldTotalAmount
 			self.totalAmount.value += deltaAmount
@@ -84,22 +78,22 @@ class PersistenceHandler {
 		})
 	}
 
-	func initializeOpponentsChildRemoved() {
+	private func initializeOpponentsChildRemoved() {
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childRemoved, with: { (snapshot) in
 
 			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
 			let amount = self.opponentAmountFromSnapshot(snapshot: snapshot)
 
-			self.opponents.value = self.opponents.value.filter() { $0.name != name }
-
+			self.opponents.value.removeValue(forKey: name)
 			self.totalAmount.value -= amount
 
 			print("initializeOpponentsChildRemoved debug: opponents.count = \(self.opponents.value.count)")
 		})
 	}
 
-	func loadSessions () {
+	//MARK: - init session loading funcs
+	private func loadSessions () {
 
 		let sessionsQuery = databaseRef?.child("sessions").queryOrdered(byChild: "opponent")
 		sessionsQuery?.observe(.childAdded, with: { (snapshot) in
@@ -141,36 +135,31 @@ class PersistenceHandler {
 		})
 	}
 
-	func initializeWritingToDatabase(){
-		print("in")
-		opponents.asObservable()
-			.map { $0
-				.filter { $0.toBeWrittenToDatabase }
+	//	func initializeWritingToDatabase(){
+	//		print("in")
+	//		opponents.asObservable()
+	//			.map { $0
+	//				.filter { $0.value.toBeWrittenToDatabase }
+	//
+	//			}
+	//			.subscribe (onNext: { value in
+	//				print(value)
+	//				if value.count > 0 {
+	//					self.writeToDatabase(value)
+	//				}
+	//
+	//			})
+	//			.addDisposableTo(bag)
+	//	}
 
-			}
-			.subscribe (onNext: { value in
-				print(value)
-				if value.count > 0 {
-					self.writeToDatabase(value)
-				}
-			})
-			.addDisposableTo(bag)
-	}
-
-	func writeToDatabase(_ opponents: [Opponent]){
-		self.databaseRef?.child("opponents").childByAutoId().updateChildValues(opponentsArrayToDir(opponents: opponents))
-	}
-
-	func opponentsArrayToDir(opponents: [Opponent]) -> [String : Any] {
+	//MARK: - private misc funcs
+	private func nameToDir(_ name: String) -> [String : Any] {
 		var dir = [String : Any]()
-		for opponent in opponents {
-			dir["name"] = opponent.name
-			dir["amount"] = opponent.amount
-		}
+		dir["name"] = name
+		dir["amount"] = 0
 		return dir
 	}
 
-	//MARK: - private funcs
 	private func opponentNameFromSnapshot(snapshot: DataSnapshot) -> String{
 		guard let opponentProperties = snapshot.value as? [String : Any] else {
 			print("opponent from database unable to cast to string : Any")
