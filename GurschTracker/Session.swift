@@ -23,6 +23,12 @@ struct Session{
 		date = Date()
 	}
 
+	init(amount: Int, date: Date, id: String){
+		self.amount = amount
+		self.id = id
+		self.date = date
+	}
+
 	init?(amount: Int, id: String, date: Date) {
 		self.amount = amount
 		self.id = id

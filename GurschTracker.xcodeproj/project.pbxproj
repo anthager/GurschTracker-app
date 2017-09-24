@@ -65,7 +65,7 @@
 		BA8E52961EF6E666003E60F0 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		BA8E52981EFD0F65003E60F0 /* TimeSettingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSettingTest.swift; sourceTree = "<group>"; };
 		BA8E529B1EFD0FE3003E60F0 /* TimeSettingHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSettingHandler.swift; sourceTree = "<group>"; };
-		BABA8C731F5DD1CB0049E56A /* DatePlayGround.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DatePlayGround.playground; sourceTree = "<group>"; };
+		BABA8C731F5DD1CB0049E56A /* DatePlayGround.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DatePlayGround.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		BABA8C751F66CAF90049E56A /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		BAD992451F681A3000626064 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSessionPopupViewController.swift; sourceTree = "<group>"; };

@@ -47,7 +47,7 @@ class ViewController: UIViewController {
 			guard let index = opponentsTableView.indexPathForSelectedRow else  {
 				fatalError("No row is selected")
 			}
-			popupVC.opponent = state?.opponents[index.row]
+//			popupVC.opponent =
 
 		case "addOpponent": break
 
@@ -61,6 +61,7 @@ class ViewController: UIViewController {
 
 
 		default:
+			//TODO dont have fatalError here
 			fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
 
 		}
@@ -99,9 +100,9 @@ class ViewController: UIViewController {
 		viewModel.opponents
 			.bind(to: opponentsTableView.rx.items(cellIdentifier: "OpponentTableViewCell", cellType: OpponentTableViewCell.self)) {
 				(row, element, cell) in
-				cell.nameLabel.text = element.value.name
-				cell.amountLabel.text = String(element.value.amount)
-				}
+				cell.nameLabel.text = element.name
+				cell.amountLabel.text = String(element.amount)
+			}
 			.disposed(by: bag)
 	}
 }

@@ -17,14 +17,14 @@ class ViewModel {
 
 	//MARK: - Rx props
 	private let _sessions: Variable<[Session]>
-	private let _opponents: Variable<[String : Opponent]>
+	private let _opponents: Variable<[Opponent]>
 	private let _totalAmount: Variable<Int>
 
 	//MARK: - misc props
 	private let persistenceHandler: PersistenceHandler
 
 	//MARK: - public props
-	public var opponents: Observable<[String : Opponent]> {
+	public var opponents: Observable<[Opponent]> {
 		return _opponents.asObservable()
 	}
 
@@ -46,20 +46,14 @@ class ViewModel {
 
 	//MARK: - funcs for editing from view
 	public func newOpponent(_ name: String){
-		persistenceHandler.writeToDatabase(name)
+		persistenceHandler.addOpponentToDatabase(name)
 	}
 
-	//MARK: - func for amount
-
-//	func addToTotalAmount(_ amount: Int) {
-//		if _totalAmount == nil {
-//			calculateTotalAmount()
-//		}
-//		_totalAmount! += amount
-//	}
+	public func addSession(opponentName: String, amount: Int ){
+		persistenceHandler.addSessionToDatabase(opponentName: opponentName, amount: amount)
+	}
 
 	//MARK: - funcs for opponents
-
 	func getAllSessions(opponents: [Opponent]) -> [Session] {
 		var sessions = [Session]()
 		for opponent in opponents {
