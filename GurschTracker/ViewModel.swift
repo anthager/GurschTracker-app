@@ -16,19 +16,22 @@ class ViewModel {
 	//MARK: - properties
 
 	//MARK: - Rx props
-	private let _sessions: Variable<[Session]>
-	private let _opponents: Variable<[Opponent]>
+	private let _sessions: Variable<[String : Session]>
+	private let _opponents: Variable<[String : Opponent]>
 	private let _totalAmount: Variable<Int>
 
 	//MARK: - misc props
 	private let persistenceHandler: PersistenceHandler
 
 	//MARK: - public props
-	public var opponents: Observable<[Opponent]> {
+//	public var opponents: Observable<[Opponent]> {
+//		return _opponents.asObservable()
+//	}
+	public var opponents: Observable<[String : Opponent]> {
 		return _opponents.asObservable()
 	}
 
-	public var sessions: Observable<[Session]> {
+	public var sessions: Observable<[String : Session]> {
 		return _sessions.asObservable()
 	}
 
@@ -46,11 +49,16 @@ class ViewModel {
 
 	//MARK: - funcs for editing from view
 	public func newOpponent(_ name: String){
-		persistenceHandler.addOpponentToDatabase(name)
+		persistenceHandler.addOpponentToDatabase(name: name, amount: 0)
 	}
+	//This is a bit hacky, instead of doing some fancy syncing between firebase and rx i simply add the changed opponent as a new one. Since there only can be one with a key in both the database and in the rx dictionary, it seems like it's updating
+	public func addSession(opponentName: String, sessionAmount: Int ){
+		persistenceHandler.addSessionToDatabase(opponentName: opponentName, amount: sessionAmount)
 
-	public func addSession(opponentName: String, amount: Int ){
-		persistenceHandler.addSessionToDatabase(opponentName: opponentName, amount: amount)
+		let oldAmount = _opponents.value[opponentName]?.amount ?? 0
+		let newAmount = oldAmount + sessionAmount
+		persistenceHandler.addOpponentToDatabase(name: opponentName, amount: newAmount)
+//		_opponents.value[opponentName]?.amount = amount
 	}
 
 	//MARK: - funcs for opponents

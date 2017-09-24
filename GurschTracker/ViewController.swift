@@ -37,46 +37,32 @@ class ViewController: UIViewController {
 	// MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		super.prepare(for: segue, sender: sender)
-
-		switch(segue.identifier ?? "") {
-		case "addSession":
-			guard let popupVC = segue.destination as? AddSessionPopupViewController else {
-				fatalError("Unexpected destination: \(segue.destination)")
-			}
+		if let popupVC = segue.destination as? AddSessionPopupViewController {
 
 			guard let index = opponentsTableView.indexPathForSelectedRow else  {
-				fatalError("No row is selected")
+				return
 			}
-//			popupVC.opponent =
-
-		case "addOpponent": break
-
-		case "statistics":
-			guard let statisticsVC = segue.destination as? StatisticsViewController else{
-				fatalError("VC is not statsVC")
+			guard let cell = opponentsTableView.cellForRow(at: index) as? OpponentTableViewCell else {
+				return
 			}
+			popupVC.name = cell.nameLabel.text ?? ""
 
+		}
+		if let statisticsVC = segue.destination as? StatisticsViewController {
 			statisticsVC.opponents = state?.opponents
-			break
-
-
-		default:
-			//TODO dont have fatalError here
-			fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
-
 		}
 	}
 
 	@IBAction func unwindToOverview(sender: UIStoryboardSegue) {
 		if let addSessionVC = sender.source as? AddSessionPopupViewController {
 
-			state?.addToTotalAmount(addSessionVC.amount)
-			totalAmountLabel.text = String(describing: state?.totalAmount)
-
-			guard let index = opponentsTableView.indexPathForSelectedRow else  {
-				fatalError("No row is selected")
+			guard let name = addSessionVC.name else {
+				print("bug: addSessionVC returned without a name")
+				return
 			}
-			opponentsTableView.reloadRows(at: [index], with: .automatic)
+			let amount = addSessionVC.amount
+			print("amount = \(amount)")
+			viewModel.addSession(opponentName: name, sessionAmount: amount)
 
 		} else if let addOpponentVC = sender.source as? AddOpponentViewController {
 
@@ -100,8 +86,8 @@ class ViewController: UIViewController {
 		viewModel.opponents
 			.bind(to: opponentsTableView.rx.items(cellIdentifier: "OpponentTableViewCell", cellType: OpponentTableViewCell.self)) {
 				(row, element, cell) in
-				cell.nameLabel.text = element.name
-				cell.amountLabel.text = String(element.amount)
+				cell.nameLabel.text = element.value.name
+				cell.amountLabel.text = String(element.value.amount)
 			}
 			.disposed(by: bag)
 	}
