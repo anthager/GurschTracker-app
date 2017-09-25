@@ -16,7 +16,7 @@ class AddOpponentViewController: UIViewController, UIGestureRecognizerDelegate {
 	@IBOutlet weak var window: UIView!
 	@IBOutlet weak var popupView: UIView!
 	@IBOutlet var cancelTapGesture: UITapGestureRecognizer!
-	var opponent: Opponent?
+	var name: String?
 
 
 	//MARK: - superFuncs
@@ -32,11 +32,6 @@ class AddOpponentViewController: UIViewController, UIGestureRecognizerDelegate {
 		disableButtons()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 	//MARK: - UIGestureRecognizerDelegate
 	func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
 
@@ -51,26 +46,17 @@ class AddOpponentViewController: UIViewController, UIGestureRecognizerDelegate {
 
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		let name = nameTextField.text ?? ""
-
-		opponent = Opponent(name: name)
-        
+		name = nameTextField.text
     }
 
 	//MARK: - actions
-	/*@IBAction func cancel(_ sender: UIButton) {
-		dismiss(animated: true, completion: nil)
-	}*/
 	@IBAction func cancel(_ sender: UITapGestureRecognizer) {
 		dismiss(animated: true, completion: nil)
 	}
 
 	@IBAction func nameTextFieldWasEdited(_ sender: UITextField) {
-		let text = sender.text ?? ""
-
-		if text != "" {
+		if sender.text != nil && sender.text != "" {
 			enableButtons()
 		}
 	}

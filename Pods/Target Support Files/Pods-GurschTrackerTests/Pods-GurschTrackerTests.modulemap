@@ -1,0 +1,6 @@
+framework module Pods_GurschTrackerTests {
+  umbrella header "Pods-GurschTrackerTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

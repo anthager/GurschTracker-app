@@ -11,7 +11,7 @@ import UIKit
 class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelegate {
 
 	//MARK: - properties
-	var opponent: Opponent?
+	var name: String?
 	var amount = 0
 
 	@IBOutlet weak var window: UIView!
@@ -26,15 +26,14 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		amountTextField.text = ""
+
 		canelGesture.delegate = self
 
 		popupView.layer.cornerRadius = 10
 		popupView.layer.masksToBounds = true
 
-		guard let opponent = self.opponent else {
-			fatalError("No opponent found")
-		}
-		nameLabel.text = opponent.name
+		nameLabel.text = name
 
 		disableButtons()
 
@@ -45,31 +44,16 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 		// Dispose of any resources that can be recreated.
 	}
 
-	//MARK: - actions
-	@IBAction func buttonPressed(_ sender: UIButton) {
-		let buttonName = sender.titleLabel?.text ?? ""
-		guard let opponent = self.opponent else {
-			fatalError("No opponent found")
-		}
-
-		if buttonName == "Lost"{
-			amount = -amount
-
-		}
-		opponent.addAmount(amount: amount)
-
-	}
-
 	@IBAction func numberTypedInTextField(_ sender: UITextField) {
 		let text = sender.text ?? ""
-
 		if text != "", text != "0" {
 			if let enteredAmount: Int = Int(text){
 				amount = enteredAmount
 				enableButtons()
 			}
 			else {
-				fatalError("Non numbers entered in textField")
+				print("Non numbers entered in textField")
+				return
 			}
 			enableButtons()
 		} else {
@@ -99,21 +83,11 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		super.prepare(for: segue, sender: sender)
 
-		guard let opponent = self.opponent else {
-			fatalError("No opponent found")
-		}
-
 		if let button = sender as? UIButton {
 				if button === lostButton{
 					amount = -amount
-
 				}
-			opponent.addAmount(amount: amount)
-
-			let session = Session(amount: amount)
-			opponent.addSession(session: session)
 			print("Adding session")
-
 		} else {
 			fatalError("Sender is not a button")
 		}
