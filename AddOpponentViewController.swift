@@ -28,6 +28,7 @@ class AddOpponentViewController: UIViewController, UIGestureRecognizerDelegate {
 
 		popupView.layer.cornerRadius = 10
 		popupView.layer.masksToBounds = true
+		nameTextField.becomeFirstResponder()
 
 		disableButtons()
     }
