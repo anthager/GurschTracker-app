@@ -32,6 +32,7 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 
 		popupView.layer.cornerRadius = 10
 		popupView.layer.masksToBounds = true
+		amountTextField.becomeFirstResponder()
 
 		nameLabel.text = name
 
