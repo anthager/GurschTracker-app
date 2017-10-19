@@ -21,9 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E1e-CW-RxW">
-                                <rect key="frame" x="23.5" y="277" width="326" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1e-CW-RxW">
+                                <rect key="frame" x="24" y="273" width="326" height="120"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Umb-4E-z0O">
                                         <rect key="frame" x="0.0" y="60" width="326" height="60"/>
@@ -43,7 +42,7 @@
                                         <accessibility key="accessibilityConfiguration" hint="Name"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                         <connections>
                                             <action selector="nameTextFieldWasEdited:" destination="mB6-2a-rEN" eventType="editingChanged" id="tSk-TF-ae3"/>
                                         </connections>
@@ -51,10 +50,18 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="gGt-pQ-yQm"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="0.5" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="E1e-CW-RxW" secondAttribute="trailing" constant="9" id="NVP-KJ-QkN"/>
+                            <constraint firstItem="E1e-CW-RxW" firstAttribute="leading" secondItem="tFQ-FB-Nqb" secondAttribute="leadingMargin" constant="8" id="Qku-ga-cdu"/>
+                            <constraint firstItem="E1e-CW-RxW" firstAttribute="centerY" secondItem="tFQ-FB-Nqb" secondAttribute="centerY" id="d99-jz-fmP"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="x4e-oK-aMy" appends="YES" id="yQ2-mU-0xm"/>
                         </connections>
@@ -429,7 +436,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8WV-nv-AgO">
-                                <rect key="frame" x="23" y="274" width="326" height="120"/>
+                                <rect key="frame" x="25" y="274" width="326" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rei-Tw-1Di">
