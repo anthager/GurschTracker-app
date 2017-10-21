@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, AuthValidation {
 
 	@IBOutlet weak var passwordTextField: UITextField!
 	@IBOutlet weak var emailTextField: UITextField!
@@ -21,41 +21,19 @@ class LoginViewController: UIViewController {
 
 	}
 
-	// MARK: - Navigation
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if ((segue.destination as? ViewController) != nil) {
-			login()
-		}
-	}
-
 	private func login() {
-		guard let email = emailValidation(email: emailTextField.text) else {
-			print("no email entered")
+		guard let email = emailTextField.text, isValidEmail(emailTextField.text) else {
+			print("invalid email entered")
 			return
 		}
-		guard let password = passwordTextField.text else {
-			print("invalid password")
+		guard let password = passwordTextField.text, isAValidPassword(passwordTextField.text) else {
+			print("invalid password entered")
 			return
 		}
 		Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
 			if error != nil {
-				print(error.debugDescription)
+				print(error as Any)
 			}
 		}
-
 	}
-
-	//MARK: - validation
-	private func emailValidation(email: String?) -> String?{
-		guard var email = email else {
-			print("no email found")
-			return nil
-		}
-		email = email.lowercased()
-		guard email.contains("@") else {
-			return nil
-		}
-		return email
-	}
-
 }

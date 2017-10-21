@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController, AuthValidation {
 
 	@IBOutlet weak var emailTextField: UITextField!
 	@IBOutlet weak var passwordTextField: UITextField!
@@ -21,55 +21,27 @@ class RegistrationViewController: UIViewController {
 	}
 
 	//MARK: - actions
-	private func signUp() {
+	private func signUp() -> Bool {
 
-		guard let email = emailValidation(email: emailTextField.text) else {
+		guard let email = emailTextField.text, isValidEmail(emailTextField.text) else {
 			print("email validation failed")
-			return
+			return false
 		}
 
-		guard let password = passwordValidation(password1: passwordTextField.text, password2: repeatPasswordTextField.text) else {
+		guard let password = passwordTextField.text, isValidPasswords(passwordTextField.text, repeatPasswordTextField.text) else {
 			print("password validation failed")
-			return
+			return false
 		}
 
-		Auth.auth().createUser(withEmail: email, password: password) { (user, err) in
-			if err != nil {
-				print(err.debugDescription)
+		var success = false
+		Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+			if error != nil {
+				print(error as Any)
 				return
 			}
-			guard let uid = user?.uid else {
-				fatalError("just init user had no uid, something is very fucked up")
-			}
-			let userData: [String : Any] = ["email" : user?.email ?? "", "uid" : uid]
-			Database.database().reference().child("users").child(uid).updateChildValues(userData)
+			success = true
 		}
-	}
-	//MARK: - validation
-	private func passwordValidation(password1: String?, password2: String? ) -> String?{
-		guard password1 == password2 else {
-			return nil
-		}
-
-		return password1
-	}
-
-	private func emailValidation(email: String?) -> String?{
-		guard var email = email else {
-			print("no email found")
-			return nil
-		}
-		email = email.lowercased()
-		guard email.contains("@") else {
-			return nil
-		}
-		return email
-	}
-
-
-	// MARK: - Navigation
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		signUp()
+		return success
 	}
 
 }
