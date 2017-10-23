@@ -18,7 +18,7 @@ class LoginViewController: UIViewController, AuthValidation {
 	@IBOutlet weak var loginTextField: UITextField!
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
+		self.hideKeyboardWhenTappedAround()
 	}
 
 	//Some nice loading is needed here, and fail shit
@@ -26,7 +26,6 @@ class LoginViewController: UIViewController, AuthValidation {
 	//	login()
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let controller = storyboard.instantiateInitialViewController()
-
 		self.present(controller!, animated: true, completion: nil)
 	}
 

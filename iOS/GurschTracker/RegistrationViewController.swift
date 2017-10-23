@@ -8,7 +8,6 @@
 
 import UIKit
 import FirebaseAuth
-import FirebaseDatabase
 
 class RegistrationViewController: UIViewController, AuthValidation {
 
@@ -18,8 +17,15 @@ class RegistrationViewController: UIViewController, AuthValidation {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		self.hideKeyboardWhenTappedAround()
 	}
 
+	@IBAction func signUpButtonPressed(_ sender: UIButton) {
+//		signUp()
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let controller = storyboard.instantiateInitialViewController()
+		self.present(controller!, animated: true, completion: nil)
+	}
 	//MARK: - actions
 	private func signUp() -> Bool {
 

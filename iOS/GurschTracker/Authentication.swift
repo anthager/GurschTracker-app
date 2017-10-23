@@ -6,7 +6,7 @@
 //  Copyright © 2017 Anton Hägermalm. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol AuthValidation {
 	func isValidPasswords(_ password1: String?, _ password2: String? ) -> Bool
@@ -31,5 +31,16 @@ extension AuthValidation {
 			return false
 		}
 		return true
+	}
+}
+extension UIViewController {
+	func hideKeyboardWhenTappedAround() {
+		let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+		tap.cancelsTouchesInView = false
+		view.addGestureRecognizer(tap)
+	}
+
+	@objc func dismissKeyboard() {
+		view.endEditing(true)
 	}
 }
