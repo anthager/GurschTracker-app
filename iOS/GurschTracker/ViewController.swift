@@ -17,7 +17,6 @@ class ViewController: UIViewController {
 
 	@IBOutlet weak var opponentsTableView: UITableView!
 	@IBOutlet weak var totalAmountLabel: UILabel!
-	var state: State?
 	var viewModel: ViewModel!
 	let bag = DisposeBag()
 
@@ -49,7 +48,6 @@ class ViewController: UIViewController {
 
 		}
 		if let statisticsVC = segue.destination as? StatisticsViewController {
-			statisticsVC.opponents = state?.opponents
 		}
 	}
 
