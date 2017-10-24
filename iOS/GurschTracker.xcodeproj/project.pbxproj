@@ -21,13 +21,10 @@
 		BA8E52951EF44488003E60F0 /* TotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8E52941EF44488003E60F0 /* TotalTableViewCell.swift */; };
 		BA8E52971EF6E666003E60F0 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8E52961EF6E666003E60F0 /* StatisticsViewController.swift */; };
 		BA8E52991EFD0F65003E60F0 /* TimeSettingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8E52981EFD0F65003E60F0 /* TimeSettingTest.swift */; };
-		BA8E529C1EFD0FE3003E60F0 /* TimeSettingHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA8E529B1EFD0FE3003E60F0 /* TimeSettingHandler.swift */; };
-		BABA8C761F66CAF90049E56A /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABA8C751F66CAF90049E56A /* State.swift */; };
 		BAD577451F9B8A180040CED4 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAD577441F9B8A180040CED4 /* Auth.storyboard */; };
 		BAD577481F9B8B820040CED4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD577471F9B8B820040CED4 /* LoginViewController.swift */; };
 		BAD5774C1F9B8C230040CED4 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD5774B1F9B8C230040CED4 /* RegistrationViewController.swift */; };
 		BAD5774E1F9B96840040CED4 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD5774D1F9B96840040CED4 /* Authentication.swift */; };
-		BAD992461F681A3000626064 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD992451F681A3000626064 /* Observable.swift */; };
 		BADDCE731EE740F10040DC6E /* AddSessionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */; };
 		BADDCE751EEB15040040DC6E /* AddOpponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADDCE741EEB15040040DC6E /* AddOpponentViewController.swift */; };
 		DAF83167B3D6DE4C8D104737 /* Pods_GurschTrackerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA5BCB755395EAD13F3603A0 /* Pods_GurschTrackerTests.framework */; };
@@ -68,14 +65,11 @@
 		BA8E52941EF44488003E60F0 /* TotalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalTableViewCell.swift; sourceTree = "<group>"; };
 		BA8E52961EF6E666003E60F0 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		BA8E52981EFD0F65003E60F0 /* TimeSettingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSettingTest.swift; sourceTree = "<group>"; };
-		BA8E529B1EFD0FE3003E60F0 /* TimeSettingHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSettingHandler.swift; sourceTree = "<group>"; };
 		BABA8C731F5DD1CB0049E56A /* DatePlayGround.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DatePlayGround.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		BABA8C751F66CAF90049E56A /* State.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		BAD577441F9B8A180040CED4 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		BAD577471F9B8B820040CED4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BAD5774B1F9B8C230040CED4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		BAD5774D1F9B96840040CED4 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
-		BAD992451F681A3000626064 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSessionPopupViewController.swift; sourceTree = "<group>"; };
 		BADDCE741EEB15040040DC6E /* AddOpponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddOpponentViewController.swift; path = ../AddOpponentViewController.swift; sourceTree = "<group>"; };
 		BAF10FC51F69D42A008F5EA0 /* referenceTypesGP.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = referenceTypesGP.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -169,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				BA241F5F1EE6BAAC00B1F976 /* Opponent.swift */,
-				BABA8C751F66CAF90049E56A /* State.swift */,
 				BA241F651EE6C02E00B1F976 /* Session.swift */,
 			);
 			name = model;
@@ -217,7 +210,6 @@
 		BA8E529A1EFD0FC9003E60F0 /* services */ = {
 			isa = PBXGroup;
 			children = (
-				BA8E529B1EFD0FE3003E60F0 /* TimeSettingHandler.swift */,
 				BA1E07621F5B80A700C0DD2C /* PersistenceHandler.swift */,
 			);
 			name = services;
@@ -236,7 +228,6 @@
 		BAD992441F6819B900626064 /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				BAD992451F681A3000626064 /* Observable.swift */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -475,7 +466,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAD992461F681A3000626064 /* Observable.swift in Sources */,
 				BA241F5A1EDDCCD300B1F976 /* OpponentTableViewCell.swift in Sources */,
 				BA8E52971EF6E666003E60F0 /* StatisticsViewController.swift in Sources */,
 				BAD577481F9B8B820040CED4 /* LoginViewController.swift in Sources */,
@@ -488,10 +478,8 @@
 				BADDCE731EE740F10040DC6E /* AddSessionPopupViewController.swift in Sources */,
 				BAD5774C1F9B8C230040CED4 /* RegistrationViewController.swift in Sources */,
 				BA1E07631F5B80A700C0DD2C /* PersistenceHandler.swift in Sources */,
-				BA8E529C1EFD0FE3003E60F0 /* TimeSettingHandler.swift in Sources */,
 				BA241F381EDD6EF800B1F976 /* AppDelegate.swift in Sources */,
 				BA612B8D1F6DF2E600F7350F /* ViewModel.swift in Sources */,
-				BABA8C761F66CAF90049E56A /* State.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
