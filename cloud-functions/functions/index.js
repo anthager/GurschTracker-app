@@ -22,54 +22,51 @@ exports.demoFunc = functions.https.onRequest((req, res) => {
 	const loser = req.body.loser
 	const amount = Number(req.body.amount)
 
-	console.log('winner = ' + winner)
-	console.log('loser = ' + loser)
-	console.log('amouunt = ' + amount)
-
 	res.send('success!')
 })
 
 exports.addSession = functions.https.onRequest((req, res) => {
-	const winner = req.body.winner
-	const loser = req.body.loser
+	const user = req.body.user
+	const opponent = req.body.opponent
 	const amount = Number(req.body.amount)
-	updateUserAmount(winner, loser, amount)
-	updateUserAmount(loser, winner, -amount)
+
+	console.log("user = " + user)
+	console.log("opponent = " + opponent)
+	console.log("amount = " + amount)
+	updateUserAmount(user, opponent, amount)
+	updateUserAmount(opponent, user, -amount)
 
 	res.send(true)
 })
 
-function updateUserAmount(user, opponent, amount) {
-	const uRef = ref.child(user)
-	const oRef = uRef.child('opponents').child(opponent)
+function updateUserAmount(p1, p2, amount) {
+	const p1Ref = ref.child(p1)
+	const p2Ref = p1Ref.child('opponents').child(p2)
 
-	uRef.child('amount').once('value').then(snap => {
+	p1Ref.child('amount').once('value').then(snap => {
+		// console.log('amount = ' + amount)
 		var newAmount = amount
+		// console.log('newAmount = ' + newAmount)
 		//is run if snap is defined
 		if (snap.val()){
+			// console.log('snap.val = ' + snap.val() )
 			newAmount = parseInt(snap.val()) + amount
+			// console.log('newAmount = ' + newAmount)
 		}
-		oRef.set({
-			uid: opponent,
+
+		p1Ref.update({
+			amount: newAmount
+		})
+
+		// console.log('snap.val = ' + snap.val() )
+		p2Ref.set({
+			uid: p2,
 			amount: newAmount
 		})
 	})
 
-	oRef.child('amount').once('value').then(snap => {
-		var newAmount = amount
-		//is run if snap is defined
-		if (snap.val()){
-			newAmount = parseInt(snap.val()) + amount
-		}
-
-		oRef.set({
-			uid: opponent,
-			amount: newAmount
-		})
-	})
-
-	uRef.child('sessions').child('asdfsjkhkljsdkldsfkl1').set({
-		opponent: opponent,
+	p1Ref.child('sessions').child('asdfsjkhkljsdkldsfkl1').set({
+		opponent: p2,
 		amount: amount
 	})
 }

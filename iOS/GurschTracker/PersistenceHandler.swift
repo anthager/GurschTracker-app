@@ -35,6 +35,7 @@ class PersistenceHandler {
 		initializeOpponentsChildAdded()
 		initializeOpponentsChildChanged()
 		initializeOpponentsChildRemoved()
+		initializeUserListener()
 
 		//initializeSessionsChildAdded()
 		//		initializeTotalAmount()
@@ -50,10 +51,28 @@ class PersistenceHandler {
 	//MARK: - writing funs
 
 	public func addSessionToDatabase(opponentName: String, amount: Int){
-		(sessionDataToDir(opponentName: opponentName, amount: amount))
 
+		guard let uid = self.uid else {
+			print("no uid in pers. hand.")
+			return
+		}
+//
+//		var uida = "qlgkY2zTzudkB5sqEsiROuLYiOn2"
+//		var opponentNamea = "RNdxAOtFYQaEO2popo8z9wQAjw23"
+//		var winner = ""
+//		var loser = ""
+//		if amount >= 0 {
+//			winner = uida
+//			loser = opponentNamea
+//		} else {
+//			loser = uida
+//			winner = opponentNamea
+//		}
+//		print("winner is \(winner)")
+//		print("loser is \(loser)")
 
-		let parameters: [String: Any] = ["winner":"qlgkY2zTzudkB5sqEsiROuLYiOn2", "loser": "RNdxAOtFYQaEO2popo8z9wQAjw23", "amount": amount]
+		let parameters: [String: Any] = ["user": "qlgkY2zTzudkB5sqEsiROuLYiOn2", "opponent": "RNdxAOtFYQaEO2popo8z9wQAjw23", "amount": amount]
+		print(parameters)
 		let path = "https://us-central1-gurschtracker.cloudfunctions.net/addSession"
 		var request = URLRequest(url: URL(string: path)!)
 
