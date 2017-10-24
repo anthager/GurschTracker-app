@@ -48,17 +48,9 @@ class ViewModel {
 	}
 
 	//MARK: - funcs for editing from view
-	public func newOpponent(_ name: String){
-		persistenceHandler.addOpponentToDatabase(name: name, amount: 0)
-	}
-	//This is a bit hacky, instead of doing some fancy syncing between firebase and rx i simply add the changed opponent as a new one. Since there only can be one with a key in both the database and in the rx dictionary, it seems like it's updating
+
 	public func addSession(opponentName: String, sessionAmount: Int ){
 		persistenceHandler.addSessionToDatabase(opponentName: opponentName, amount: sessionAmount)
-
-		let oldAmount = _opponents.value[opponentName]?.amount ?? 0
-		let newAmount = oldAmount + sessionAmount
-		persistenceHandler.addOpponentToDatabase(name: opponentName, amount: newAmount)
-//		_opponents.value[opponentName]?.amount = amount
 	}
 
 	//MARK: - funcs for opponents
@@ -73,26 +65,9 @@ class ViewModel {
 		return sessions
 	}
 
-	func resetOpponents() {
-		//		opponents.value = [Opponent]()
+	func newOpponent(_ name: String) {
+		//do stuff here
 	}
-
-
-	//	func setupSampleOpponents(){
-	//
-	//		guard let opponent1 = Opponent(name: "Peter") else {
-	//			fatalError("Unable to instantiate opponent1")
-	//		}
-	//		guard let opponent2 = Opponent(name: "Adam") else {
-	//			fatalError("Unable to instantiate opponent2")
-	//		}
-	//		guard let opponent3 = Opponent(name: "Petronella") else {
-	//			fatalError("Unable to instantiate opponent3")
-	//		}
-	//
-	//		opponents += [opponent1, opponent2, opponent3]
-	//	}
-
 
 	//MARK: - private funcs
 

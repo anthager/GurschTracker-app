@@ -39,21 +39,6 @@ struct Opponent {
 		self.toBeWrittenToDatabase = toBeWrittenToDatabase
 	}
 
-	init?(name: String?, sessions: [Session]?, amount: Int){
-		guard let name = name  else {
-			print("no name were given")
-			return nil
-		}
-
-		if let sessions = sessions {
-			self.sessions = sessions
-		}
-
-		self.name = name
-		self.amount = amount
-		self.toBeWrittenToDatabase = true
-	}
-
 	public mutating func addAmount(amount: Int){
 		self.amount += amount
 	}

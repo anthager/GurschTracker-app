@@ -17,6 +17,18 @@ exports.addToDatabase = functions.auth.user().onCreate(event => {
 	})
 })
 
+exports.demoFunc = functions.https.onRequest((req, res) => {
+	const winner = req.body.winner
+	const loser = req.body.loser
+	const amount = Number(req.body.amount)
+
+	console.log('winner = ' + winner)
+	console.log('loser = ' + loser)
+	console.log('amouunt = ' + amount)
+
+	res.send('success!')
+})
+
 exports.addSession = functions.https.onRequest((req, res) => {
 	const winner = req.body.winner
 	const loser = req.body.loser

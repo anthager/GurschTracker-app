@@ -78,7 +78,7 @@
 		BAD992451F681A3000626064 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSessionPopupViewController.swift; sourceTree = "<group>"; };
 		BADDCE741EEB15040040DC6E /* AddOpponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddOpponentViewController.swift; path = ../AddOpponentViewController.swift; sourceTree = "<group>"; };
-		BAF10FC51F69D42A008F5EA0 /* referenceTypesGP.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = referenceTypesGP.playground; sourceTree = "<group>"; };
+		BAF10FC51F69D42A008F5EA0 /* referenceTypesGP.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = referenceTypesGP.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		C2BBA2C08199B5FD89BFF5BF /* Pods_GurschTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GurschTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA5BCB755395EAD13F3603A0 /* Pods_GurschTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GurschTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */

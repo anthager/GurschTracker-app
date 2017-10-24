@@ -21,7 +21,7 @@ class RegistrationViewController: UIViewController, AuthValidation {
 	}
 
 	@IBAction func signUpButtonPressed(_ sender: UIButton) {
-//		signUp()
+		signUp()
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let controller = storyboard.instantiateInitialViewController()
 		self.present(controller!, animated: true, completion: nil)

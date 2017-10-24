@@ -18,10 +18,10 @@ class PersistenceHandler {
 	//MARK: - properties
 	var databaseRef: DatabaseReference?
 	var databaseHandle: DatabaseHandle?
+	var uid: String?
+	//var authHandle:
 
 	//Rx props
-//	let sessions = Variable<[Session]>([])
-//	let opponents = Variable<[Opponent]>([])
 	let sessions = Variable<[String : Session]>([:])
 	let opponents = Variable<[String : Opponent]>([:])
 	let sessionIds = Variable<[String]>([])
@@ -35,17 +35,54 @@ class PersistenceHandler {
 		initializeOpponentsChildAdded()
 		initializeOpponentsChildChanged()
 		initializeOpponentsChildRemoved()
+
 		//initializeSessionsChildAdded()
-//		initializeTotalAmount()
+		//		initializeTotalAmount()
+	}
+
+	private func initializeUserListener(){
+		Auth.auth().addStateDidChangeListener { (auth, user) in
+			self.uid = user?.uid
+			print("new user logged in with uid: \(user?.uid ?? "no uid") and email: \(user?.email ?? "no email")")
+		}
 	}
 
 	//MARK: - writing funs
-	public func addOpponentToDatabase(name: String, amount: Int){
-		self.databaseRef?.child("opponents").child(name).updateChildValues(opponentDataToDir(name: name, amount: amount))
-	}
 
 	public func addSessionToDatabase(opponentName: String, amount: Int){
-		self.databaseRef?.child("sessions").childByAutoId().updateChildValues(sessionDataToDir(opponentName: opponentName, amount: amount))
+		(sessionDataToDir(opponentName: opponentName, amount: amount))
+
+
+		let parameters: [String: Any] = ["winner":"qlgkY2zTzudkB5sqEsiROuLYiOn2", "loser": "RNdxAOtFYQaEO2popo8z9wQAjw23", "amount": amount]
+		let path = "https://us-central1-gurschtracker.cloudfunctions.net/addSession"
+		var request = URLRequest(url: URL(string: path)!)
+
+		request.httpMethod = "POST"
+		request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+		guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else {
+			print("making json of the parameters in postToApi failed")
+			return
+		}
+		request.httpBody = httpBody
+		let session = URLSession.shared
+		session.dataTask(with: request) { (data, response, error) in
+			if error != nil {
+				print("http request failed with \(String(describing: error))")
+				return
+			}
+			if let response = response {
+				print(response)
+			}
+			if let data = data {
+				do {
+					let json = try JSONSerialization.jsonObject(with: data, options: [])
+					print(json)
+				}
+				catch {
+					print(error)
+				}
+			}
+			}.resume()
 	}
 
 	//MARK: - init opponent loading funcs
@@ -98,64 +135,6 @@ class PersistenceHandler {
 		})
 	}
 
-//	func initializeOpponentsChildAdded(){
-//		print("childAdded")
-//		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
-//		opponentsHandle = opponentsQuery?.observe(.childAdded, with: { (snapshot) in
-//
-//			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
-//			let amount = self.opponentAmountFromSnapshot(snapshot: snapshot)
-//			let opponent = Opponent(name: name, amount: amount, toBeWrittenToDatabase: false)
-//			self.opponents.value.append(opponent)
-//
-//			self.totalAmount.value += opponent.amount
-//
-//			print("initializeOpponentsChildAdded debug: opponents.count = \(self.opponents.value.count)")
-//		})
-//	}
-//
-//	private func initializeOpponentsChildChanged() {
-//		print("childChanged")
-//		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
-//		opponentsHandle = opponentsQuery?.observe(.childChanged, with: { (snapshot) in
-//
-//			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
-//			let amount = self.opponentAmountFromSnapshot(snapshot: snapshot)
-//			print("Firebase detected a change to \(name), his/her new amount is: \(amount)")
-//
-//			var oldTotalAmount = 0
-//			var opponentsWithoutCurrent = self.opponents.value.filter({ (opponent) -> Bool in
-//				if opponent.name == name {
-//					oldTotalAmount = opponent.amount
-//					return false
-//				}
-//				return true
-//			})
-//			let currentOpponent = Opponent(name: name, amount: amount, toBeWrittenToDatabase: false)
-//			opponentsWithoutCurrent.append(currentOpponent)
-//			self.opponents.value = opponentsWithoutCurrent
-//
-//			let deltaAmount = amount - oldTotalAmount
-//			self.totalAmount.value += deltaAmount
-//			print("initializeOpponentsChildChanged debug: opponents.count = \(self.opponents.value.count)")
-//		})
-//	}
-//
-//	func initializeOpponentsChildRemoved() {
-//		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
-//		opponentsHandle = opponentsQuery?.observe(.childRemoved, with: { (snapshot) in
-//
-//			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
-//			let amount = self.opponentAmountFromSnapshot(snapshot: snapshot)
-//
-//			self.opponents.value = self.opponents.value.filter() { $0.name != name }
-//
-//			self.totalAmount.value -= amount
-//
-//			print("initializeOpponentsChildRemoved debug: opponents.count = \(self.opponents.value.count)")
-//		})
-//	}
-
 	//MARK: - init session loading funcs
 	private func initializeSessionsChildAdded () {
 
@@ -165,43 +144,11 @@ class PersistenceHandler {
 			//			let opponentName = self.sessionNameFromSnapshot(snapshot: snapshot)
 			let  date = self.sessionDateFromSnapshot(snapshot: snapshot)
 
-			guard let session = Session(amount: amount, id: snapshot.key, date: date) else {
-				return
-			}
+			let session = Session(amount: amount, date: date, id: snapshot.key)
 			self.sessions.value[snapshot.key] = session
 			print("initializeSessionsChildAdded debug: sessions.count = \(self.sessions.value)")
 		})
 	}
-//	private func initializeSessionsChildAdded () {
-//
-//		let sessionsQuery = databaseRef?.child("sessions").queryOrdered(byChild: "opponent")
-//		sessionsQuery?.observe(.childAdded, with: { (snapshot) in
-//			let amount = self.sessionAmountFromSnapshot(snapshot: snapshot)
-////			let opponentName = self.sessionNameFromSnapshot(snapshot: snapshot)
-//			let  date = self.sessionDateFromSnapshot(snapshot: snapshot)
-//
-//			guard let session = Session(amount: amount, id: snapshot.key, date: date) else {
-//				return
-//			}
-//			self.sessions.value.append(session)
-//			print("initializeSessionsChildAdded debug: sessions.count = \(self.sessions.value)")
-//		})
-//	}
-
-//	private func initializeTotalAmount(){
-//		databaseRef?.child("totalAmount").observe(.value, with: { (snapshot) in
-//			guard let dir = snapshot.value as? [String : Any] else {
-//				print("totAmount failed1")
-//				return
-//			}
-//
-//			guard let amount = dir["totalAmount"] as? Int else {
-//				print("no totalAmount in totalAmount")
-//				return
-//			}
-//			self.totalAmount.value = amount
-//		})
-//	}
 
 	//MARK: - private misc funcs
 	private func opponentDataToDir(name: String, amount: Int) -> [String : Any] {

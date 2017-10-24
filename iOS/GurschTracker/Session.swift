@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import FirebaseDatabase
 
-struct Session{
+struct Session {
 
 	//MARK: - properties
 	let amount: Int
@@ -18,24 +19,10 @@ struct Session{
 	init(amount: Int, id: String) {
 		self.amount = amount
 		self.id = id
-//		id = Session.idCount
-//		Session.idCount += 1
 		date = Date()
 	}
 
 	init(amount: Int, date: Date, id: String){
-		self.amount = amount
-		self.id = id
-		self.date = date
-	}
-
-	init?(amount: Int, id: String, date: Date) {
-		self.amount = amount
-		self.id = id
-		self.date = date
-	}
-
-	init?(amount: Int, id: String, date: Date, opponent: Opponent) {
 		self.amount = amount
 		self.id = id
 		self.date = date
