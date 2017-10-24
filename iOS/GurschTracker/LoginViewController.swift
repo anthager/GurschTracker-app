@@ -11,6 +11,7 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController, AuthValidation {
 
+	@IBOutlet weak var adminButton: UIButton!
 	@IBOutlet weak var passwordTextField: UITextField!
 	@IBOutlet weak var emailTextField: UITextField!
 	@IBOutlet weak var signinButton: UIButton!
@@ -19,11 +20,23 @@ class LoginViewController: UIViewController, AuthValidation {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.hideKeyboardWhenTappedAround()
+		if CurrentApplicationState.state == ApplicationState.dev {
+			adminButton.isEnabled = true
+		}
 	}
 
 	//Some nice loading is needed here, and fail shit
 	@IBAction func signInButtonPressed(_ sender: UIButton) {
 	//	login()
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let controller = storyboard.instantiateInitialViewController()
+		self.present(controller!, animated: true, completion: nil)
+	}
+	
+	//faster login for devs under development
+	@IBAction func adminSignIn(_ sender: UIButton) {
+		Auth.auth().signIn(withEmail: "admin@gurschtracker.com", password: "password123") { (user, error) in
+		}
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let controller = storyboard.instantiateInitialViewController()
 		self.present(controller!, animated: true, completion: nil)
