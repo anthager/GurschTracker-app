@@ -18,6 +18,7 @@ class PersistenceHandler {
 	//MARK: - properties
 	var databaseRef: DatabaseReference?
 	var databaseHandle: DatabaseHandle?
+	var authHandler: AuthStateDidChangeListenerHandle?
 	var uid: String?
 	//var authHandle:
 
@@ -42,7 +43,7 @@ class PersistenceHandler {
 	}
 
 	private func initializeUserListener(){
-		Auth.auth().addStateDidChangeListener { (auth, user) in
+		authHandler = Auth.auth().addStateDidChangeListener { (auth, user) in
 			self.uid = user?.uid
 			print("new user logged in with uid: \(user?.uid ?? "no uid") and email: \(user?.email ?? "no email")")
 		}
@@ -56,20 +57,6 @@ class PersistenceHandler {
 			print("no uid in pers. hand.")
 			return
 		}
-//
-//		var uida = "qlgkY2zTzudkB5sqEsiROuLYiOn2"
-//		var opponentNamea = "RNdxAOtFYQaEO2popo8z9wQAjw23"
-//		var winner = ""
-//		var loser = ""
-//		if amount >= 0 {
-//			winner = uida
-//			loser = opponentNamea
-//		} else {
-//			loser = uida
-//			winner = opponentNamea
-//		}
-//		print("winner is \(winner)")
-//		print("loser is \(loser)")
 
 		let parameters: [String: Any] = ["user": "qlgkY2zTzudkB5sqEsiROuLYiOn2", "opponent": "RNdxAOtFYQaEO2popo8z9wQAjw23", "amount": amount]
 		print(parameters)

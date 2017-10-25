@@ -39,6 +39,20 @@ struct Opponent {
 		self.toBeWrittenToDatabase = toBeWrittenToDatabase
 	}
 
+	init?(_ snapshot: DataSnapshot) {
+		guard let properties = snapshot.value as? [String : Any] else {
+			print("opponent from database unable to cast to string : Any")
+			return nil
+		}
+		guard let name = properties["name"] as? String, let amount = properties["opponent"] as? Int else {
+			print("unable to init opponent")
+			return nil
+		}
+		self.name = name
+		self.amount = amount
+		toBeWrittenToDatabase = false
+	}
+
 	public mutating func addAmount(amount: Int){
 		self.amount += amount
 	}
