@@ -4,7 +4,8 @@ const uuidV1 = require('uuid/v1');
 
 admin.initializeApp(functions.config().firebase)
 
-const ref = admin.database().ref().child('usersdev')
+const udataRef = admin.database().ref().child('usersdev')
+const uPbDataRef = admin.database().ref().child('public-user-data-dev')
 
 // Create and Deploy Your First Cloud Functions
 // https://firebase.google.com/docs/functions/write-firebase-functions
@@ -13,10 +14,15 @@ exports.addToDatabase = functions.auth.user().onCreate(event => {
 	const uid = event.data.uid
 	const email = event.data.email
 
-	return ref.child(uid).set({
+	const pr1 = udataRef.child(uid).set({
+		uid: uid
+	})
+	const pr2 = uPbDataRef.child(uid).set({
 		email: email,
 		uid: uid
 	})
+
+
 })
 
 exports.demoFunc = functions.https.onRequest((req, res) => {
@@ -42,7 +48,7 @@ exports.addSession = functions.https.onRequest((req, res) => {
 })
 
 function updateUserAmount(p1, p2, amount) {
-	const p1Ref = ref.child(p1)
+	const p1Ref = udataRef.child(p1)
 	const p2Ref = p1Ref.child('opponents').child(p2)
 
 	p1Ref.child('amount').once('value').then(snap => {
@@ -78,7 +84,7 @@ const uid = req.body.uid
 const email = req.body.email
 const amount = parseInt(req.body.amount)
 
-	ref.child(uid).set({
+	udataRef.child(uid).set({
 		uid: uid,
 		email: email,
 		amount: amount
