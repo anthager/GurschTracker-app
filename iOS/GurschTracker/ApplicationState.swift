@@ -15,4 +15,13 @@ enum ApplicationState {
 
 struct CurrentApplicationState {
 	public static let state: ApplicationState = .dev
+
+	public static var userRootNode: String {
+		if state == ApplicationState.prod {
+			return "usersprod"
+
+		} else {
+			return "usersdev"
+		}
+	}
 }

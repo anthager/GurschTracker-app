@@ -33,6 +33,13 @@ class ViewController: UIViewController {
 	@IBAction func clean(_ sender: Any) {
 	}
 
+	@IBAction func addOpponentPressed(_ sender: UIBarButtonItem) {
+		let storyboard = UIStoryboard(name: "AddOpponent", bundle: nil)
+		let controller = storyboard.instantiateViewController(withIdentifier: "addOpponentTableView") as! AddOpponentTableViewController
+		controller.viewModel = viewModel
+		self.navigationController?.pushViewController(controller, animated: true)
+	}
+	
 	// MARK: - Navigation
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		super.prepare(for: segue, sender: sender)

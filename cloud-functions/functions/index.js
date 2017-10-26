@@ -1,5 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin')
+const uuidV1 = require('uuid/v1');
+
 admin.initializeApp(functions.config().firebase)
 
 const ref = admin.database().ref().child('usersdev')
@@ -65,7 +67,7 @@ function updateUserAmount(p1, p2, amount) {
 		})
 	})
 
-	p1Ref.child('sessions').child('asdfsjkhkljsdkldsfkl1').set({
+	p1Ref.child('sessions').child(uuidV1()).set({
 		opponent: p2,
 		amount: amount
 	})
