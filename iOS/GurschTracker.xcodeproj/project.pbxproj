@@ -27,6 +27,7 @@
 		BAD5774E1F9B96840040CED4 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD5774D1F9B96840040CED4 /* Authentication.swift */; };
 		BADDCE731EE740F10040DC6E /* AddSessionPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */; };
 		BADDCE751EEB15040040DC6E /* AddOpponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADDCE741EEB15040040DC6E /* AddOpponentViewController.swift */; };
+		BAF4333D1FA26F1500AAC5F8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF4333C1FA26F1500AAC5F8 /* User.swift */; };
 		BAFF160E1F9FBFC7008A6C83 /* ApplicationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFF160D1F9FBFC7008A6C83 /* ApplicationState.swift */; };
 		BAFF16121FA11555008A6C83 /* AddOpponent.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAFF16111FA11555008A6C83 /* AddOpponent.storyboard */; };
 		BAFF16161FA1F1A2008A6C83 /* AddOpponentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFF16151FA1F1A2008A6C83 /* AddOpponentTableViewController.swift */; };
@@ -76,6 +77,7 @@
 		BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddSessionPopupViewController.swift; sourceTree = "<group>"; };
 		BADDCE741EEB15040040DC6E /* AddOpponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddOpponentViewController.swift; path = ../AddOpponentViewController.swift; sourceTree = "<group>"; };
 		BAF10FC51F69D42A008F5EA0 /* referenceTypesGP.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = referenceTypesGP.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		BAF4333C1FA26F1500AAC5F8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BAFF160D1F9FBFC7008A6C83 /* ApplicationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationState.swift; sourceTree = "<group>"; };
 		BAFF16111FA11555008A6C83 /* AddOpponent.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddOpponent.storyboard; sourceTree = "<group>"; };
 		BAFF16151FA1F1A2008A6C83 /* AddOpponentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOpponentTableViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			children = (
 				BA241F5F1EE6BAAC00B1F976 /* Opponent.swift */,
 				BA241F651EE6C02E00B1F976 /* Session.swift */,
+				BAF4333C1FA26F1500AAC5F8 /* User.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				BA241F601EE6BAAC00B1F976 /* Opponent.swift in Sources */,
 				BA241F661EE6C02E00B1F976 /* Session.swift in Sources */,
 				BA241F3A1EDD6EF800B1F976 /* ViewController.swift in Sources */,
+				BAF4333D1FA26F1500AAC5F8 /* User.swift in Sources */,
 				BA8E52951EF44488003E60F0 /* TotalTableViewCell.swift in Sources */,
 				BAD5774E1F9B96840040CED4 /* Authentication.swift in Sources */,
 				BADDCE751EEB15040040DC6E /* AddOpponentViewController.swift in Sources */,

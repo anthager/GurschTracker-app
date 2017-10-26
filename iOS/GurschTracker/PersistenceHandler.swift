@@ -26,6 +26,7 @@ class PersistenceHandler {
 	let sessions = Variable<[String : Session]>([:])
 	let opponents = Variable<[String : Opponent]>([:])
 	let sessionIds = Variable<[String]>([])
+	let users = Variable<[String : Session]>([:])
 	var totalAmount = Variable<Int>(0)
 	private let bag = DisposeBag()
 
@@ -89,6 +90,10 @@ class PersistenceHandler {
 				}
 			}
 			}.resume()
+	}
+
+	private func initializeUserValue(){
+
 	}
 
 	//MARK: - init opponent loading funcs
