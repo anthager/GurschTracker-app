@@ -26,7 +26,7 @@ class PersistenceHandler {
 	let sessions = Variable<[String : Session]>([:])
 	let opponents = Variable<[String : Opponent]>([:])
 	let sessionIds = Variable<[String]>([])
-	let users = Variable<[String : Session]>([:])
+	let users = Variable<[String : User]>([:])
 	var totalAmount = Variable<Int>(0)
 	private let bag = DisposeBag()
 
@@ -38,6 +38,7 @@ class PersistenceHandler {
 		initializeOpponentsChildChanged()
 		initializeOpponentsChildRemoved()
 		initializeUserListener()
+		initializeUserValue()
 
 		//initializeSessionsChildAdded()
 		//		initializeTotalAmount()
@@ -93,10 +94,19 @@ class PersistenceHandler {
 	}
 
 	private func initializeUserValue(){
-
+		print("users changed")
+		let usersQuery = databaseRef?.child(CurrentApplicationState.publicUserDataRoot).queryOrdered(byChild: "email")
+		_ = usersQuery?.observe(.childAdded, with: { (snapshot) in
+			guard let user = User(snapshot: snapshot) else {
+				print("init of \(snapshot) failed ")
+				return
+			}
+			self.users.value[user.name] = user
+			print("\(user) inited")
+		})
 	}
-
-	//MARK: - init opponent loading funcs
+	//need to fix the user changed and user deleted methods as well see issue #12
+	//MARK: - init user loading funcs
 	private func initializeOpponentsChildAdded(){
 		print("childAdded")
 		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
@@ -112,6 +122,7 @@ class PersistenceHandler {
 			print("initializeOpponentsChildAdded debug: opponents.count = \(self.opponents.value.count)")
 		})
 	}
+	//MARK: - init opponent loading funcs
 	//TODO: bug somewhere here, when a session is added the amount of the session is the new total for that opponent. The same with the totalAmount
 	private func initializeOpponentsChildChanged() {
 		print("childChanged")
@@ -140,7 +151,7 @@ class PersistenceHandler {
 			let amount = self.opponentAmountFromSnapshot(snapshot: snapshot)
 
 			self.opponents.value.removeValue(forKey: name)
-			self.totalAmount.value -= amount
+			self.totalAmount.value = amount
 
 			print("initializeOpponentsChildRemoved debug: opponents.count = \(self.opponents.value.count)")
 		})

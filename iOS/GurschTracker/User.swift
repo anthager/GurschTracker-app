@@ -30,3 +30,4 @@ struct User {
 		self.email = email
 	}
 }
+

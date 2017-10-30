@@ -16,7 +16,7 @@ enum ApplicationState {
 enum CurrentApplicationState {
 	public static let state: ApplicationState = .dev
 
-	public static var userRootNode: String {
+	public static var privateUserDataRoot: String {
 		if state == ApplicationState.prod {
 			return "usersprod"
 
@@ -24,8 +24,8 @@ enum CurrentApplicationState {
 			return "usersdev"
 		}
 	}
-	public static var publicUserDataNode: String {
-		if state == ApplicationState.prod {
+	public static var publicUserDataRoot: String {
+		if state == ApplicationState.dev {
 			return "public-user-data-dev"
 
 		} else {

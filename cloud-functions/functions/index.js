@@ -7,9 +7,6 @@ admin.initializeApp(functions.config().firebase)
 const udataRef = admin.database().ref().child('usersdev')
 const uPbDataRef = admin.database().ref().child('public-user-data-dev')
 
-// Create and Deploy Your First Cloud Functions
-// https://firebase.google.com/docs/functions/write-firebase-functions
-
 exports.addToDatabase = functions.auth.user().onCreate(event => {
 	const uid = event.data.uid
 	const email = event.data.email
