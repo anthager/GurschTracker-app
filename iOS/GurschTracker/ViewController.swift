@@ -11,7 +11,7 @@ import FirebaseDatabase
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate {
 
 	//MARK: - properties
 
@@ -22,7 +22,6 @@ class ViewController: UIViewController {
 
 
 	//MARK: - super methods
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		viewModel = ViewModel()
@@ -30,9 +29,6 @@ class ViewController: UIViewController {
 	}
 
 	//MARK: - actions
-	@IBAction func clean(_ sender: Any) {
-	}
-
 	@IBAction func addOpponentPressed(_ sender: UIBarButtonItem) {
 		let storyboard = UIStoryboard(name: "AddOpponent", bundle: nil)
 		let controller = storyboard.instantiateViewController(withIdentifier: "addOpponentTableView") as! AddOpponentTableViewController
@@ -58,6 +54,17 @@ class ViewController: UIViewController {
 		}
 	}
 
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let storyboard = UIStoryboard(name: "AddSession", bundle: nil)
+		let controller = storyboard.instantiateViewController(withIdentifier: "addSession") as! AddSessionPopupViewController
+		guard let cell = tableView.cellForRow(at: indexPath) as? OpponentTableViewCell else {
+			return
+		}
+		controller.name = cell.nameLabel.text ?? ""
+
+		self.present(controller, animated: true, completion: nil)
+	}
+
 	@IBAction func unwindToOverview(sender: UIStoryboardSegue) {
 		if let addSessionVC = sender.source as? AddSessionPopupViewController {
 
@@ -78,8 +85,9 @@ class ViewController: UIViewController {
 			viewModel.newOpponent(name)
 		}
 	}
-	//MARK: - private methods
 
+	
+	//MARK: - private methods
 	func setupUI() {
 		viewModel.totalAmount
 			.map { amount in

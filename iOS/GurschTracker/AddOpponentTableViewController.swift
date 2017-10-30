@@ -42,12 +42,26 @@ class AddOpponentTableViewController: UITableViewController {
 	//MARK: private funcs
 
 	private func setupTableView(){
-		tableView.delegate = nil
+		tableView.delegate = self
 		tableView.dataSource = nil
 
 		tableView.tableFooterView = UIView() //Prevent empty rows
 		//tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 
+	}
+
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		print("print 1")
+		let storyboard = UIStoryboard(name: "AddSession", bundle: nil)
+		let controller = storyboard.instantiateViewController(withIdentifier: "addSession") as! AddSessionPopupViewController
+		guard let cell = tableView.cellForRow(at: indexPath) as? NewOpponentTableViewCell else {
+			print("not a new opponent cell")
+			return
+		}
+		controller.name = cell.nameLabel.text ?? ""
+
+		self.present(controller, animated: true, completion: nil)
+		print("print 2")
 	}
 
 	private func setupRx(){

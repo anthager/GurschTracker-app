@@ -154,10 +154,12 @@
                                         <connections>
                                             <outlet property="amountLabel" destination="wWZ-U8-vjr" id="Ywx-aE-44V"/>
                                             <outlet property="nameLabel" destination="9lp-zM-32s" id="i8z-g2-qnj"/>
-                                            <segue destination="W3U-Vu-z2z" kind="presentation" identifier="addSession" id="Z5m-Kw-64k"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="delegate" destination="Pi3-Ei-xqD" id="Cza-2z-sDR"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPD-uf-pT2">
                                 <rect key="frame" x="0.0" y="626" width="375" height="41"/>
@@ -234,11 +236,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Overview" id="U9D-Jc-Ptq">
-                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="dhJ-uL-wNw">
-                            <connections>
-                                <action selector="clean:" destination="Pi3-Ei-xqD" id="NKK-zd-6Y3"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="I0b-Yd-4TA">
                             <connections>
                                 <action selector="addOpponentPressed:" destination="Pi3-Ei-xqD" id="7ag-dV-vvZ"/>
