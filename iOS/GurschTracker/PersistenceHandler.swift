@@ -33,11 +33,12 @@ class PersistenceHandler {
 	var opponentsHandle: DatabaseHandle?
 
 	init() {
+		initializeUserListener()
 		databaseRef = Database.database().reference()
 		initializeOpponentsChildAdded()
 		initializeOpponentsChildChanged()
 		initializeOpponentsChildRemoved()
-		initializeUserListener()
+
 		initializeUserValue()
 
 		//initializeSessionsChildAdded()
@@ -59,8 +60,8 @@ class PersistenceHandler {
 			print("no uid in pers. hand.")
 			return
 		}
-
-		let parameters: [String: Any] = ["user": "qlgkY2zTzudkB5sqEsiROuLYiOn2", "opponent": "RNdxAOtFYQaEO2popo8z9wQAjw23", "amount": amount]
+		//fix this unwrapped
+		let parameters: [String: Any] = ["user": uid, "opponent": users.value[opponentName]?.uid, "amount": amount]
 		print(parameters)
 		let path = "https://us-central1-gurschtracker.cloudfunctions.net/addSession"
 		var request = URLRequest(url: URL(string: path)!)
@@ -115,7 +116,11 @@ class PersistenceHandler {
 	//MARK: - init user loading funcs
 	private func initializeOpponentsChildAdded(){
 		print("childAdded")
-		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
+		guard let uid = self.uid else {
+			print("no uid")
+			return
+		}
+		let opponentsQuery = databaseRef?.child(CurrentApplicationState.privateUserDataRoot).child(uid).child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childAdded, with: { (snapshot) in
 
 			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
@@ -132,7 +137,11 @@ class PersistenceHandler {
 	//TODO: bug somewhere here, when a session is added the amount of the session is the new total for that opponent. The same with the totalAmount
 	private func initializeOpponentsChildChanged() {
 		print("childChanged")
-		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
+		guard let uid = self.uid else {
+			print("no uid")
+			return
+		}
+		let opponentsQuery = databaseRef?.child(CurrentApplicationState.privateUserDataRoot).child(uid).child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childChanged, with: { (snapshot) in
 
 			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
@@ -150,7 +159,11 @@ class PersistenceHandler {
 	}
 
 	private func initializeOpponentsChildRemoved() {
-		let opponentsQuery = databaseRef?.child("opponents").queryOrdered(byChild: "amount")
+		guard let uid = self.uid else {
+			print("no uid")
+			return
+		}
+		let opponentsQuery = databaseRef?.child(CurrentApplicationState.privateUserDataRoot).child(uid).child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childRemoved, with: { (snapshot) in
 
 			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
@@ -165,8 +178,11 @@ class PersistenceHandler {
 
 	//MARK: - init session loading funcs
 	private func initializeSessionsChildAdded () {
-
-		let sessionsQuery = databaseRef?.child("sessions").queryOrdered(byChild: "opponent")
+		guard let uid = self.uid else {
+			print("no uid")
+			return
+		}
+		let sessionsQuery = databaseRef?.child(CurrentApplicationState.privateUserDataRoot).child(uid).child("sessions").queryOrdered(byChild: "opponent")
 		sessionsQuery?.observe(.childAdded, with: { (snapshot) in
 			let amount = self.sessionAmountFromSnapshot(snapshot: snapshot)
 			//			let opponentName = self.sessionNameFromSnapshot(snapshot: snapshot)

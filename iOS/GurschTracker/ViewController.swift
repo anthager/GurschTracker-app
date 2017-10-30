@@ -82,7 +82,7 @@ class ViewController: UIViewController, UITableViewDelegate {
 				print("bug: addOpponentVC returned with no name")
 				return
 			}
-			viewModel.newOpponent(name)
+//			viewModel.newOpponent(name)
 		}
 	}
 

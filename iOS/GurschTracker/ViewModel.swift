@@ -6,7 +6,7 @@
 //  Copyright © 2017 Anton Hägermalm. All rights reserved.
 //
 
-//Istead of having a array with new values, have just a variable that starts a async write to db
+//all the apps data, not sure if this is the right way to do mvvm
 
 import Foundation
 import RxSwift
@@ -59,21 +59,6 @@ class ViewModel {
 		persistenceHandler.addSessionToDatabase(opponentName: opponentName, amount: sessionAmount)
 	}
 
-	//MARK: - funcs for opponents
-	func getAllSessions(opponents: [Opponent]) -> [Session] {
-		var sessions = [Session]()
-		for opponent in opponents {
-			for session in opponent.sessions {
-				sessions.append(session)
-			}
-		}
-
-		return sessions
-	}
-
-	func newOpponent(_ name: String) {
-		//do stuff here
-	}
 
 	//MARK: - private funcs
 
