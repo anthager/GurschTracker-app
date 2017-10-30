@@ -101,8 +101,14 @@ class PersistenceHandler {
 				print("init of \(snapshot) failed ")
 				return
 			}
-			self.users.value[user.name] = user
-			print("\(user) inited")
+			if user.name == "" {
+				self.users.value[user.email] = user
+				print("\(user) inited")
+			} else {
+				self.users.value[user.name] = user
+				print("\(user) inited")
+			}
+
 		})
 	}
 	//need to fix the user changed and user deleted methods as well see issue #12

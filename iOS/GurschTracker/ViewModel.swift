@@ -18,6 +18,7 @@ class ViewModel {
 	//MARK: - Rx props
 	private let _sessions: Variable<[String : Session]>
 	private let _opponents: Variable<[String : Opponent]>
+	private let _users: Variable<[String : User]>
 	private let _totalAmount: Variable<Int>
 
 	//MARK: - misc props
@@ -39,12 +40,17 @@ class ViewModel {
 		return _totalAmount.asObservable()
 	}
 
+	public var users: Observable<[String : User]> {
+		return _users.asObservable()
+	}
+
 	//MARK: inits
 	public init(){
 		persistenceHandler = PersistenceHandler()
 		_sessions = persistenceHandler.sessions
 		_opponents = persistenceHandler.opponents
 		_totalAmount = persistenceHandler.totalAmount
+		_users = persistenceHandler.users
 	}
 
 	//MARK: - funcs for editing from view

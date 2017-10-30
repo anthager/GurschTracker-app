@@ -17,8 +17,8 @@ class ViewController: UIViewController {
 
 	@IBOutlet weak var opponentsTableView: UITableView!
 	@IBOutlet weak var totalAmountLabel: UILabel!
-	var viewModel: ViewModel!
-	let bag = DisposeBag()
+	private var viewModel: ViewModel!
+	private let bag = DisposeBag()
 
 
 	//MARK: - super methods

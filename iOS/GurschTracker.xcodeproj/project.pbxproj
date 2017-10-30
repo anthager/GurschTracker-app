@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA19F7E81FA7352D00F8DBC3 /* NewOpponentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA19F7E71FA7352D00F8DBC3 /* NewOpponentTableViewCell.swift */; };
 		BA1E07611F5B6C6600C0DD2C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA1E07601F5B6C6500C0DD2C /* GoogleService-Info.plist */; };
 		BA1E07631F5B80A700C0DD2C /* PersistenceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA1E07621F5B80A700C0DD2C /* PersistenceHandler.swift */; };
 		BA241F381EDD6EF800B1F976 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA241F371EDD6EF800B1F976 /* AppDelegate.swift */; };
@@ -53,6 +54,7 @@
 		BA0874BF1F0B0738005C0EA6 /* GurschTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GurschTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0874C01F0B0738005C0EA6 /* GurschTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GurschTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA0FB2DE1F6D7CE10018D12B /* RxSwiftPG.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RxSwiftPG.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		BA19F7E71FA7352D00F8DBC3 /* NewOpponentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOpponentTableViewCell.swift; sourceTree = "<group>"; };
 		BA1E07601F5B6C6500C0DD2C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA1E07621F5B80A700C0DD2C /* PersistenceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceHandler.swift; sourceTree = "<group>"; };
 		BA241F371EDD6EF800B1F976 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		BA612B871F6DF13B00F7350F /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				BA19F7E71FA7352D00F8DBC3 /* NewOpponentTableViewCell.swift */,
 				BA241F591EDDCCD300B1F976 /* OpponentTableViewCell.swift */,
 				BA8E52941EF44488003E60F0 /* TotalTableViewCell.swift */,
 			);
@@ -192,10 +195,10 @@
 			children = (
 				BADDCE741EEB15040040DC6E /* AddOpponentViewController.swift */,
 				BA241F391EDD6EF800B1F976 /* ViewController.swift */,
-				BAD577461F9B8B370040CED4 /* Auth */,
 				BA8E52961EF6E666003E60F0 /* StatisticsViewController.swift */,
 				BADDCE721EE740F10040DC6E /* AddSessionPopupViewController.swift */,
 				BAFF16151FA1F1A2008A6C83 /* AddOpponentTableViewController.swift */,
+				BAD577461F9B8B370040CED4 /* Auth */,
 			);
 			name = viewControllers;
 			sourceTree = "<group>";
@@ -484,6 +487,7 @@
 				BAFF16161FA1F1A2008A6C83 /* AddOpponentTableViewController.swift in Sources */,
 				BA241F5A1EDDCCD300B1F976 /* OpponentTableViewCell.swift in Sources */,
 				BA8E52971EF6E666003E60F0 /* StatisticsViewController.swift in Sources */,
+				BA19F7E81FA7352D00F8DBC3 /* NewOpponentTableViewCell.swift in Sources */,
 				BAD577481F9B8B820040CED4 /* LoginViewController.swift in Sources */,
 				BA241F601EE6BAAC00B1F976 /* Opponent.swift in Sources */,
 				BA241F661EE6C02E00B1F976 /* Session.swift in Sources */,
