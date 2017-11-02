@@ -33,16 +33,16 @@ class PersistenceHandler {
 	var opponentsHandle: DatabaseHandle?
 
 	init() {
-		initializeUserListener()
-		databaseRef = Database.database().reference()
-		initializeOpponentsChildAdded()
-		initializeOpponentsChildChanged()
-		initializeOpponentsChildRemoved()
-
-		initializeUserValue()
-
-		//initializeSessionsChildAdded()
-		//		initializeTotalAmount()
+		self.databaseRef = Database.database().reference()
+		self.initializeUserListener()
+		DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + .milliseconds(1000), execute: {
+			self.initializeUserValue()
+		})
+		DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + .milliseconds(2000), execute: {
+			self.initializeOpponentsChildAdded()
+			self.initializeOpponentsChildChanged()
+			self.initializeOpponentsChildRemoved()
+		})
 	}
 
 	private func initializeUserListener(){
@@ -61,6 +61,7 @@ class PersistenceHandler {
 			return
 		}
 		//fix this unwrapped
+		//users is mapped with their id not email
 		let parameters: [String: Any] = ["user": uid, "opponent": users.value[opponentName]?.uid, "amount": amount]
 		print(parameters)
 		let path = "https://us-central1-gurschtracker.cloudfunctions.net/addSession"
@@ -103,7 +104,7 @@ class PersistenceHandler {
 				return
 			}
 			if user.name == "" {
-				self.users.value[user.email] = user
+				self.users.value[user.uid] = user
 				print("\(user) inited")
 			} else {
 				self.users.value[user.name] = user
@@ -209,11 +210,15 @@ class PersistenceHandler {
 			print("opponent from database unable to cast to string : Any")
 			return ""
 		}
-		guard let name = opponentProperties["name"] as? String else {
-			print("opponents name from database was undable to cast to string")
+		//hacky since just changed name to email see issue
+		//MARK: - TODO fix pure cancer
+		guard let uid = opponentProperties["uid"] as? String else {
+			print("opponents uid from database was undable to cast to string")
+			print(opponentProperties)
 			return ""
 		}
-		return name
+		return (users.value[uid]?.email)!
+//		return uid
 	}
 
 	private func opponentAmountFromSnapshot(snapshot: DataSnapshot) -> Int{

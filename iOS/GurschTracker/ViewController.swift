@@ -50,8 +50,8 @@ class ViewController: UIViewController, UITableViewDelegate {
 			popupVC.name = cell.nameLabel.text ?? ""
 
 		}
-		if let statisticsVC = segue.destination as? StatisticsViewController {
-		}
+//		if let statisticsVC = segue.destination as? StatisticsViewController {
+//		}
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -68,7 +68,7 @@ class ViewController: UIViewController, UITableViewDelegate {
 	@IBAction func unwindToOverview(sender: UIStoryboardSegue) {
 		if let addSessionVC = sender.source as? AddSessionPopupViewController {
 
-			guard let name = addSessionVC.name else {
+			guard let name = addSessionVC.nameLabel.text else {
 				print("bug: addSessionVC returned without a name")
 				return
 			}
