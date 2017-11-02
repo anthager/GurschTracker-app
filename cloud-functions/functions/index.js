@@ -64,7 +64,7 @@ function updateUserAmount(p1, p2, amount) {
 		})
 
 		// console.log('snap.val = ' + snap.val() )
-		p2Ref.set({
+		p2Ref.update({
 			uid: p2,
 			amount: newAmount
 		})

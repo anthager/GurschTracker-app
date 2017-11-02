@@ -55,8 +55,8 @@ class ViewModel {
 
 	//MARK: - funcs for editing from view
 
-	public func addSession(opponentName: String, sessionAmount: Int ){
-		persistenceHandler.addSessionToDatabase(opponentName: opponentName, amount: sessionAmount)
+	public func addSession(opponent: String, sessionAmount: Int ){
+		persistenceHandler.addSessionToDatabase(opponent: opponent, amount: sessionAmount)
 	}
 
 

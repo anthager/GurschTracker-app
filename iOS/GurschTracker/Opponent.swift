@@ -12,10 +12,19 @@ import Foundation
 struct Opponent {
 
 	//MARK: properites
-	let name: String
+	//Remove "" and make var
+	var name: String = ""
 	var amount = 0
-	var toBeWrittenToDatabase: Bool
+	var toBeWrittenToDatabase: Bool = false
 	var sessions = [Session]()
+	var uid: String = ""
+	var email: String = ""
+
+	//after since there is alot of changing in how the opponent system works, its esier to make a identifier that can be changed to name later if that would be more suitable
+	var identifier: String {
+		return email
+		fatalError("opponent didn't have identifier. You fucked up mate")
+	}
 
 	init?(name: String) {
 		guard !name.isEmpty else {
@@ -39,18 +48,18 @@ struct Opponent {
 		self.toBeWrittenToDatabase = toBeWrittenToDatabase
 	}
 
-	init?(_ snapshot: DataSnapshot) {
+	init?(snapshot: DataSnapshot) {
 		guard let properties = snapshot.value as? [String : Any] else {
-			print("opponent from database unable to cast to string : Any")
+			print("opponent from database unable to cast to string : Any, \(snapshot)")
 			return nil
 		}
-		guard let name = properties["name"] as? String, let amount = properties["opponent"] as? Int else {
-			print("unable to init opponent")
+		guard let uid = properties["uid"] as? String, let amount = properties["amount"] as? Int, let email = properties["email"] as? String else {
+			print("unable to init opponent, \(snapshot)")
 			return nil
 		}
-		self.name = name
+		self.uid = uid
 		self.amount = amount
-		toBeWrittenToDatabase = false
+		self.email = email
 	}
 
 	public mutating func addAmount(amount: Int){
@@ -62,13 +71,13 @@ struct Opponent {
 
 	//MARK: - static test case
 
-//	static func testSetup() -> [Opponent]{
-//		let opponents: [Opponent] = [
-//			Opponent(name: "Peter", sessions: Session.testSetup(), amount: 20)!,
-//			Opponent(name: "Petrina", sessions: Session.testSetup(), amount: -20)!,
-//			Opponent(name: "Niklas", sessions: nil, amount: 20)!]
-//
-//		return opponents
-//
-//	}
+	//	static func testSetup() -> [Opponent]{
+	//		let opponents: [Opponent] = [
+	//			Opponent(name: "Peter", sessions: Session.testSetup(), amount: 20)!,
+	//			Opponent(name: "Petrina", sessions: Session.testSetup(), amount: -20)!,
+	//			Opponent(name: "Niklas", sessions: nil, amount: 20)!]
+	//
+	//		return opponents
+	//
+	//	}
 }

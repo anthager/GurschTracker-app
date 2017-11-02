@@ -68,21 +68,14 @@ class ViewController: UIViewController, UITableViewDelegate {
 	@IBAction func unwindToOverview(sender: UIStoryboardSegue) {
 		if let addSessionVC = sender.source as? AddSessionPopupViewController {
 
-			guard let name = addSessionVC.nameLabel.text else {
+			guard let identifier = addSessionVC.nameLabel.text else {
 				print("bug: addSessionVC returned without a name")
 				return
 			}
 			let amount = addSessionVC.amount
 			print("amount = \(amount)")
-			viewModel.addSession(opponentName: name, sessionAmount: amount)
+			viewModel.addSession(opponent: identifier, sessionAmount: amount)
 
-		} else if let addOpponentVC = sender.source as? AddOpponentViewController {
-
-			guard let name = addOpponentVC.name else {
-				print("bug: addOpponentVC returned with no name")
-				return
-			}
-//			viewModel.newOpponent(name)
 		}
 	}
 
@@ -99,7 +92,7 @@ class ViewController: UIViewController, UITableViewDelegate {
 		viewModel.opponents
 			.bind(to: opponentsTableView.rx.items(cellIdentifier: "OpponentTableViewCell", cellType: OpponentTableViewCell.self)) {
 				(row, element, cell) in
-				cell.nameLabel.text = element.value.name
+				cell.nameLabel.text = element.value.identifier
 				cell.amountLabel.text = String(element.value.amount)
 			}
 			.disposed(by: bag)

@@ -54,15 +54,19 @@ class PersistenceHandler {
 
 	//MARK: - writing funs
 
-	public func addSessionToDatabase(opponentName: String, amount: Int){
+	public func addSessionToDatabase(opponent: String, amount: Int){
 
 		guard let uid = self.uid else {
 			print("no uid in pers. hand.")
 			return
 		}
+		guard let oid = users.value[opponent]?.uid else {
+			print("no opponent id given in per. hand. ")
+			return
+		}
 		//fix this unwrapped
 		//users is mapped with their id not email
-		let parameters: [String: Any] = ["user": uid, "opponent": users.value[opponentName]?.uid, "amount": amount]
+		let parameters: [String: Any] = ["user": uid, "opponent": oid, "amount": amount]
 		print(parameters)
 		let path = "https://us-central1-gurschtracker.cloudfunctions.net/addSession"
 		var request = URLRequest(url: URL(string: path)!)
@@ -124,12 +128,12 @@ class PersistenceHandler {
 		let opponentsQuery = databaseRef?.child(CurrentApplicationState.privateUserDataRoot).child(uid).child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childAdded, with: { (snapshot) in
 
-			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
-			let amount = self.opponentAmountFromSnapshot(snapshot: snapshot)
-			let opponent = Opponent(name: name, amount: amount)
-			self.opponents.value[name] = opponent
+			guard let opponent = Opponent(snapshot: snapshot) else {
+				return
+			}
+			self.opponents.value[opponent.identifier] = opponent
 
-			self.totalAmount.value += amount
+			self.totalAmount.value += opponent.amount
 
 			print("initializeOpponentsChildAdded debug: opponents.count = \(self.opponents.value.count)")
 		})
@@ -145,14 +149,14 @@ class PersistenceHandler {
 		let opponentsQuery = databaseRef?.child(CurrentApplicationState.privateUserDataRoot).child(uid).child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childChanged, with: { (snapshot) in
 
-			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
-			let newAmount = self.opponentAmountFromSnapshot(snapshot: snapshot)
-			print("Firebase detected a change to \(name), his/her new amount is: \(newAmount)")
+			guard let opponent = Opponent(snapshot: snapshot) else {
+				return
+			}
 
-			let oldTotalAmount = self.opponents.value[name]?.amount ?? 0
-			self.opponents.value[name] = Opponent(name: name, amount: newAmount)
+			let oldTotalAmount = self.opponents.value[opponent.identifier]?.amount ?? 0
+			self.opponents.value[opponent.identifier] = opponent
 
-			let deltaAmount = newAmount - oldTotalAmount
+			let deltaAmount = opponent.amount - oldTotalAmount
 			self.totalAmount.value += deltaAmount
 
 			print("initializeOpponentsChildChanged debug: opponents.count = \(self.opponents.value.count)")
@@ -167,11 +171,12 @@ class PersistenceHandler {
 		let opponentsQuery = databaseRef?.child(CurrentApplicationState.privateUserDataRoot).child(uid).child("opponents").queryOrdered(byChild: "amount")
 		opponentsHandle = opponentsQuery?.observe(.childRemoved, with: { (snapshot) in
 
-			let name = self.opponentNameFromSnapshot(snapshot: snapshot)
-			let amount = self.opponentAmountFromSnapshot(snapshot: snapshot)
+			guard let opponent = Opponent(snapshot: snapshot) else {
+				return
+			}
 
-			self.opponents.value.removeValue(forKey: name)
-			self.totalAmount.value = amount
+			self.opponents.value.removeValue(forKey: opponent.identifier)
+			self.totalAmount.value -= opponent.amount
 
 			print("initializeOpponentsChildRemoved debug: opponents.count = \(self.opponents.value.count)")
 		})
