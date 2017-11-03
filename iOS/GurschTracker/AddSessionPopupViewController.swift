@@ -11,7 +11,7 @@ import UIKit
 class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelegate {
 
 	//MARK: - properties
-	var name: String?
+	var data: Any?
 	var amount = 0
 
 	@IBOutlet weak var window: UIView!
@@ -27,23 +27,25 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 		super.viewDidLoad()
 
 		amountTextField.text = ""
-
 		canelGesture.delegate = self
 
 		popupView.layer.cornerRadius = 10
 		popupView.layer.masksToBounds = true
 		amountTextField.becomeFirstResponder()
 
-		nameLabel.text = name
+		guard let opponent = data as? Opponent else {
+			print("no opponent in AddSessionPopup")
+			return
+		}
+		if opponent.name != "" {
+			nameLabel.text = opponent.name
+		} else if opponent.email != "" {
+			nameLabel.text = opponent.email
+		}
 
 		disableButtons()
 
   	}
-
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
 
 	@IBAction func numberTypedInTextField(_ sender: UITextField) {
 		let text = sender.text ?? ""
@@ -79,8 +81,7 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 	}
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+	//Some how this still uses a seque even if it dosnt exist in the same storyboard as main
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		super.prepare(for: segue, sender: sender)
 

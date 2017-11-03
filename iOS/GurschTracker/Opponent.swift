@@ -9,43 +9,26 @@
 import FirebaseDatabase
 import Foundation
 
-struct Opponent {
+struct Opponent: Player {
 
 	//MARK: properites
 	//Remove "" and make var
-	var name: String = ""
+	let name: String
 	var amount = 0
 	var toBeWrittenToDatabase: Bool = false
 	var sessions = [Session]()
-	var uid: String = ""
-	var email: String = ""
+	let uid: String
+	let email: String
 
 	//after since there is alot of changing in how the opponent system works, its esier to make a identifier that can be changed to name later if that would be more suitable
 	var identifier: String {
-		return email
-		fatalError("opponent didn't have identifier. You fucked up mate")
-	}
-
-	init?(name: String) {
-		guard !name.isEmpty else {
-			print("no name were given")
-			return nil
+		if name != "" {
+			return name
+		} else if email != "" {
+			return email
+		} else {
+			return uid
 		}
-
-		self.name = name
-		self.toBeWrittenToDatabase = false
-	}
-
-	init(name: String, amount: Int = 0) {
-		self.name = name
-		self.amount = amount
-		self.toBeWrittenToDatabase = true
-	}
-
-	init(name: String, amount: Int = 0, toBeWrittenToDatabase: Bool) {
-		self.name = name
-		self.amount = amount
-		self.toBeWrittenToDatabase = toBeWrittenToDatabase
 	}
 
 	init?(snapshot: DataSnapshot) {
@@ -53,13 +36,15 @@ struct Opponent {
 			print("opponent from database unable to cast to string : Any, \(snapshot)")
 			return nil
 		}
-		guard let uid = properties["uid"] as? String, let amount = properties["amount"] as? Int, let email = properties["email"] as? String else {
+		guard let uid = properties["uid"] as? String, let amount = properties["amount"] as? Int else {
 			print("unable to init opponent, \(snapshot)")
 			return nil
 		}
+
 		self.uid = uid
 		self.amount = amount
-		self.email = email
+		self.email = properties["email"] as? String ?? ""
+		self.name = properties["name"] as? String ?? ""
 	}
 
 	public mutating func addAmount(amount: Int){

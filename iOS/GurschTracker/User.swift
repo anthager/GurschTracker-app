@@ -9,14 +9,19 @@
 import Foundation
 import FirebaseDatabase
 
-struct User {
+protocol Player {
+	var name: String { get }
+	var email: String { get }
+	var uid: String { get }
+}
+
+struct User: Player {
 
 	//MARK: - properties
-	let name = ""
+	let name: String
 	let email: String
 	let uid: String
 
-	//Very unsure if this work
 	init?(snapshot: DataSnapshot) {
 		guard let properties = snapshot.value as? [String : Any] else {
 			print("user from database unable to cast to string : Any")
@@ -28,6 +33,7 @@ struct User {
 		}
 		self.uid = uid
 		self.email = email
+		self.name = ""
 	}
 }
 

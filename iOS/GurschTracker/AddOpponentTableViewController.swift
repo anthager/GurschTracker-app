@@ -54,11 +54,11 @@ class AddOpponentTableViewController: UITableViewController {
 		print("print 1")
 		let storyboard = UIStoryboard(name: "AddSession", bundle: nil)
 		let controller = storyboard.instantiateViewController(withIdentifier: "addSession") as! AddSessionPopupViewController
-		guard let cell = tableView.cellForRow(at: indexPath) as? NewOpponentTableViewCell else {
-			print("not a new opponent cell")
+		guard let cell = tableView.cellForRow(at: indexPath) as? UserTableViewCell else {
+			print("not a user cell")
 			return
 		}
-		controller.name = cell.nameLabel.text ?? ""
+		controller.user = cell.user
 
 		self.present(controller, animated: true, completion: nil)
 		print("print 2")
@@ -66,8 +66,9 @@ class AddOpponentTableViewController: UITableViewController {
 
 	private func setupRx(){
 		viewModel.users
-			.bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: NewOpponentTableViewCell.self)) {
+			.bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: UserTableViewCell.self)) {
 				(row, element, cell) in
+				cell.opponent = element.value
 				if element.value.name != "" {
 					cell.nameLabel.text = element.value.name
 				} else {
