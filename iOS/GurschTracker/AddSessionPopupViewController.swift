@@ -11,8 +11,9 @@ import UIKit
 class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelegate {
 
 	//MARK: - properties
-	var name: String?
+	var identifier: String?
 	var amount = 0
+	var viewModel: ViewModel?
 
 	@IBOutlet weak var window: UIView!
 	@IBOutlet var canelGesture: UITapGestureRecognizer!
@@ -27,24 +28,18 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 		super.viewDidLoad()
 
 		amountTextField.text = ""
-
 		canelGesture.delegate = self
 
 		popupView.layer.cornerRadius = 10
 		popupView.layer.masksToBounds = true
 		amountTextField.becomeFirstResponder()
 
-		nameLabel.text = name
+		nameLabel.text = identifier ?? ""
 
 		disableButtons()
-
   	}
 
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-
+	//MARK: - actions
 	@IBAction func numberTypedInTextField(_ sender: UITextField) {
 		let text = sender.text ?? ""
 		if text != "", text != "0" {
@@ -60,15 +55,32 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 		} else {
 			disableButtons()
 		}
-
 	}
+
+	@IBAction func addSession(_ sender: UIButton) {
+		guard let identifier = identifier else {
+			print("no identifier")
+			return
+		}
+		print(sender == wonButton)
+		print(sender == lostButton)
+		switch sender {
+		case wonButton:
+			viewModel?.addSession(opponent: identifier, sessionAmount: amount)
+		case lostButton:
+			viewModel?.addSession(opponent: identifier, sessionAmount: -amount)
+		default:
+			fatalError("add session was fired but not by lost- or wonButton")
+		}
+		self.presentingViewController?.dismiss(animated: true, completion: nil)
+	}
+
 	@IBAction func cancel(_ sender: Any) {
 		dismiss(animated: true, completion: nil)
 	}
 
 	//MARK: - UIGestureRecognizerDelegate
 	func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-
 		guard let touchedView = touch.view else {
 			fatalError("the touch didn't contain a view")
 		}
@@ -77,23 +89,6 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 		}
 		return false
 	}
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		super.prepare(for: segue, sender: sender)
-
-		if let button = sender as? UIButton {
-				if button === lostButton{
-					amount = -amount
-				}
-			print("Adding session")
-		} else {
-			fatalError("Sender is not a button")
-		}
-    }
-
 
 	//MARK: private methods
 	private func disableButtons(){

@@ -6,7 +6,7 @@
 //  Copyright © 2017 Anton Hägermalm. All rights reserved.
 //
 
-//Istead of having a array with new values, have just a variable that starts a async write to db
+//all the apps data, not sure if this is the right way to do mvvm
 
 import Foundation
 import RxSwift
@@ -18,6 +18,7 @@ class ViewModel {
 	//MARK: - Rx props
 	private let _sessions: Variable<[String : Session]>
 	private let _opponents: Variable<[String : Opponent]>
+	private let _users: Variable<[String : User]>
 	private let _totalAmount: Variable<Int>
 
 	//MARK: - misc props
@@ -39,63 +40,32 @@ class ViewModel {
 		return _totalAmount.asObservable()
 	}
 
+	public var users: Observable<[String : User]> {
+		return _users.asObservable()
+	}
+
 	//MARK: inits
 	public init(){
 		persistenceHandler = PersistenceHandler()
 		_sessions = persistenceHandler.sessions
 		_opponents = persistenceHandler.opponents
 		_totalAmount = persistenceHandler.totalAmount
+		_users = persistenceHandler.users
 	}
 
 	//MARK: - funcs for editing from view
-	public func newOpponent(_ name: String){
-		persistenceHandler.addOpponentToDatabase(name: name, amount: 0)
-	}
-	//This is a bit hacky, instead of doing some fancy syncing between firebase and rx i simply add the changed opponent as a new one. Since there only can be one with a key in both the database and in the rx dictionary, it seems like it's updating
-	public func addSession(opponentName: String, sessionAmount: Int ){
-		persistenceHandler.addSessionToDatabase(opponentName: opponentName, amount: sessionAmount)
 
-		let oldAmount = _opponents.value[opponentName]?.amount ?? 0
-		let newAmount = oldAmount + sessionAmount
-		persistenceHandler.addOpponentToDatabase(name: opponentName, amount: newAmount)
-//		_opponents.value[opponentName]?.amount = amount
-	}
-
-	//MARK: - funcs for opponents
-	func getAllSessions(opponents: [Opponent]) -> [Session] {
-		var sessions = [Session]()
-		for opponent in opponents {
-			for session in opponent.sessions {
-				sessions.append(session)
+	public func addSession(opponent: String, sessionAmount: Int){
+		print("in addSession in viewModel")
+		for _user in _users.value.values {
+			if _user.identifier == opponent {
+				print("_oppoent.identifier = \(_user.identifier) \n opponent.identifer = \(opponent)")
+				let session = Session(amount: sessionAmount, player: _user)
+				print("\(session) added")
+				persistenceHandler.addSessionToDatabase(session: session)
 			}
 		}
-
-		return sessions
 	}
-
-	func resetOpponents() {
-		//		opponents.value = [Opponent]()
-	}
-
-
-	//	func setupSampleOpponents(){
-	//
-	//		guard let opponent1 = Opponent(name: "Peter") else {
-	//			fatalError("Unable to instantiate opponent1")
-	//		}
-	//		guard let opponent2 = Opponent(name: "Adam") else {
-	//			fatalError("Unable to instantiate opponent2")
-	//		}
-	//		guard let opponent3 = Opponent(name: "Petronella") else {
-	//			fatalError("Unable to instantiate opponent3")
-	//		}
-	//
-	//		opponents += [opponent1, opponent2, opponent3]
-	//	}
-
-
-	//MARK: - private funcs
-
 }
 
 

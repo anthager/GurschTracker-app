@@ -55,6 +55,14 @@
                                     <segue destination="dvR-Cs-Sgg" kind="show" id="i2h-Aj-1AN"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvx-tZ-lfG">
+                                <rect key="frame" x="140" y="522" width="94" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Admin Sign In"/>
+                                <connections>
+                                    <action selector="adminSignIn:" destination="MeP-yk-BKc" eventType="touchUpInside" id="ZDe-Ii-PKv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -73,8 +81,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sign In" id="2m0-cg-G56"/>
                     <connections>
-                        <outlet property="emailTextField" destination="cLN-ZB-xcf" id="K0Y-1X-iEk"/>
-                        <outlet property="loginTextField" destination="lRv-6I-Pna" id="qax-2i-my0"/>
+                        <outlet property="adminButton" destination="fvx-tZ-lfG" id="VqX-WH-qEa"/>
+                        <outlet property="emailTextField" destination="lRv-6I-Pna" id="Nkg-Zf-77R"/>
                         <outlet property="passwordTextField" destination="cLN-ZB-xcf" id="DyC-Ar-6D0"/>
                         <outlet property="signinButton" destination="ZBZ-RP-J8G" id="bLD-bV-7Wf"/>
                         <outlet property="signupButton" destination="JzL-fh-Tss" id="3Ty-vN-Gtk"/>
@@ -115,6 +123,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Sign up"/>
+                                <connections>
+                                    <action selector="signUpButtonPressed:" destination="dvR-Cs-Sgg" eventType="touchUpInside" id="rcO-dS-fDq"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repeat Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="csK-PT-0Y8">
                                 <rect key="frame" x="56" y="268" width="263" height="30"/>

@@ -11,19 +11,17 @@ import FirebaseDatabase
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate {
 
 	//MARK: - properties
 
 	@IBOutlet weak var opponentsTableView: UITableView!
 	@IBOutlet weak var totalAmountLabel: UILabel!
-	var state: State?
-	var viewModel: ViewModel!
-	let bag = DisposeBag()
+	private var viewModel: ViewModel!
+	private let bag = DisposeBag()
 
 
 	//MARK: - super methods
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		viewModel = ViewModel()
@@ -31,50 +29,25 @@ class ViewController: UIViewController {
 	}
 
 	//MARK: - actions
-	@IBAction func clean(_ sender: Any) {
+	@IBAction func addOpponentPressed(_ sender: UIBarButtonItem) {
+		let storyboard = UIStoryboard(name: "AddOpponent", bundle: nil)
+		let controller = storyboard.instantiateViewController(withIdentifier: "addOpponentTableView") as! AddOpponentTableViewController
+		controller.viewModel = viewModel
+		self.navigationController?.pushViewController(controller, animated: true)
 	}
 
-	// MARK: - Navigation
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		super.prepare(for: segue, sender: sender)
-		if let popupVC = segue.destination as? AddSessionPopupViewController {
-
-			guard let index = opponentsTableView.indexPathForSelectedRow else  {
-				return
-			}
-			guard let cell = opponentsTableView.cellForRow(at: index) as? OpponentTableViewCell else {
-				return
-			}
-			popupVC.name = cell.nameLabel.text ?? ""
-
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		let storyboard = UIStoryboard(name: "AddSession", bundle: nil)
+		let controller = storyboard.instantiateViewController(withIdentifier: "addSession") as! AddSessionPopupViewController
+		guard let cell = opponentsTableView.cellForRow(at: indexPath) as? OpponentTableViewCell else {
+			return
 		}
-		if let statisticsVC = segue.destination as? StatisticsViewController {
-			statisticsVC.opponents = state?.opponents
-		}
+		controller.identifier = cell.nameLabel.text
+		controller.viewModel = viewModel
+		self.present(controller, animated: true, completion: nil)
 	}
-
-	@IBAction func unwindToOverview(sender: UIStoryboardSegue) {
-		if let addSessionVC = sender.source as? AddSessionPopupViewController {
-
-			guard let name = addSessionVC.name else {
-				print("bug: addSessionVC returned without a name")
-				return
-			}
-			let amount = addSessionVC.amount
-			print("amount = \(amount)")
-			viewModel.addSession(opponentName: name, sessionAmount: amount)
-
-		} else if let addOpponentVC = sender.source as? AddOpponentViewController {
-
-			guard let name = addOpponentVC.name else {
-				print("bug: addOpponentVC returned with no name")
-				return
-			}
-			viewModel.newOpponent(name)
-		}
-	}
+	
 	//MARK: - private methods
-
 	func setupUI() {
 		viewModel.totalAmount
 			.map { amount in
@@ -86,7 +59,7 @@ class ViewController: UIViewController {
 		viewModel.opponents
 			.bind(to: opponentsTableView.rx.items(cellIdentifier: "OpponentTableViewCell", cellType: OpponentTableViewCell.self)) {
 				(row, element, cell) in
-				cell.nameLabel.text = element.value.name
+				cell.nameLabel.text = element.value.identifier
 				cell.amountLabel.text = String(element.value.amount)
 			}
 			.disposed(by: bag)

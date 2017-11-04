@@ -9,49 +9,33 @@
 import FirebaseDatabase
 import Foundation
 
-struct Opponent {
+struct Opponent: Player {
 
 	//MARK: properites
+	//Remove "" and make var
 	let name: String
 	var amount = 0
-	var toBeWrittenToDatabase: Bool
+	var toBeWrittenToDatabase: Bool = false
 	var sessions = [Session]()
+	let uid: String
+	let email: String
 
-	init?(name: String) {
-		guard !name.isEmpty else {
-			print("no name were given")
+	//after since there is alot of changing in how the opponent system works, its esier to make a identifier that can be changed to name later if that would be more suitable
+
+	init?(snapshot: DataSnapshot) {
+		guard let properties = snapshot.value as? [String : Any] else {
+			print("opponent from database unable to cast to string : Any, \(snapshot)")
+			return nil
+		}
+		guard let uid = properties["uid"] as? String, let amount = properties["amount"] as? Int else {
+			print("unable to init opponent, \(snapshot)")
 			return nil
 		}
 
-		self.name = name
-		self.toBeWrittenToDatabase = false
-	}
-
-	init(name: String, amount: Int = 0) {
-		self.name = name
+		self.uid = uid
 		self.amount = amount
-		self.toBeWrittenToDatabase = true
-	}
-
-	init(name: String, amount: Int = 0, toBeWrittenToDatabase: Bool) {
-		self.name = name
-		self.amount = amount
-		self.toBeWrittenToDatabase = toBeWrittenToDatabase
-	}
-
-	init?(name: String?, sessions: [Session]?, amount: Int){
-		guard let name = name  else {
-			print("no name were given")
-			return nil
-		}
-
-		if let sessions = sessions {
-			self.sessions = sessions
-		}
-
-		self.name = name
-		self.amount = amount
-		self.toBeWrittenToDatabase = true
+		self.email = properties["email"] as? String ?? ""
+		self.name = properties["name"] as? String ?? ""
 	}
 
 	public mutating func addAmount(amount: Int){
@@ -63,13 +47,13 @@ struct Opponent {
 
 	//MARK: - static test case
 
-//	static func testSetup() -> [Opponent]{
-//		let opponents: [Opponent] = [
-//			Opponent(name: "Peter", sessions: Session.testSetup(), amount: 20)!,
-//			Opponent(name: "Petrina", sessions: Session.testSetup(), amount: -20)!,
-//			Opponent(name: "Niklas", sessions: nil, amount: 20)!]
-//
-//		return opponents
-//
-//	}
+	//	static func testSetup() -> [Opponent]{
+	//		let opponents: [Opponent] = [
+	//			Opponent(name: "Peter", sessions: Session.testSetup(), amount: 20)!,
+	//			Opponent(name: "Petrina", sessions: Session.testSetup(), amount: -20)!,
+	//			Opponent(name: "Niklas", sessions: nil, amount: 20)!]
+	//
+	//		return opponents
+	//
+	//	}
 }

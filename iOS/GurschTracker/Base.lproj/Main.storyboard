@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -84,7 +84,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2496.8000000000002" y="-1970.4647676161921"/>
+            <point key="canvasLocation" x="1398" y="-2216"/>
         </scene>
         <!--Overview-->
         <scene sceneID="a3f-sQ-6NZ">
@@ -154,10 +154,12 @@
                                         <connections>
                                             <outlet property="amountLabel" destination="wWZ-U8-vjr" id="Ywx-aE-44V"/>
                                             <outlet property="nameLabel" destination="9lp-zM-32s" id="i8z-g2-qnj"/>
-                                            <segue destination="W3U-Vu-z2z" kind="presentation" identifier="addSession" id="Z5m-Kw-64k"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="delegate" destination="Pi3-Ei-xqD" id="Cza-2z-sDR"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPD-uf-pT2">
                                 <rect key="frame" x="0.0" y="626" width="375" height="41"/>
@@ -234,14 +236,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Overview" id="U9D-Jc-Ptq">
-                        <barButtonItem key="leftBarButtonItem" systemItem="trash" id="dhJ-uL-wNw">
-                            <connections>
-                                <action selector="clean:" destination="Pi3-Ei-xqD" id="NKK-zd-6Y3"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="I0b-Yd-4TA">
                             <connections>
-                                <segue destination="mB6-2a-rEN" kind="presentation" identifier="addOpponent" modalTransitionStyle="crossDissolve" id="BfZ-P3-ekQ"/>
+                                <action selector="addOpponentPressed:" destination="Pi3-Ei-xqD" id="7ag-dV-vvZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

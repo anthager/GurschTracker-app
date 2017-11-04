@@ -1,63 +1,85 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin')
+const uuidV1 = require('uuid/v1');
+
 admin.initializeApp(functions.config().firebase)
 
-const ref = admin.database().ref().child('usersdev')
-
-// Create and Deploy Your First Cloud Functions
-// https://firebase.google.com/docs/functions/write-firebase-functions
+// const udataRef = admin.database().ref().child('usersdev')
+// const uPbDataRef = admin.database().ref().child('public-user-data-dev')
+const udataRef = admin.database().ref().child('private-user-data-prod')
+const uPbDataRef = admin.database().ref().child('public-user-data-prod')
 
 exports.addToDatabase = functions.auth.user().onCreate(event => {
 	const uid = event.data.uid
 	const email = event.data.email
 
-	return ref.child(uid).set({
+	const pr1 = udataRef.child(uid).set({
+		uid: uid,
+		email: email
+	})
+	const pr2 = uPbDataRef.child(uid).set({
 		email: email,
 		uid: uid
 	})
+
+
 })
 
-exports.addSession = functions.https.onRequest((req, res) => {
+exports.demoFunc = functions.https.onRequest((req, res) => {
 	const winner = req.body.winner
 	const loser = req.body.loser
 	const amount = Number(req.body.amount)
-	updateUserAmount(winner, loser, amount)
-	updateUserAmount(loser, winner, -amount)
+
+	res.send('success!')
+})
+
+exports.addSession = functions.https.onRequest((req, res) => {
+	const user = req.body.user
+	const opponent = req.body.opponent
+	const amount = Number(req.body.amount)
+
+	console.log("user = " + user)
+	console.log("opponent = " + opponent)
+	console.log("amount = " + amount)
+	updateUserAmount(user, opponent, amount)
+	updateUserAmount(opponent, user, -amount)
 
 	res.send(true)
 })
 
-function updateUserAmount(user, opponent, amount) {
-	const uRef = ref.child(user)
-	const oRef = uRef.child('opponents').child(opponent)
+function updateUserAmount(p1, p2, amount) {
+	const p1Ref = udataRef.child(p1)
+	const p2Ref = p1Ref.child('opponents').child(p2)
 
-	uRef.child('amount').once('value').then(snap => {
+	p1Ref.child('amount').once('value').then(snap => {
+		// console.log('amount = ' + amount)
 		var newAmount = amount
+		// console.log('newAmount = ' + newAmount)
 		//is run if snap is defined
 		if (snap.val()){
+			// console.log('snap.val = ' + snap.val() )
 			newAmount = parseInt(snap.val()) + amount
-		}
-		oRef.set({
-			uid: opponent,
-			amount: newAmount
-		})
-	})
-
-	oRef.child('amount').once('value').then(snap => {
-		var newAmount = amount
-		//is run if snap is defined
-		if (snap.val()){
-			newAmount = parseInt(snap.val()) + amount
+			// console.log('newAmount = ' + newAmount)
 		}
 
-		oRef.set({
-			uid: opponent,
+		p1Ref.update({
 			amount: newAmount
 		})
+
+		// console.log('snap.val = ' + snap.val() )
+		uPbDataRef.child(p2).child('email').once('value').then(snap => {
+			console.log('email = ' + snap.val())
+			p2Ref.update({ 
+				email: snap.val(),
+				uid: p2,
+				amount: newAmount
+			})
+		})
+		
 	})
 
-	uRef.child('sessions').child('asdfsjkhkljsdkldsfkl1').set({
-		opponent: opponent,
+	p1Ref.child('sessions').child(uuidV1()).set({
+		opponent: p2,
 		amount: amount
 	})
 }
@@ -67,7 +89,7 @@ const uid = req.body.uid
 const email = req.body.email
 const amount = parseInt(req.body.amount)
 
-	ref.child(uid).set({
+	udataRef.child(uid).set({
 		uid: uid,
 		email: email,
 		amount: amount
