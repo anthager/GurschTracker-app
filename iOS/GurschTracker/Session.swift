@@ -13,18 +13,18 @@ struct Session {
 
 	//MARK: - properties
 	let amount: Int
-	let id: String
+	let opponent: Opponent
 	let date: Date
 
-	init(amount: Int, id: String) {
+	init(amount: Int, opponent: Opponent) {
 		self.amount = amount
-		self.id = id
+		self.opponent = opponent
 		date = Date()
 	}
 
-	init(amount: Int, date: Date, id: String){
+	init(amount: Int, date: Date, opponent: Opponent){
 		self.amount = amount
-		self.id = id
+		self.opponent = opponent
 		self.date = date
 	}
 

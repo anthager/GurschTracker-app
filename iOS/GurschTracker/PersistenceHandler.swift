@@ -54,19 +54,15 @@ class PersistenceHandler {
 
 	//MARK: - writing funs
 
-	public func addSessionToDatabase(opponent: String, amount: Int){
+	public func addSessionToDatabase(session: Session){
 
 		guard let uid = self.uid else {
 			print("no uid in pers. hand.")
 			return
 		}
-		guard let oid = users.value[opponent]?.uid else {
-			print("no opponent id given in per. hand. ")
-			return
-		}
 		//fix this unwrapped
 		//users is mapped with their id not email
-		let parameters: [String: Any] = ["user": uid, "opponent": oid, "amount": amount]
+		let parameters: [String: Any] = ["user": uid, "opponent": session.opponent.uid, "amount": session.amount]
 		print(parameters)
 		let path = "https://us-central1-gurschtracker.cloudfunctions.net/addSession"
 		var request = URLRequest(url: URL(string: path)!)
@@ -131,7 +127,7 @@ class PersistenceHandler {
 			guard let opponent = Opponent(snapshot: snapshot) else {
 				return
 			}
-			self.opponents.value[opponent.identifier] = opponent
+			self.opponents.value[opponent.uid] = opponent
 
 			self.totalAmount.value += opponent.amount
 
@@ -154,7 +150,7 @@ class PersistenceHandler {
 			}
 
 			let oldTotalAmount = self.opponents.value[opponent.identifier]?.amount ?? 0
-			self.opponents.value[opponent.identifier] = opponent
+			self.opponents.value[opponent.uid] = opponent
 
 			let deltaAmount = opponent.amount - oldTotalAmount
 			self.totalAmount.value += deltaAmount
@@ -175,7 +171,7 @@ class PersistenceHandler {
 				return
 			}
 
-			self.opponents.value.removeValue(forKey: opponent.identifier)
+			self.opponents.value.removeValue(forKey: opponent.uid)
 			self.totalAmount.value -= opponent.amount
 
 			print("initializeOpponentsChildRemoved debug: opponents.count = \(self.opponents.value.count)")
@@ -190,13 +186,7 @@ class PersistenceHandler {
 		}
 		let sessionsQuery = databaseRef?.child(CurrentApplicationState.privateUserDataRoot).child(uid).child("sessions").queryOrdered(byChild: "opponent")
 		sessionsQuery?.observe(.childAdded, with: { (snapshot) in
-			let amount = self.sessionAmountFromSnapshot(snapshot: snapshot)
-			//			let opponentName = self.sessionNameFromSnapshot(snapshot: snapshot)
-			let  date = self.sessionDateFromSnapshot(snapshot: snapshot)
-
-			let session = Session(amount: amount, date: date, id: snapshot.key)
-			self.sessions.value[snapshot.key] = session
-			print("initializeSessionsChildAdded debug: sessions.count = \(self.sessions.value)")
+			print(snapshot)
 		})
 	}
 
@@ -209,64 +199,5 @@ class PersistenceHandler {
 	private func sessionDataToDir(opponentName: String, amount: Int) -> [String : Any]{
 		let dir: [String : Any] = ["opponentName" : opponentName, "amount" : amount]
 		return dir
-	}
-	private func opponentNameFromSnapshot(snapshot: DataSnapshot) -> String{
-		guard let opponentProperties = snapshot.value as? [String : Any] else {
-			print("opponent from database unable to cast to string : Any")
-			return ""
-		}
-		//hacky since just changed name to email see issue
-		//MARK: - TODO fix pure cancer
-		guard let uid = opponentProperties["uid"] as? String else {
-			print("opponents uid from database was undable to cast to string")
-			print(opponentProperties)
-			return ""
-		}
-		return (users.value[uid]?.email)!
-//		return uid
-	}
-
-	private func opponentAmountFromSnapshot(snapshot: DataSnapshot) -> Int{
-		guard let opponentProperties = snapshot.value as? [String : Any] else {
-			print("opponent from database unable to cast to string : Any")
-			return 0
-		}
-		let amount = opponentProperties["amount"] as? Int
-		return amount ?? 0
-	}
-
-	private func sessionAmountFromSnapshot(snapshot: DataSnapshot) -> Int{
-		guard let sessionProperties = snapshot.value as? [String : Any] else {
-			print("session from database unable to cast to string : Any")
-			return 0
-		}
-		let amount = sessionProperties["amount"] as? Int
-		return amount ?? 0
-	}
-
-	private func sessionNameFromSnapshot(snapshot: DataSnapshot) -> String{
-		guard let sessionProperties = snapshot.value as? [String : Any] else {
-			print("session from database unable to cast to string : Any")
-			return ""
-		}
-		guard let name = sessionProperties["opponentName"] as? String else {
-			print("session name from database was undable to cast to string")
-			return ""
-		}
-		return name
-	}
-
-	private func sessionDateFromSnapshot(snapshot: DataSnapshot) -> Date {
-		guard let dateString = snapshot.value(forKey: "date") as? String  else{
-			fatalError("session date from database was undable to cast to string")
-		}
-
-		let formatter = DateFormatter()
-		formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-		guard let date = formatter.date(from: dateString) else {
-			print("date: \(snapshot.key)'s date was unable to init")
-			fatalError("session date from database was undable to cast to string")
-		}
-		return date
 	}
 }
