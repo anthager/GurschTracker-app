@@ -11,8 +11,9 @@ import UIKit
 class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelegate {
 
 	//MARK: - properties
-	var data: Any?
+	var identifier: String?
 	var amount = 0
+	var viewModel: ViewModel?
 
 	@IBOutlet weak var window: UIView!
 	@IBOutlet var canelGesture: UITapGestureRecognizer!
@@ -33,20 +34,12 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 		popupView.layer.masksToBounds = true
 		amountTextField.becomeFirstResponder()
 
-		guard let opponent = data as? Opponent else {
-			print("no opponent in AddSessionPopup")
-			return
-		}
-		if opponent.name != "" {
-			nameLabel.text = opponent.name
-		} else if opponent.email != "" {
-			nameLabel.text = opponent.email
-		}
+		nameLabel.text = identifier ?? ""
 
 		disableButtons()
-
   	}
 
+	//MARK: - actions
 	@IBAction func numberTypedInTextField(_ sender: UITextField) {
 		let text = sender.text ?? ""
 		if text != "", text != "0" {
@@ -62,15 +55,30 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 		} else {
 			disableButtons()
 		}
-
 	}
+
+	@IBAction func addSession(_ sender: UIButton) {
+		guard let identifier = identifier else {
+			print("no identifier")
+			return
+		}
+		switch sender {
+		case wonButton:
+			viewModel?.addSession(opponent: identifier, sessionAmount: amount)
+		case lostButton:
+			viewModel?.addSession(opponent: identifier, sessionAmount: -amount)
+		default:
+			fatalError("add session was fired but not by lost- or wonButton")
+		}
+		self.presentingViewController?.dismiss(animated: true, completion: nil)
+	}
+
 	@IBAction func cancel(_ sender: Any) {
 		dismiss(animated: true, completion: nil)
 	}
 
 	//MARK: - UIGestureRecognizerDelegate
 	func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-
 		guard let touchedView = touch.view else {
 			fatalError("the touch didn't contain a view")
 		}
@@ -79,22 +87,6 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 		}
 		return false
 	}
-
-    // MARK: - Navigation
-	//Some how this still uses a seque even if it dosnt exist in the same storyboard as main
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		super.prepare(for: segue, sender: sender)
-
-		if let button = sender as? UIButton {
-				if button === lostButton{
-					amount = -amount
-				}
-			print("Adding session")
-		} else {
-			fatalError("Sender is not a button")
-		}
-    }
-
 
 	//MARK: private methods
 	private func disableButtons(){

@@ -20,7 +20,6 @@ class AddOpponentViewController: UIViewController, UIGestureRecognizerDelegate {
 
 
 	//MARK: - superFuncs
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,11 +44,6 @@ class AddOpponentViewController: UIViewController, UIGestureRecognizerDelegate {
 		return false
 	}
 
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		name = nameTextField.text
-    }
 
 	//MARK: - actions
 	@IBAction func cancel(_ sender: UITapGestureRecognizer) {

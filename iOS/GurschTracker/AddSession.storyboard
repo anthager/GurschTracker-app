@@ -34,7 +34,7 @@
                                             <color key="titleColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="8Cb-7p-D58" kind="unwind" unwindAction="unwindToOverviewWithSender:" id="JjN-gr-I2M"/>
+                                            <action selector="addSession:" destination="bIr-xC-Ujn" eventType="touchUpInside" id="3Lb-Pi-8W4"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="xGl-1F-k9D">
@@ -62,7 +62,7 @@
                                             <color key="titleColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="8Cb-7p-D58" kind="unwind" unwindAction="unwindToOverviewWithSender:" id="poB-R1-qqc"/>
+                                            <action selector="addSession:" destination="bIr-xC-Ujn" eventType="touchUpInside" id="Bvd-gS-jqu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -88,7 +88,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eeh-QW-zWx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="8Cb-7p-D58" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="gl5-oE-map">
                     <connections>
                         <action selector="cancel:" destination="bIr-xC-Ujn" id="lCZ-uS-JnH"/>

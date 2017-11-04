@@ -15,6 +15,18 @@ protocol Player {
 	var uid: String { get }
 }
 
+extension Player {
+	var identifier: String {
+		if name != "" {
+			return name
+		} else if email != "" {
+			return email
+		} else {
+			return uid
+		}
+	}
+}
+
 struct User: Player {
 
 	//MARK: - properties

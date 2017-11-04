@@ -21,15 +21,6 @@ struct Opponent: Player {
 	let email: String
 
 	//after since there is alot of changing in how the opponent system works, its esier to make a identifier that can be changed to name later if that would be more suitable
-	var identifier: String {
-		if name != "" {
-			return name
-		} else if email != "" {
-			return email
-		} else {
-			return uid
-		}
-	}
 
 	init?(snapshot: DataSnapshot) {
 		guard let properties = snapshot.value as? [String : Any] else {
