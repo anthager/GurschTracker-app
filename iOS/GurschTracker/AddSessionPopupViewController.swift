@@ -62,6 +62,8 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 			print("no identifier")
 			return
 		}
+		print(sender == wonButton)
+		print(sender == lostButton)
 		switch sender {
 		case wonButton:
 			viewModel?.addSession(opponent: identifier, sessionAmount: amount)

@@ -62,7 +62,7 @@ class PersistenceHandler {
 		}
 		//fix this unwrapped
 		//users is mapped with their id not email
-		let parameters: [String: Any] = ["user": uid, "opponent": session.opponent.uid, "amount": session.amount]
+		let parameters: [String: Any] = ["user": uid, "opponent": session.player.uid, "amount": session.amount]
 		print(parameters)
 		let path = "https://us-central1-gurschtracker.cloudfunctions.net/addSession"
 		var request = URLRequest(url: URL(string: path)!)
@@ -149,10 +149,10 @@ class PersistenceHandler {
 				return
 			}
 
-			let oldTotalAmount = self.opponents.value[opponent.identifier]?.amount ?? 0
+			let oldOpponentAmount = self.opponents.value[opponent.uid]?.amount ?? 0
 			self.opponents.value[opponent.uid] = opponent
 
-			let deltaAmount = opponent.amount - oldTotalAmount
+			let deltaAmount = opponent.amount - oldOpponentAmount
 			self.totalAmount.value += deltaAmount
 
 			print("initializeOpponentsChildChanged debug: opponents.count = \(self.opponents.value.count)")

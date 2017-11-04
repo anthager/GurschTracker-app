@@ -56,12 +56,13 @@ class ViewModel {
 	//MARK: - funcs for editing from view
 
 	public func addSession(opponent: String, sessionAmount: Int){
-		for _opponent in _opponents.value {
-			if _opponent.value.identifier == opponent {
-				let session = Session(amount: sessionAmount, opponent: _opponent.value)
+		print("in addSession in viewModel")
+		for _user in _users.value.values {
+			if _user.identifier == opponent {
+				print("_oppoent.identifier = \(_user.identifier) \n opponent.identifer = \(opponent)")
+				let session = Session(amount: sessionAmount, player: _user)
+				print("\(session) added")
 				persistenceHandler.addSessionToDatabase(session: session)
-			} else {
-				print("bug in viewModel, no key for that value")
 			}
 		}
 	}

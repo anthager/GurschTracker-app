@@ -14,11 +14,11 @@ enum ApplicationState {
 }
 
 enum CurrentApplicationState {
-	public static let state: ApplicationState = .dev
+	public static let state: ApplicationState = .prod
 
 	public static var privateUserDataRoot: String {
 		if state == ApplicationState.prod {
-			return "usersprod"
+			return "private-user-data-prod"
 
 		} else {
 			return "usersdev"

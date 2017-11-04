@@ -28,6 +28,7 @@ extension AuthValidation {
 		}
 		email = email.lowercased()
 		guard email.contains("@") else {
+			print("\(email) didnt contain @")
 			return false
 		}
 		return true

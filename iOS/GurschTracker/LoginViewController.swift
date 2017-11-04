@@ -27,14 +27,16 @@ class LoginViewController: UIViewController, AuthValidation {
 
 	//Some nice loading is needed here, and fail shit
 	@IBAction func signInButtonPressed(_ sender: UIButton) {
-	//	login()
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let controller = storyboard.instantiateInitialViewController()
-		self.present(controller!, animated: true, completion: nil)
+		if login() {
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			let controller = storyboard.instantiateInitialViewController()
+			self.present(controller!, animated: true, completion: nil)
+		}
 	}
 	
 	//faster login for devs under development
 	@IBAction func adminSignIn(_ sender: UIButton) {
+		print("admin pressed")
 		Auth.auth().signIn(withEmail: "admin@gurschtracker.com", password: "password123") { (user, error) in
 		}
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -54,12 +56,14 @@ class LoginViewController: UIViewController, AuthValidation {
 		var	success = false
 		Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
 			if error != nil {
-				print(error as Any)
+				print("faild due to \(error as Any)")
 			}
 			else {
 				success = true
 			}
 		}
-		return success
+//		return success
+		//needs async shit
+		return true
 	}
 }

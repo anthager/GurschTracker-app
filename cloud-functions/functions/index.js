@@ -4,15 +4,18 @@ const uuidV1 = require('uuid/v1');
 
 admin.initializeApp(functions.config().firebase)
 
-const udataRef = admin.database().ref().child('usersdev')
-const uPbDataRef = admin.database().ref().child('public-user-data-dev')
+// const udataRef = admin.database().ref().child('usersdev')
+// const uPbDataRef = admin.database().ref().child('public-user-data-dev')
+const udataRef = admin.database().ref().child('private-user-data-prod')
+const uPbDataRef = admin.database().ref().child('public-user-data-prod')
 
 exports.addToDatabase = functions.auth.user().onCreate(event => {
 	const uid = event.data.uid
 	const email = event.data.email
 
 	const pr1 = udataRef.child(uid).set({
-		uid: uid
+		uid: uid,
+		email: email
 	})
 	const pr2 = uPbDataRef.child(uid).set({
 		email: email,
@@ -64,10 +67,15 @@ function updateUserAmount(p1, p2, amount) {
 		})
 
 		// console.log('snap.val = ' + snap.val() )
-		p2Ref.update({
-			uid: p2,
-			amount: newAmount
+		uPbDataRef.child(p2).child('email').once('value').then(snap => {
+			console.log('email = ' + snap.val())
+			p2Ref.update({ 
+				email: snap.val(),
+				uid: p2,
+				amount: newAmount
+			})
 		})
+		
 	})
 
 	p1Ref.child('sessions').child(uuidV1()).set({
