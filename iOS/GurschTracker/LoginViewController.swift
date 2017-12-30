@@ -11,59 +11,68 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController, AuthValidation {
 
+	//MARK: props
 	@IBOutlet weak var adminButton: UIButton!
 	@IBOutlet weak var passwordTextField: UITextField!
 	@IBOutlet weak var emailTextField: UITextField!
 	@IBOutlet weak var signinButton: UIButton!
 	@IBOutlet weak var signupButton: UIButton!
 	@IBOutlet weak var loginTextField: UITextField!
+	let alertController = UIAlertController(title: "Login failed", message: "Wrong password or email", preferredStyle: .alert)
+
+	//MARK: - load
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.hideKeyboardWhenTappedAround()
 		if CurrentApplicationState.state == ApplicationState.dev {
 			adminButton.isEnabled = true
 		}
+		signupButtonSetup()
+		alertController.addAction(action1)
+		setupPasswordTextField()
+		self.navigationController?.navigationBar.isHidden = false
 	}
 
-	//Some nice loading is needed here, and fail shit
 	@IBAction func signInButtonPressed(_ sender: UIButton) {
-		if login() {
-			let storyboard = UIStoryboard(name: "Main", bundle: nil)
-			let controller = storyboard.instantiateInitialViewController()
-			self.present(controller!, animated: true, completion: nil)
-		}
-	}
-	
-	//faster login for devs under development
-	@IBAction func adminSignIn(_ sender: UIButton) {
-		print("admin pressed")
-		Auth.auth().signIn(withEmail: "admin@gurschtracker.com", password: "password123") { (user, error) in
-		}
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let controller = storyboard.instantiateInitialViewController()
-		self.present(controller!, animated: true, completion: nil)
-	}
-
-	private func login() -> Bool {
 		guard let email = emailTextField.text, isValidEmail(emailTextField.text) else {
 			print("invalid email entered")
-			return false
+			self.present(alertController, animated: true, completion: nil)
+			return
 		}
 		guard let password = passwordTextField.text, isAValidPassword(passwordTextField.text) else {
 			print("invalid password entered")
-			return false
+			return
 		}
-		var	success = false
 		Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
 			if error != nil {
 				print("faild due to \(error as Any)")
+				self.present(self.alertController, animated: true, completion: nil)
+				return
 			}
-			else {
-				success = true
-			}
+			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			let controller = storyboard.instantiateInitialViewController() as! ViewController
+			self.navigationController?.setViewControllers([controller], animated: true)
 		}
-//		return success
-		//needs async shit
-		return true
+	}
+
+	//MARK: - actions
+	let action1 = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
+	}
+
+	@objc private func switchToSignUp(){
+		let storyboard = UIStoryboard(name: "Registration", bundle: nil)
+		let controller = storyboard.instantiateInitialViewController() as! RegistrationViewController
+		navigationController?.pushViewController(controller, animated: true)
+	}
+
+	//MARK: - ui setup
+	private func signupButtonSetup(){
+		signupButton.addTarget(self, action: #selector(switchToSignUp), for: .touchUpInside)
+	}
+
+	func setupPasswordTextField(){
+		passwordTextField.autocorrectionType = .no
+		passwordTextField.autocapitalizationType = .none
+		passwordTextField.isSecureTextEntry = true
 	}
 }

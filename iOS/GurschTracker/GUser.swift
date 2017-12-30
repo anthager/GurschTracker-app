@@ -27,7 +27,7 @@ extension Player {
 	}
 }
 
-struct User: Player {
+struct GUser: Player {
 
 	//MARK: - properties
 	let name: String

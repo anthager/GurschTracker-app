@@ -26,7 +26,7 @@ class PersistenceHandler {
 	let sessions = Variable<[String : Session]>([:])
 	let opponents = Variable<[String : Opponent]>([:])
 	let sessionIds = Variable<[String]>([])
-	let users = Variable<[String : User]>([:])
+	let users = Variable<[String : GUser]>([:])
 	var totalAmount = Variable<Int>(0)
 	private let bag = DisposeBag()
 
@@ -99,7 +99,7 @@ class PersistenceHandler {
 		print("users changed")
 		let usersQuery = databaseRef?.child(CurrentApplicationState.publicUserDataRoot).queryOrdered(byChild: "email")
 		_ = usersQuery?.observe(.childAdded, with: { (snapshot) in
-			guard let user = User(snapshot: snapshot) else {
+			guard let user = GUser(snapshot: snapshot) else {
 				print("init of \(snapshot) failed ")
 				return
 			}
