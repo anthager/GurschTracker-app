@@ -14,4 +14,22 @@ class OpponentTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var amountLabel: UILabel!
 	@IBOutlet weak var nameLabel: UILabel!
+
+	private var _gUser: GUser?
+	var gUser: GUser? {
+		get{
+			return _gUser
+		}
+		set(new){
+			_gUser = new
+			if let name = new?.name{
+				nameLabel.text = name
+			} else if let email = new?.email {
+				nameLabel.text = email
+			}
+		}
+	}
+	func getUid() -> String?{
+		return gUser?.uid
+	}
 }

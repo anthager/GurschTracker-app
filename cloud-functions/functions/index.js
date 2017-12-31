@@ -9,20 +9,32 @@ admin.initializeApp(functions.config().firebase)
 const udataRef = admin.database().ref().child('private-user-data-prod')
 const uPbDataRef = admin.database().ref().child('public-user-data-prod')
 
+const dbUsersInfo = admin.database().ref().child('users')
+const dbUsersAmounts = admin.database().ref().child('amounts')
+
 exports.addToDatabase = functions.auth.user().onCreate(event => {
 	const uid = event.data.uid
 	const email = event.data.email
 
-	const pr1 = udataRef.child(uid).set({
+	const dbUsersInfo = udataRef.child(uid).set({
 		uid: uid,
 		email: email
 	})
-	const pr2 = uPbDataRef.child(uid).set({
-		email: email,
+	const dbUsersAmounts = uPbDataRef.child(uid).set({
 		uid: uid
 	})
+})
 
+exports.gamePlayed = functions.https.onRequest((req, res) => {
+	const sender = req.body.sender
+	const opponent = req.body.opponent
+	const amount = Number(req.body.amount)
 
+	updateAmounts(sender, opponent, amount)
+	updateAmounts(opponent, sender, -amount)
+
+	res.statusCode = 200
+	res.send('success!')
 })
 
 exports.demoFunc = functions.https.onRequest((req, res) => {
@@ -30,8 +42,25 @@ exports.demoFunc = functions.https.onRequest((req, res) => {
 	const loser = req.body.loser
 	const amount = Number(req.body.amount)
 
+
 	res.send('success!')
 })
+
+function updateAmounts(p1, p2, amount){
+	const ref = dbUsersAmounts.child(p1/p2/'amount').once('value').then(snap => {
+		var newAmount = amount
+		// console.log('newAmount = ' + newAmount)
+		//is run if snap is defined
+		if (snap.val()){
+			// console.log('snap.val = ' + snap.val() )
+			newAmount = parseInt(snap.val()) + amount
+		}
+	})
+	p1Ref.update({
+		amount: newAmount
+	})
+
+}
 
 exports.addSession = functions.https.onRequest((req, res) => {
 	const user = req.body.user
