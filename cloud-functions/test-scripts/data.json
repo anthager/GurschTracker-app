@@ -1,5 +1,5 @@
 {
-"sender":"0001",
-"opponent":"0002",
+"winner":"0001",
+"loser":"0002",
 "amount":"10"
 }

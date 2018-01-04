@@ -6,8 +6,8 @@ admin.initializeApp(functions.config().firebase)
 
 // const udataRef = admin.database().ref().child('usersdev')
 // const uPbDataRef = admin.database().ref().child('public-user-data-dev')
-const udataRef = admin.database().ref().child('private-user-data-prod')
-const uPbDataRef = admin.database().ref().child('public-user-data-prod')
+const udataRef = admin.database().ref().child('private-data')
+const uPbDataRef = admin.database().ref().child('public-data')
 
 const dbUsersInfo = admin.database().ref().child('users')
 const dbUsersAmounts = admin.database().ref().child('amounts')
@@ -16,12 +16,13 @@ exports.addToDatabase = functions.auth.user().onCreate(event => {
 	const uid = event.data.uid
 	const email = event.data.email
 
-	const dbUsersInfo = udataRef.child(uid).set({
+	udataRef.child(uid).set({
 		uid: uid,
 		email: email
 	})
-	const dbUsersAmounts = uPbDataRef.child(uid).set({
-		uid: uid
+	uPbDataRef.child(uid).set({
+		uid: uid,
+		email: email
 	})
 })
 
@@ -41,9 +42,12 @@ exports.demoFunc = functions.https.onRequest((req, res) => {
 	const winner = req.body.winner
 	const loser = req.body.loser
 	const amount = Number(req.body.amount)
+	var json = JSON.stringify({winner: winner,
+						looser: loser,
+						amount: amount})
 
-
-	res.send('success!')
+	res.json(json)
+	//res.send('Success!')
 })
 
 function updateAmounts(p1, p2, amount){
