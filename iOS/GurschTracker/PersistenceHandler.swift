@@ -36,7 +36,7 @@ class PersistenceHandler {
 		self.databaseRef = Database.database().reference()
 		self.initializeUserListener()
 		DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + .milliseconds(1000), execute: {
-			self.initializeUserValue()
+//			self.initializeUserValue()
 		})
 		DispatchQueue.global(qos: .userInitiated).asyncAfter(deadline: .now() + .milliseconds(2000), execute: {
 			self.initializeOpponentsChildAdded()
@@ -95,24 +95,24 @@ class PersistenceHandler {
 			}.resume()
 	}
 
-	private func initializeUserValue(){
-		print("users changed")
-		let usersQuery = databaseRef?.child(CurrentApplicationState.publicUserDataRoot).queryOrdered(byChild: "email")
-		_ = usersQuery?.observe(.childAdded, with: { (snapshot) in
-			guard let user = GUser(snapshot: snapshot) else {
-				print("init of \(snapshot) failed ")
-				return
-			}
-			if user.name == "" {
-				self.users.value[user.uid] = user
-				print("\(user) inited")
-			} else {
-				self.users.value[user.name] = user
-				print("\(user) inited")
-			}
-
-		})
-	}
+//	private func initializeUserValue(){
+//		print("users changed")
+//		let usersQuery = databaseRef?.child(CurrentApplicationState.publicUserDataRoot).queryOrdered(byChild: "email")
+//		_ = usersQuery?.observe(.childAdded, with: { (snapshot) in
+//			guard let user = GUser(snapshot: snapshot) else {
+//				print("init of \(snapshot) failed ")
+//				return
+//			}
+//			if user.name == "" {
+//				self.users.value[user.uid] = user
+//				print("\(user) inited")
+//			} else {
+//				self.users.value[user.name] = user
+//				print("\(user) inited")
+//			}
+//
+//		})
+//	}
 	//need to fix the user changed and user deleted methods as well see issue #12
 	//MARK: - init user loading funcs
 	private func initializeOpponentsChildAdded(){

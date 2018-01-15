@@ -12,31 +12,33 @@ import RxSwift
 import RxCocoa
 import FirebaseDatabaseUI
 
-class ViewController: UIViewController, UITableViewDelegate {
+class ViewController: UIViewController{
 
 	//MARK: - properties
 	@IBOutlet weak var opponentsTableView: UITableView!
 	@IBOutlet weak var totalAmountLabel: UILabel!
 	//private var viewModel: ViewModel!
-	private let bag = DisposeBag()
+//	private let bag = DisposeBag()
 	var databaseRef: DatabaseReference?
 	var databaseHandle: DatabaseHandle?
-	var dataSource: FUITableViewDataSource? = nil
+	var dataSource: FUITableViewDataSource?
 
 
 
 	//MARK: - super methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.databaseRef = Database.database().reference().child("users")
+		self.databaseRef = Database.database().reference().child("public-data")
 		//viewModel = ViewModel()
 		opponentsTableView.dataSource = nil
 		opponentsTableView.delegate = nil
 		setupUI()
+
 	}
 
 	//MARK: - actions
 	@IBAction func addOpponentPressed(_ sender: UIBarButtonItem) {
+		print("pressed")
 //		let storyboard = UIStoryboard(name: "AddOpponent", bundle: nil)
 //		let controller = storyboard.instantiateViewController(withIdentifier: "addOpponentTableView") as! AddOpponentTableViewController
 //		controller.viewModel = viewModel
@@ -44,6 +46,7 @@ class ViewController: UIViewController, UITableViewDelegate {
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		print("pressed")
 //		let storyboard = UIStoryboard(name: "AddSession", bundle: nil)
 //		let controller = storyboard.instantiateViewController(withIdentifier: "addSession") as! AddSessionPopupViewController
 //		guard let cell = opponentsTableView.cellForRow(at: indexPath) as? OpponentTableViewCell else {
@@ -56,16 +59,19 @@ class ViewController: UIViewController, UITableViewDelegate {
 
 
 	private func setupUI(){
-		guard let query = databaseRef?.queryOrderedByKey() else {
+		guard let query = databaseRef?.queryOrderedByValue() else {
+			print("returning")
 			return
 		}
+
 		dataSource = opponentsTableView.bind(to: query, populateCell: { (tableView, indexPath, snap) -> UITableViewCell in
 			print("inside")
-			let cell = tableView.dequeueReusableCell(withIdentifier: "OpponentTableViewCell", for: indexPath) as! OpponentTableViewCell
+			let cell = tableView.dequeueReusableCell(withIdentifier: "opponentTableViewCell", for: indexPath) as! OpponentTableViewCell
 
 			let gUser = GUser(snapshot: snap)
 			cell.amountLabel.text = "10"
-			cell.nameLabel.text = gUser?.uid
+			cell.nameLabel.text = gUser?.email
+//			cell.nameLabel.text = "gUser?.uid"
 			return cell
 		})
 	}

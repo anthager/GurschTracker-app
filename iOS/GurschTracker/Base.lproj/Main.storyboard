@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="80" width="375" height="529"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="OpponentTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="OpponentTableViewCell" id="eQE-Qo-hTi" customClass="OpponentTableViewCell" customModule="GurschTracker" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="opponentTableViewCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="opponentTableViewCell" id="eQE-Qo-hTi" customClass="OpponentTableViewCell" customModule="GurschTracker" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eQE-Qo-hTi" id="p2e-U9-sX7">
@@ -80,9 +80,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="delegate" destination="Pi3-Ei-xqD" id="Cza-2z-sDR"/>
-                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPD-uf-pT2">
                                 <rect key="frame" x="0.0" y="626" width="375" height="41"/>
@@ -163,7 +160,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="opponentsTableView" destination="zDk-Im-iYS" id="sKS-TJ-kxA"/>
+                        <outlet property="opponentsTableView" destination="zDk-Im-iYS" id="3d3-UB-1rM"/>
                         <outlet property="totalAmountLabel" destination="jTV-Qj-jqN" id="oVb-Cm-gl5"/>
                     </connections>
                 </viewController>

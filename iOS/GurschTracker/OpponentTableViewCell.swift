@@ -22,9 +22,8 @@ class OpponentTableViewCell: UITableViewCell {
 		}
 		set(new){
 			_gUser = new
-			if let name = new?.name{
-				nameLabel.text = name
-			} else if let email = new?.email {
+
+			if let email = new?.email {
 				nameLabel.text = email
 			}
 		}

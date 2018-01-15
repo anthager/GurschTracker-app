@@ -67,13 +67,13 @@
 		BA241F591EDDCCD300B1F976 /* OpponentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpponentTableViewCell.swift; sourceTree = "<group>"; };
 		BA241F5F1EE6BAAC00B1F976 /* Opponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Opponent.swift; sourceTree = "<group>"; };
 		BA241F651EE6C02E00B1F976 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
-		BA4F6A9A20055DDB0041B899 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA4F6A9B20055E3B0041B899 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA612B8C1F6DF2E600F7350F /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		BA8E52941EF44488003E60F0 /* TotalTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalTableViewCell.swift; sourceTree = "<group>"; };
 		BA8E52961EF6E666003E60F0 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		BA8E52981EFD0F65003E60F0 /* TimeSettingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeSettingTest.swift; sourceTree = "<group>"; };
 		BABA8C731F5DD1CB0049E56A /* DatePlayGround.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = DatePlayGround.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		BAC9F9C3200D0642004C6DA9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BAD577441F9B8A180040CED4 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		BAD577471F9B8B820040CED4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BAD5774B1F9B8C230040CED4 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -191,26 +191,26 @@
 		BA4F6A9320055A570041B899 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				BA4F6A9920055DCC0041B899 /* Dev */,
-				BA4F6A9420055A890041B899 /* Prod */,
+				BA4F6A9920055DCC0041B899 /* dev */,
+				BA4F6A9420055A890041B899 /* prod */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
 		};
-		BA4F6A9420055A890041B899 /* Prod */ = {
+		BA4F6A9420055A890041B899 /* prod */ = {
 			isa = PBXGroup;
 			children = (
 				BA4F6A9B20055E3B0041B899 /* GoogleService-Info.plist */,
 			);
-			path = Prod;
+			path = prod;
 			sourceTree = "<group>";
 		};
-		BA4F6A9920055DCC0041B899 /* Dev */ = {
+		BA4F6A9920055DCC0041B899 /* dev */ = {
 			isa = PBXGroup;
 			children = (
-				BA4F6A9A20055DDB0041B899 /* GoogleService-Info.plist */,
+				BAC9F9C3200D0642004C6DA9 /* GoogleService-Info.plist */,
 			);
-			path = Dev;
+			path = dev;
 			sourceTree = "<group>";
 		};
 		BA612B871F6DF13B00F7350F /* cells */ = {
@@ -466,7 +466,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GurschTracker/Pods-GurschTracker-resources.sh",
-				"$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle",
+				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
