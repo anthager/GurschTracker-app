@@ -7,9 +7,6 @@ admin.initializeApp(functions.config().firebase)
 const privData = admin.database().ref().child('private-data')
 const pubData = admin.database().ref().child('public-data')
 
-const dbUsersInfo = admin.database().ref().child('users')
-const dbUsersAmounts = admin.database().ref().child('amounts')
-
 exports.addToDatabase = functions.auth.user().onCreate(event => {
 	const uid = event.data.uid
 	const email = event.data.email
@@ -50,20 +47,6 @@ function updateAmounts(p1, p2, amount){
 	})
 
 }
-
-exports.addSession = functions.https.onRequest((req, res) => {
-	const user = req.body.user
-	const opponent = req.body.opponent
-	const amount = Number(req.body.amount)
-
-	console.log("user = " + user)
-	console.log("opponent = " + opponent)
-	console.log("amount = " + amount)
-	updateAmounts(user, opponent, amount)
-	updateAmounts(opponent, user, -amount)
-
-	res.send(true)
-})
 
 exports.gamePlayed = functions.https.onRequest((req, res) => {
 	const sender = req.body.sender
@@ -116,24 +99,3 @@ function updateUserAmount(p1, p2, amount) {
 		amount: amount
 	})
 }
-
-// exports.mockPubData = functions.https.onRequest((req, res) => {
-// 	console.log(req.body)
-// 	pubData.update({
-// 	})
-// })
-
-exports.newUser = functions.https.onRequest((req, res) => {
-const uid = req.body.uid
-const email = req.body.email
-const amount = parseInt(req.body.amount)
-
-	privData.child(uid).set({
-		uid: uid,
-		email: email,
-		amount: amount
-	}).then(value => {
-		console.log('user with uid: ' + uid + 'was added to the database')
-		res.send(true)
-	 })
-})
