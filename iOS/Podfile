@@ -11,14 +11,10 @@ target 'GurschTracker' do
   pod 'Firebase/Auth'
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
-  pod 'Alamofire',  '~> 4.5'
-  pod 'FirebaseUI/Auth', '~> 4.0'
   pod 'FirebaseUI/Database', '~> 4.0'
   target 'GurschTrackerTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'RxBlocking', '~> 4.0'
-    pod 'RxTest',     '~> 4.0'
   end
 
 end

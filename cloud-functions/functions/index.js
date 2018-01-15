@@ -4,10 +4,8 @@ const uuidV1 = require('uuid/v1');
 
 admin.initializeApp(functions.config().firebase)
 
-// const udataRef = admin.database().ref().child('usersdev')
-// const uPbDataRef = admin.database().ref().child('public-user-data-dev')
-const udataRef = admin.database().ref().child('private-data')
-const uPbDataRef = admin.database().ref().child('public-data')
+const privData = admin.database().ref().child('private-data')
+const pubData = admin.database().ref().child('public-data')
 
 const dbUsersInfo = admin.database().ref().child('users')
 const dbUsersAmounts = admin.database().ref().child('amounts')
@@ -16,26 +14,11 @@ exports.addToDatabase = functions.auth.user().onCreate(event => {
 	const uid = event.data.uid
 	const email = event.data.email
 
-	udataRef.child(uid).set({
-		uid: uid,
+	privData.child(uid).set({
+	})
+	pubData.child(uid).set({
 		email: email
 	})
-	uPbDataRef.child(uid).set({
-		uid: uid,
-		email: email
-	})
-})
-
-exports.gamePlayed = functions.https.onRequest((req, res) => {
-	const sender = req.body.sender
-	const opponent = req.body.opponent
-	const amount = Number(req.body.amount)
-
-	updateAmounts(sender, opponent, amount)
-	updateAmounts(opponent, sender, -amount)
-
-	res.statusCode = 200
-	res.send('success!')
 })
 
 exports.demoFunc = functions.https.onRequest((req, res) => {
@@ -45,13 +28,15 @@ exports.demoFunc = functions.https.onRequest((req, res) => {
 	var json = JSON.stringify({winner: winner,
 						looser: loser,
 						amount: amount})
-
+	
+	console.log('req = ' + JSON.stringify(req.body))
+	console.log('res = ' + json)
 	res.json(json)
 	//res.send('Success!')
 })
 
 function updateAmounts(p1, p2, amount){
-	const ref = dbUsersAmounts.child(p1/p2/'amount').once('value').then(snap => {
+	const ref = privData.child(p1 + '/opponents/' + p2 +' /amount').once('value').then(snap => {
 		var newAmount = amount
 		// console.log('newAmount = ' + newAmount)
 		//is run if snap is defined
@@ -74,14 +59,29 @@ exports.addSession = functions.https.onRequest((req, res) => {
 	console.log("user = " + user)
 	console.log("opponent = " + opponent)
 	console.log("amount = " + amount)
-	updateUserAmount(user, opponent, amount)
-	updateUserAmount(opponent, user, -amount)
+	updateAmounts(user, opponent, amount)
+	updateAmounts(opponent, user, -amount)
 
 	res.send(true)
 })
 
+exports.gamePlayed = functions.https.onRequest((req, res) => {
+	const sender = req.body.sender
+	const opponent = req.body.opponent
+	const amount = Number(req.body.amount)
+	console.log("sender = " + sender)
+	console.log("opponent = " + opponent)
+	console.log("amount = " + amount)
+
+	updateUserAmount(sender, opponent, amount)
+	updateUserAmount(opponent, sender, -amount)
+
+	res.statusCode = 200
+	res.send('Success!')
+})
+
 function updateUserAmount(p1, p2, amount) {
-	const p1Ref = udataRef.child(p1)
+	const p1Ref = privData.child(p1)
 	const p2Ref = p1Ref.child('opponents').child(p2)
 
 	p1Ref.child('amount').once('value').then(snap => {
@@ -100,7 +100,7 @@ function updateUserAmount(p1, p2, amount) {
 		})
 
 		// console.log('snap.val = ' + snap.val() )
-		uPbDataRef.child(p2).child('email').once('value').then(snap => {
+		pubData.child(p2).child('email').once('value').then(snap => {
 			console.log('email = ' + snap.val())
 			p2Ref.update({ 
 				email: snap.val(),
@@ -117,12 +117,18 @@ function updateUserAmount(p1, p2, amount) {
 	})
 }
 
+// exports.mockPubData = functions.https.onRequest((req, res) => {
+// 	console.log(req.body)
+// 	pubData.update({
+// 	})
+// })
+
 exports.newUser = functions.https.onRequest((req, res) => {
 const uid = req.body.uid
 const email = req.body.email
 const amount = parseInt(req.body.amount)
 
-	udataRef.child(uid).set({
+	privData.child(uid).set({
 		uid: uid,
 		email: email,
 		amount: amount

@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "gurschtracker"
+    "dev": "gurschtracker",
+    "prod": "gurschtrackerprod"
   }
 }

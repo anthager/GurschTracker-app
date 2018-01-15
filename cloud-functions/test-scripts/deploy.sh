@@ -1,3 +1,3 @@
 cd ../functions
-firebase deploy
+firebase deploy -P dev
 cd ../test-scripts

@@ -1,0 +1,1461 @@
+total 56
+drwxr-xr-x  13 antonhagermalm  staff    416  9 Jan 21:54 .
+drwxr-xr-x   8 antonhagermalm  staff    256 30 Dec 19:55 ..
+-rw-r--r--@  1 antonhagermalm  staff  10244  9 Jan 21:28 .DS_Store
+	com.apple.FinderInfo	   32 
+-rw-r--r--   1 antonhagermalm  staff   1452 30 Dec 19:11 .gitignore
+-rw-r--r--@  1 antonhagermalm  staff   1705 30 Dec 19:11 AddOpponentViewController.swift
+	com.apple.lastuseddate#PS	   16 
+drwxr-xr-x  33 antonhagermalm  staff   1056  9 Jan 21:17 GurschTracker
+drwxr-xr-x@  5 antonhagermalm  staff    160  9 Jan 21:31 GurschTracker.xcodeproj
+	com.apple.lastuseddate#PS	   16 
+drwxr-xr-x@  4 antonhagermalm  staff    128 30 Dec 21:57 GurschTracker.xcworkspace
+	com.apple.lastuseddate#PS	   16 
+drwxr-xr-x   4 antonhagermalm  staff    128 30 Dec 19:11 GurschTrackerTests
+-rw-r--r--@  1 antonhagermalm  staff    518  9 Jan 21:45 Podfile
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--   1 antonhagermalm  staff   2652  9 Jan 21:45 Podfile.lock
+drwxr-xr-x  20 antonhagermalm  staff    640  9 Jan 21:49 Pods
+-rw-r--r--   1 antonhagermalm  staff      0  9 Jan 21:54 kundapura.txt
+
+./GurschTracker:
+total 312
+drwxr-xr-x  33 antonhagermalm  staff   1056  9 Jan 21:17 .
+drwxr-xr-x  13 antonhagermalm  staff    416  9 Jan 21:54 ..
+-rw-r--r--@  1 antonhagermalm  staff  10244  9 Jan 21:33 .DS_Store
+	com.apple.FinderInfo	   32 
+drwxr-xr-x   3 antonhagermalm  staff     96 30 Dec 19:11 .xcdatamodeld
+-rw-r--r--@  1 antonhagermalm  staff   4495 30 Dec 19:11 AddOpponent.storyboard
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--@  1 antonhagermalm  staff   1540 30 Dec 19:11 AddOpponentTableViewController.swift
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--@  1 antonhagermalm  staff   8942 30 Dec 21:21 AddSession.storyboard
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--@  1 antonhagermalm  staff   2614 30 Dec 19:11 AddSessionPopupViewController.swift
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--@  1 antonhagermalm  staff    833 30 Dec 23:32 AppDelegate.swift
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--   1 antonhagermalm  staff    748 30 Dec 19:11 ApplicationState.swift
+drwxr-xr-x   5 antonhagermalm  staff    160 30 Dec 20:45 Assets.xcassets
+-rw-r--r--@  1 antonhagermalm  staff   7578 30 Dec 22:50 Auth.storyboard
+	com.apple.lastuseddate#PS	   16 
+	com.apple.metadata:kMDLabel_nq3bzmscqssu77sufyp7ojnyom	   89 
+-rw-r--r--@  1 antonhagermalm  staff   1244 30 Dec 19:11 Authentication.swift
+	com.apple.lastuseddate#PS	   16 
+drwxr-xr-x   5 antonhagermalm  staff    160 30 Dec 21:41 Base.lproj
+drwxr-xr-x   4 antonhagermalm  staff    128 30 Dec 19:11 DatePlayGround.playground
+drwxr-xr-x   5 antonhagermalm  staff    160  9 Jan 21:30 Firebase
+-rw-r--r--@  1 antonhagermalm  staff    937 30 Dec 21:27 GUser.swift
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--@  1 antonhagermalm  staff   1386 30 Dec 20:43 Info.plist
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--@  1 antonhagermalm  staff   2609 30 Dec 22:53 LoginViewController.swift
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--@  1 antonhagermalm  staff   1547 30 Dec 19:11 Opponent.swift
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--@  1 antonhagermalm  staff    618 31 Dec 10:44 OpponentTableViewCell.swift
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--@  1 antonhagermalm  staff   6491 30 Dec 21:27 PersistenceHandler.swift
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--@  1 antonhagermalm  staff   7420 30 Dec 21:54 Registration.storyboard
+	com.apple.FinderInfo	   32 
+	com.apple.lastuseddate#PS	   16 
+	com.apple.metadata:_kMDItemUserTags	   42 
+	com.apple.metadata:kMDLabel_nq3bzmscqssu77sufyp7ojnyom	   89 
+-rw-r--r--@  1 antonhagermalm  staff   1910 30 Dec 22:53 RegistrationViewController.swift
+	com.apple.lastuseddate#PS	   16 
+	com.apple.metadata:kMDLabel_nq3bzmscqssu77sufyp7ojnyom	   89 
+drwxr-xr-x   4 antonhagermalm  staff    128 30 Dec 19:11 RxSwiftPG.playground
+-rw-r--r--@  1 antonhagermalm  staff   1035 30 Dec 19:11 Session.swift
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--@  1 antonhagermalm  staff  31655 30 Dec 21:17 Statistics.storyboard
+	com.apple.FinderInfo	   32 
+	com.apple.lastuseddate#PS	   16 
+	com.apple.metadata:_kMDItemUserTags	   42 
+	com.apple.metadata:kMDLabel_nq3bzmscqssu77sufyp7ojnyom	   89 
+-rw-r--r--@  1 antonhagermalm  staff   2767 30 Dec 19:11 StatisticsViewController.swift
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--@  1 antonhagermalm  staff    507 30 Dec 19:11 TotalTableViewCell.swift
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--   1 antonhagermalm  staff    295 30 Dec 19:11 UserTableViewCell.swift
+-rw-r--r--@  1 antonhagermalm  staff   2328 31 Dec 00:27 ViewController.swift
+	com.apple.lastuseddate#PS	   16 
+-rw-r--r--@  1 antonhagermalm  staff   1793 30 Dec 21:27 ViewModel.swift
+	com.apple.lastuseddate#PS	   16 
+drwxr-xr-x   4 antonhagermalm  staff    128 30 Dec 19:11 referenceTypesGP.playground
+
+./GurschTracker/.xcdatamodeld:
+total 0
+drwxr-xr-x   3 antonhagermalm  staff    96 30 Dec 19:11 .
+drwxr-xr-x  33 antonhagermalm  staff  1056  9 Jan 21:17 ..
+drwxr-xr-x   3 antonhagermalm  staff    96 30 Dec 19:11 Model.xcdatamodel
+
+./GurschTracker/.xcdatamodeld/Model.xcdatamodel:
+total 8
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 ..
+-rw-r--r--  1 antonhagermalm  staff  300 30 Dec 19:11 contents
+
+./GurschTracker/Assets.xcassets:
+total 8
+drwxr-xr-x   5 antonhagermalm  staff   160 30 Dec 20:45 .
+drwxr-xr-x  33 antonhagermalm  staff  1056  9 Jan 21:17 ..
+drwxr-xr-x   3 antonhagermalm  staff    96 30 Dec 20:45 AppIcon.appiconset
+-rw-r--r--   1 antonhagermalm  staff    62 30 Dec 19:11 Contents.json
+drwxr-xr-x   5 antonhagermalm  staff   160 30 Dec 19:11 utilImages
+
+./GurschTracker/Assets.xcassets/AppIcon.appiconset:
+total 8
+drwxr-xr-x  3 antonhagermalm  staff    96 30 Dec 20:45 .
+drwxr-xr-x  5 antonhagermalm  staff   160 30 Dec 20:45 ..
+-rw-r--r--  1 antonhagermalm  staff  1590 30 Dec 20:45 Contents.json
+
+./GurschTracker/Assets.xcassets/utilImages:
+total 8
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 20:45 ..
+-rw-r--r--  1 antonhagermalm  staff   62 30 Dec 19:11 Contents.json
+drwxr-xr-x  4 antonhagermalm  staff  128 30 Dec 19:11 Image.imageset
+drwxr-xr-x  4 antonhagermalm  staff  128 30 Dec 19:11 delete.imageset
+
+./GurschTracker/Assets.xcassets/utilImages/Image.imageset:
+total 16
+drwxr-xr-x  4 antonhagermalm  staff   128 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff   160 30 Dec 19:11 ..
+-rw-r--r--  1 antonhagermalm  staff   303 30 Dec 19:11 Contents.json
+-rw-r--r--  1 antonhagermalm  staff  2913 30 Dec 19:11 delete.png
+
+./GurschTracker/Assets.xcassets/utilImages/delete.imageset:
+total 24
+drwxr-xr-x  4 antonhagermalm  staff   128 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff   160 30 Dec 19:11 ..
+-rw-r--r--  1 antonhagermalm  staff   303 30 Dec 19:11 Contents.json
+-rw-r--r--  1 antonhagermalm  staff  4186 30 Dec 19:11 delete.png
+
+./GurschTracker/Base.lproj:
+total 184
+drwxr-xr-x   5 antonhagermalm  staff    160 30 Dec 21:41 .
+drwxr-xr-x  33 antonhagermalm  staff   1056  9 Jan 21:17 ..
+-rw-r--r--   1 antonhagermalm  staff   1859 30 Dec 19:11 LaunchScreen.storyboard
+-rw-r--r--@  1 antonhagermalm  staff  18707 30 Dec 21:41 Main.storyboard
+	com.apple.lastuseddate#PS	   16 
+	com.apple.metadata:kMDLabel_nq3bzmscqssu77sufyp7ojnyom	   89 
+-rw-r--r--@  1 antonhagermalm  staff  65683 30 Dec 21:17 Statistics~.storyboard
+	com.apple.FinderInfo	   32 
+	com.apple.lastuseddate#PS	   16 
+	com.apple.metadata:_kMDItemUserTags	   42 
+	com.apple.metadata:kMDLabel_nq3bzmscqssu77sufyp7ojnyom	   89 
+
+./GurschTracker/DatePlayGround.playground:
+total 16
+drwxr-xr-x   4 antonhagermalm  staff   128 30 Dec 19:11 .
+drwxr-xr-x  33 antonhagermalm  staff  1056  9 Jan 21:17 ..
+-rw-r--r--   1 antonhagermalm  staff   506 30 Dec 19:11 Contents.swift
+-rw-r--r--   1 antonhagermalm  staff   165 30 Dec 19:11 contents.xcplayground
+
+./GurschTracker/Firebase:
+total 16
+drwxr-xr-x   5 antonhagermalm  staff   160  9 Jan 21:30 .
+drwxr-xr-x  33 antonhagermalm  staff  1056  9 Jan 21:17 ..
+-rw-r--r--@  1 antonhagermalm  staff  6148  9 Jan 21:33 .DS_Store
+	com.apple.FinderInfo	  32 
+drwxr-xr-x   3 antonhagermalm  staff    96  9 Jan 21:30 Dev
+drwxr-xr-x   3 antonhagermalm  staff    96  9 Jan 21:31 Prod
+
+./GurschTracker/Firebase/Dev:
+total 8
+drwxr-xr-x  3 antonhagermalm  staff   96  9 Jan 21:30 .
+drwxr-xr-x  5 antonhagermalm  staff  160  9 Jan 21:30 ..
+-rw-r--r--@ 1 antonhagermalm  staff  992  9 Jan 21:17 GoogleService-Info.plist
+	com.apple.FinderInfo	 32 
+	com.apple.lastuseddate#PS	 16 
+
+./GurschTracker/Firebase/Prod:
+total 8
+drwxr-xr-x  3 antonhagermalm  staff    96  9 Jan 21:31 .
+drwxr-xr-x  5 antonhagermalm  staff   160  9 Jan 21:30 ..
+-rw-r--r--@ 1 antonhagermalm  staff  1403  9 Jan 21:31 GoogleService-Info.plist
+	com.apple.lastuseddate#PS	  16 
+	com.apple.metadata:kMDItemWhereFroms	 297 
+	com.apple.quarantine	  57 
+
+./GurschTracker/RxSwiftPG.playground:
+total 16
+drwxr-xr-x   4 antonhagermalm  staff   128 30 Dec 19:11 .
+drwxr-xr-x  33 antonhagermalm  staff  1056  9 Jan 21:17 ..
+-rw-r--r--   1 antonhagermalm  staff    73 30 Dec 19:11 Contents.swift
+-rw-r--r--   1 antonhagermalm  staff   187 30 Dec 19:11 contents.xcplayground
+
+./GurschTracker/referenceTypesGP.playground:
+total 16
+drwxr-xr-x   4 antonhagermalm  staff   128 30 Dec 19:11 .
+drwxr-xr-x  33 antonhagermalm  staff  1056  9 Jan 21:17 ..
+-rw-r--r--   1 antonhagermalm  staff   263 30 Dec 19:11 Contents.swift
+-rw-r--r--   1 antonhagermalm  staff   165 30 Dec 19:11 contents.xcplayground
+
+./GurschTracker.xcodeproj:
+total 88
+drwxr-xr-x@  5 antonhagermalm  staff    160  9 Jan 21:31 .
+	com.apple.lastuseddate#PS	   16 
+drwxr-xr-x  13 antonhagermalm  staff    416  9 Jan 21:54 ..
+-rw-r--r--   1 antonhagermalm  staff  41144  9 Jan 21:45 project.pbxproj
+drwxr-xr-x   3 antonhagermalm  staff     96 30 Dec 19:11 project.xcworkspace
+drwxr-xr-x   3 antonhagermalm  staff     96 30 Dec 19:55 xcuserdata
+
+./GurschTracker.xcodeproj/project.xcworkspace:
+total 8
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x@ 5 antonhagermalm  staff  160  9 Jan 21:31 ..
+	com.apple.lastuseddate#PS	 16 
+-rw-r--r--  1 antonhagermalm  staff  217 30 Dec 19:11 contents.xcworkspacedata
+
+./GurschTracker.xcodeproj/xcuserdata:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:55 .
+drwxr-xr-x@ 5 antonhagermalm  staff  160  9 Jan 21:31 ..
+	com.apple.lastuseddate#PS	 16 
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:55 antonhagermalm.xcuserdatad
+
+./GurschTracker.xcodeproj/xcuserdata/antonhagermalm.xcuserdatad:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:55 .
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:55 ..
+drwxr-xr-x  5 antonhagermalm  staff  160  9 Jan 21:23 xcschemes
+
+./GurschTracker.xcodeproj/xcuserdata/antonhagermalm.xcuserdatad/xcschemes:
+total 24
+drwxr-xr-x  5 antonhagermalm  staff   160  9 Jan 21:23 .
+drwxr-xr-x  3 antonhagermalm  staff    96 30 Dec 19:55 ..
+-rw-r--r--  1 antonhagermalm  staff  3865  9 Jan 21:23 GurschTracker.xcscheme
+-rw-r--r--  1 antonhagermalm  staff  3863  9 Jan 21:23 GurschTrackerDebug.xcscheme
+-rw-r--r--  1 antonhagermalm  staff   685  9 Jan 21:22 xcschememanagement.plist
+
+./GurschTracker.xcworkspace:
+total 8
+drwxr-xr-x@  4 antonhagermalm  staff  128 30 Dec 21:57 .
+	com.apple.lastuseddate#PS	 16 
+drwxr-xr-x  13 antonhagermalm  staff  416  9 Jan 21:54 ..
+-rw-r--r--   1 antonhagermalm  staff  231 30 Dec 21:57 contents.xcworkspacedata
+drwxr-xr-x   3 antonhagermalm  staff   96 30 Dec 19:55 xcuserdata
+
+./GurschTracker.xcworkspace/xcuserdata:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:55 .
+drwxr-xr-x@ 4 antonhagermalm  staff  128 30 Dec 21:57 ..
+	com.apple.lastuseddate#PS	 16 
+drwxr-xr-x  4 antonhagermalm  staff  128  9 Jan 21:50 antonhagermalm.xcuserdatad
+
+./GurschTracker.xcworkspace/xcuserdata/antonhagermalm.xcuserdatad:
+total 96
+drwxr-xr-x  4 antonhagermalm  staff    128  9 Jan 21:50 .
+drwxr-xr-x  3 antonhagermalm  staff     96 30 Dec 19:55 ..
+-rw-r--r--  1 antonhagermalm  staff  49000  9 Jan 21:50 UserInterfaceState.xcuserstate
+drwxr-xr-x  3 antonhagermalm  staff     96 31 Dec 00:11 xcdebugger
+
+./GurschTracker.xcworkspace/xcuserdata/antonhagermalm.xcuserdatad/xcdebugger:
+total 8
+drwxr-xr-x  3 antonhagermalm  staff   96 31 Dec 00:11 .
+drwxr-xr-x  4 antonhagermalm  staff  128  9 Jan 21:50 ..
+-rw-r--r--  1 antonhagermalm  staff   91 31 Dec 00:11 Breakpoints_v2.xcbkptlist
+
+./GurschTrackerTests:
+total 16
+drwxr-xr-x   4 antonhagermalm  staff   128 30 Dec 19:11 .
+drwxr-xr-x  13 antonhagermalm  staff   416  9 Jan 21:54 ..
+-rw-r--r--   1 antonhagermalm  staff   680 30 Dec 19:11 Info.plist
+-rw-r--r--   1 antonhagermalm  staff  1387 30 Dec 19:11 TimeSettingTest.swift
+
+./Pods:
+total 8
+drwxr-xr-x  20 antonhagermalm  staff   640  9 Jan 21:49 .
+drwxr-xr-x  13 antonhagermalm  staff   416  9 Jan 21:54 ..
+drwxr-xr-x   4 antonhagermalm  staff   128 30 Dec 19:11 Firebase
+drwxr-xr-x   3 antonhagermalm  staff    96 30 Dec 19:11 FirebaseAnalytics
+drwxr-xr-x   5 antonhagermalm  staff   160 30 Dec 19:11 FirebaseAuth
+drwxr-xr-x   3 antonhagermalm  staff    96 30 Dec 19:11 FirebaseCore
+drwxr-xr-x   3 antonhagermalm  staff    96 30 Dec 19:11 FirebaseDatabase
+drwxr-xr-x   5 antonhagermalm  staff   160 30 Dec 19:11 FirebaseInstanceID
+drwxr-xr-x   3 antonhagermalm  staff    96  9 Jan 21:45 FirebaseUI
+drwxr-xr-x   5 antonhagermalm  staff   160 30 Dec 19:11 GTMSessionFetcher
+drwxr-xr-x   7 antonhagermalm  staff   224 30 Dec 19:11 GoogleToolboxForMac
+drwxr-xr-x   4 antonhagermalm  staff   128  9 Jan 21:45 Headers
+drwxr-xr-x   2 antonhagermalm  staff    64 30 Dec 20:52 Local Podspecs
+-rw-r--r--   1 antonhagermalm  staff  2652  9 Jan 21:45 Manifest.lock
+drwxr-xr-x@  4 antonhagermalm  staff   128 30 Dec 19:55 Pods.xcodeproj
+	com.apple.lastuseddate#PS	  16 
+drwxr-xr-x   6 antonhagermalm  staff   192 30 Dec 19:11 RxCocoa
+drwxr-xr-x   6 antonhagermalm  staff   192 30 Dec 19:11 RxSwift
+drwxr-xr-x  11 antonhagermalm  staff   352  9 Jan 21:45 Target Support Files
+drwxr-xr-x  10 antonhagermalm  staff   320 30 Dec 19:11 leveldb-library
+drwxr-xr-x  11 antonhagermalm  staff   352 30 Dec 19:11 nanopb
+
+./Pods/Firebase:
+total 8
+drwxr-xr-x   4 antonhagermalm  staff   128 30 Dec 19:11 .
+drwxr-xr-x  20 antonhagermalm  staff   640  9 Jan 21:49 ..
+drwxr-xr-x   3 antonhagermalm  staff    96 30 Dec 19:11 Core
+-rwxr-xr-x   1 antonhagermalm  staff  2268 30 Dec 19:11 README.md
+
+./Pods/Firebase/Core:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  4 antonhagermalm  staff  128 30 Dec 19:11 ..
+drwxr-xr-x  4 antonhagermalm  staff  128 30 Dec 19:11 Sources
+
+./Pods/Firebase/Core/Sources:
+total 16
+drwxr-xr-x  4 antonhagermalm  staff   128 30 Dec 19:11 .
+drwxr-xr-x  3 antonhagermalm  staff    96 30 Dec 19:11 ..
+-r-xr-xr-x  1 antonhagermalm  staff  1933 30 Dec 19:11 Firebase.h
+-rwxr-xr-x  1 antonhagermalm  staff    52 30 Dec 19:11 module.modulemap
+
+./Pods/FirebaseAnalytics:
+total 0
+drwxr-xr-x   3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  20 antonhagermalm  staff  640  9 Jan 21:49 ..
+drwxr-xr-x   3 antonhagermalm  staff   96 30 Dec 19:11 Frameworks
+
+./Pods/FirebaseAnalytics/Frameworks:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 ..
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 19:11 FirebaseAnalytics.framework
+
+./Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework:
+total 30288
+drwxr-xr-x   5 antonhagermalm  staff       160 30 Dec 19:11 .
+drwxr-xr-x   3 antonhagermalm  staff        96 30 Dec 19:11 ..
+-rwxr-xr-x   1 antonhagermalm  staff  15503680 30 Dec 19:11 FirebaseAnalytics
+drwxr-xr-x  13 antonhagermalm  staff       416 30 Dec 19:11 Headers
+drwxr-xr-x   3 antonhagermalm  staff        96 30 Dec 19:11 Modules
+
+./Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers:
+total 168
+drwxr-xr-x  13 antonhagermalm  staff    416 30 Dec 19:11 .
+drwxr-xr-x   5 antonhagermalm  staff    160 30 Dec 19:11 ..
+-rwxr-xr-x   1 antonhagermalm  staff   2484 30 Dec 19:11 FIRAnalytics+AppDelegate.h
+-rwxr-xr-x   1 antonhagermalm  staff   5727 30 Dec 19:11 FIRAnalytics.h
+-rwxr-xr-x   1 antonhagermalm  staff     51 30 Dec 19:11 FIRAnalyticsConfiguration.h
+-rwxr-xr-x   1 antonhagermalm  staff    371 30 Dec 19:11 FIRAnalyticsSwiftNameSupport.h
+-rwxr-xr-x   1 antonhagermalm  staff     32 30 Dec 19:11 FIRApp.h
+-rwxr-xr-x   1 antonhagermalm  staff     42 30 Dec 19:11 FIRConfiguration.h
+-rwxr-xr-x   1 antonhagermalm  staff  20743 30 Dec 19:11 FIREventNames.h
+-rwxr-xr-x   1 antonhagermalm  staff     36 30 Dec 19:11 FIROptions.h
+-rwxr-xr-x   1 antonhagermalm  staff  16505 30 Dec 19:11 FIRParameterNames.h
+-rwxr-xr-x   1 antonhagermalm  staff    943 30 Dec 19:11 FIRUserPropertyNames.h
+-rwxr-xr-x   1 antonhagermalm  staff    301 30 Dec 19:11 FirebaseAnalytics.h
+
+./Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules:
+total 8
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 19:11 ..
+-rwxr-xr-x  1 antonhagermalm  staff  165 30 Dec 19:11 module.modulemap
+
+./Pods/FirebaseAuth:
+total 16
+drwxr-xr-x   5 antonhagermalm  staff   160 30 Dec 19:11 .
+drwxr-xr-x  20 antonhagermalm  staff   640  9 Jan 21:49 ..
+-rwxr-xr-x   1 antonhagermalm  staff  3718 30 Dec 19:11 CHANGELOG.md
+drwxr-xr-x   3 antonhagermalm  staff    96 30 Dec 19:11 Frameworks
+-rwxr-xr-x   1 antonhagermalm  staff   286 30 Dec 19:11 README.md
+
+./Pods/FirebaseAuth/Frameworks:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 19:11 ..
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 19:11 FirebaseAuth.framework
+
+./Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework:
+total 17264
+drwxr-xr-x   5 antonhagermalm  staff      160 30 Dec 19:11 .
+drwxr-xr-x   3 antonhagermalm  staff       96 30 Dec 19:11 ..
+-rwxr-xr-x   1 antonhagermalm  staff  8838048 30 Dec 19:11 FirebaseAuth
+drwxr-xr-x  22 antonhagermalm  staff      704 30 Dec 19:11 Headers
+drwxr-xr-x   3 antonhagermalm  staff       96 30 Dec 19:11 Modules
+
+./Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers:
+total 280
+drwxr-xr-x  22 antonhagermalm  staff    704 30 Dec 19:11 .
+drwxr-xr-x   5 antonhagermalm  staff    160 30 Dec 19:11 ..
+-rwxr-xr-x   1 antonhagermalm  staff   3376 30 Dec 19:11 FIRActionCodeSettings.h
+-rwxr-xr-x   1 antonhagermalm  staff   1775 30 Dec 19:11 FIRAdditionalUserInfo.h
+-rwxr-xr-x   1 antonhagermalm  staff  29867 30 Dec 19:11 FIRAuth.h
+-rwxr-xr-x   1 antonhagermalm  staff   1140 30 Dec 19:11 FIRAuthAPNSTokenType.h
+-rwxr-xr-x   1 antonhagermalm  staff   1306 30 Dec 19:11 FIRAuthCredential.h
+-rwxr-xr-x   1 antonhagermalm  staff   1590 30 Dec 19:11 FIRAuthDataResult.h
+-rwxr-xr-x   1 antonhagermalm  staff  10007 30 Dec 19:11 FIRAuthErrors.h
+-rwxr-xr-x   1 antonhagermalm  staff    963 30 Dec 19:11 FIRAuthSwiftNameSupport.h
+-rwxr-xr-x   1 antonhagermalm  staff   1940 30 Dec 19:11 FIREmailAuthProvider.h
+-rwxr-xr-x   1 antonhagermalm  staff   1512 30 Dec 19:11 FIRFacebookAuthProvider.h
+-rwxr-xr-x   1 antonhagermalm  staff   1473 30 Dec 19:11 FIRGitHubAuthProvider.h
+-rwxr-xr-x   1 antonhagermalm  staff   1614 30 Dec 19:11 FIRGoogleAuthProvider.h
+-rwxr-xr-x   1 antonhagermalm  staff   2350 30 Dec 19:11 FIROAuthProvider.h
+-rwxr-xr-x   1 antonhagermalm  staff   1073 30 Dec 19:11 FIRPhoneAuthCredential.h
+-rwxr-xr-x   1 antonhagermalm  staff   4538 30 Dec 19:11 FIRPhoneAuthProvider.h
+-rwxr-xr-x   1 antonhagermalm  staff   1553 30 Dec 19:11 FIRTwitterAuthProvider.h
+-rwxr-xr-x   1 antonhagermalm  staff  23195 30 Dec 19:11 FIRUser.h
+-rwxr-xr-x   1 antonhagermalm  staff   1739 30 Dec 19:11 FIRUserInfo.h
+-rwxr-xr-x   1 antonhagermalm  staff    588 30 Dec 19:11 FirebaseAuth.h
+-rwxr-xr-x   1 antonhagermalm  staff    459 30 Dec 19:11 FirebaseAuthVersion.h
+
+./Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules:
+total 8
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 19:11 ..
+-rwxr-xr-x  1 antonhagermalm  staff  141 30 Dec 19:11 module.modulemap
+
+./Pods/FirebaseCore:
+total 0
+drwxr-xr-x   3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  20 antonhagermalm  staff  640  9 Jan 21:49 ..
+drwxr-xr-x   5 antonhagermalm  staff  160 30 Dec 19:11 Frameworks
+
+./Pods/FirebaseCore/Frameworks:
+total 0
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 19:11 .
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 ..
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 19:11 FirebaseCore.framework
+drwxr-xr-x  4 antonhagermalm  staff  128 30 Dec 19:11 FirebaseCoreDiagnostics.framework
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 FirebaseNanoPB.framework
+
+./Pods/FirebaseCore/Frameworks/FirebaseCore.framework:
+total 4432
+drwxr-xr-x  5 antonhagermalm  staff      160 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff      160 30 Dec 19:11 ..
+-rwxr-xr-x  1 antonhagermalm  staff  2268608 30 Dec 19:11 FirebaseCore
+drwxr-xr-x  9 antonhagermalm  staff      288 30 Dec 19:11 Headers
+drwxr-xr-x  3 antonhagermalm  staff       96 30 Dec 19:11 Modules
+
+./Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers:
+total 72
+drwxr-xr-x  9 antonhagermalm  staff   288 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff   160 30 Dec 19:11 ..
+-rwxr-xr-x  1 antonhagermalm  staff  1673 30 Dec 19:11 FIRAnalyticsConfiguration.h
+-rwxr-xr-x  1 antonhagermalm  staff  4860 30 Dec 19:11 FIRApp.h
+-rwxr-xr-x  1 antonhagermalm  staff  2903 30 Dec 19:11 FIRConfiguration.h
+-rwxr-xr-x  1 antonhagermalm  staff   982 30 Dec 19:11 FIRCoreSwiftNameSupport.h
+-rwxr-xr-x  1 antonhagermalm  staff  1282 30 Dec 19:11 FIRLoggerLevel.h
+-rwxr-xr-x  1 antonhagermalm  staff  4756 30 Dec 19:11 FIROptions.h
+-rwxr-xr-x  1 antonhagermalm  staff   172 30 Dec 19:11 FirebaseCore.h
+
+./Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules:
+total 8
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 19:11 ..
+-rwxr-xr-x  1 antonhagermalm  staff  113 30 Dec 19:11 module.modulemap
+
+./Pods/FirebaseCore/Frameworks/FirebaseCoreDiagnostics.framework:
+total 4144
+drwxr-xr-x  4 antonhagermalm  staff      128 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff      160 30 Dec 19:11 ..
+-rwxr-xr-x  1 antonhagermalm  staff  2118936 30 Dec 19:11 FirebaseCoreDiagnostics
+drwxr-xr-x  3 antonhagermalm  staff       96 30 Dec 19:11 Modules
+
+./Pods/FirebaseCore/Frameworks/FirebaseCoreDiagnostics.framework/Modules:
+total 8
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  4 antonhagermalm  staff  128 30 Dec 19:11 ..
+-rwxr-xr-x  1 antonhagermalm  staff   89 30 Dec 19:11 module.modulemap
+
+./Pods/FirebaseCore/Frameworks/FirebaseNanoPB.framework:
+total 616
+drwxr-xr-x  3 antonhagermalm  staff      96 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff     160 30 Dec 19:11 ..
+-rwxr-xr-x  1 antonhagermalm  staff  314136 30 Dec 19:11 FirebaseNanoPB
+
+./Pods/FirebaseDatabase:
+total 0
+drwxr-xr-x   3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  20 antonhagermalm  staff  640  9 Jan 21:49 ..
+drwxr-xr-x   3 antonhagermalm  staff   96 30 Dec 19:11 Frameworks
+
+./Pods/FirebaseDatabase/Frameworks:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 ..
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 19:11 FirebaseDatabase.framework
+
+./Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework:
+total 36176
+drwxr-xr-x   5 antonhagermalm  staff       160 30 Dec 19:11 .
+drwxr-xr-x   3 antonhagermalm  staff        96 30 Dec 19:11 ..
+-rwxr-xr-x   1 antonhagermalm  staff  18518696 30 Dec 19:11 FirebaseDatabase
+drwxr-xr-x  12 antonhagermalm  staff       384 30 Dec 19:11 Headers
+drwxr-xr-x   3 antonhagermalm  staff        96 30 Dec 19:11 Modules
+
+./Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers:
+total 184
+drwxr-xr-x  12 antonhagermalm  staff    384 30 Dec 19:11 .
+drwxr-xr-x   5 antonhagermalm  staff    160 30 Dec 19:11 ..
+-rwxr-xr-x   1 antonhagermalm  staff   1375 30 Dec 19:11 FIRDataEventType.h
+-rwxr-xr-x   1 antonhagermalm  staff   4231 30 Dec 19:11 FIRDataSnapshot.h
+-rwxr-xr-x   1 antonhagermalm  staff   5535 30 Dec 19:11 FIRDatabase.h
+-rwxr-xr-x   1 antonhagermalm  staff  15930 30 Dec 19:11 FIRDatabaseQuery.h
+-rwxr-xr-x   1 antonhagermalm  staff  34292 30 Dec 19:11 FIRDatabaseReference.h
+-rwxr-xr-x   1 antonhagermalm  staff    963 30 Dec 19:11 FIRDatabaseSwiftNameSupport.h
+-rwxr-xr-x   1 antonhagermalm  staff   3974 30 Dec 19:11 FIRMutableData.h
+-rwxr-xr-x   1 antonhagermalm  staff   1027 30 Dec 19:11 FIRServerValue.h
+-rwxr-xr-x   1 antonhagermalm  staff   1598 30 Dec 19:11 FIRTransactionResult.h
+-rwxr-xr-x   1 antonhagermalm  staff    270 30 Dec 19:11 FirebaseDatabase.h
+
+./Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules:
+total 8
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 19:11 ..
+-rwxr-xr-x  1 antonhagermalm  staff  247 30 Dec 19:11 module.modulemap
+
+./Pods/FirebaseInstanceID:
+total 16
+drwxr-xr-x   5 antonhagermalm  staff   160 30 Dec 19:11 .
+drwxr-xr-x  20 antonhagermalm  staff   640  9 Jan 21:49 ..
+-rwxr-xr-x   1 antonhagermalm  staff  2232 30 Dec 19:11 CHANGELOG.md
+drwxr-xr-x   3 antonhagermalm  staff    96 30 Dec 19:11 Frameworks
+-rwxr-xr-x   1 antonhagermalm  staff   380 30 Dec 19:11 README.md
+
+./Pods/FirebaseInstanceID/Frameworks:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 19:11 ..
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 19:11 FirebaseInstanceID.framework
+
+./Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework:
+total 8472
+drwxr-xr-x  5 antonhagermalm  staff      160 30 Dec 19:11 .
+drwxr-xr-x  3 antonhagermalm  staff       96 30 Dec 19:11 ..
+-rwxr-xr-x  1 antonhagermalm  staff  4336288 30 Dec 19:11 FirebaseInstanceID
+drwxr-xr-x  4 antonhagermalm  staff      128 30 Dec 19:11 Headers
+drwxr-xr-x  3 antonhagermalm  staff       96 30 Dec 19:11 Modules
+
+./Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers:
+total 32
+drwxr-xr-x  4 antonhagermalm  staff    128 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff    160 30 Dec 19:11 ..
+-rwxr-xr-x  1 antonhagermalm  staff  11604 30 Dec 19:11 FIRInstanceID.h
+-rwxr-xr-x  1 antonhagermalm  staff     26 30 Dec 19:11 FirebaseInstanceID.h
+
+./Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules:
+total 8
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  5 antonhagermalm  staff  160 30 Dec 19:11 ..
+-rwxr-xr-x  1 antonhagermalm  staff  125 30 Dec 19:11 module.modulemap
+
+./Pods/FirebaseUI:
+total 0
+drwxr-xr-x   3 antonhagermalm  staff   96  9 Jan 21:45 .
+drwxr-xr-x  20 antonhagermalm  staff  640  9 Jan 21:49 ..
+drwxr-xr-x   4 antonhagermalm  staff  128  9 Jan 21:45 FirebaseUIFrameworks
+
+./Pods/FirebaseUI/FirebaseUIFrameworks:
+total 24
+drwxr-xr-x  4 antonhagermalm  staff    128  9 Jan 21:45 .
+drwxr-xr-x  3 antonhagermalm  staff     96  9 Jan 21:45 ..
+drwxr-xr-x  3 antonhagermalm  staff     96  9 Jan 21:45 FirebaseDatabaseUI
+-rw-r--r--  1 antonhagermalm  staff  11358  9 Jan 21:45 LICENSE
+
+./Pods/FirebaseUI/FirebaseUIFrameworks/FirebaseDatabaseUI:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff   96  9 Jan 21:45 .
+drwxr-xr-x  4 antonhagermalm  staff  128  9 Jan 21:45 ..
+drwxr-xr-x  3 antonhagermalm  staff   96  9 Jan 21:45 Frameworks
+
+./Pods/FirebaseUI/FirebaseUIFrameworks/FirebaseDatabaseUI/Frameworks:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff   96  9 Jan 21:45 .
+drwxr-xr-x  3 antonhagermalm  staff   96  9 Jan 21:45 ..
+drwxr-xr-x  6 antonhagermalm  staff  192  9 Jan 21:45 FirebaseDatabaseUI.framework
+
+./Pods/FirebaseUI/FirebaseUIFrameworks/FirebaseDatabaseUI/Frameworks/FirebaseDatabaseUI.framework:
+total 4704
+drwxr-xr-x   6 antonhagermalm  staff      192  9 Jan 21:45 .
+drwxr-xr-x   3 antonhagermalm  staff       96  9 Jan 21:45 ..
+-rw-r--r--   1 antonhagermalm  staff  2400360  9 Jan 21:45 FirebaseDatabaseUI
+drwxr-xr-x  11 antonhagermalm  staff      352  9 Jan 21:45 Headers
+-rw-r--r--   1 antonhagermalm  staff      734  9 Jan 21:45 Info.plist
+drwxr-xr-x   3 antonhagermalm  staff       96  9 Jan 21:45 Modules
+
+./Pods/FirebaseUI/FirebaseUIFrameworks/FirebaseDatabaseUI/Frameworks/FirebaseDatabaseUI.framework/Headers:
+total 128
+drwxr-xr-x  11 antonhagermalm  staff   352  9 Jan 21:45 .
+drwxr-xr-x   6 antonhagermalm  staff   192  9 Jan 21:45 ..
+-rw-r--r--   1 antonhagermalm  staff  6038  9 Jan 21:45 FUIArray.h
+-rw-r--r--   1 antonhagermalm  staff  5581  9 Jan 21:45 FUICollection.h
+-rw-r--r--   1 antonhagermalm  staff  5654  9 Jan 21:45 FUICollectionViewDataSource.h
+-rw-r--r--   1 antonhagermalm  staff  6903  9 Jan 21:45 FUIIndexArray.h
+-rw-r--r--   1 antonhagermalm  staff  5959  9 Jan 21:45 FUIIndexCollectionViewDataSource.h
+-rw-r--r--   1 antonhagermalm  staff  5724  9 Jan 21:45 FUIIndexTableViewDataSource.h
+-rw-r--r--   1 antonhagermalm  staff  1860  9 Jan 21:45 FUISortedArray.h
+-rw-r--r--   1 antonhagermalm  staff  5154  9 Jan 21:45 FUITableViewDataSource.h
+-rw-r--r--   1 antonhagermalm  staff  1268  9 Jan 21:45 FirebaseDatabaseUI.h
+
+./Pods/FirebaseUI/FirebaseUIFrameworks/FirebaseDatabaseUI/Frameworks/FirebaseDatabaseUI.framework/Modules:
+total 8
+drwxr-xr-x  3 antonhagermalm  staff   96  9 Jan 21:45 .
+drwxr-xr-x  6 antonhagermalm  staff  192  9 Jan 21:45 ..
+-rw-r--r--  1 antonhagermalm  staff  117  9 Jan 21:45 module.modulemap
+
+./Pods/GTMSessionFetcher:
+total 32
+drwxr-xr-x   5 antonhagermalm  staff    160 30 Dec 19:11 .
+drwxr-xr-x  20 antonhagermalm  staff    640  9 Jan 21:49 ..
+-rw-r--r--   1 antonhagermalm  staff  11358 30 Dec 19:11 LICENSE
+-rw-r--r--   1 antonhagermalm  staff   1158 30 Dec 19:11 README.md
+drwxr-xr-x  10 antonhagermalm  staff    320 30 Dec 19:11 Source
+
+./Pods/GTMSessionFetcher/Source:
+total 824
+drwxr-xr-x  10 antonhagermalm  staff     320 30 Dec 19:11 .
+drwxr-xr-x   5 antonhagermalm  staff     160 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff   59936 30 Dec 19:11 GTMSessionFetcher.h
+-r--r--r--   1 antonhagermalm  staff  170357 30 Dec 19:11 GTMSessionFetcher.m
+-r--r--r--   1 antonhagermalm  staff    4088 30 Dec 19:11 GTMSessionFetcherLogging.h
+-r--r--r--   1 antonhagermalm  staff   39922 30 Dec 19:11 GTMSessionFetcherLogging.m
+-r--r--r--   1 antonhagermalm  staff    8853 30 Dec 19:11 GTMSessionFetcherService.h
+-r--r--r--   1 antonhagermalm  staff   45826 30 Dec 19:11 GTMSessionFetcherService.m
+-r--r--r--   1 antonhagermalm  staff    6334 30 Dec 19:11 GTMSessionUploadFetcher.h
+-r--r--r--   1 antonhagermalm  staff   70094 30 Dec 19:11 GTMSessionUploadFetcher.m
+
+./Pods/GoogleToolboxForMac:
+total 64
+drwxr-xr-x   7 antonhagermalm  staff    224 30 Dec 19:11 .
+drwxr-xr-x  20 antonhagermalm  staff    640  9 Jan 21:49 ..
+drwxr-xr-x   5 antonhagermalm  staff    160 30 Dec 19:11 DebugUtils
+drwxr-xr-x   8 antonhagermalm  staff    256 30 Dec 19:11 Foundation
+-r--r--r--   1 antonhagermalm  staff  13767 30 Dec 19:11 GTMDefines.h
+-rw-r--r--   1 antonhagermalm  staff  11358 30 Dec 19:11 LICENSE
+-rw-r--r--   1 antonhagermalm  staff    598 30 Dec 19:11 README.md
+
+./Pods/GoogleToolboxForMac/DebugUtils:
+total 24
+drwxr-xr-x  5 antonhagermalm  staff   160 30 Dec 19:11 .
+drwxr-xr-x  7 antonhagermalm  staff   224 30 Dec 19:11 ..
+-r--r--r--  1 antonhagermalm  staff  4043 30 Dec 19:11 GTMDebugSelectorValidation.h
+-r--r--r--  1 antonhagermalm  staff  1755 30 Dec 19:11 GTMDebugThreadValidation.h
+-r--r--r--  1 antonhagermalm  staff  2528 30 Dec 19:11 GTMMethodCheck.h
+
+./Pods/GoogleToolboxForMac/Foundation:
+total 104
+drwxr-xr-x  8 antonhagermalm  staff    256 30 Dec 19:11 .
+drwxr-xr-x  7 antonhagermalm  staff    224 30 Dec 19:11 ..
+-r--r--r--  1 antonhagermalm  staff   9626 30 Dec 19:11 GTMNSData+zlib.h
+-r--r--r--  1 antonhagermalm  staff  20740 30 Dec 19:11 GTMNSData+zlib.m
+-r--r--r--  1 antonhagermalm  staff   1654 30 Dec 19:11 GTMNSDictionary+URLArguments.h
+-r--r--r--  1 antonhagermalm  staff   2797 30 Dec 19:11 GTMNSDictionary+URLArguments.m
+-r--r--r--  1 antonhagermalm  staff   1752 30 Dec 19:11 GTMNSString+URLArguments.h
+-r--r--r--  1 antonhagermalm  staff   1859 30 Dec 19:11 GTMNSString+URLArguments.m
+
+./Pods/Headers:
+total 0
+drwxr-xr-x   4 antonhagermalm  staff  128  9 Jan 21:45 .
+drwxr-xr-x  20 antonhagermalm  staff  640  9 Jan 21:49 ..
+drwxr-xr-x   3 antonhagermalm  staff   96  9 Jan 21:45 Private
+drwxr-xr-x   3 antonhagermalm  staff   96  9 Jan 21:45 Public
+
+./Pods/Headers/Private:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff   96  9 Jan 21:45 .
+drwxr-xr-x  4 antonhagermalm  staff  128  9 Jan 21:45 ..
+drwxr-xr-x  3 antonhagermalm  staff   96  9 Jan 21:45 Firebase
+
+./Pods/Headers/Private/Firebase:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff  96  9 Jan 21:45 .
+drwxr-xr-x  3 antonhagermalm  staff  96  9 Jan 21:45 ..
+lrwxr-xr-x  1 antonhagermalm  staff  41  9 Jan 21:45 Firebase.h -> ../../../Firebase/Core/Sources/Firebase.h
+
+./Pods/Headers/Public:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff   96  9 Jan 21:45 .
+drwxr-xr-x  4 antonhagermalm  staff  128  9 Jan 21:45 ..
+drwxr-xr-x  3 antonhagermalm  staff   96  9 Jan 21:45 Firebase
+
+./Pods/Headers/Public/Firebase:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff  96  9 Jan 21:45 .
+drwxr-xr-x  3 antonhagermalm  staff  96  9 Jan 21:45 ..
+lrwxr-xr-x  1 antonhagermalm  staff  41  9 Jan 21:45 Firebase.h -> ../../../Firebase/Core/Sources/Firebase.h
+
+./Pods/Local Podspecs:
+total 0
+drwxr-xr-x   2 antonhagermalm  staff   64 30 Dec 20:52 .
+drwxr-xr-x  20 antonhagermalm  staff  640  9 Jan 21:49 ..
+
+./Pods/Pods.xcodeproj:
+total 648
+drwxr-xr-x@  4 antonhagermalm  staff     128 30 Dec 19:55 .
+	com.apple.lastuseddate#PS	    16 
+drwxr-xr-x  20 antonhagermalm  staff     640  9 Jan 21:49 ..
+-rw-r--r--   1 antonhagermalm  staff  276598  9 Jan 21:45 project.pbxproj
+drwxr-xr-x   3 antonhagermalm  staff      96 30 Dec 19:55 xcuserdata
+
+./Pods/Pods.xcodeproj/xcuserdata:
+total 0
+drwxr-xr-x  3 antonhagermalm  staff   96 30 Dec 19:55 .
+drwxr-xr-x@ 4 antonhagermalm  staff  128 30 Dec 19:55 ..
+	com.apple.lastuseddate#PS	 16 
+drwxr-xr-x  3 antonhagermalm  staff   96  9 Jan 21:45 antonhagermalm.xcuserdatad
+
+./Pods/Pods.xcodeproj/xcuserdata/antonhagermalm.xcuserdatad:
+total 0
+drwxr-xr-x   3 antonhagermalm  staff   96  9 Jan 21:45 .
+drwxr-xr-x   3 antonhagermalm  staff   96 30 Dec 19:55 ..
+drwxr-xr-x  11 antonhagermalm  staff  352  9 Jan 21:45 xcschemes
+
+./Pods/Pods.xcodeproj/xcuserdata/antonhagermalm.xcuserdatad/xcschemes:
+total 72
+drwxr-xr-x  11 antonhagermalm  staff   352  9 Jan 21:45 .
+drwxr-xr-x   3 antonhagermalm  staff    96  9 Jan 21:45 ..
+-rw-r--r--   1 antonhagermalm  staff  2112  9 Jan 21:45 GTMSessionFetcher.xcscheme
+-rw-r--r--   1 antonhagermalm  staff  2116  9 Jan 21:45 GoogleToolboxForMac.xcscheme
+-rw-r--r--   1 antonhagermalm  staff  2581  9 Jan 21:45 Pods-GurschTracker.xcscheme
+-rw-r--r--   1 antonhagermalm  staff  2601  9 Jan 21:45 Pods-GurschTrackerTests.xcscheme
+-rw-r--r--   1 antonhagermalm  staff  2092  9 Jan 21:45 RxCocoa.xcscheme
+-rw-r--r--   1 antonhagermalm  staff  2092  9 Jan 21:45 RxSwift.xcscheme
+-rw-r--r--   1 antonhagermalm  staff  2553  9 Jan 21:45 leveldb-library.xcscheme
+-rw-r--r--   1 antonhagermalm  staff  2090  9 Jan 21:45 nanopb.xcscheme
+-rw-r--r--   1 antonhagermalm  staff  1004  9 Jan 21:45 xcschememanagement.plist
+
+./Pods/RxCocoa:
+total 24
+drwxr-xr-x   6 antonhagermalm  staff   192 30 Dec 19:11 .
+drwxr-xr-x  20 antonhagermalm  staff   640  9 Jan 21:49 ..
+-rw-r--r--   1 antonhagermalm  staff  1106 30 Dec 19:11 LICENSE.md
+drwxr-xr-x   7 antonhagermalm  staff   224 30 Dec 19:11 Platform
+-rw-r--r--   1 antonhagermalm  staff  8019 30 Dec 19:11 README.md
+drwxr-xr-x  10 antonhagermalm  staff   320 30 Dec 19:11 RxCocoa
+
+./Pods/RxCocoa/Platform:
+total 32
+drwxr-xr-x  7 antonhagermalm  staff   224 30 Dec 19:11 .
+drwxr-xr-x  6 antonhagermalm  staff   192 30 Dec 19:11 ..
+drwxr-xr-x  6 antonhagermalm  staff   192 30 Dec 19:11 DataStructures
+-r--r--r--  1 antonhagermalm  staff   493 30 Dec 19:11 DispatchQueue+Extensions.swift
+-r--r--r--  1 antonhagermalm  staff  2156 30 Dec 19:11 Platform.Darwin.swift
+-r--r--r--  1 antonhagermalm  staff  2754 30 Dec 19:11 Platform.Linux.swift
+-r--r--r--  1 antonhagermalm  staff   719 30 Dec 19:11 RecursiveLock.swift
+
+./Pods/RxCocoa/Platform/DataStructures:
+total 40
+drwxr-xr-x  6 antonhagermalm  staff   192 30 Dec 19:11 .
+drwxr-xr-x  7 antonhagermalm  staff   224 30 Dec 19:11 ..
+-r--r--r--  1 antonhagermalm  staff  4409 30 Dec 19:11 Bag.swift
+-r--r--r--  1 antonhagermalm  staff   611 30 Dec 19:11 InfiniteSequence.swift
+-r--r--r--  1 antonhagermalm  staff  3745 30 Dec 19:11 PriorityQueue.swift
+-r--r--r--  1 antonhagermalm  staff  4075 30 Dec 19:11 Queue.swift
+
+./Pods/RxCocoa/RxCocoa:
+total 64
+drwxr-xr-x  10 antonhagermalm  staff    320 30 Dec 19:11 .
+drwxr-xr-x   6 antonhagermalm  staff    192 30 Dec 19:11 ..
+drwxr-xr-x  12 antonhagermalm  staff    384 30 Dec 19:11 Common
+-r--r--r--   1 antonhagermalm  staff  17842 30 Dec 19:11 Deprecated.swift
+drwxr-xr-x  11 antonhagermalm  staff    352 30 Dec 19:11 Foundation
+drwxr-xr-x   7 antonhagermalm  staff    224 30 Dec 19:11 Runtime
+-r--r--r--   1 antonhagermalm  staff    462 30 Dec 19:11 RxCocoa.h
+-r--r--r--   1 antonhagermalm  staff   4791 30 Dec 19:11 RxCocoa.swift
+drwxr-xr-x   9 antonhagermalm  staff    288 30 Dec 19:11 Traits
+drwxr-xr-x  40 antonhagermalm  staff   1280 30 Dec 19:11 iOS
+
+./Pods/RxCocoa/RxCocoa/Common:
+total 152
+drwxr-xr-x  12 antonhagermalm  staff    384 30 Dec 19:11 .
+drwxr-xr-x  10 antonhagermalm  staff    320 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff   1859 30 Dec 19:11 Binder.swift
+-r--r--r--   1 antonhagermalm  staff   2186 30 Dec 19:11 ControlTarget.swift
+-r--r--r--   1 antonhagermalm  staff  11539 30 Dec 19:11 DelegateProxy.swift
+-r--r--r--   1 antonhagermalm  staff  17477 30 Dec 19:11 DelegateProxyType.swift
+-r--r--r--   1 antonhagermalm  staff    819 30 Dec 19:11 NSLayoutConstraint+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   4245 30 Dec 19:11 Observable+Bind.swift
+-r--r--r--   1 antonhagermalm  staff   8649 30 Dec 19:11 RxCocoaObjCRuntimeError+Extensions.swift
+-r--r--r--   1 antonhagermalm  staff    757 30 Dec 19:11 RxTarget.swift
+-r--r--r--   1 antonhagermalm  staff    642 30 Dec 19:11 SectionedViewDataSourceType.swift
+-r--r--r--   1 antonhagermalm  staff   2062 30 Dec 19:11 TextInput.swift
+
+./Pods/RxCocoa/RxCocoa/Foundation:
+total 120
+drwxr-xr-x  11 antonhagermalm  staff    352 30 Dec 19:11 .
+drwxr-xr-x  10 antonhagermalm  staff    320 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff   1721 30 Dec 19:11 KVORepresentable+CoreGraphics.swift
+-r--r--r--   1 antonhagermalm  staff   2020 30 Dec 19:11 KVORepresentable+Swift.swift
+-r--r--r--   1 antonhagermalm  staff    645 30 Dec 19:11 KVORepresentable.swift
+-r--r--r--   1 antonhagermalm  staff    518 30 Dec 19:11 Logging.swift
+-r--r--r--   1 antonhagermalm  staff   2025 30 Dec 19:11 NSObject+Rx+KVORepresentable.swift
+-r--r--r--   1 antonhagermalm  staff   1742 30 Dec 19:11 NSObject+Rx+RawRepresentable.swift
+-r--r--r--   1 antonhagermalm  staff  18067 30 Dec 19:11 NSObject+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   1134 30 Dec 19:11 NotificationCenter+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   8612 30 Dec 19:11 URLSession+Rx.swift
+
+./Pods/RxCocoa/RxCocoa/Runtime:
+total 128
+drwxr-xr-x   7 antonhagermalm  staff    224 30 Dec 19:11 .
+drwxr-xr-x  10 antonhagermalm  staff    320 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff    160 30 Dec 19:11 _RX.m
+-r--r--r--   1 antonhagermalm  staff   4410 30 Dec 19:11 _RXDelegateProxy.m
+-r--r--r--   1 antonhagermalm  staff   1469 30 Dec 19:11 _RXKVOObserver.m
+-r--r--r--   1 antonhagermalm  staff  48259 30 Dec 19:11 _RXObjCRuntime.m
+drwxr-xr-x   7 antonhagermalm  staff    224 30 Dec 19:11 include
+
+./Pods/RxCocoa/RxCocoa/Runtime/include:
+total 40
+drwxr-xr-x  7 antonhagermalm  staff   224 30 Dec 19:11 .
+drwxr-xr-x  7 antonhagermalm  staff   224 30 Dec 19:11 ..
+-r--r--r--  1 antonhagermalm  staff   470 30 Dec 19:11 RxCocoaRuntime.h
+-r--r--r--  1 antonhagermalm  staff  3959 30 Dec 19:11 _RX.h
+-r--r--r--  1 antonhagermalm  staff   741 30 Dec 19:11 _RXDelegateProxy.h
+-r--r--r--  1 antonhagermalm  staff   801 30 Dec 19:11 _RXKVOObserver.h
+-r--r--r--  1 antonhagermalm  staff  4072 30 Dec 19:11 _RXObjCRuntime.h
+
+./Pods/RxCocoa/RxCocoa/Traits:
+total 40
+drwxr-xr-x   9 antonhagermalm  staff   288 30 Dec 19:11 .
+drwxr-xr-x  10 antonhagermalm  staff   320 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff  1268 30 Dec 19:11 BehaviorRelay.swift
+-r--r--r--   1 antonhagermalm  staff  2468 30 Dec 19:11 ControlEvent.swift
+-r--r--r--   1 antonhagermalm  staff  4930 30 Dec 19:11 ControlProperty.swift
+drwxr-xr-x   8 antonhagermalm  staff   256 30 Dec 19:11 Driver
+-r--r--r--   1 antonhagermalm  staff  1055 30 Dec 19:11 PublishRelay.swift
+drwxr-xr-x   6 antonhagermalm  staff   192 30 Dec 19:11 SharedSequence
+drwxr-xr-x   6 antonhagermalm  staff   192 30 Dec 19:11 Signal
+
+./Pods/RxCocoa/RxCocoa/Traits/Driver:
+total 56
+drwxr-xr-x  8 antonhagermalm  staff   256 30 Dec 19:11 .
+drwxr-xr-x  9 antonhagermalm  staff   288 30 Dec 19:11 ..
+-r--r--r--  1 antonhagermalm  staff   512 30 Dec 19:11 BehaviorRelay+Driver.swift
+-r--r--r--  1 antonhagermalm  staff   676 30 Dec 19:11 ControlEvent+Driver.swift
+-r--r--r--  1 antonhagermalm  staff   684 30 Dec 19:11 ControlProperty+Driver.swift
+-r--r--r--  1 antonhagermalm  staff  5216 30 Dec 19:11 Driver+Subscription.swift
+-r--r--r--  1 antonhagermalm  staff  2159 30 Dec 19:11 Driver.swift
+-r--r--r--  1 antonhagermalm  staff  1787 30 Dec 19:11 ObservableConvertibleType+Driver.swift
+
+./Pods/RxCocoa/RxCocoa/Traits/SharedSequence:
+total 160
+drwxr-xr-x  6 antonhagermalm  staff    192 30 Dec 19:11 .
+drwxr-xr-x  9 antonhagermalm  staff    288 30 Dec 19:11 ..
+-r--r--r--  1 antonhagermalm  staff   1725 30 Dec 19:11 SchedulerType+SharedSequence.swift
+-r--r--r--  1 antonhagermalm  staff  40589 30 Dec 19:11 SharedSequence+Operators+arity.swift
+-r--r--r--  1 antonhagermalm  staff  23735 30 Dec 19:11 SharedSequence+Operators.swift
+-r--r--r--  1 antonhagermalm  staff   8285 30 Dec 19:11 SharedSequence.swift
+
+./Pods/RxCocoa/RxCocoa/Traits/Signal:
+total 32
+drwxr-xr-x  6 antonhagermalm  staff   192 30 Dec 19:11 .
+drwxr-xr-x  9 antonhagermalm  staff   288 30 Dec 19:11 ..
+-r--r--r--  1 antonhagermalm  staff  1790 30 Dec 19:11 ObservableConvertibleType+Signal.swift
+-r--r--r--  1 antonhagermalm  staff   510 30 Dec 19:11 PublishRelay+Signal.swift
+-r--r--r--  1 antonhagermalm  staff  3065 30 Dec 19:11 Signal+Subscription.swift
+-r--r--r--  1 antonhagermalm  staff  1630 30 Dec 19:11 Signal.swift
+
+./Pods/RxCocoa/RxCocoa/iOS:
+total 360
+drwxr-xr-x  40 antonhagermalm  staff   1280 30 Dec 19:11 .
+drwxr-xr-x  10 antonhagermalm  staff    320 30 Dec 19:11 ..
+drwxr-xr-x   5 antonhagermalm  staff    160 30 Dec 19:11 DataSources
+drwxr-xr-x   3 antonhagermalm  staff     96 30 Dec 19:11 Events
+-r--r--r--   1 antonhagermalm  staff   1346 30 Dec 19:11 NSTextStorage+Rx.swift
+drwxr-xr-x   5 antonhagermalm  staff    160 30 Dec 19:11 Protocols
+drwxr-xr-x  17 antonhagermalm  staff    544 30 Dec 19:11 Proxies
+-r--r--r--   1 antonhagermalm  staff    667 30 Dec 19:11 UIActivityIndicatorView+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    508 30 Dec 19:11 UIAlertAction+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    592 30 Dec 19:11 UIApplication+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   2236 30 Dec 19:11 UIBarButtonItem+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   2219 30 Dec 19:11 UIButton+Rx.swift
+-r--r--r--   1 antonhagermalm  staff  14458 30 Dec 19:11 UICollectionView+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   3489 30 Dec 19:11 UIControl+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   1120 30 Dec 19:11 UIDatePicker+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   2089 30 Dec 19:11 UIGestureRecognizer+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    475 30 Dec 19:11 UIImageView+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    684 30 Dec 19:11 UILabel+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   1875 30 Dec 19:11 UINavigationController+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    513 30 Dec 19:11 UINavigationItem+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    737 30 Dec 19:11 UIPageControl+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   9212 30 Dec 19:11 UIPickerView+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    496 30 Dec 19:11 UIProgressView+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    635 30 Dec 19:11 UIRefreshControl+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   6630 30 Dec 19:11 UIScrollView+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   4475 30 Dec 19:11 UISearchBar+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   2019 30 Dec 19:11 UISearchController+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    860 30 Dec 19:11 UISegmentedControl+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    606 30 Dec 19:11 UISlider+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    600 30 Dec 19:11 UIStepper+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    938 30 Dec 19:11 UISwitch+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   3009 30 Dec 19:11 UITabBar+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   2978 30 Dec 19:11 UITabBarController+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    533 30 Dec 19:11 UITabBarItem+Rx.swift
+-r--r--r--   1 antonhagermalm  staff  15096 30 Dec 19:11 UITableView+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   1769 30 Dec 19:11 UITextField+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   4870 30 Dec 19:11 UITextView+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    918 30 Dec 19:11 UIView+Rx.swift
+-r--r--r--   1 antonhagermalm  staff    525 30 Dec 19:11 UIViewController+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   1432 30 Dec 19:11 UIWebView+Rx.swift
+
+./Pods/RxCocoa/RxCocoa/iOS/DataSources:
+total 24
+drwxr-xr-x   5 antonhagermalm  staff   160 30 Dec 19:11 .
+drwxr-xr-x  40 antonhagermalm  staff  1280 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff  3526 30 Dec 19:11 RxCollectionViewReactiveArrayDataSource.swift
+-r--r--r--   1 antonhagermalm  staff  2931 30 Dec 19:11 RxPickerViewAdapter.swift
+-r--r--r--   1 antonhagermalm  staff  2994 30 Dec 19:11 RxTableViewReactiveArrayDataSource.swift
+
+./Pods/RxCocoa/RxCocoa/iOS/Events:
+total 8
+drwxr-xr-x   3 antonhagermalm  staff    96 30 Dec 19:11 .
+drwxr-xr-x  40 antonhagermalm  staff  1280 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff   456 30 Dec 19:11 ItemEvents.swift
+
+./Pods/RxCocoa/RxCocoa/iOS/Protocols:
+total 24
+drwxr-xr-x   5 antonhagermalm  staff   160 30 Dec 19:11 .
+drwxr-xr-x  40 antonhagermalm  staff  1280 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff   814 30 Dec 19:11 RxCollectionViewDataSourceType.swift
+-r--r--r--   1 antonhagermalm  staff   737 30 Dec 19:11 RxPickerViewDataSourceType.swift
+-r--r--r--   1 antonhagermalm  staff   764 30 Dec 19:11 RxTableViewDataSourceType.swift
+
+./Pods/RxCocoa/RxCocoa/iOS/Proxies:
+total 120
+drwxr-xr-x  17 antonhagermalm  staff   544 30 Dec 19:11 .
+drwxr-xr-x  40 antonhagermalm  staff  1280 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff  2884 30 Dec 19:11 RxCollectionViewDataSourceProxy.swift
+-r--r--r--   1 antonhagermalm  staff   840 30 Dec 19:11 RxCollectionViewDelegateProxy.swift
+-r--r--r--   1 antonhagermalm  staff  1316 30 Dec 19:11 RxNavigationControllerDelegateProxy.swift
+-r--r--r--   1 antonhagermalm  staff  2485 30 Dec 19:11 RxPickerViewDataSourceProxy.swift
+-r--r--r--   1 antonhagermalm  staff  1064 30 Dec 19:11 RxPickerViewDelegateProxy.swift
+-r--r--r--   1 antonhagermalm  staff  2874 30 Dec 19:11 RxScrollViewDelegateProxy.swift
+-r--r--r--   1 antonhagermalm  staff  1038 30 Dec 19:11 RxSearchBarDelegateProxy.swift
+-r--r--r--   1 antonhagermalm  staff  1188 30 Dec 19:11 RxSearchControllerDelegateProxy.swift
+-r--r--r--   1 antonhagermalm  staff  1087 30 Dec 19:11 RxTabBarControllerDelegateProxy.swift
+-r--r--r--   1 antonhagermalm  staff  1378 30 Dec 19:11 RxTabBarDelegateProxy.swift
+-r--r--r--   1 antonhagermalm  staff  2532 30 Dec 19:11 RxTableViewDataSourceProxy.swift
+-r--r--r--   1 antonhagermalm  staff   685 30 Dec 19:11 RxTableViewDelegateProxy.swift
+-r--r--r--   1 antonhagermalm  staff  1110 30 Dec 19:11 RxTextStorageDelegateProxy.swift
+-r--r--r--   1 antonhagermalm  staff  1325 30 Dec 19:11 RxTextViewDelegateProxy.swift
+-r--r--r--   1 antonhagermalm  staff   936 30 Dec 19:11 RxWebViewDelegateProxy.swift
+
+./Pods/RxSwift:
+total 24
+drwxr-xr-x   6 antonhagermalm  staff   192 30 Dec 19:11 .
+drwxr-xr-x  20 antonhagermalm  staff   640  9 Jan 21:49 ..
+-rw-r--r--   1 antonhagermalm  staff  1106 30 Dec 19:11 LICENSE.md
+drwxr-xr-x   7 antonhagermalm  staff   224 30 Dec 19:11 Platform
+-rw-r--r--   1 antonhagermalm  staff  8019 30 Dec 19:11 README.md
+drwxr-xr-x  29 antonhagermalm  staff   928 30 Dec 19:11 RxSwift
+
+./Pods/RxSwift/Platform:
+total 32
+drwxr-xr-x  7 antonhagermalm  staff   224 30 Dec 19:11 .
+drwxr-xr-x  6 antonhagermalm  staff   192 30 Dec 19:11 ..
+drwxr-xr-x  6 antonhagermalm  staff   192 30 Dec 19:11 DataStructures
+-r--r--r--  1 antonhagermalm  staff   493 30 Dec 19:11 DispatchQueue+Extensions.swift
+-r--r--r--  1 antonhagermalm  staff  2156 30 Dec 19:11 Platform.Darwin.swift
+-r--r--r--  1 antonhagermalm  staff  2754 30 Dec 19:11 Platform.Linux.swift
+-r--r--r--  1 antonhagermalm  staff   719 30 Dec 19:11 RecursiveLock.swift
+
+./Pods/RxSwift/Platform/DataStructures:
+total 40
+drwxr-xr-x  6 antonhagermalm  staff   192 30 Dec 19:11 .
+drwxr-xr-x  7 antonhagermalm  staff   224 30 Dec 19:11 ..
+-r--r--r--  1 antonhagermalm  staff  4409 30 Dec 19:11 Bag.swift
+-r--r--r--  1 antonhagermalm  staff   611 30 Dec 19:11 InfiniteSequence.swift
+-r--r--r--  1 antonhagermalm  staff  3745 30 Dec 19:11 PriorityQueue.swift
+-r--r--r--  1 antonhagermalm  staff  4075 30 Dec 19:11 Queue.swift
+
+./Pods/RxSwift/RxSwift:
+total 176
+drwxr-xr-x  29 antonhagermalm  staff   928 30 Dec 19:11 .
+drwxr-xr-x   6 antonhagermalm  staff   192 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff  2272 30 Dec 19:11 AnyObserver.swift
+-r--r--r--   1 antonhagermalm  staff   310 30 Dec 19:11 Cancelable.swift
+drwxr-xr-x   8 antonhagermalm  staff   256 30 Dec 19:11 Concurrency
+-r--r--r--   1 antonhagermalm  staff   762 30 Dec 19:11 ConnectableObservableType.swift
+-r--r--r--   1 antonhagermalm  staff  9436 30 Dec 19:11 Deprecated.swift
+-r--r--r--   1 antonhagermalm  staff   260 30 Dec 19:11 Disposable.swift
+drwxr-xr-x  15 antonhagermalm  staff   480 30 Dec 19:11 Disposables
+-r--r--r--   1 antonhagermalm  staff  1508 30 Dec 19:11 Errors.swift
+-r--r--r--   1 antonhagermalm  staff  2567 30 Dec 19:11 Event.swift
+drwxr-xr-x   4 antonhagermalm  staff   128 30 Dec 19:11 Extensions
+-r--r--r--   1 antonhagermalm  staff  1219 30 Dec 19:11 GroupedObservable.swift
+-r--r--r--   1 antonhagermalm  staff  1472 30 Dec 19:11 ImmediateSchedulerType.swift
+-r--r--r--   1 antonhagermalm  staff  1099 30 Dec 19:11 Observable.swift
+-r--r--r--   1 antonhagermalm  staff   502 30 Dec 19:11 ObservableConvertibleType.swift
+-r--r--r--   1 antonhagermalm  staff  5236 30 Dec 19:11 ObservableType+Extensions.swift
+-r--r--r--   1 antonhagermalm  staff  1594 30 Dec 19:11 ObservableType.swift
+drwxr-xr-x  70 antonhagermalm  staff  2240 30 Dec 19:11 Observables
+-r--r--r--   1 antonhagermalm  staff  1129 30 Dec 19:11 ObserverType.swift
+drwxr-xr-x   5 antonhagermalm  staff   160 30 Dec 19:11 Observers
+-r--r--r--   1 antonhagermalm  staff  1771 30 Dec 19:11 Reactive.swift
+-r--r--r--   1 antonhagermalm  staff  6255 30 Dec 19:11 Rx.swift
+-r--r--r--   1 antonhagermalm  staff   611 30 Dec 19:11 RxMutableBox.swift
+-r--r--r--   1 antonhagermalm  staff  2833 30 Dec 19:11 SchedulerType.swift
+drwxr-xr-x  15 antonhagermalm  staff   480 30 Dec 19:11 Schedulers
+drwxr-xr-x   7 antonhagermalm  staff   224 30 Dec 19:11 Subjects
+drwxr-xr-x   3 antonhagermalm  staff    96 30 Dec 19:11 SwiftSupport
+drwxr-xr-x   9 antonhagermalm  staff   288 30 Dec 19:11 Traits
+
+./Pods/RxSwift/RxSwift/Concurrency:
+total 48
+drwxr-xr-x   8 antonhagermalm  staff   256 30 Dec 19:11 .
+drwxr-xr-x  29 antonhagermalm  staff   928 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff  2329 30 Dec 19:11 AsyncLock.swift
+-r--r--r--   1 antonhagermalm  staff   825 30 Dec 19:11 Lock.swift
+-r--r--r--   1 antonhagermalm  staff   352 30 Dec 19:11 LockOwnerType.swift
+-r--r--r--   1 antonhagermalm  staff   401 30 Dec 19:11 SynchronizedDisposeType.swift
+-r--r--r--   1 antonhagermalm  staff   412 30 Dec 19:11 SynchronizedOnType.swift
+-r--r--r--   1 antonhagermalm  staff   303 30 Dec 19:11 SynchronizedUnsubscribeType.swift
+
+./Pods/RxSwift/RxSwift/Disposables:
+total 112
+drwxr-xr-x  15 antonhagermalm  staff   480 30 Dec 19:11 .
+drwxr-xr-x  29 antonhagermalm  staff   928 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff  1936 30 Dec 19:11 AnonymousDisposable.swift
+-r--r--r--   1 antonhagermalm  staff  1537 30 Dec 19:11 BinaryDisposable.swift
+-r--r--r--   1 antonhagermalm  staff   944 30 Dec 19:11 BooleanDisposable.swift
+-r--r--r--   1 antonhagermalm  staff  5534 30 Dec 19:11 CompositeDisposable.swift
+-r--r--r--   1 antonhagermalm  staff   276 30 Dec 19:11 Disposables.swift
+-r--r--r--   1 antonhagermalm  staff  2050 30 Dec 19:11 DisposeBag.swift
+-r--r--r--   1 antonhagermalm  staff   386 30 Dec 19:11 DisposeBase.swift
+-r--r--r--   1 antonhagermalm  staff   643 30 Dec 19:11 NopDisposable.swift
+-r--r--r--   1 antonhagermalm  staff  3378 30 Dec 19:11 RefCountDisposable.swift
+-r--r--r--   1 antonhagermalm  staff  1528 30 Dec 19:11 ScheduledDisposable.swift
+-r--r--r--   1 antonhagermalm  staff  2178 30 Dec 19:11 SerialDisposable.swift
+-r--r--r--   1 antonhagermalm  staff  2400 30 Dec 19:11 SingleAssignmentDisposable.swift
+-r--r--r--   1 antonhagermalm  staff   468 30 Dec 19:11 SubscriptionDisposable.swift
+
+./Pods/RxSwift/RxSwift/Extensions:
+total 16
+drwxr-xr-x   4 antonhagermalm  staff   128 30 Dec 19:11 .
+drwxr-xr-x  29 antonhagermalm  staff   928 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff  1218 30 Dec 19:11 Bag+Rx.swift
+-r--r--r--   1 antonhagermalm  staff   562 30 Dec 19:11 String+Rx.swift
+
+./Pods/RxSwift/RxSwift/Observables:
+total 944
+drwxr-xr-x  70 antonhagermalm  staff   2240 30 Dec 19:11 .
+drwxr-xr-x  29 antonhagermalm  staff    928 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff   1339 30 Dec 19:11 AddRef.swift
+-r--r--r--   1 antonhagermalm  staff   4802 30 Dec 19:11 Amb.swift
+-r--r--r--   1 antonhagermalm  staff   1330 30 Dec 19:11 AsMaybe.swift
+-r--r--r--   1 antonhagermalm  staff   1425 30 Dec 19:11 AsSingle.swift
+-r--r--r--   1 antonhagermalm  staff   4320 30 Dec 19:11 Buffer.swift
+-r--r--r--   1 antonhagermalm  staff   7682 30 Dec 19:11 Catch.swift
+-r--r--r--   1 antonhagermalm  staff   5791 30 Dec 19:11 CombineLatest+Collection.swift
+-r--r--r--   1 antonhagermalm  staff  39864 30 Dec 19:11 CombineLatest+arity.swift
+-r--r--r--   1 antonhagermalm  staff   3213 30 Dec 19:11 CombineLatest.swift
+-r--r--r--   1 antonhagermalm  staff   4795 30 Dec 19:11 Concat.swift
+-r--r--r--   1 antonhagermalm  staff   2474 30 Dec 19:11 Create.swift
+-r--r--r--   1 antonhagermalm  staff   3523 30 Dec 19:11 Debounce.swift
+-r--r--r--   1 antonhagermalm  staff   3727 30 Dec 19:11 Debug.swift
+-r--r--r--   1 antonhagermalm  staff   2164 30 Dec 19:11 DefaultIfEmpty.swift
+-r--r--r--   1 antonhagermalm  staff   2388 30 Dec 19:11 Deferred.swift
+-r--r--r--   1 antonhagermalm  staff   6317 30 Dec 19:11 Delay.swift
+-r--r--r--   1 antonhagermalm  staff   2193 30 Dec 19:11 DelaySubscription.swift
+-r--r--r--   1 antonhagermalm  staff   1756 30 Dec 19:11 Dematerialize.swift
+-r--r--r--   1 antonhagermalm  staff   5003 30 Dec 19:11 DistinctUntilChanged.swift
+-r--r--r--   1 antonhagermalm  staff   3867 30 Dec 19:11 Do.swift
+-r--r--r--   1 antonhagermalm  staff   2689 30 Dec 19:11 ElementAt.swift
+-r--r--r--   1 antonhagermalm  staff    813 30 Dec 19:11 Empty.swift
+-r--r--r--   1 antonhagermalm  staff   1934 30 Dec 19:11 Enumerated.swift
+-r--r--r--   1 antonhagermalm  staff    925 30 Dec 19:11 Error.swift
+-r--r--r--   1 antonhagermalm  staff   2926 30 Dec 19:11 Filter.swift
+-r--r--r--   1 antonhagermalm  staff   1210 30 Dec 19:11 First.swift
+-r--r--r--   1 antonhagermalm  staff   3335 30 Dec 19:11 Generate.swift
+-r--r--r--   1 antonhagermalm  staff   4535 30 Dec 19:11 GroupBy.swift
+-r--r--r--   1 antonhagermalm  staff   2877 30 Dec 19:11 Just.swift
+-r--r--r--   1 antonhagermalm  staff   3360 30 Dec 19:11 Map.swift
+-r--r--r--   1 antonhagermalm  staff   1518 30 Dec 19:11 Materialize.swift
+-r--r--r--   1 antonhagermalm  staff  21315 30 Dec 19:11 Merge.swift
+-r--r--r--   1 antonhagermalm  staff  14998 30 Dec 19:11 Multicast.swift
+-r--r--r--   1 antonhagermalm  staff    785 30 Dec 19:11 Never.swift
+-r--r--r--   1 antonhagermalm  staff   6716 30 Dec 19:11 ObserveOn.swift
+-r--r--r--   1 antonhagermalm  staff   3226 30 Dec 19:11 Optional.swift
+-r--r--r--   1 antonhagermalm  staff   3171 30 Dec 19:11 Producer.swift
+-r--r--r--   1 antonhagermalm  staff   2572 30 Dec 19:11 Range.swift
+-r--r--r--   1 antonhagermalm  staff   4392 30 Dec 19:11 Reduce.swift
+-r--r--r--   1 antonhagermalm  staff   1985 30 Dec 19:11 Repeat.swift
+-r--r--r--   1 antonhagermalm  staff   7631 30 Dec 19:11 RetryWhen.swift
+-r--r--r--   1 antonhagermalm  staff   4176 30 Dec 19:11 Sample.swift
+-r--r--r--   1 antonhagermalm  staff   2803 30 Dec 19:11 Scan.swift
+-r--r--r--   1 antonhagermalm  staff   3385 30 Dec 19:11 Sequence.swift
+-r--r--r--   1 antonhagermalm  staff  13833 30 Dec 19:11 ShareReplayScope.swift
+-r--r--r--   1 antonhagermalm  staff   3504 30 Dec 19:11 SingleAsync.swift
+-r--r--r--   1 antonhagermalm  staff   1689 30 Dec 19:11 Sink.swift
+-r--r--r--   1 antonhagermalm  staff   4891 30 Dec 19:11 Skip.swift
+-r--r--r--   1 antonhagermalm  staff   4017 30 Dec 19:11 SkipUntil.swift
+-r--r--r--   1 antonhagermalm  staff   2545 30 Dec 19:11 SkipWhile.swift
+-r--r--r--   1 antonhagermalm  staff   1264 30 Dec 19:11 StartWith.swift
+-r--r--r--   1 antonhagermalm  staff   2795 30 Dec 19:11 SubscribeOn.swift
+-r--r--r--   1 antonhagermalm  staff   7795 30 Dec 19:11 Switch.swift
+-r--r--r--   1 antonhagermalm  staff   3231 30 Dec 19:11 SwitchIfEmpty.swift
+-r--r--r--   1 antonhagermalm  staff   5376 30 Dec 19:11 Take.swift
+-r--r--r--   1 antonhagermalm  staff   2572 30 Dec 19:11 TakeLast.swift
+-r--r--r--   1 antonhagermalm  staff   3712 30 Dec 19:11 TakeUntil.swift
+-r--r--r--   1 antonhagermalm  staff   2535 30 Dec 19:11 TakeWhile.swift
+-r--r--r--   1 antonhagermalm  staff   5030 30 Dec 19:11 Throttle.swift
+-r--r--r--   1 antonhagermalm  staff   5392 30 Dec 19:11 Timeout.swift
+-r--r--r--   1 antonhagermalm  staff   4058 30 Dec 19:11 Timer.swift
+-r--r--r--   1 antonhagermalm  staff   1948 30 Dec 19:11 ToArray.swift
+-r--r--r--   1 antonhagermalm  staff   3239 30 Dec 19:11 Using.swift
+-r--r--r--   1 antonhagermalm  staff   5300 30 Dec 19:11 Window.swift
+-r--r--r--   1 antonhagermalm  staff   5421 30 Dec 19:11 WithLatestFrom.swift
+-r--r--r--   1 antonhagermalm  staff   6283 30 Dec 19:11 Zip+Collection.swift
+-r--r--r--   1 antonhagermalm  staff  41688 30 Dec 19:11 Zip+arity.swift
+-r--r--r--   1 antonhagermalm  staff   3561 30 Dec 19:11 Zip.swift
+
+./Pods/RxSwift/RxSwift/Observers:
+total 32
+drwxr-xr-x   5 antonhagermalm  staff   160 30 Dec 19:11 .
+drwxr-xr-x  29 antonhagermalm  staff   928 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff   730 30 Dec 19:11 AnonymousObserver.swift
+-r--r--r--   1 antonhagermalm  staff   739 30 Dec 19:11 ObserverBase.swift
+-r--r--r--   1 antonhagermalm  staff  4176 30 Dec 19:11 TailRecursiveSink.swift
+
+./Pods/RxSwift/RxSwift/Schedulers:
+total 136
+drwxr-xr-x  15 antonhagermalm  staff   480 30 Dec 19:11 .
+drwxr-xr-x  29 antonhagermalm  staff   928 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff  3458 30 Dec 19:11 ConcurrentDispatchQueueScheduler.swift
+-r--r--r--   1 antonhagermalm  staff  3249 30 Dec 19:11 ConcurrentMainScheduler.swift
+-r--r--r--   1 antonhagermalm  staff  4739 30 Dec 19:11 CurrentThreadScheduler.swift
+-r--r--r--   1 antonhagermalm  staff   720 30 Dec 19:11 HistoricalScheduler.swift
+-r--r--r--   1 antonhagermalm  staff  2558 30 Dec 19:11 HistoricalSchedulerTimeConverter.swift
+drwxr-xr-x   7 antonhagermalm  staff   224 30 Dec 19:11 Internal
+-r--r--r--   1 antonhagermalm  staff  2412 30 Dec 19:11 MainScheduler.swift
+-r--r--r--   1 antonhagermalm  staff  1807 30 Dec 19:11 OperationQueueScheduler.swift
+-r--r--r--   1 antonhagermalm  staff  6239 30 Dec 19:11 RecursiveScheduler.swift
+-r--r--r--   1 antonhagermalm  staff  2252 30 Dec 19:11 SchedulerServices+Emulation.swift
+-r--r--r--   1 antonhagermalm  staff  5687 30 Dec 19:11 SerialDispatchQueueScheduler.swift
+-r--r--r--   1 antonhagermalm  staff  3007 30 Dec 19:11 VirtualTimeConverterType.swift
+-r--r--r--   1 antonhagermalm  staff  8236 30 Dec 19:11 VirtualTimeScheduler.swift
+
+./Pods/RxSwift/RxSwift/Schedulers/Internal:
+total 40
+drwxr-xr-x   7 antonhagermalm  staff   224 30 Dec 19:11 .
+drwxr-xr-x  15 antonhagermalm  staff   480 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff  3749 30 Dec 19:11 DispatchQueueConfiguration.swift
+-r--r--r--   1 antonhagermalm  staff   445 30 Dec 19:11 InvocableScheduledItem.swift
+-r--r--r--   1 antonhagermalm  staff   289 30 Dec 19:11 InvocableType.swift
+-r--r--r--   1 antonhagermalm  staff   707 30 Dec 19:11 ScheduledItem.swift
+-r--r--r--   1 antonhagermalm  staff   239 30 Dec 19:11 ScheduledItemType.swift
+
+./Pods/RxSwift/RxSwift/Subjects:
+total 72
+drwxr-xr-x   7 antonhagermalm  staff   224 30 Dec 19:11 .
+drwxr-xr-x  29 antonhagermalm  staff   928 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff  4599 30 Dec 19:11 AsyncSubject.swift
+-r--r--r--   1 antonhagermalm  staff  4830 30 Dec 19:11 BehaviorSubject.swift
+-r--r--r--   1 antonhagermalm  staff  4280 30 Dec 19:11 PublishSubject.swift
+-r--r--r--   1 antonhagermalm  staff  7343 30 Dec 19:11 ReplaySubject.swift
+-r--r--r--   1 antonhagermalm  staff   643 30 Dec 19:11 SubjectType.swift
+
+./Pods/RxSwift/RxSwift/SwiftSupport:
+total 8
+drwxr-xr-x   3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  29 antonhagermalm  staff  928 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff  601 30 Dec 19:11 SwiftSupport.swift
+
+./Pods/RxSwift/RxSwift/Traits:
+total 200
+drwxr-xr-x   9 antonhagermalm  staff    288 30 Dec 19:11 .
+drwxr-xr-x  29 antonhagermalm  staff    928 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff   4887 30 Dec 19:11 Completable+AndThen.swift
+-r--r--r--   1 antonhagermalm  staff  10593 30 Dec 19:11 Completable.swift
+-r--r--r--   1 antonhagermalm  staff   9938 30 Dec 19:11 Maybe.swift
+-r--r--r--   1 antonhagermalm  staff   1546 30 Dec 19:11 ObservableType+PrimitiveSequence.swift
+-r--r--r--   1 antonhagermalm  staff  33509 30 Dec 19:11 PrimitiveSequence+Zip+arity.swift
+-r--r--r--   1 antonhagermalm  staff  13688 30 Dec 19:11 PrimitiveSequence.swift
+-r--r--r--   1 antonhagermalm  staff   8944 30 Dec 19:11 Single.swift
+
+./Pods/Target Support Files:
+total 0
+drwxr-xr-x  11 antonhagermalm  staff  352  9 Jan 21:45 .
+drwxr-xr-x  20 antonhagermalm  staff  640  9 Jan 21:49 ..
+drwxr-xr-x   3 antonhagermalm  staff   96 30 Dec 20:52 FirebaseUI
+drwxr-xr-x   8 antonhagermalm  staff  256 30 Dec 20:52 GTMSessionFetcher
+drwxr-xr-x   8 antonhagermalm  staff  256 30 Dec 20:52 GoogleToolboxForMac
+drwxr-xr-x  12 antonhagermalm  staff  384  9 Jan 21:45 Pods-GurschTracker
+drwxr-xr-x  12 antonhagermalm  staff  384  9 Jan 21:45 Pods-GurschTrackerTests
+drwxr-xr-x   8 antonhagermalm  staff  256 30 Dec 20:52 RxCocoa
+drwxr-xr-x   8 antonhagermalm  staff  256 30 Dec 20:52 RxSwift
+drwxr-xr-x   8 antonhagermalm  staff  256 30 Dec 20:52 leveldb-library
+drwxr-xr-x   8 antonhagermalm  staff  256 30 Dec 20:52 nanopb
+
+./Pods/Target Support Files/FirebaseUI:
+total 8
+drwxr-xr-x   3 antonhagermalm  staff   96 30 Dec 20:52 .
+drwxr-xr-x  11 antonhagermalm  staff  352  9 Jan 21:45 ..
+-rw-r--r--   1 antonhagermalm  staff  733 30 Dec 20:52 ResourceBundle-FirebaseAuthUI-Info.plist
+
+./Pods/Target Support Files/GTMSessionFetcher:
+total 48
+drwxr-xr-x   8 antonhagermalm  staff  256 30 Dec 20:52 .
+drwxr-xr-x  11 antonhagermalm  staff  352  9 Jan 21:45 ..
+-rw-r--r--   1 antonhagermalm  staff  138 30 Dec 19:11 GTMSessionFetcher-dummy.m
+-rw-r--r--   1 antonhagermalm  staff  195 30 Dec 19:11 GTMSessionFetcher-prefix.pch
+-rw-r--r--   1 antonhagermalm  staff  466 30 Dec 19:11 GTMSessionFetcher-umbrella.h
+-rw-r--r--   1 antonhagermalm  staff  124 30 Dec 19:11 GTMSessionFetcher.modulemap
+-rw-r--r--   1 antonhagermalm  staff  850 30 Dec 20:52 GTMSessionFetcher.xcconfig
+-rw-r--r--   1 antonhagermalm  staff  829 30 Dec 19:11 Info.plist
+
+./Pods/Target Support Files/GoogleToolboxForMac:
+total 48
+drwxr-xr-x   8 antonhagermalm  staff  256 30 Dec 20:52 .
+drwxr-xr-x  11 antonhagermalm  staff  352  9 Jan 21:45 ..
+-rw-r--r--   1 antonhagermalm  staff  142 30 Dec 19:11 GoogleToolboxForMac-dummy.m
+-rw-r--r--   1 antonhagermalm  staff  195 30 Dec 19:11 GoogleToolboxForMac-prefix.pch
+-rw-r--r--   1 antonhagermalm  staff  561 30 Dec 19:11 GoogleToolboxForMac-umbrella.h
+-rw-r--r--   1 antonhagermalm  staff  128 30 Dec 19:11 GoogleToolboxForMac.modulemap
+-rw-r--r--   1 antonhagermalm  staff  838 30 Dec 20:52 GoogleToolboxForMac.xcconfig
+-rw-r--r--   1 antonhagermalm  staff  828 30 Dec 19:11 Info.plist
+
+./Pods/Target Support Files/Pods-GurschTracker:
+total 248
+drwxr-xr-x  12 antonhagermalm  staff    384  9 Jan 21:45 .
+drwxr-xr-x  11 antonhagermalm  staff    352  9 Jan 21:45 ..
+-rw-r--r--   1 antonhagermalm  staff    828 30 Dec 19:11 Info.plist
+-rw-r--r--   1 antonhagermalm  staff  39182  9 Jan 21:45 Pods-GurschTracker-acknowledgements.markdown
+-rw-r--r--   1 antonhagermalm  staff  42527  9 Jan 21:45 Pods-GurschTracker-acknowledgements.plist
+-rw-r--r--   1 antonhagermalm  staff    140 30 Dec 19:11 Pods-GurschTracker-dummy.m
+-rwxr-xr-x   1 antonhagermalm  staff   5458  9 Jan 21:45 Pods-GurschTracker-frameworks.sh
+-rwxr-xr-x   1 antonhagermalm  staff   5528  9 Jan 21:45 Pods-GurschTracker-resources.sh
+-rw-r--r--   1 antonhagermalm  staff    328 30 Dec 19:11 Pods-GurschTracker-umbrella.h
+-rw-r--r--   1 antonhagermalm  staff   3148  9 Jan 21:45 Pods-GurschTracker.debug.xcconfig
+-rw-r--r--   1 antonhagermalm  staff    126 30 Dec 19:11 Pods-GurschTracker.modulemap
+-rw-r--r--   1 antonhagermalm  staff   3148  9 Jan 21:45 Pods-GurschTracker.release.xcconfig
+
+./Pods/Target Support Files/Pods-GurschTrackerTests:
+total 96
+drwxr-xr-x  12 antonhagermalm  staff   384  9 Jan 21:45 .
+drwxr-xr-x  11 antonhagermalm  staff   352  9 Jan 21:45 ..
+-rw-r--r--   1 antonhagermalm  staff   828 30 Dec 19:11 Info.plist
+-rw-r--r--   1 antonhagermalm  staff   133  9 Jan 21:45 Pods-GurschTrackerTests-acknowledgements.markdown
+-rw-r--r--   1 antonhagermalm  staff   805  9 Jan 21:45 Pods-GurschTrackerTests-acknowledgements.plist
+-rw-r--r--   1 antonhagermalm  staff   150 30 Dec 19:11 Pods-GurschTrackerTests-dummy.m
+-rwxr-xr-x   1 antonhagermalm  staff  4423  9 Jan 21:45 Pods-GurschTrackerTests-frameworks.sh
+-rwxr-xr-x   1 antonhagermalm  staff  5528 30 Dec 19:11 Pods-GurschTrackerTests-resources.sh
+-rw-r--r--   1 antonhagermalm  staff   338 30 Dec 19:11 Pods-GurschTrackerTests-umbrella.h
+-rw-r--r--   1 antonhagermalm  staff  2423  9 Jan 21:45 Pods-GurschTrackerTests.debug.xcconfig
+-rw-r--r--   1 antonhagermalm  staff   136 30 Dec 19:11 Pods-GurschTrackerTests.modulemap
+-rw-r--r--   1 antonhagermalm  staff  2423  9 Jan 21:45 Pods-GurschTrackerTests.release.xcconfig
+
+./Pods/Target Support Files/RxCocoa:
+total 48
+drwxr-xr-x   8 antonhagermalm  staff  256 30 Dec 20:52 .
+drwxr-xr-x  11 antonhagermalm  staff  352  9 Jan 21:45 ..
+-rw-r--r--   1 antonhagermalm  staff  828 30 Dec 19:11 Info.plist
+-rw-r--r--   1 antonhagermalm  staff  118 30 Dec 19:11 RxCocoa-dummy.m
+-rw-r--r--   1 antonhagermalm  staff  195 30 Dec 19:11 RxCocoa-prefix.pch
+-rw-r--r--   1 antonhagermalm  staff  452 30 Dec 19:11 RxCocoa-umbrella.h
+-rw-r--r--   1 antonhagermalm  staff  104 30 Dec 19:11 RxCocoa.modulemap
+-rw-r--r--   1 antonhagermalm  staff  920 30 Dec 20:52 RxCocoa.xcconfig
+
+./Pods/Target Support Files/RxSwift:
+total 48
+drwxr-xr-x   8 antonhagermalm  staff  256 30 Dec 20:52 .
+drwxr-xr-x  11 antonhagermalm  staff  352  9 Jan 21:45 ..
+-rw-r--r--   1 antonhagermalm  staff  828 30 Dec 19:11 Info.plist
+-rw-r--r--   1 antonhagermalm  staff  118 30 Dec 19:11 RxSwift-dummy.m
+-rw-r--r--   1 antonhagermalm  staff  195 30 Dec 19:11 RxSwift-prefix.pch
+-rw-r--r--   1 antonhagermalm  staff  306 30 Dec 19:11 RxSwift-umbrella.h
+-rw-r--r--   1 antonhagermalm  staff  104 30 Dec 19:11 RxSwift.modulemap
+-rw-r--r--   1 antonhagermalm  staff  842 30 Dec 20:52 RxSwift.xcconfig
+
+./Pods/Target Support Files/leveldb-library:
+total 48
+drwxr-xr-x   8 antonhagermalm  staff  256 30 Dec 20:52 .
+drwxr-xr-x  11 antonhagermalm  staff  352  9 Jan 21:45 ..
+-rw-r--r--   1 antonhagermalm  staff  829 30 Dec 19:11 Info.plist
+-rw-r--r--   1 antonhagermalm  staff  134 30 Dec 19:11 leveldb-library-dummy.m
+-rw-r--r--   1 antonhagermalm  staff  195 30 Dec 19:11 leveldb-library-prefix.pch
+-rw-r--r--   1 antonhagermalm  staff  585 30 Dec 19:11 leveldb-library-umbrella.h
+-rw-r--r--   1 antonhagermalm  staff  112 30 Dec 19:11 leveldb-library.modulemap
+-rw-r--r--   1 antonhagermalm  staff  967 30 Dec 20:52 leveldb-library.xcconfig
+
+./Pods/Target Support Files/nanopb:
+total 48
+drwxr-xr-x   8 antonhagermalm  staff  256 30 Dec 20:52 .
+drwxr-xr-x  11 antonhagermalm  staff  352  9 Jan 21:45 ..
+-rw-r--r--   1 antonhagermalm  staff  828 30 Dec 19:11 Info.plist
+-rw-r--r--   1 antonhagermalm  staff  116 30 Dec 19:11 nanopb-dummy.m
+-rw-r--r--   1 antonhagermalm  staff  195 30 Dec 19:11 nanopb-prefix.pch
+-rw-r--r--   1 antonhagermalm  staff  503 30 Dec 19:11 nanopb-umbrella.h
+-rw-r--r--   1 antonhagermalm  staff  102 30 Dec 19:11 nanopb.modulemap
+-rw-r--r--   1 antonhagermalm  staff  843 30 Dec 20:52 nanopb.xcconfig
+
+./Pods/leveldb-library:
+total 32
+drwxr-xr-x  10 antonhagermalm  staff   320 30 Dec 19:11 .
+drwxr-xr-x  20 antonhagermalm  staff   640  9 Jan 21:49 ..
+-rw-r--r--   1 antonhagermalm  staff  1484 30 Dec 19:11 LICENSE
+-rw-r--r--   1 antonhagermalm  staff  1713 30 Dec 19:11 README
+-rw-r--r--   1 antonhagermalm  staff  6609 30 Dec 19:11 README.md
+drwxr-xr-x  45 antonhagermalm  staff  1440 30 Dec 19:11 db
+drwxr-xr-x   3 antonhagermalm  staff    96 30 Dec 19:11 include
+drwxr-xr-x  10 antonhagermalm  staff   320 30 Dec 19:11 port
+drwxr-xr-x  20 antonhagermalm  staff   640 30 Dec 19:11 table
+drwxr-xr-x  36 antonhagermalm  staff  1152 30 Dec 19:11 util
+
+./Pods/leveldb-library/db:
+total 944
+drwxr-xr-x  45 antonhagermalm  staff   1440 30 Dec 19:11 .
+drwxr-xr-x  10 antonhagermalm  staff    320 30 Dec 19:11 ..
+-rw-r--r--   1 antonhagermalm  staff   3373 30 Dec 19:11 autocompact_test.cc
+-r--r--r--   1 antonhagermalm  staff   2163 30 Dec 19:11 builder.cc
+-rw-r--r--   1 antonhagermalm  staff   1102 30 Dec 19:11 builder.h
+-r--r--r--   1 antonhagermalm  staff  16007 30 Dec 19:11 c.cc
+-rw-r--r--   1 antonhagermalm  staff  11634 30 Dec 19:11 c_test.c
+-rw-r--r--   1 antonhagermalm  staff  10107 30 Dec 19:11 corruption_test.cc
+-rw-r--r--   1 antonhagermalm  staff  29026 30 Dec 19:11 db_bench.cc
+-r--r--r--   1 antonhagermalm  staff  45796 30 Dec 19:11 db_impl.cc
+-rw-r--r--   1 antonhagermalm  staff   7290 30 Dec 19:11 db_impl.h
+-r--r--r--   1 antonhagermalm  staff   8539 30 Dec 19:11 db_iter.cc
+-rw-r--r--   1 antonhagermalm  staff    803 30 Dec 19:11 db_iter.h
+-rw-r--r--   1 antonhagermalm  staff  62456 30 Dec 19:11 db_test.cc
+-r--r--r--   1 antonhagermalm  staff   4537 30 Dec 19:11 dbformat.cc
+-rw-r--r--   1 antonhagermalm  staff   7918 30 Dec 19:11 dbformat.h
+-rw-r--r--   1 antonhagermalm  staff   3803 30 Dec 19:11 dbformat_test.cc
+-r--r--r--   1 antonhagermalm  staff   6299 30 Dec 19:11 dumpfile.cc
+-r--r--r--   1 antonhagermalm  staff   4093 30 Dec 19:11 filename.cc
+-rw-r--r--   1 antonhagermalm  staff   3048 30 Dec 19:11 filename.h
+-rw-r--r--   1 antonhagermalm  staff   3423 30 Dec 19:11 filename_test.cc
+-r--r--r--   1 antonhagermalm  staff   1556 30 Dec 19:11 leveldb_main.cc
+-rw-r--r--   1 antonhagermalm  staff    897 30 Dec 19:11 log_format.h
+-r--r--r--   1 antonhagermalm  staff   8466 30 Dec 19:11 log_reader.cc
+-rw-r--r--   1 antonhagermalm  staff   3576 30 Dec 19:11 log_reader.h
+-rw-r--r--   1 antonhagermalm  staff  13910 30 Dec 19:11 log_test.cc
+-r--r--r--   1 antonhagermalm  staff   2844 30 Dec 19:11 log_writer.cc
+-rw-r--r--   1 antonhagermalm  staff   1287 30 Dec 19:11 log_writer.h
+-r--r--r--   1 antonhagermalm  staff   4783 30 Dec 19:11 memtable.cc
+-rw-r--r--   1 antonhagermalm  staff   2737 30 Dec 19:11 memtable.h
+-r--r--r--   1 antonhagermalm  staff  13731 30 Dec 19:11 repair.cc
+-rw-r--r--   1 antonhagermalm  staff  11299 30 Dec 19:11 skiplist.h
+-rw-r--r--   1 antonhagermalm  staff   9788 30 Dec 19:11 skiplist_test.cc
+-rw-r--r--   1 antonhagermalm  staff   1666 30 Dec 19:11 snapshot.h
+-r--r--r--   1 antonhagermalm  staff   3653 30 Dec 19:11 table_cache.cc
+-rw-r--r--   1 antonhagermalm  staff   2017 30 Dec 19:11 table_cache.h
+-r--r--r--   1 antonhagermalm  staff   6946 30 Dec 19:11 version_edit.cc
+-rw-r--r--   1 antonhagermalm  staff   2990 30 Dec 19:11 version_edit.h
+-rw-r--r--   1 antonhagermalm  staff   1343 30 Dec 19:11 version_edit_test.cc
+-r--r--r--   1 antonhagermalm  staff  47353 30 Dec 19:11 version_set.cc
+-rw-r--r--   1 antonhagermalm  staff  13971 30 Dec 19:11 version_set.h
+-rw-r--r--   1 antonhagermalm  staff   5353 30 Dec 19:11 version_set_test.cc
+-r--r--r--   1 antonhagermalm  staff   4022 30 Dec 19:11 write_batch.cc
+-rw-r--r--   1 antonhagermalm  staff   1508 30 Dec 19:11 write_batch_internal.h
+-rw-r--r--   1 antonhagermalm  staff   3446 30 Dec 19:11 write_batch_test.cc
+
+./Pods/leveldb-library/include:
+total 0
+drwxr-xr-x   3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  10 antonhagermalm  staff  320 30 Dec 19:11 ..
+drwxr-xr-x  16 antonhagermalm  staff  512 30 Dec 19:11 leveldb
+
+./Pods/leveldb-library/include/leveldb:
+total 160
+drwxr-xr-x  16 antonhagermalm  staff    512 30 Dec 19:11 .
+drwxr-xr-x   3 antonhagermalm  staff     96 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff   9875 30 Dec 19:11 c.h
+-r--r--r--   1 antonhagermalm  staff   3537 30 Dec 19:11 cache.h
+-r--r--r--   1 antonhagermalm  staff   2349 30 Dec 19:11 comparator.h
+-r--r--r--   1 antonhagermalm  staff   6405 30 Dec 19:11 db.h
+-r--r--r--   1 antonhagermalm  staff    876 30 Dec 19:11 dumpfile.h
+-r--r--r--   1 antonhagermalm  staff  11957 30 Dec 19:11 env.h
+-r--r--r--   1 antonhagermalm  staff   2925 30 Dec 19:11 filter_policy.h
+-r--r--r--   1 antonhagermalm  staff   3487 30 Dec 19:11 iterator.h
+-r--r--r--   1 antonhagermalm  staff   6814 30 Dec 19:11 options.h
+-r--r--r--   1 antonhagermalm  staff   3131 30 Dec 19:11 slice.h
+-r--r--r--   1 antonhagermalm  staff   3350 30 Dec 19:11 status.h
+-r--r--r--   1 antonhagermalm  staff   2963 30 Dec 19:11 table.h
+-r--r--r--   1 antonhagermalm  staff   3395 30 Dec 19:11 table_builder.h
+-r--r--r--   1 antonhagermalm  staff   1848 30 Dec 19:11 write_batch.h
+
+./Pods/leveldb-library/port:
+total 80
+drwxr-xr-x  10 antonhagermalm  staff   320 30 Dec 19:11 .
+drwxr-xr-x  10 antonhagermalm  staff   320 30 Dec 19:11 ..
+-rw-r--r--   1 antonhagermalm  staff   405 30 Dec 19:11 README
+-rw-r--r--   1 antonhagermalm  staff  6743 30 Dec 19:11 atomic_pointer.h
+-rw-r--r--   1 antonhagermalm  staff   697 30 Dec 19:11 port.h
+-rw-r--r--   1 antonhagermalm  staff  4667 30 Dec 19:11 port_example.h
+-r--r--r--   1 antonhagermalm  staff  1440 30 Dec 19:11 port_posix.cc
+-rw-r--r--   1 antonhagermalm  staff  4124 30 Dec 19:11 port_posix.h
+-rw-r--r--   1 antonhagermalm  staff  1349 30 Dec 19:11 thread_annotations.h
+drwxr-xr-x   3 antonhagermalm  staff    96 30 Dec 19:11 win
+
+./Pods/leveldb-library/port/win:
+total 8
+drwxr-xr-x   3 antonhagermalm  staff   96 30 Dec 19:11 .
+drwxr-xr-x  10 antonhagermalm  staff  320 30 Dec 19:11 ..
+-rw-r--r--   1 antonhagermalm  staff  855 30 Dec 19:11 stdint.h
+
+./Pods/leveldb-library/table:
+total 240
+drwxr-xr-x  20 antonhagermalm  staff    640 30 Dec 19:11 .
+drwxr-xr-x  10 antonhagermalm  staff    320 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff   8081 30 Dec 19:11 block.cc
+-rw-r--r--   1 antonhagermalm  staff   1034 30 Dec 19:11 block.h
+-r--r--r--   1 antonhagermalm  staff   3656 30 Dec 19:11 block_builder.cc
+-rw-r--r--   1 antonhagermalm  staff   1766 30 Dec 19:11 block_builder.h
+-r--r--r--   1 antonhagermalm  staff   3381 30 Dec 19:11 filter_block.cc
+-rw-r--r--   1 antonhagermalm  staff   2248 30 Dec 19:11 filter_block.h
+-rw-r--r--   1 antonhagermalm  staff   3691 30 Dec 19:11 filter_block_test.cc
+-r--r--r--   1 antonhagermalm  staff   4582 30 Dec 19:11 format.cc
+-rw-r--r--   1 antonhagermalm  staff   3142 30 Dec 19:11 format.h
+-r--r--r--   1 antonhagermalm  staff   1702 30 Dec 19:11 iterator.cc
+-rw-r--r--   1 antonhagermalm  staff   2031 30 Dec 19:11 iterator_wrapper.h
+-r--r--r--   1 antonhagermalm  staff   4911 30 Dec 19:11 merger.cc
+-rw-r--r--   1 antonhagermalm  staff    867 30 Dec 19:11 merger.h
+-r--r--r--   1 antonhagermalm  staff   8421 30 Dec 19:11 table.cc
+-r--r--r--   1 antonhagermalm  staff   8100 30 Dec 19:11 table_builder.cc
+-rw-r--r--   1 antonhagermalm  staff  24135 30 Dec 19:11 table_test.cc
+-r--r--r--   1 antonhagermalm  staff   4702 30 Dec 19:11 two_level_iterator.cc
+-rw-r--r--   1 antonhagermalm  staff   1223 30 Dec 19:11 two_level_iterator.h
+
+./Pods/leveldb-library/util:
+total 376
+drwxr-xr-x  36 antonhagermalm  staff   1152 30 Dec 19:11 .
+drwxr-xr-x  10 antonhagermalm  staff    320 30 Dec 19:11 ..
+-r--r--r--   1 antonhagermalm  staff   1985 30 Dec 19:11 arena.cc
+-rw-r--r--   1 antonhagermalm  staff   1818 30 Dec 19:11 arena.h
+-rw-r--r--   1 antonhagermalm  staff   1679 30 Dec 19:11 arena_test.cc
+-r--r--r--   1 antonhagermalm  staff   2919 30 Dec 19:11 bloom.cc
+-rw-r--r--   1 antonhagermalm  staff   3788 30 Dec 19:11 bloom_test.cc
+-r--r--r--   1 antonhagermalm  staff   8664 30 Dec 19:11 cache.cc
+-rw-r--r--   1 antonhagermalm  staff   4687 30 Dec 19:11 cache_test.cc
+-r--r--r--   1 antonhagermalm  staff   4927 30 Dec 19:11 coding.cc
+-rw-r--r--   1 antonhagermalm  staff   4050 30 Dec 19:11 coding.h
+-rw-r--r--   1 antonhagermalm  staff   5527 30 Dec 19:11 coding_test.cc
+-r--r--r--   1 antonhagermalm  staff   2184 30 Dec 19:11 comparator.cc
+-r--r--r--   1 antonhagermalm  staff  14977 30 Dec 19:11 crc32c.cc
+-rw-r--r--   1 antonhagermalm  staff   1457 30 Dec 19:11 crc32c.h
+-rw-r--r--   1 antonhagermalm  staff   1748 30 Dec 19:11 crc32c_test.cc
+-r--r--r--   1 antonhagermalm  staff   2114 30 Dec 19:11 env.cc
+-r--r--r--   1 antonhagermalm  staff  15341 30 Dec 19:11 env_posix.cc
+-rw-r--r--   1 antonhagermalm  staff   2524 30 Dec 19:11 env_test.cc
+-r--r--r--   1 antonhagermalm  staff    333 30 Dec 19:11 filter_policy.cc
+-r--r--r--   1 antonhagermalm  staff   1377 30 Dec 19:11 hash.cc
+-rw-r--r--   1 antonhagermalm  staff    524 30 Dec 19:11 hash.h
+-rw-r--r--   1 antonhagermalm  staff   1618 30 Dec 19:11 hash_test.cc
+-r--r--r--   1 antonhagermalm  staff   4729 30 Dec 19:11 histogram.cc
+-rw-r--r--   1 antonhagermalm  staff    925 30 Dec 19:11 histogram.h
+-r--r--r--   1 antonhagermalm  staff   1713 30 Dec 19:11 logging.cc
+-rw-r--r--   1 antonhagermalm  staff   1436 30 Dec 19:11 logging.h
+-rw-r--r--   1 antonhagermalm  staff   1129 30 Dec 19:11 mutexlock.h
+-r--r--r--   1 antonhagermalm  staff    764 30 Dec 19:11 options.cc
+-rw-r--r--   1 antonhagermalm  staff   2745 30 Dec 19:11 posix_logger.h
+-rw-r--r--   1 antonhagermalm  staff   2174 30 Dec 19:11 random.h
+-r--r--r--   1 antonhagermalm  staff   1931 30 Dec 19:11 status.cc
+-r--r--r--   1 antonhagermalm  staff   1668 30 Dec 19:11 testharness.cc
+-rw-r--r--   1 antonhagermalm  staff   4707 30 Dec 19:11 testharness.h
+-r--r--r--   1 antonhagermalm  staff   1457 30 Dec 19:11 testutil.cc
+-rw-r--r--   1 antonhagermalm  staff   1758 30 Dec 19:11 testutil.h
+
+./Pods/nanopb:
+total 248
+drwxr-xr-x  11 antonhagermalm  staff    352 30 Dec 19:11 .
+drwxr-xr-x  20 antonhagermalm  staff    640  9 Jan 21:49 ..
+-rw-r--r--   1 antonhagermalm  staff    898 30 Dec 19:11 LICENSE.txt
+-rw-r--r--   1 antonhagermalm  staff   2977 30 Dec 19:11 README.md
+-r--r--r--   1 antonhagermalm  staff  22631 30 Dec 19:11 pb.h
+-r--r--r--   1 antonhagermalm  staff   2993 30 Dec 19:11 pb_common.c
+-r--r--r--   1 antonhagermalm  staff   1421 30 Dec 19:11 pb_common.h
+-r--r--r--   1 antonhagermalm  staff  43293 30 Dec 19:11 pb_decode.c
+-r--r--r--   1 antonhagermalm  staff   5667 30 Dec 19:11 pb_decode.h
+-r--r--r--   1 antonhagermalm  staff  24020 30 Dec 19:11 pb_encode.c
+-r--r--r--   1 antonhagermalm  staff   5727 30 Dec 19:11 pb_encode.h
