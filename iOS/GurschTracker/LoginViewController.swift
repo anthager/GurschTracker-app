@@ -9,7 +9,11 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController, AuthValidation {
+class LoginViewController: UIViewController, AuthValidation, ViewController {
+	var router: Router!
+
+	var viewModel: ViewModelP!
+
 
 	//MARK: props
 	@IBOutlet weak var adminButton: UIButton!
@@ -50,7 +54,7 @@ class LoginViewController: UIViewController, AuthValidation {
 				return
 			}
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
-			let controller = storyboard.instantiateInitialViewController() as! ViewController
+			let controller = storyboard.instantiateInitialViewController() as! MainViewController
 			self.navigationController?.setViewControllers([controller], animated: true)
 		}
 	}

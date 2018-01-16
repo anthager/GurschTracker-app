@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window = UIWindow(frame: UIScreen.main.bounds)
 
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let controller = storyboard.instantiateInitialViewController() as! ViewController
+		let controller = storyboard.instantiateInitialViewController() as! MainViewController
 		let navigationController = UINavigationController(rootViewController: controller)
 		window?.rootViewController = navigationController
 		window?.makeKeyAndVisible()

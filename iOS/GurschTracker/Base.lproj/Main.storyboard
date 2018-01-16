@@ -12,7 +12,7 @@
         <!--Overview-->
         <scene sceneID="a3f-sQ-6NZ">
             <objects>
-                <viewController id="Pi3-Ei-xqD" customClass="ViewController" customModule="GurschTracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Pi3-Ei-xqD" customClass="MainViewController" customModule="GurschTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Fih-7T-uTZ"/>
                         <viewControllerLayoutGuide type="bottom" id="CZA-bI-YKd"/>

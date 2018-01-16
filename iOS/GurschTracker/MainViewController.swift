@@ -12,7 +12,7 @@ import RxSwift
 import RxCocoa
 import FirebaseDatabaseUI
 
-class ViewController: UIViewController{
+class MainViewController: UIViewController, ViewController{
 
 	//MARK: - properties
 	@IBOutlet weak var opponentsTableView: UITableView!
@@ -22,8 +22,8 @@ class ViewController: UIViewController{
 	var databaseRef: DatabaseReference?
 	var databaseHandle: DatabaseHandle?
 	var dataSource: FUITableViewDataSource?
-
-
+	var viewModel: ViewModelP!
+	var router: Router!
 
 	//MARK: - super methods
 	override func viewDidLoad() {
@@ -76,3 +76,12 @@ class ViewController: UIViewController{
 		})
 	}
 }
+
+protocol ViewController {
+	var router: Router! {get set}
+	var viewModel: ViewModelP! {get set}
+}
+
+//extension UIViewController: ViewController {
+//}
+
