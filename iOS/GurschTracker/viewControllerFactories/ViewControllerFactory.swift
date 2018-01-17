@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewControllerFactory{
-	static func build(route: Route, with router: Router) -> ViewController{
+	static func build(to route: Route, with router: Router) -> ViewController{
 		switch route {
 		case .main:
 			return MainViewControllerFactory(with: router).build()

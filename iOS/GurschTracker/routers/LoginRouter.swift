@@ -9,10 +9,10 @@
 import UIKit
 
 class LoginRouter: ControllerRouter {
-	let from: UIViewController
+	let from: Route
 	let withIn: UINavigationController
 
-	init(from: UIViewController, withIn: UINavigationController) {
+	init(from: Route, withIn: UINavigationController) {
 		self.from = from
 		self.withIn = withIn
 	}

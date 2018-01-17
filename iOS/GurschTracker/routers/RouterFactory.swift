@@ -9,20 +9,19 @@
 import UIKit
 class RouterFactory {
 	private let navigationController: UINavigationController!
-	private var controller: UIViewController? {
-		return navigationController.topViewController
-	}
+	private let route: Route
 	
-	init(navigationController: UINavigationController) {
+	init(withIn navigationController: UINavigationController, from: Route) {
 		self.navigationController = navigationController
+		self.route = from
 	}
 	
-	func build(from route: Route) -> ControllerRouter {
+	func build(to route: Route) -> ControllerRouter {
 		switch route {
 		case .main:
-			return MainRouter(from: controller!, withIn: navigationController)
+			return MainRouter(from: route, withIn: navigationController)
 		case .login:
-			return LoginRouter(from: controller!, withIn: navigationController)
+			return LoginRouter(from: route, withIn: navigationController)
 		default:
 			fatalError("bad route in routerFactory")
 		}

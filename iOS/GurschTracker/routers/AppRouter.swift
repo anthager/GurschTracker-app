@@ -11,11 +11,10 @@ class AppRouter: Router {
 	private var window: UIWindow!
 	var navigationController = UINavigationController()
 
-	func route(to route: Route) {
+	func route(to: Route, from: Route, data: [String:Any]) {
 
-		let controllerToPresent = ViewControllerFactory.build(route: route,
-														  with: self)
-		let router = RouterFactory(navigationController: navigationController).build(from: route)
+		let controllerToPresent = ViewControllerFactory.build(to: to, with: self)
+		let router = RouterFactory(withIn: navigationController, from: ).build(to: to)
 		router.route(to: controllerToPresent)
 
 	}

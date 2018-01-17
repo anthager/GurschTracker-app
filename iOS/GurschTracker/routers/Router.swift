@@ -8,5 +8,5 @@
 
 import Foundation
 protocol Router {
-	func route(to: Route)
+	func route(to: Route, from: Route, data: [String:Any])
 }

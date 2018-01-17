@@ -9,14 +9,20 @@
 import UIKit
 
 class MainRouter: ControllerRouter {
-	let from: UIViewController
+	let from: Route
 	let withIn: UINavigationController
 
-	init(from: UIViewController, withIn: UINavigationController) {
+	init(from: Route, withIn: UINavigationController) {
 		self.from = from
 		self.withIn = withIn
 	}
 	func route(to controllerToPresent: ViewController){
+		switch from {
+		case .login:
+			print("from login")
+		default:
+			fatalError("errror in mainRouter")
+		}
 		withIn.pushViewController(controllerToPresent, animated: true)
 	}
 }
