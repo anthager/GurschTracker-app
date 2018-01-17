@@ -8,7 +8,17 @@
 
 import Foundation
 class MainViewModel: ViewModel {
-	let uid = ""
+	var uid: String!
+	func setData(data: [String : Any]) {
+		guard let uid = data["uid"] as? String else {
+			fatalError("didnt get a uid")
+//			print("was unable to pack up data in MainVM")
+//			return
+		}
+		self.uid = uid
+	}
 
-	
+	func getData() -> [String : Any] {
+		return ["uid" : uid]
+	}
 }

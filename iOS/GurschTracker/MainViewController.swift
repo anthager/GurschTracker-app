@@ -10,7 +10,8 @@ import UIKit
 import FirebaseDatabase
 import FirebaseDatabaseUI
 
-class MainViewController: ViewController{
+class MainViewController: UIViewController, ViewController{
+	var viewModel: ViewModel = MainViewModel()
 
 	//MARK: - properties
 	@IBOutlet weak var opponentsTableView: UITableView!
@@ -22,7 +23,7 @@ class MainViewController: ViewController{
 	//MARK: - super methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.databaseRef = Database.database().reference().child("public-data")
+		self.databaseRef = Database.database().reference().child(GTStrings.publicNode)
 		opponentsTableView.dataSource = nil
 		opponentsTableView.delegate = nil
 		setupUI()

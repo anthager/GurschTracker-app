@@ -8,5 +8,6 @@
 
 import Foundation
 protocol ViewModel: class {
-	
+	func setData(data: [String: Any])
+	func getData() -> [String: Any]
 }

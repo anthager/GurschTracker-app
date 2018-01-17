@@ -10,4 +10,5 @@ import Foundation
 struct GTStrings {
 	static let debugUid = "dDcxkW5czzNsWXk65Wyza9nVrx22"
 	static let debugEmail = "anton.hagermalm@gmail.com"
+	static let publicNode = "public-data"
 }

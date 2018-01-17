@@ -20,14 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		window = UIWindow(frame: UIScreen.main.bounds)
 
-		let controller = UIViewController()
-		let navigationController = UINavigationController(rootViewController: controller)
+		let sb = UIStoryboard(name: "Main", bundle: nil)
+		let controller = sb.instantiateInitialViewController()
+		if let vc = controller as? ViewController {
+			vc.viewModel.setData(data: ["uid": GTStrings.debugUid])
+		}
+		let navigationController = UINavigationController(rootViewController: controller!)
 		window?.rootViewController = navigationController
 		window?.makeKeyAndVisible()
-
-		let mock = AppRouter()
-		mock.navigationController = navigationController
-		mock.route(to: .main)
 
 		return true
 	}

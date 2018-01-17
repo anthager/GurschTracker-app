@@ -8,5 +8,13 @@
 
 import Foundation
 class LoginViewModel: ViewModel {
-	
+	var uid: String?
+
+	func setData(data: [String : Any]) {
+		print("not done")
+	}
+
+	func getData() -> [String : Any] {
+		return ["uid": uid as Any]
+	}
 }

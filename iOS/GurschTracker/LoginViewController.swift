@@ -9,7 +9,12 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: ViewController, AuthValidation {
+class LoginViewController: UIViewController, ViewController, AuthValidation {
+	var viewModel: ViewModel {
+		return _viewModel
+	}
+	var _viewModel = LoginViewModel()
+
 	//MARK: props
 	@IBOutlet weak var adminButton: UIButton!
 	@IBOutlet weak var passwordTextField: UITextField!
@@ -46,9 +51,14 @@ class LoginViewController: ViewController, AuthValidation {
 				self.present(self.alertController, animated: true, completion: nil)
 				return
 			}
+			self._viewModel.uid = user?.uid
+
 			let storyboard = UIStoryboard(name: "Main", bundle: nil)
-			let controller = storyboard.instantiateInitialViewController() as! MainViewController
-			self.navigationController?.setViewControllers([controller], animated: true)
+			let controller = storyboard.instantiateInitialViewController()
+			if let vc = controller as? ViewController {
+				vc.viewModel.setData(data: self.viewModel.getData())
+			}
+			self.navigationController?.setViewControllers([controller!], animated: true)
 		}
 	}
 

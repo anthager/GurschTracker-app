@@ -8,11 +8,6 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-	var viewModel: ViewModel!
-	var router: Router!
+protocol ViewController {
+	var viewModel: ViewModel {get}
 }
