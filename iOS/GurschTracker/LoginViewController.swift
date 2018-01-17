@@ -9,12 +9,7 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController, AuthValidation, ViewController {
-	var router: Router!
-
-	var viewModel: ViewModelP!
-
-
+class LoginViewController: ViewController, AuthValidation {
 	//MARK: props
 	@IBOutlet weak var adminButton: UIButton!
 	@IBOutlet weak var passwordTextField: UITextField!
@@ -22,15 +17,13 @@ class LoginViewController: UIViewController, AuthValidation, ViewController {
 	@IBOutlet weak var signinButton: UIButton!
 	@IBOutlet weak var signupButton: UIButton!
 	@IBOutlet weak var loginTextField: UITextField!
+
 	let alertController = UIAlertController(title: "Login failed", message: "Wrong password or email", preferredStyle: .alert)
 
 	//MARK: - load
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.hideKeyboardWhenTappedAround()
-		if CurrentApplicationState.state == ApplicationState.dev {
-			adminButton.isEnabled = true
-		}
 		signupButtonSetup()
 		alertController.addAction(action1)
 		setupPasswordTextField()

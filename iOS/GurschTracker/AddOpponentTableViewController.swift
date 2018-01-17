@@ -7,19 +7,14 @@
 //
 
 import UIKit
-import RxCocoa
-import RxSwift
 
 class AddOpponentTableViewController: UITableViewController {
 
 	//MARK: - properties
-	var viewModel: ViewModel!
-	private let bag = DisposeBag()
-	
+
     override func viewDidLoad() {
         super.viewDidLoad()
 		setupTableView()
-		setupRx()
 
     }
 
@@ -31,8 +26,6 @@ class AddOpponentTableViewController: UITableViewController {
 			print("not a user cell")
 			return
 		}
-		controller.identifier = cell.nameLabel.text
-		controller.viewModel = viewModel
 		self.present(controller, animated: true, completion: nil)
 	}
 
@@ -43,18 +36,6 @@ class AddOpponentTableViewController: UITableViewController {
 		//tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
 	}
 
-	private func setupRx(){
-		viewModel.users
-			.bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: UserTableViewCell.self)) {
-				(row, element, cell) in
-				cell.player = element.value
-				cell.nameLabel.text = element.value.identifier
-			}
-			.disposed(by: bag)
-	}
 
-	deinit {
-
-	}
 
 }

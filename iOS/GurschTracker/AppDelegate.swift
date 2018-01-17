@@ -20,11 +20,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		window = UIWindow(frame: UIScreen.main.bounds)
 
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let controller = storyboard.instantiateInitialViewController() as! MainViewController
+		let controller = UIViewController()
 		let navigationController = UINavigationController(rootViewController: controller)
 		window?.rootViewController = navigationController
 		window?.makeKeyAndVisible()
+
+		let mock = AppRouter()
+		mock.navigationController = navigationController
+		mock.route(to: .main)
 
 		return true
 	}

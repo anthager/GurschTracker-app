@@ -7,6 +7,6 @@
 //
 
 import Foundation
-class LoginViewModel: ViewModelP {
+class LoginViewModel: ViewModel {
 	
 }

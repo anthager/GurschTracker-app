@@ -9,18 +9,28 @@
 import UIKit
 
 class ViewControllerFactory{
-	static func build(view: Routes) -> UIViewController{
-		switch view {
+	static func build(route: Route, with router: Router) -> ViewController{
+		switch route {
 		case .main:
-			let storyboard = UIStoryboard(name: "Main", bundle: nil)
-			let controller = storyboard.instantiateInitialViewController()
-			return controller!
+			return MainViewControllerFactory(with: router).build()
 		case .login:
-			let storyboard = UIStoryboard(name: "Auth", bundle: nil)
-			let controller = storyboard.instantiateInitialViewController()
-			return controller!
+			return LoginViewControllerFactory(with: router).build()
 		default:
 			fatalError("invalid route in appRouter")
 		}
 	}
 }
+
+
+//		switch view {
+//		case .main:
+//			let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//			let controller = storyboard.instantiateInitialViewController()
+//			return controller!
+//		case .login:
+//			let storyboard = UIStoryboard(name: "Auth", bundle: nil)
+//			let controller = storyboard.instantiateInitialViewController()
+//			return controller!
+//		default:
+//			fatalError("invalid route in appRouter")
+//		}

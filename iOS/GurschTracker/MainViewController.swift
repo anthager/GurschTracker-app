@@ -8,32 +8,24 @@
 
 import UIKit
 import FirebaseDatabase
-import RxSwift
-import RxCocoa
 import FirebaseDatabaseUI
 
-class MainViewController: UIViewController, ViewController{
+class MainViewController: ViewController{
 
 	//MARK: - properties
 	@IBOutlet weak var opponentsTableView: UITableView!
 	@IBOutlet weak var totalAmountLabel: UILabel!
-	//private var viewModel: ViewModel!
-//	private let bag = DisposeBag()
 	var databaseRef: DatabaseReference?
 	var databaseHandle: DatabaseHandle?
 	var dataSource: FUITableViewDataSource?
-	var viewModel: ViewModelP!
-	var router: Router!
 
 	//MARK: - super methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.databaseRef = Database.database().reference().child("public-data")
-		//viewModel = ViewModel()
 		opponentsTableView.dataSource = nil
 		opponentsTableView.delegate = nil
 		setupUI()
-
 	}
 
 	//MARK: - actions
@@ -76,12 +68,3 @@ class MainViewController: UIViewController, ViewController{
 		})
 	}
 }
-
-protocol ViewController {
-	var router: Router! {get set}
-	var viewModel: ViewModelP! {get set}
-}
-
-//extension UIViewController: ViewController {
-//}
-

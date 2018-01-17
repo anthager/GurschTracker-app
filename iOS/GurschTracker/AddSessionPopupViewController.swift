@@ -13,7 +13,6 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 	//MARK: - properties
 	var identifier: String?
 	var amount = 0
-	var viewModel: ViewModel?
 
 	@IBOutlet weak var window: UIView!
 	@IBOutlet var canelGesture: UITapGestureRecognizer!
@@ -58,17 +57,11 @@ class AddSessionPopupViewController: UIViewController, UIGestureRecognizerDelega
 	}
 
 	@IBAction func addSession(_ sender: UIButton) {
-		guard let identifier = identifier else {
-			print("no identifier")
-			return
-		}
-		print(sender == wonButton)
-		print(sender == lostButton)
 		switch sender {
 		case wonButton:
-			viewModel?.addSession(opponent: identifier, sessionAmount: amount)
+			print("won")
 		case lostButton:
-			viewModel?.addSession(opponent: identifier, sessionAmount: -amount)
+			print("lost")
 		default:
 			fatalError("add session was fired but not by lost- or wonButton")
 		}

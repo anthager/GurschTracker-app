@@ -1,5 +1,5 @@
 //
-//  ViewModelP.swift
+//  ControllerFactory.swift
 //  GurschTracker
 //
 //  Created by Anton Hägermalm on 2018-01-16.
@@ -7,6 +7,6 @@
 //
 
 import Foundation
-protocol ViewModel: class {
-	
+protocol ControllerFactory {
+	func build() -> ViewController
 }

@@ -9,8 +9,6 @@ target 'GurschTracker' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
-  pod 'RxSwift',    '~> 4.0'
-  pod 'RxCocoa',    '~> 4.0'
   pod 'FirebaseUI/Database', '~> 4.0'
   target 'GurschTrackerTests' do
     inherit! :search_paths

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-class MainViewModel: ViewModelP {
+class MainViewModel: ViewModel {
 	let uid = ""
 
 	
